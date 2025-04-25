@@ -21,9 +21,7 @@
     "/simple/networks/{network}/token_price/{addresses}": {
       "get": {
         "summary": "Token Price by Token Addresses",
-        "tags": [
-          "Simple"
-        ],
+        "tags": ["Simple"],
         "description": "This endpoint allows you to **get token price based on the provided token contract address on a network**",
         "operationId": "onchain-simple-price",
         "parameters": [
@@ -117,9 +115,7 @@
     "/networks": {
       "get": {
         "summary": "Supported Networks List (ID Map)",
-        "tags": [
-          "Networks"
-        ],
+        "tags": ["Networks"],
         "description": "This endpoint allows you to **query all the supported networks on GeckoTerminal**",
         "operationId": "networks-list",
         "parameters": [
@@ -150,9 +146,7 @@
     "/networks/{network}/dexes": {
       "get": {
         "summary": "Supported Dexes List by Network (ID Map)",
-        "tags": [
-          "Dexes"
-        ],
+        "tags": ["Dexes"],
         "description": "This endpoint allows you to **query all the supported decentralized exchanges (DEXs) based on the provided network on GeckoTerminal**",
         "operationId": "dexes-list",
         "parameters": [
@@ -193,9 +187,7 @@
     "/networks/trending_pools": {
       "get": {
         "summary": "Trending Pools List",
-        "tags": [
-          "Pools"
-        ],
+        "tags": ["Pools"],
         "description": "This endpoint allows you to **query all the trending pools across all networks on GeckoTerminal**",
         "operationId": "trending-pools-list",
         "parameters": [
@@ -232,12 +224,7 @@
             "description": "duration to sort trending list by <br> Default value: 24h",
             "schema": {
               "type": "string",
-              "enum": [
-                "5m",
-                "1h",
-                "6h",
-                "24h"
-              ]
+              "enum": ["5m", "1h", "6h", "24h"]
             }
           }
         ],
@@ -258,9 +245,7 @@
     "/networks/{network}/trending_pools": {
       "get": {
         "summary": "Trending Pools by Network",
-        "tags": [
-          "Pools"
-        ],
+        "tags": ["Pools"],
         "description": "This endpoint allows you to **query the trending pools based on the provided network**",
         "operationId": "trending-pools-network",
         "parameters": [
@@ -307,12 +292,7 @@
             "description": "duration to sort trending list by <br> Default value: 24h",
             "schema": {
               "type": "string",
-              "enum": [
-                "5m",
-                "1h",
-                "6h",
-                "24h"
-              ]
+              "enum": ["5m", "1h", "6h", "24h"]
             }
           }
         ],
@@ -333,9 +313,7 @@
     "/networks/{network}/pools/{address}": {
       "get": {
         "summary": "Specific Pool Data by Pool Address",
-        "tags": [
-          "Pools"
-        ],
+        "tags": ["Pools"],
         "description": "This endpoint allows you to **query the specific pool based on the provided network and pool address**",
         "operationId": "pool-address",
         "parameters": [
@@ -394,9 +372,7 @@
     "/networks/{network}/pools/multi/{addresses}": {
       "get": {
         "summary": "Multiple Pools Data by Pool Addresses",
-        "tags": [
-          "Pools"
-        ],
+        "tags": ["Pools"],
         "description": "This endpoint allows you to **query multiple pools based on the provided network and pool address**",
         "operationId": "pools-addresses",
         "parameters": [
@@ -462,9 +438,7 @@
     "/networks/{network}/pools": {
       "get": {
         "summary": "Top Pools by Network",
-        "tags": [
-          "Pools"
-        ],
+        "tags": ["Pools"],
         "description": "This endpoint allows you to **query all the top pools based on the provided network**",
         "operationId": "top-pools-network",
         "parameters": [
@@ -511,10 +485,7 @@
             "description": "sort the pools by field <br> Default value: h24_tx_count_desc",
             "schema": {
               "type": "string",
-              "enum": [
-                "h24_tx_count_desc",
-                "h24_volume_usd_desc"
-              ]
+              "enum": ["h24_tx_count_desc", "h24_volume_usd_desc"]
             }
           }
         ],
@@ -535,9 +506,7 @@
     "/networks/{network}/dexes/{dex}/pools": {
       "get": {
         "summary": "Top Pools by Dex",
-        "tags": [
-          "Pools"
-        ],
+        "tags": ["Pools"],
         "description": "This endpoint allows you to **query all the top pools based on the provided network and decentralized exchange (DEX)**",
         "operationId": "top-pools-dex",
         "parameters": [
@@ -594,10 +563,7 @@
             "description": "sort the pools by field <br> Default value: h24_tx_count_desc",
             "schema": {
               "type": "string",
-              "enum": [
-                "h24_tx_count_desc",
-                "h24_volume_usd_desc"
-              ]
+              "enum": ["h24_tx_count_desc", "h24_volume_usd_desc"]
             }
           }
         ],
@@ -618,9 +584,7 @@
     "/networks/{network}/new_pools": {
       "get": {
         "summary": "New Pools by Network",
-        "tags": [
-          "Pools"
-        ],
+        "tags": ["Pools"],
         "description": "This endpoint allows you to **query all the latest pools based on provided network**",
         "operationId": "latest-pools-network",
         "parameters": [
@@ -678,9 +642,7 @@
     "/networks/new_pools": {
       "get": {
         "summary": "New Pools List",
-        "tags": [
-          "Pools"
-        ],
+        "tags": ["Pools"],
         "description": "This endpoint allows you to **query all the latest pools across all networks on GeckoTerminal**",
         "operationId": "latest-pools-list",
         "parameters": [
@@ -728,9 +690,7 @@
     "/pools/megafilter": {
       "get": {
         "summary": "🔥 Megafilter for Pools",
-        "tags": [
-          "Pools"
-        ],
+        "tags": ["Pools"],
         "description": "This endpoint allows you to **query pools based on various filters across all networks on GeckoTerminal**",
         "operationId": "pools-megafilter",
         "parameters": [
@@ -896,12 +856,7 @@
             "description": "duration for transaction count metric <br> Default value: 24h",
             "schema": {
               "type": "string",
-              "enum": [
-                "5m",
-                "1h",
-                "6h",
-                "24h"
-              ],
+              "enum": ["5m", "1h", "6h", "24h"],
               "default": "24h"
             }
           },
@@ -930,12 +885,7 @@
             "description": "duration for buy transactions metric <br> Default value: 24h",
             "schema": {
               "type": "string",
-              "enum": [
-                "5m",
-                "1h",
-                "6h",
-                "24h"
-              ],
+              "enum": ["5m", "1h", "6h", "24h"],
               "default": "24h"
             }
           },
@@ -964,12 +914,7 @@
             "description": "duration for sell transactions metric <br> Default value: 24h",
             "schema": {
               "type": "string",
-              "enum": [
-                "5m",
-                "1h",
-                "6h",
-                "24h"
-              ],
+              "enum": ["5m", "1h", "6h", "24h"],
               "default": "24h"
             }
           },
@@ -1044,9 +989,7 @@
     "/search/pools": {
       "get": {
         "summary": "Search Pools",
-        "tags": [
-          "Pools"
-        ],
+        "tags": ["Pools"],
         "description": "This endpoint allows you to **search for pools on a network**",
         "operationId": "search-pools",
         "parameters": [
@@ -1112,9 +1055,7 @@
     "/pools/trending_search": {
       "get": {
         "summary": "Trending Search Pools",
-        "tags": [
-          "Pools"
-        ],
+        "tags": ["Pools"],
         "description": "This endpoint allows you to **query all the trending search pools across all networks on GeckoTerminal**",
         "operationId": "trending-search-pools",
         "parameters": [
@@ -1162,9 +1103,7 @@
     "/networks/{network}/tokens/{token_address}/pools": {
       "get": {
         "summary": "Top Pools by Token Address",
-        "tags": [
-          "Tokens"
-        ],
+        "tags": ["Tokens"],
         "description": "This endpoint allows you to **query top pools based on the provided token contract address on a network**",
         "operationId": "top-pools-contract-address",
         "parameters": [
@@ -1246,9 +1185,7 @@
     "/networks/{network}/tokens/{address}": {
       "get": {
         "summary": "Token Data by Token Address",
-        "tags": [
-          "Tokens"
-        ],
+        "tags": ["Tokens"],
         "description": "This endpoint allows you to **query specific token data based on the provided token contract address on a network**",
         "operationId": "token-data-contract-address",
         "parameters": [
@@ -1279,9 +1216,7 @@
             "description": "attributes to include",
             "schema": {
               "type": "string",
-              "enum": [
-                "top_pools"
-              ]
+              "enum": ["top_pools"]
             }
           }
         ],
@@ -1302,9 +1237,7 @@
     "/networks/{network}/tokens/multi/{addresses}": {
       "get": {
         "summary": "Tokens Data by Token Addresses",
-        "tags": [
-          "Tokens"
-        ],
+        "tags": ["Tokens"],
         "description": "This endpoint allows you to **query multiple tokens data based on the provided token contract addresses on a network**",
         "operationId": "tokens-data-contract-addresses",
         "parameters": [
@@ -1342,9 +1275,7 @@
             "description": "attributes to include",
             "schema": {
               "type": "string",
-              "enum": [
-                "top_pools"
-              ]
+              "enum": ["top_pools"]
             }
           }
         ],
@@ -1365,9 +1296,7 @@
     "/networks/{network}/tokens/{address}/info": {
       "get": {
         "summary": "Token Info by Token Address",
-        "tags": [
-          "Tokens"
-        ],
+        "tags": ["Tokens"],
         "description": "This endpoint allows you to **query token metadata (name, symbol,  CoinGecko ID, image, socials, websites, description, etc.) based on a provided token contract address on a network**",
         "operationId": "token-info-contract-address",
         "parameters": [
@@ -1409,9 +1338,7 @@
     "/networks/{network}/pools/{pool_address}/info": {
       "get": {
         "summary": "Pool Tokens Info by Pool Address",
-        "tags": [
-          "Tokens"
-        ],
+        "tags": ["Tokens"],
         "description": "This endpoint allows you to **query pool metadata (base and quote token details, image, socials, websites, description, contract address, etc.) based on a provided pool contract address on a network**",
         "operationId": "pool-token-info-contract-address",
         "parameters": [
@@ -1453,9 +1380,7 @@
     "/tokens/info_recently_updated": {
       "get": {
         "summary": "Most Recently Updated Tokens List",
-        "tags": [
-          "Tokens"
-        ],
+        "tags": ["Tokens"],
         "description": "This endpoint allows you to **query 100 most recently updated tokens info of a specific network or across all networks on GeckoTerminal**",
         "operationId": "tokens-info-recent-updated",
         "parameters": [
@@ -1466,9 +1391,7 @@
             "description": "Attributes for related resources to include, which will be returned under the top-level 'included' key",
             "schema": {
               "type": "string",
-              "enum": [
-                "network"
-              ]
+              "enum": ["network"]
             }
           },
           {
@@ -1499,9 +1422,7 @@
     "/networks/{network}/tokens/{address}/top_holders": {
       "get": {
         "summary": "Top Token Holders by Token Address",
-        "tags": [
-          "Tokens"
-        ],
+        "tags": ["Tokens"],
         "description": "This endpoint allows you to **query top token holders based on the provided token contract address on a network**",
         "operationId": "top-token-holders-token-address",
         "parameters": [
@@ -1560,9 +1481,7 @@
     "/networks/{network}/pools/{pool_address}/ohlcv/{timeframe}": {
       "get": {
         "summary": "Pool OHLCV chart by Pool Address",
-        "tags": [
-          "OHLCV"
-        ],
+        "tags": ["OHLCV"],
         "description": "This endpoint allows you to **get the OHLCV chart (Open, High, Low, Close, Volume) of a pool based on the provided pool address on a network**",
         "operationId": "pool-ohlcv-contract-address",
         "parameters": [
@@ -1593,11 +1512,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "enum": [
-                "day",
-                "hour",
-                "minute"
-              ]
+              "enum": ["day", "hour", "minute"]
             }
           },
           {
@@ -1634,10 +1549,7 @@
             "description": "return OHLCV in USD or quote token <br> Default value: usd",
             "schema": {
               "type": "string",
-              "enum": [
-                "usd",
-                "token"
-              ]
+              "enum": ["usd", "token"]
             }
           },
           {
@@ -1681,9 +1593,7 @@
     "/networks/{network}/pools/{pool_address}/trades": {
       "get": {
         "summary": "Past 24 Hour Trades by Pool Address",
-        "tags": [
-          "Trades"
-        ],
+        "tags": ["Trades"],
         "description": "This endpoint allows you to **query the last 300 trades in the past 24 hours based on the provided pool address**",
         "operationId": "pool-trades-contract-address",
         "parameters": [
@@ -1757,9 +1667,7 @@
     "/categories": {
       "get": {
         "summary": "Categories List",
-        "tags": [
-          "Categories"
-        ],
+        "tags": ["Categories"],
         "description": "This endpoint allows you to **query all the supported categories on GeckoTerminal**",
         "operationId": "categories-list",
         "parameters": [
@@ -1808,9 +1716,7 @@
     "/categories/{category_id}/pools": {
       "get": {
         "summary": "Pools by Category ID",
-        "tags": [
-          "Categories"
-        ],
+        "tags": ["Categories"],
         "description": "This endpoint allows you to **query all the pools based on the provided category ID**",
         "operationId": "pools-category",
         "parameters": [
@@ -3647,9 +3553,7 @@
               "symbol": "USDT",
               "image_url": "https://assets.coingecko.com/coins/images/325/small/Tether.png?1696501661",
               "coingecko_coin_id": "tether",
-              "websites": [
-                "https://tether.to/"
-              ],
+              "websites": ["https://tether.to/"],
               "description": "Tether (USDT) is a cryptocurrency with a value meant to mirror the value of the U.S. dollar...",
               "gt_score": 92.6605504587156,
               "gt_score_details": {
@@ -3774,9 +3678,7 @@
                 "symbol": "WETH",
                 "image_url": "https://assets.coingecko.com/coins/images/2518/small/weth.png?1696503332",
                 "coingecko_coin_id": "weth",
-                "websites": [
-                  "https://weth.io/"
-                ],
+                "websites": ["https://weth.io/"],
                 "description": "WETH is the tokenized/packaged form of ETH that you use to pay for items when you interact with Ethereum dApps...",
                 "gt_score": 92.6605504587156,
                 "gt_score_details": {
@@ -3814,9 +3716,7 @@
                 "symbol": "USDT",
                 "image_url": "https://assets.coingecko.com/coins/images/325/small/Tether.png?1696501661",
                 "coingecko_coin_id": "tether",
-                "websites": [
-                  "https://tether.to/"
-                ],
+                "websites": ["https://tether.to/"],
                 "description": "Tether (USDT) is a cryptocurrency with a value meant to mirror the value of the U.S. dollar. ...",
                 "gt_score": 92.6605504587156,
                 "gt_score_details": {
@@ -3960,28 +3860,16 @@
             "attributes": {
               "ohlcv_list": [
                 [
-                  1712534400,
-                  3454.61590249189,
-                  3660.85954963415,
-                  3417.91885296256,
-                  3660.85954963415,
-                  306823.277031161
+                  1712534400, 3454.61590249189, 3660.85954963415,
+                  3417.91885296256, 3660.85954963415, 306823.277031161
                 ],
                 [
-                  1712448000,
-                  3362.60273217873,
-                  3455.28884490954,
-                  3352.95305060685,
-                  3454.61590249189,
-                  242144.864784184
+                  1712448000, 3362.60273217873, 3455.28884490954,
+                  3352.95305060685, 3454.61590249189, 242144.864784184
                 ],
                 [
-                  1712361600,
-                  3323.05578706056,
-                  3391.19811016133,
-                  3317.73497182435,
-                  3362.60273217873,
-                  273323.661682931
+                  1712361600, 3323.05578706056, 3391.19811016133,
+                  3317.73497182435, 3362.60273217873, 273323.661682931
                 ]
               ]
             }

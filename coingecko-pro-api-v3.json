@@ -21,9 +21,7 @@
   "paths": {
     "/ping": {
       "get": {
-        "tags": [
-          "Ping"
-        ],
+        "tags": ["Ping"],
         "summary": "Check API server status",
         "description": "This endpoint allows you to **check the API server status**",
         "operationId": "ping-server",
@@ -43,9 +41,7 @@
     },
     "/key": {
       "get": {
-        "tags": [
-          "Key"
-        ],
+        "tags": ["Key"],
         "summary": "💼 API Usage",
         "description": "This endpoint allows you to **monitor your account's API usage, including rate limits, monthly total credits, remaining credits, and more**",
         "operationId": "api-usage",
@@ -65,9 +61,7 @@
     },
     "/simple/price": {
       "get": {
-        "tags": [
-          "Simple"
-        ],
+        "tags": ["Simple"],
         "summary": "Coin Price by IDs",
         "description": "This endpoint allows you to **query the prices of one or more coins by using their unique Coin API IDs**",
         "operationId": "simple-price",
@@ -147,10 +141,7 @@
             "required": false,
             "schema": {
               "type": "string",
-              "enum": [
-                "top",
-                "all"
-              ]
+              "enum": ["top", "all"]
             }
           },
           {
@@ -236,9 +227,7 @@
     },
     "/simple/token_price/{id}": {
       "get": {
-        "tags": [
-          "Simple"
-        ],
+        "tags": ["Simple"],
         "summary": "Coin Price by Token Addresses",
         "description": "This endpoint allows you to **query a token price by using token contract address**",
         "operationId": "simple-token-price",
@@ -371,9 +360,7 @@
     },
     "/simple/supported_vs_currencies": {
       "get": {
-        "tags": [
-          "Simple"
-        ],
+        "tags": ["Simple"],
         "summary": "Supported Currencies List",
         "description": "This endpoint allows you to **query all the supported currencies on CoinGecko**",
         "operationId": "simple-supported-currencies",
@@ -393,9 +380,7 @@
     },
     "/coins/list": {
       "get": {
-        "tags": [
-          "Coins"
-        ],
+        "tags": ["Coins"],
         "summary": "Coins List (ID Map)",
         "description": "This endpoint allows you to **query all the supported coins on CoinGecko with coins ID, name and symbol**",
         "operationId": "coins-list",
@@ -416,10 +401,7 @@
             "required": false,
             "schema": {
               "type": "string",
-              "enum": [
-                "active",
-                "inactive"
-              ]
+              "enum": ["active", "inactive"]
             }
           }
         ],
@@ -439,9 +421,7 @@
     },
     "/coins/top_gainers_losers": {
       "get": {
-        "tags": [
-          "Coins"
-        ],
+        "tags": ["Coins"],
         "summary": "💼 Top Gainers & Losers",
         "description": "This endpoint allows you to **query the top 30 coins with largest price gain and loss by a specific time duration**",
         "operationId": "coins-top-gainers-losers",
@@ -463,15 +443,7 @@
             "required": false,
             "schema": {
               "type": "string",
-              "enum": [
-                "1h",
-                "24h",
-                "7d",
-                "14d",
-                "30d",
-                "60d",
-                "1y"
-              ]
+              "enum": ["1h", "24h", "7d", "14d", "30d", "60d", "1y"]
             }
           },
           {
@@ -481,12 +453,7 @@
             "required": false,
             "schema": {
               "type": "string",
-              "enum": [
-                "300",
-                "500",
-                "1000",
-                "all"
-              ]
+              "enum": ["300", "500", "1000", "all"]
             }
           }
         ],
@@ -506,9 +473,7 @@
     },
     "/coins/list/new": {
       "get": {
-        "tags": [
-          "Coins"
-        ],
+        "tags": ["Coins"],
         "summary": "💼 Recently Added Coins",
         "description": "This endpoint allows you to **query the latest 200 coins that recently listed on CoinGecko**",
         "operationId": "coins-list-new",
@@ -528,9 +493,7 @@
     },
     "/coins/markets": {
       "get": {
-        "tags": [
-          "Coins"
-        ],
+        "tags": ["Coins"],
         "summary": "Coins List with Market Data",
         "description": "This endpoint allows you to **query all the supported coins with price, market cap, volume and market related data**",
         "operationId": "coins-markets",
@@ -603,10 +566,7 @@
             "required": false,
             "schema": {
               "type": "string",
-              "enum": [
-                "top",
-                "all"
-              ]
+              "enum": ["top", "all"]
             }
           },
           {
@@ -773,9 +733,7 @@
     },
     "/coins/{id}": {
       "get": {
-        "tags": [
-          "Coins"
-        ],
+        "tags": ["Coins"],
         "summary": "Coin Data by ID",
         "description": "This endpoint allows you to **query all the metadata (image, websites, socials, description, contract address, etc.) and market data (price, ATH, exchange tickers, etc.) of a coin from the CoinGecko coin page based on a particular coin ID**",
         "operationId": "coins-id",
@@ -861,9 +819,7 @@
     },
     "/coins/{id}/tickers": {
       "get": {
-        "tags": [
-          "Coins"
-        ],
+        "tags": ["Coins"],
         "summary": "Coin Tickers by ID",
         "description": "This endpoint allows you to **query the coin tickers on both centralized exchange (CEX) and decentralized exchange (DEX) based on a particular coin ID**",
         "operationId": "coins-id-tickers",
@@ -947,9 +903,7 @@
     },
     "/coins/{id}/history": {
       "get": {
-        "tags": [
-          "Coins"
-        ],
+        "tags": ["Coins"],
         "summary": "Coin Historical Data by ID",
         "description": "This endpoint allows you to **query the historical data (price, market cap, 24hrs volume, ...) at a given date for a coin based on a particular coin ID**",
         "operationId": "coins-id-history",
@@ -1000,9 +954,7 @@
     },
     "/coins/{id}/market_chart": {
       "get": {
-        "tags": [
-          "Coins"
-        ],
+        "tags": ["Coins"],
         "summary": "Coin Historical Chart Data by ID",
         "description": "This endpoint allows you to **get the historical chart data of a coin including time in UNIX, price, market cap and 24hr volume based on particular coin ID**",
         "operationId": "coins-id-market-chart",
@@ -1051,11 +1003,7 @@
             "required": false,
             "schema": {
               "type": "string",
-              "enum": [
-                "5m",
-                "hourly",
-                "daily"
-              ]
+              "enum": ["5m", "hourly", "daily"]
             }
           },
           {
@@ -1106,9 +1054,7 @@
     },
     "/coins/{id}/market_chart/range": {
       "get": {
-        "tags": [
-          "Coins"
-        ],
+        "tags": ["Coins"],
         "summary": "Coin Historical Chart Data within Time Range by ID",
         "description": "This endpoint allows you to **get the historical chart data of a coin within certain time range in UNIX along with price, market cap and 24hr volume based on particular coin ID**",
         "operationId": "coins-id-market-chart-range",
@@ -1160,11 +1106,7 @@
             "required": false,
             "schema": {
               "type": "string",
-              "enum": [
-                "5m",
-                "hourly",
-                "daily"
-              ]
+              "enum": ["5m", "hourly", "daily"]
             }
           },
           {
@@ -1215,9 +1157,7 @@
     },
     "/coins/{id}/ohlc": {
       "get": {
-        "tags": [
-          "Coins"
-        ],
+        "tags": ["Coins"],
         "summary": "Coin OHLC Chart by ID",
         "description": "This endpoint allows you to **get the OHLC chart (Open, High, Low, Close) of a coin based on particular coin ID**",
         "operationId": "coins-id-ohlc",
@@ -1249,16 +1189,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "enum": [
-                "1",
-                "7",
-                "14",
-                "30",
-                "90",
-                "180",
-                "365",
-                "max"
-              ]
+              "enum": ["1", "7", "14", "30", "90", "180", "365", "max"]
             }
           },
           {
@@ -1268,10 +1199,7 @@
             "required": false,
             "schema": {
               "type": "string",
-              "enum": [
-                "daily",
-                "hourly"
-              ]
+              "enum": ["daily", "hourly"]
             }
           },
           {
@@ -1322,9 +1250,7 @@
     },
     "/coins/{id}/ohlc/range": {
       "get": {
-        "tags": [
-          "Coins"
-        ],
+        "tags": ["Coins"],
         "summary": "💼 Coin OHLC Chart within Time Range by ID",
         "description": "This endpoint allows you to **get the OHLC chart (Open, High, Low, Close) of a coin within a range of timestamp based on particular coin ID**",
         "operationId": "coins-id-ohlc-range",
@@ -1376,10 +1302,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "enum": [
-                "daily",
-                "hourly"
-              ]
+              "enum": ["daily", "hourly"]
             }
           }
         ],
@@ -1399,9 +1322,7 @@
     },
     "/coins/{id}/contract/{contract_address}": {
       "get": {
-        "tags": [
-          "Contract"
-        ],
+        "tags": ["Contract"],
         "summary": "Coin Data by Token Address",
         "description": "This endpoint allows you to **query all the metadata (image, websites, socials, description, contract address, etc.) and market data (price, ATH, exchange tickers, etc.) of a coin from the CoinGecko coin page based on an asset platform and a particular token contract address**",
         "operationId": "coins-contract-address",
@@ -1443,9 +1364,7 @@
     },
     "/coins/{id}/contract/{contract_address}/market_chart": {
       "get": {
-        "tags": [
-          "Contract"
-        ],
+        "tags": ["Contract"],
         "summary": "Coin Historical Chart Data by Token Address",
         "description": "This endpoint allows you to **get the historical chart data including time in UNIX, price, market cap and 24hr volume based on asset platform and particular token contract address**",
         "operationId": "contract-address-market-chart",
@@ -1504,11 +1423,7 @@
             "required": false,
             "schema": {
               "type": "string",
-              "enum": [
-                "5m",
-                "hourly",
-                "daily"
-              ]
+              "enum": ["5m", "hourly", "daily"]
             }
           },
           {
@@ -1559,9 +1474,7 @@
     },
     "/coins/{id}/contract/{contract_address}/market_chart/range": {
       "get": {
-        "tags": [
-          "Contract"
-        ],
+        "tags": ["Contract"],
         "summary": "Coin Historical Chart Data within Time Range by Token Address",
         "description": "This endpoint allows you to **get the historical chart data within certain time range in UNIX along with price, market cap and 24hr volume based on asset platform and particular token contract address**",
         "operationId": "contract-address-market-chart-range",
@@ -1623,11 +1536,7 @@
             "required": false,
             "schema": {
               "type": "string",
-              "enum": [
-                "5m",
-                "hourly",
-                "daily"
-              ]
+              "enum": ["5m", "hourly", "daily"]
             }
           },
           {
@@ -1678,9 +1587,7 @@
     },
     "/coins/{id}/circulating_supply_chart": {
       "get": {
-        "tags": [
-          "Coins"
-        ],
+        "tags": ["Coins"],
         "summary": "👑 Circulating Supply Chart by ID",
         "description": "This endpoint allows you to **query historical circulating supply of a coin by number of days away from now based on provided coin ID**",
         "operationId": "coins-id-circulating-supply-chart",
@@ -1722,9 +1629,7 @@
             "required": false,
             "schema": {
               "type": "string",
-              "enum": [
-                "daily"
-              ]
+              "enum": ["daily"]
             }
           }
         ],
@@ -1744,9 +1649,7 @@
     },
     "/coins/{id}/circulating_supply_chart/range": {
       "get": {
-        "tags": [
-          "Coins"
-        ],
+        "tags": ["Coins"],
         "summary": "👑 Circulating Supply Chart within Time Range by ID",
         "description": "This endpoint allows you to **query historical circulating supply of a coin, within a range of timestamp based on the provided coin ID**",
         "operationId": "coins-id-circulating-supply-chart-range",
@@ -1798,9 +1701,7 @@
     },
     "/coins/{id}/total_supply_chart": {
       "get": {
-        "tags": [
-          "Coins"
-        ],
+        "tags": ["Coins"],
         "summary": "👑 Total Supply Chart by ID",
         "description": "This endpoint allows you to **query historical total supply of a coin by number of days away from now based on provided coin ID**",
         "operationId": "coins-id-total-supply-chart",
@@ -1842,9 +1743,7 @@
             "required": false,
             "schema": {
               "type": "string",
-              "enum": [
-                "daily"
-              ]
+              "enum": ["daily"]
             }
           }
         ],
@@ -1864,9 +1763,7 @@
     },
     "/coins/{id}/total_supply_chart/range": {
       "get": {
-        "tags": [
-          "Coins"
-        ],
+        "tags": ["Coins"],
         "summary": "👑 Total Supply Chart within time range by ID",
         "description": "This endpoint allows you to **query historical total supply of a coin, within a range of timestamp based on the provided coin ID**",
         "operationId": "coins-id-total-supply-chart-range",
@@ -1918,9 +1815,7 @@
     },
     "/asset_platforms": {
       "get": {
-        "tags": [
-          "Asset Platforms"
-        ],
+        "tags": ["Asset Platforms"],
         "summary": "Asset Platforms List (ID Map)",
         "description": "This endpoint allows you to **query all the asset platforms on CoinGecko**",
         "operationId": "asset-platforms-list",
@@ -1932,9 +1827,7 @@
             "required": false,
             "schema": {
               "type": "string",
-              "enum": [
-                "nft"
-              ]
+              "enum": ["nft"]
             }
           }
         ],
@@ -1954,9 +1847,7 @@
     },
     "/token_lists/{asset_platform_id}/all.json": {
       "get": {
-        "tags": [
-          "Asset Platforms"
-        ],
+        "tags": ["Asset Platforms"],
         "summary": "👑 Token Lists by Asset Platform ID",
         "description": "This endpoint allows you to **get full list of tokens of a blockchain network (asset platform) that is supported by [Ethereum token list standard](https://tokenlists.org/)**",
         "operationId": "token-lists",
@@ -1988,9 +1879,7 @@
     },
     "/coins/categories/list": {
       "get": {
-        "tags": [
-          "Categories"
-        ],
+        "tags": ["Categories"],
         "summary": "Coins Categories List (ID Map)",
         "description": "This endpoint allows you to **query all the coins categories on CoinGecko**",
         "operationId": "coins-categories-list",
@@ -2010,9 +1899,7 @@
     },
     "/coins/categories": {
       "get": {
-        "tags": [
-          "Categories"
-        ],
+        "tags": ["Categories"],
         "summary": "Coins Categories List with Market Data",
         "description": "This endpoint allows you to **query all the coins categories with market data (market cap, volume, ...) on CoinGecko**",
         "operationId": "coins-categories",
@@ -2051,9 +1938,7 @@
     },
     "/exchanges": {
       "get": {
-        "tags": [
-          "Exchanges"
-        ],
+        "tags": ["Exchanges"],
         "summary": "Exchanges List with data",
         "description": "This endpoint allows you to **query all the supported exchanges with exchanges’ data (ID, name, country, ...) that have active trading volumes on CoinGecko**",
         "operationId": "exchanges",
@@ -2093,9 +1978,7 @@
     },
     "/exchanges/list": {
       "get": {
-        "tags": [
-          "Exchanges"
-        ],
+        "tags": ["Exchanges"],
         "summary": "Exchanges List (ID Map)",
         "description": "This endpoint allows you to **query all the exchanges with ID and name**",
         "operationId": "exchanges-list",
@@ -2107,10 +1990,7 @@
             "required": false,
             "schema": {
               "type": "string",
-              "enum": [
-                "active",
-                "inactive"
-              ]
+              "enum": ["active", "inactive"]
             }
           }
         ],
@@ -2130,9 +2010,7 @@
     },
     "/exchanges/{id}": {
       "get": {
-        "tags": [
-          "Exchanges"
-        ],
+        "tags": ["Exchanges"],
         "summary": "Exchange Data by ID",
         "description": "This endpoint allows you to **query exchange’s data (name, year established, country, ...), exchange volume in BTC and top 100 tickers based on exchange’s ID**",
         "operationId": "exchanges-id",
@@ -2164,9 +2042,7 @@
     },
     "/exchanges/{id}/tickers": {
       "get": {
-        "tags": [
-          "Exchanges"
-        ],
+        "tags": ["Exchanges"],
         "summary": "Exchange Tickers by ID",
         "description": "This endpoint allows you to **query exchange's tickers based on exchange’s ID**",
         "operationId": "exchanges-id-tickers",
@@ -2258,9 +2134,7 @@
     },
     "/exchanges/{id}/volume_chart": {
       "get": {
-        "tags": [
-          "Exchanges"
-        ],
+        "tags": ["Exchanges"],
         "summary": "Exchange Volume Chart by ID",
         "description": "This endpoint allows you to **query the historical volume chart data with time in UNIX and trading volume data in BTC based on exchange’s ID**",
         "operationId": "exchanges-id-volume-chart",
@@ -2289,15 +2163,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "enum": [
-                "1",
-                "7",
-                "14",
-                "30",
-                "90",
-                "180",
-                "365"
-              ]
+              "enum": ["1", "7", "14", "30", "90", "180", "365"]
             }
           }
         ],
@@ -2317,9 +2183,7 @@
     },
     "/exchanges/{id}/volume_chart/range": {
       "get": {
-        "tags": [
-          "Exchanges"
-        ],
+        "tags": ["Exchanges"],
         "summary": "💼 Exchange Volume Chart within Time Range by ID",
         "description": "This endpoint allows you to **query the historical volume chart data in BTC by specifying date range in UNIX based on exchange’s ID**",
         "operationId": "exchanges-id-volume-chart-range",
@@ -2378,9 +2242,7 @@
     },
     "/derivatives": {
       "get": {
-        "tags": [
-          "Derivatives"
-        ],
+        "tags": ["Derivatives"],
         "summary": "Derivatives Tickers List",
         "description": "This endpoint allows you to **query all the tickers from derivatives exchanges on CoinGecko**",
         "operationId": "derivatives-tickers",
@@ -2400,9 +2262,7 @@
     },
     "/derivatives/exchanges": {
       "get": {
-        "tags": [
-          "Derivatives"
-        ],
+        "tags": ["Derivatives"],
         "summary": "Derivatives Exchanges List with Data",
         "description": "This endpoint allows you to **query all the derivatives exchanges with related data (ID, name, open interest, ...) on CoinGecko**",
         "operationId": "derivatives-exchanges",
@@ -2459,9 +2319,7 @@
     },
     "/derivatives/exchanges/{id}": {
       "get": {
-        "tags": [
-          "Derivatives"
-        ],
+        "tags": ["Derivatives"],
         "summary": "Derivatives Exchange Data by ID",
         "description": "This endpoint allows you to **query the derivatives exchange’s related data (ID, name, open interest, ...) based on the exchanges’ ID**",
         "operationId": "derivatives-exchanges-id",
@@ -2483,10 +2341,7 @@
             "required": false,
             "schema": {
               "type": "string",
-              "enum": [
-                "all",
-                "unexpired"
-              ]
+              "enum": ["all", "unexpired"]
             }
           }
         ],
@@ -2506,9 +2361,7 @@
     },
     "/derivatives/exchanges/list": {
       "get": {
-        "tags": [
-          "Derivatives"
-        ],
+        "tags": ["Derivatives"],
         "summary": "Derivatives Exchanges List (ID Map)",
         "description": "This endpoint allows you to **query all the derivatives exchanges with ID and name on CoinGecko**",
         "operationId": "derivatives-exchanges-list",
@@ -2528,9 +2381,7 @@
     },
     "/nfts/list": {
       "get": {
-        "tags": [
-          "NFTs (Beta)"
-        ],
+        "tags": ["NFTs (Beta)"],
         "summary": "NFTs List (ID Map)",
         "description": "This endpoint allows you to **query all supported NFTs with ID, contract address, name, asset platform ID and symbol on CoinGecko**",
         "operationId": "nfts-list",
@@ -2591,9 +2442,7 @@
     },
     "/nfts/{id}": {
       "get": {
-        "tags": [
-          "NFTs (Beta)"
-        ],
+        "tags": ["NFTs (Beta)"],
         "summary": "NFTs Collection Data by ID",
         "description": "This endpoint allows you to **query all the NFT data (name, floor price, 24hr volume ...) based on the NFT collection ID**",
         "operationId": "nfts-id",
@@ -2625,9 +2474,7 @@
     },
     "/nfts/{asset_platform_id}/contract/{contract_address}": {
       "get": {
-        "tags": [
-          "NFTs (Beta)"
-        ],
+        "tags": ["NFTs (Beta)"],
         "summary": "NFTs Collection Data by Contract Address",
         "description": "This endpoint allows you to **query all the NFT data (name, floor price, 24hr volume ...) based on the NFT collection contract address and respective asset platform**",
         "operationId": "nfts-contract-address",
@@ -2669,9 +2516,7 @@
     },
     "/nfts/markets": {
       "get": {
-        "tags": [
-          "NFTs (Beta)"
-        ],
+        "tags": ["NFTs (Beta)"],
         "summary": "💼 NFTs List with Market Data",
         "description": "This endpoint allows you to **query all the supported NFT collections with floor price, market cap, volume and market related data on CoinGecko**",
         "operationId": "nfts-markets",
@@ -2738,9 +2583,7 @@
     },
     "/nfts/{id}/market_chart": {
       "get": {
-        "tags": [
-          "NFTs (Beta)"
-        ],
+        "tags": ["NFTs (Beta)"],
         "summary": "💼 NFTs Collection Historical Chart Data by ID",
         "description": "This endpoint allows you **query historical market data of a NFT collection, including floor price, market cap, and 24hr volume, by number of days away from now**",
         "operationId": "nfts-id-market-chart",
@@ -2789,9 +2632,7 @@
     },
     "/nfts/{asset_platform_id}/contract/{contract_address}/market_chart": {
       "get": {
-        "tags": [
-          "NFTs (Beta)"
-        ],
+        "tags": ["NFTs (Beta)"],
         "summary": "💼 NFTs Collection Historical Chart Data by Contract Address",
         "description": "This endpoint allows you **query historical market data of a NFT collection, including floor price, market cap, and 24hr volume, by number of days away from now based on the provided contract address**",
         "operationId": "nfts-contract-address-market-chart",
@@ -2850,9 +2691,7 @@
     },
     "/nfts/{id}/tickers": {
       "get": {
-        "tags": [
-          "NFTs (Beta)"
-        ],
+        "tags": ["NFTs (Beta)"],
         "summary": "💼 NFTs Collection Tickers by ID",
         "description": "This endpoint allows you to **query the latest floor price and 24hr volume of a NFT collection, on each NFT marketplace, e.g. OpenSea and LooksRare**",
         "operationId": "nfts-id-tickers",
@@ -2884,9 +2723,7 @@
     },
     "/exchange_rates": {
       "get": {
-        "tags": [
-          "Exchange Rates"
-        ],
+        "tags": ["Exchange Rates"],
         "summary": "BTC-to-Currency Exchange Rates",
         "description": "This endpoint allows you to **query BTC exchange rates with other currencies**",
         "operationId": "exchange-rates",
@@ -2906,9 +2743,7 @@
     },
     "/search": {
       "get": {
-        "tags": [
-          "Search"
-        ],
+        "tags": ["Search"],
         "summary": "Search Queries",
         "description": "This endpoint allows you to **search for coins, categories and markets listed on CoinGecko**",
         "operationId": "search-data",
@@ -2939,9 +2774,7 @@
     },
     "/search/trending": {
       "get": {
-        "tags": [
-          "Trending"
-        ],
+        "tags": ["Trending"],
         "summary": "Trending Search List",
         "description": "This endpoint allows you **query trending search coins, NFTs and categories on CoinGecko in the last 24 hours**",
         "operationId": "trending-search",
@@ -2980,9 +2813,7 @@
     },
     "/global": {
       "get": {
-        "tags": [
-          "Global"
-        ],
+        "tags": ["Global"],
         "summary": "Crypto Global Market Data",
         "description": "This endpoint allows you **query cryptocurrency global data including active cryptocurrencies, markets, total crypto market cap and etc**",
         "operationId": "crypto-global",
@@ -3002,9 +2833,7 @@
     },
     "/global/decentralized_finance_defi": {
       "get": {
-        "tags": [
-          "Global"
-        ],
+        "tags": ["Global"],
         "summary": "Global De-Fi Market Data",
         "description": "This endpoint allows you **query top 100 cryptocurrency global decentralized finance (DeFi) data including DeFi market cap, trading volume**",
         "operationId": "global-DeFi",
@@ -3024,9 +2853,7 @@
     },
     "/global/market_cap_chart": {
       "get": {
-        "tags": [
-          "Global"
-        ],
+        "tags": ["Global"],
         "summary": "💼 Global Market Cap Chart Data",
         "description": "This endpoint allows you to **query historical global market cap and volume data by number of days away from now**",
         "operationId": "global-market-cap-chart",
@@ -3038,16 +2865,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "enum": [
-                "1",
-                "7",
-                "14",
-                "30",
-                "90",
-                "180",
-                "365",
-                "max"
-              ]
+              "enum": ["1", "7", "14", "30", "90", "180", "365", "max"]
             }
           },
           {
@@ -3077,9 +2895,7 @@
     },
     "/companies/public_treasury/{coin_id}": {
       "get": {
-        "tags": [
-          "Companies (Beta)"
-        ],
+        "tags": ["Companies (Beta)"],
         "summary": "Public Companies Holdings",
         "description": "This endpoint allows you **query public companies’ Bitcoin or Ethereum holdings**",
         "operationId": "companies-public-treasury",
@@ -3091,10 +2907,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "enum": [
-                "bitcoin",
-                "ethereum"
-              ]
+              "enum": ["bitcoin", "ethereum"]
             }
           }
         ],
@@ -4505,11 +4318,7 @@
                 "de": ""
               },
               "links": {
-                "homepage": [
-                  "http://www.bitcoin.org",
-                  "",
-                  ""
-                ],
+                "homepage": ["http://www.bitcoin.org", "", ""],
                 "whitepaper": "https://bitcoin.org/bitcoin.pdf",
                 "blockchain_site": [
                   "https://mempool.space/",
@@ -4519,16 +4328,9 @@
                   "https://www.oklink.com/btc",
                   "https://3xpl.com/bitcoin"
                 ],
-                "official_forum_url": [
-                  "https://bitcointalk.org/"
-                ],
-                "chat_url": [
-                  ""
-                ],
-                "announcement_url": [
-                  "",
-                  ""
-                ],
+                "official_forum_url": ["https://bitcointalk.org/"],
+                "chat_url": [""],
+                "announcement_url": ["", ""],
                 "snapshot_url": null,
                 "twitter_screen_name": "bitcoin",
                 "facebook_username": "bitcoins",
@@ -6154,11 +5956,7 @@
                       "description": "exchange image url"
                     }
                   },
-                  "required": [
-                    "name",
-                    "identifier",
-                    "has_trading_incentive"
-                  ]
+                  "required": ["name", "identifier", "has_trading_incentive"]
                 },
                 "last": {
                   "type": "number",
@@ -6754,18 +6552,9 @@
               }
             },
             "example": [
-              [
-                1711843200000,
-                69702.3087473573
-              ],
-              [
-                1711929600000,
-                71246.9514406015
-              ],
-              [
-                1711983682000,
-                68887.7495158568
-              ]
+              [1711843200000, 69702.3087473573],
+              [1711929600000, 71246.9514406015],
+              [1711983682000, 68887.7495158568]
             ]
           },
           "market_caps": {
@@ -6777,18 +6566,9 @@
               }
             },
             "example": [
-              [
-                1711843200000,
-                1370247487960.09
-              ],
-              [
-                1711929600000,
-                1401370211582.37
-              ],
-              [
-                1711983682000,
-                1355701979725.16
-              ]
+              [1711843200000, 1370247487960.09],
+              [1711929600000, 1401370211582.37],
+              [1711983682000, 1355701979725.16]
             ]
           },
           "total_volumes": {
@@ -6800,18 +6580,9 @@
               }
             },
             "example": [
-              [
-                1711843200000,
-                16408802301.8374
-              ],
-              [
-                1711929600000,
-                19723005998.215
-              ],
-              [
-                1711983682000,
-                30137418199.6431
-              ]
+              [1711843200000, 16408802301.8374],
+              [1711929600000, 19723005998.215],
+              [1711983682000, 30137418199.6431]
             ]
           }
         }
@@ -6828,18 +6599,9 @@
               }
             },
             "example": [
-              [
-                1704067241331,
-                42261.0406175669
-              ],
-              [
-                1704070847420,
-                42493.2764087546
-              ],
-              [
-                1704074443652,
-                42654.0731066594
-              ]
+              [1704067241331, 42261.0406175669],
+              [1704070847420, 42493.2764087546],
+              [1704074443652, 42654.0731066594]
             ]
           },
           "market_caps": {
@@ -6851,18 +6613,9 @@
               }
             },
             "example": [
-              [
-                1704067241331,
-                827596236151.196
-              ],
-              [
-                1704070847420,
-                831531023621.411
-              ],
-              [
-                1704074443652,
-                835499399014.932
-              ]
+              [1704067241331, 827596236151.196],
+              [1704070847420, 831531023621.411],
+              [1704074443652, 835499399014.932]
             ]
           },
           "total_volumes": {
@@ -6874,18 +6627,9 @@
               }
             },
             "example": [
-              [
-                1704067241331,
-                14305769170.9498
-              ],
-              [
-                1704070847420,
-                14130205376.1709
-              ],
-              [
-                1704074443652,
-                13697382902.2424
-              ]
+              [1704067241331, 14305769170.9498],
+              [1704070847420, 14130205376.1709],
+              [1704074443652, 13697382902.2424]
             ]
           }
         }
@@ -6899,27 +6643,9 @@
           }
         },
         "example": [
-          [
-            1709395200000,
-            61942,
-            62211,
-            61721,
-            61845
-          ],
-          [
-            1709409600000,
-            61828,
-            62139,
-            61726,
-            62139
-          ],
-          [
-            1709424000000,
-            62171,
-            62210,
-            61821,
-            62068
-          ]
+          [1709395200000, 61942, 62211, 61721, 61845],
+          [1709409600000, 61828, 62139, 61726, 62139],
+          [1709424000000, 62171, 62210, 61821, 62068]
         ]
       },
       "TotalSupplyChartBase": {
@@ -6944,18 +6670,9 @@
         },
         "example": {
           "total_supply": [
-            [
-              1712448000000,
-              "21000000.0"
-            ],
-            [
-              1712534400000,
-              "21000000.0"
-            ],
-            [
-              1712586776000,
-              "21000000.0"
-            ]
+            [1712448000000, "21000000.0"],
+            [1712534400000, "21000000.0"],
+            [1712586776000, "21000000.0"]
           ]
         }
       },
@@ -6981,18 +6698,9 @@
         },
         "example": {
           "circulating_supply": [
-            [
-              1712448000000,
-              "19675268.0"
-            ],
-            [
-              1712534400000,
-              "19675268.0"
-            ],
-            [
-              1712586776000,
-              "19675268.0"
-            ]
+            [1712448000000, "19675268.0"],
+            [1712534400000, "19675268.0"],
+            [1712586776000, "19675268.0"]
           ]
         }
       },
@@ -7168,11 +6876,7 @@
                 "de": "USDC is a fully collateralized US dollar stablecoin..."
               },
               "links": {
-                "homepage": [
-                  "https://www.circle.com/en/usdc",
-                  "",
-                  ""
-                ],
+                "homepage": ["https://www.circle.com/en/usdc", "", ""],
                 "whitepaper": "",
                 "blockchain_site": [
                   "https://etherscan.io/token/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
@@ -7186,11 +6890,7 @@
                   "https://ftmscan.com/token/0x04068da6c83afcfa0e13ba15a6696662335d5b75",
                   "https://explorer.energi.network/token/0xffd7510ca0a3279c7a5f50018a26c21d5bc1dbcf"
                 ],
-                "official_forum_url": [
-                  "",
-                  "",
-                  ""
-                ],
+                "official_forum_url": ["", "", ""],
                 "chat_url": [
                   "https://discord.com/invite/buildoncircle",
                   "",
@@ -7206,9 +6906,7 @@
                 "telegram_channel_identifier": "",
                 "subreddit_url": "https://www.reddit.com",
                 "repos_url": {
-                  "github": [
-                    "https://github.com/centrehq/centre-tokens"
-                  ],
+                  "github": ["https://github.com/centrehq/centre-tokens"],
                   "bitbucket": []
                 }
               },
@@ -8741,34 +8439,8 @@
                 },
                 "commit_count_4_weeks": 5,
                 "last_4_weeks_commit_activity_series": [
-                  0,
-                  0,
-                  0,
-                  0,
-                  1,
-                  1,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  1,
-                  0,
-                  1,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0
+                  0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0,
+                  0, 0, 0, 0, 0, 0, 0
                 ]
               },
               "status_updates": [],
@@ -8924,9 +8596,7 @@
         "example": {
           "name": "CoinGecko",
           "logoURI": "https://static.coingecko.com/s/thumbnail-007177f3eca19695592f0b8b0eabbdae282b54154e1be912285c9034ea6cbaf2.png",
-          "keywords": [
-            "defi"
-          ],
+          "keywords": ["defi"],
           "timestamp": "2024-04-08T14:02:47.028+00:00",
           "tokens": [
             {
@@ -9024,11 +8694,7 @@
             "market_cap": 2061406861196.14,
             "market_cap_change_24h": -0.66091235190398,
             "content": "",
-            "top_3_coins_id": [
-              "bitcoin",
-              "ethereum",
-              "binancecoin"
-            ],
+            "top_3_coins_id": ["bitcoin", "ethereum", "binancecoin"],
             "top_3_coins": [
               "https://assets.coingecko.com/coins/images/1/small/bitcoin.png?1696501400",
               "https://assets.coingecko.com/coins/images/279/small/ethereum.png?1696501628",
@@ -9373,18 +9039,9 @@
           }
         },
         "example": [
-          [
-            1711792200000,
-            "306800.0517941023777005"
-          ],
-          [
-            1711795800000,
-            "302561.8185582217570913"
-          ],
-          [
-            1711799400000,
-            "298240.5127048246776691"
-          ]
+          [1711792200000, "306800.0517941023777005"],
+          [1711795800000, "302561.8185582217570913"],
+          [1711799400000, "298240.5127048246776691"]
         ]
       },
       "DerivativesTickersList": {
@@ -10403,88 +10060,34 @@
         },
         "example": {
           "floor_price_usd": [
-            [
-              1626912000000,
-              90.1675764653448
-            ],
-            [
-              1626998400000,
-              97.3216055000018
-            ],
-            [
-              1627084800000,
-              95.2719573507527
-            ]
+            [1626912000000, 90.1675764653448],
+            [1626998400000, 97.3216055000018],
+            [1627084800000, 95.2719573507527]
           ],
           "floor_price_native": [
-            [
-              1626912000000,
-              0.045
-            ],
-            [
-              1626998400000,
-              0.048
-            ],
-            [
-              1627084800000,
-              0.045
-            ]
+            [1626912000000, 0.045],
+            [1626998400000, 0.048],
+            [1627084800000, 0.045]
           ],
           "h24_volume_usd": [
-            [
-              1626912000000,
-              2860.11552548074
-            ],
-            [
-              1626998400000,
-              2143.50836113754
-            ],
-            [
-              1627084800000,
-              925.408279066978
-            ]
+            [1626912000000, 2860.11552548074],
+            [1626998400000, 2143.50836113754],
+            [1627084800000, 925.408279066978]
           ],
           "h24_volume_native": [
-            [
-              1626912000000,
-              1.4274
-            ],
-            [
-              1626998400000,
-              1.0572
-            ],
-            [
-              1627084800000,
-              0.4371
-            ]
+            [1626912000000, 1.4274],
+            [1626998400000, 1.0572],
+            [1627084800000, 0.4371]
           ],
           "market_cap_usd": [
-            [
-              1626912000000,
-              33281860.8681357
-            ],
-            [
-              1626998400000,
-              38474832.8121067
-            ],
-            [
-              1627084800000,
-              44827378.867466
-            ]
+            [1626912000000, 33281860.8681357],
+            [1626998400000, 38474832.8121067],
+            [1627084800000, 44827378.867466]
           ],
           "market_cap_native": [
-            [
-              1626912000000,
-              11012.23
-            ],
-            [
-              1626998400000,
-              12709.84
-            ],
-            [
-              1627084800000,
-              14220.8
-            ]
+            [1626912000000, 11012.23],
+            [1626998400000, 12709.84],
+            [1627084800000, 14220.8]
           ]
         }
       },
@@ -11777,32 +11380,14 @@
         "example": {
           "market_cap_chart": {
             "market_cap": [
-              [
-                1741777205268,
-                2766533155566
-              ],
-              [
-                1741780800808,
-                2784800753369
-              ],
-              [
-                1741784401211,
-                2819864149659
-              ]
+              [1741777205268, 2766533155566],
+              [1741780800808, 2784800753369],
+              [1741784401211, 2819864149659]
             ],
             "volume": [
-              [
-                1741777205268,
-                141144791036
-              ],
-              [
-                1741780800808,
-                140341392201
-              ],
-              [
-                1741784401211,
-                146221695370
-              ]
+              [1741777205268, 141144791036],
+              [1741780800808, 140341392201],
+              [1741784401211, 146221695370]
             ]
           }
         }
