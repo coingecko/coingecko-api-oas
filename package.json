@@ -1,0 +1,27 @@
+{
+  "name": "@coingecko/api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js"
+    },
+    "./src": "./src/index.ts"
+  },
+  "scripts": {
+    "generate": "orval --config ./orval.config.ts",
+    "build": "tsup",
+    "format": "biome check . --write"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "orval": "^7.8.0",
+    "tsup": "^8.4.0"
+  }
+}
