@@ -1,6 +1,23 @@
 import { defineConfig } from "orval";
 
 const config: ReturnType<typeof defineConfig> = defineConfig({
+  "coingecko-public-api": {
+    output: {
+      client: "fetch",
+      baseUrl: "https://api.coingecko.com/api/v3",
+      target: "./src/coingecko-public-api.ts",
+      biome: true,
+      override: {
+        mutator: {
+          path: "./src/fetch.ts",
+          name: "request",
+        },
+      },
+    },
+    input: {
+      target: "./coingecko-public-api-v3.json",
+    },
+  },
   "coingecko-pro-api": {
     output: {
       client: "fetch",
