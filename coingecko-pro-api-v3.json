@@ -240,7 +240,7 @@
           "Simple"
         ],
         "summary": "Coin Price by Token Addresses",
-        "description": "This endpoint allows you to **query a token price by using token contract address**",
+        "description": "This endpoint allows you to **query one or more token prices using their token contract addresses**",
         "operationId": "simple-token-price",
         "parameters": [
           {
