@@ -3849,29 +3849,96 @@
         }
       },
       "TokenInfoRecentlyUpdated": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/TokenInfo"
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "attributes": {
+                "type": "object",
+                "properties": {
+                  "address": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "symbol": {
+                    "type": "string"
+                  },
+                  "image_url": {
+                    "type": "string"
+                  },
+                  "coingecko_coin_id": {
+                    "type": "string"
+                  },
+                  "websites": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "gt_score": {
+                    "type": "number"
+                  },
+                  "metadata_updated_at": {
+                    "type": "string"
+                  }
+                }
+              },
+              "relationships": {
+                "type": "object",
+                "properties": {
+                  "network": {
+                    "type": "object",
+                    "properties": {
+                      "data": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
-        ],
+        },
         "example": {
           "data": [
             {
-              "id": "solana_TNSRxcUxoT9xBG3de7PiJyTDYu7kskLqcpddxnEJAS6",
+              "id": "solana_8kgMCX7ezivU472eXaiGRu8xzNetpdxKDvNQBwKRipxi",
               "type": "token",
               "attributes": {
-                "address": "TNSRxcUxoT9xBG3de7PiJyTDYu7kskLqcpddxnEJAS6",
-                "name": "Tensor",
-                "symbol": "TNSR",
-                "image_url": "https://assets.coingecko.com/coins/images/35972/small/Tensor.jpeg?1710297172",
-                "coingecko_coin_id": "tensor",
-                "websites": [],
-                "description": "TNSR is the native token for the Tensor NFT marketplace on Solana.",
-                "gt_score": 41.2844036697248,
-                "metadata_updated_at": "2024-04-08T15:59:04Z",
+                "address": "8kgMCX7ezivU472eXaiGRu8xzNetpdxKDvNQBwKRipxi",
+                "name": "WIZARDS OF DOGE",
+                "symbol": "WOD",
+                "decimals": 6,
+                "image_url": "https://assets.geckoterminal.com/23fwhe56einulc0vqgs6bhkfusfr",
+                "coingecko_coin_id": null,
+                "websites": [
+                  "https://wizzoordofwod.com"
+                ],
                 "discord_url": null,
                 "telegram_handle": null,
-                "twitter_handle": "TensorFdn"
+                "twitter_handle": "wizzoordofwod",
+                "description": "Our mission is to help the IRL Wizards of Doge go viral in support of Elon’s DOGE initiative and to propagate wizards throughout the realm",
+                "gt_score": 62.50770642201834,
+                "metadata_updated_at": "2025-05-26T07:47:20Z"
               },
               "relationships": {
                 "network": {
