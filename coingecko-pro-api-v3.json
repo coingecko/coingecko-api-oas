@@ -843,6 +843,19 @@
             "schema": {
               "type": "boolean"
             }
+          },
+          {
+            "name": "dex_pair_format",
+            "in": "query",
+            "description": "set to `symbol` to display DEX pair base and target as symbols, default: `contract_address`",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "contract_address",
+                "symbol"
+              ]
+            }
           }
         ],
         "responses": {
@@ -928,6 +941,19 @@
             "required": false,
             "schema": {
               "type": "boolean"
+            }
+          },
+          {
+            "name": "dex_pair_format",
+            "in": "query",
+            "description": "set to `symbol` to display DEX pair base and target as symbols, default: `contract_address`",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "contract_address",
+                "symbol"
+              ]
             }
           }
         ],
@@ -2146,6 +2172,19 @@
               "type": "string",
               "example": "binance"
             }
+          },
+          {
+            "name": "dex_pair_format",
+            "in": "query",
+            "description": "set to `symbol` to display DEX pair base and target as symbols, default: `contract_address`",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "contract_address",
+                "symbol"
+              ]
+            }
           }
         ],
         "responses": {
@@ -2238,6 +2277,19 @@
                 "volume_desc",
                 "volume_asc",
                 "base_target"
+              ]
+            }
+          },
+          {
+            "name": "dex_pair_format",
+            "in": "query",
+            "description": "set to `symbol` to display DEX pair base and target as symbols, default: `contract_address`",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "contract_address",
+                "symbol"
               ]
             }
           }
