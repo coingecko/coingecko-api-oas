@@ -2346,22 +2346,6 @@
                         }
                       }
                     },
-                    "network": {
-                      "type": "object",
-                      "properties": {
-                        "data": {
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "type": "string"
-                            },
-                            "type": {
-                              "type": "string"
-                            }
-                          }
-                        }
-                      }
-                    },
                     "dex": {
                       "type": "object",
                       "properties": {
@@ -3638,13 +3622,13 @@
                   "image": {
                     "type": "object",
                     "properties": {
-                      "large": {
+                      "thumb": {
                         "type": "string"
                       },
                       "small": {
                         "type": "string"
                       },
-                      "thumb": {
+                      "large": {
                         "type": "string"
                       }
                     }
@@ -3754,9 +3738,9 @@
               "symbol": "USDT",
               "image_url": "https://assets.coingecko.com/coins/images/325/small/Tether.png?1696501661",
               "image": {
-                "large": "https://assets.coingecko.com/coins/images/325/large/Tether.png?1696501661",
+                "thumb": "https://assets.coingecko.com/coins/images/325/thumb/Tether.png?1696501661",
                 "small": "https://assets.coingecko.com/coins/images/325/small/Tether.png?1696501661",
-                "thumb": "https://assets.coingecko.com/coins/images/325/thumb/Tether.png?1696501661"
+                "large": "https://assets.coingecko.com/coins/images/325/large/Tether.png?1696501661"
               },
               "coingecko_coin_id": "tether",
               "websites": [
@@ -3886,9 +3870,9 @@
                 "symbol": "WETH",
                 "image_url": "https://assets.coingecko.com/coins/images/2518/small/weth.png?1696503332",
                 "image": {
-                  "large": "https://assets.coingecko.com/coins/images/2518/large/weth.png?1696503332",
+                  "thumb": "https://assets.coingecko.com/coins/images/2518/thumb/weth.png?1696503332",
                   "small": "https://assets.coingecko.com/coins/images/2518/small/weth.png?1696503332",
-                  "thumb": "https://assets.coingecko.com/coins/images/2518/thumb/weth.png?1696503332"
+                  "large": "https://assets.coingecko.com/coins/images/2518/large/weth.png?1696503332"
                 },
                 "coingecko_coin_id": "weth",
                 "websites": [
