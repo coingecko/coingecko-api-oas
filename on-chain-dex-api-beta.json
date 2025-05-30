@@ -1788,7 +1788,7 @@
         "tags": [
           "Trades"
         ],
-        "description": "This endpoint allows you to **query the last 300 trades in the past 24 hours based on the provided token contract address on a network**",
+        "description": "This endpoint allows you to **query the last 300 trades in the past 24 hours, across all pools, based on the provided token contract address on a network**",
         "operationId": "token-trades-contract-address",
         "parameters": [
           {
