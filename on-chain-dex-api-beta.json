@@ -1575,6 +1575,64 @@
         }
       }
     },
+    "/networks/{network}/tokens/{token_address}/holders_chart": {
+      "get": {
+        "summary": "Historical Token Holders Chart by Token Address",
+        "tags": [
+          "Tokens"
+        ],
+        "description": "This endpoint allows you to **get the historical token holders chart based on the provided token contract address on a network**",
+        "operationId": "token-holders-chart-token-address",
+        "parameters": [
+          {
+            "name": "network",
+            "in": "path",
+            "description": "network ID <br> *refers to [/networks](/reference/networks-list)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "eth"
+            }
+          },
+          {
+            "name": "token_address",
+            "in": "path",
+            "description": "token contract address",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "0xdac17f958d2ee523a2206206994597c13d831ec7"
+            }
+          },
+          {
+            "name": "days",
+            "in": "query",
+            "description": "number of days to return the historical token holders chart <br> Default value: 7",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "7",
+                "30",
+                "max"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get historical token holders chart for a token",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TokenHolderChart"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/networks/{network}/pools/{pool_address}/ohlcv/{timeframe}": {
       "get": {
         "summary": "Pool OHLCV chart by Pool Address",
@@ -1695,6 +1753,114 @@
         "responses": {
           "200": {
             "description": "Get OHLCV data of a pool",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OHLCV"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/networks/{network}/tokens/{token_address}/ohlcv/{timeframe}": {
+      "get": {
+        "summary": "Token OHLCV chart by Token Address",
+        "tags": [
+          "OHLCV"
+        ],
+        "description": "This endpoint allows you to **get the OHLCV chart (Open, High, Low, Close, Volume) of a token based on the provided token address on a network**",
+        "operationId": "token-ohlcv-token-address",
+        "parameters": [
+          {
+            "name": "network",
+            "in": "path",
+            "description": "network ID <br> *refers to [/networks](/reference/networks-list)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "solana"
+            }
+          },
+          {
+            "name": "token_address",
+            "in": "path",
+            "description": "token contract address",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "So11111111111111111111111111111111111111112"
+            }
+          },
+          {
+            "name": "timeframe",
+            "in": "path",
+            "description": "timeframe of the OHLCV chart",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "day",
+                "hour",
+                "minute"
+              ]
+            }
+          },
+          {
+            "name": "aggregate",
+            "in": "query",
+            "required": false,
+            "description": "time period to aggregate each OHLCV <br> Available values (day): `1` <br> Available values (hour): `1` , `4` , `12` <br> Available values (minute): `1` , `5` , `15` <br> Default value: 1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "before_timestamp",
+            "in": "query",
+            "required": false,
+            "description": "return OHLCV data before this timestamp (integer seconds since epoch)",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "number of OHLCV results to return, maximum 1000 <br> Default value: 100",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "currency",
+            "in": "query",
+            "required": false,
+            "description": "return OHLCV in USD or quote token <br> Default value: usd",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "usd",
+                "token"
+              ]
+            }
+          },
+          {
+            "name": "include_empty_intervals",
+            "in": "query",
+            "required": false,
+            "description": "include empty intervals with no trade data, default: false",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get OHLCV data of a token",
             "content": {
               "application/json": {
                 "schema": {
@@ -3849,6 +4015,84 @@
                   "value": "2425226.3"
                 }
               ]
+            }
+          }
+        }
+      },
+      "TokenHolderChart": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "attributes": {
+                "type": "object",
+                "properties": {
+                  "token_holders_list": {
+                    "type": "array",
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "meta": {
+            "type": "object",
+            "properties": {
+              "token": {
+                "type": "object",
+                "properties": {
+                  "address": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "symbol": {
+                    "type": "string"
+                  },
+                  "coingecko_coin_id": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "example": {
+          "data": {
+            "id": "eb8f8786-9f4d-48f1-8124-eb2d9fd82b2d",
+            "type": "token_holders_snapshot",
+            "attributes": {
+              "token_holders_list": [
+                [
+                  "2025-05-29T10:44:50.813Z",
+                  7705761
+                ],
+                [
+                  "2025-05-29T11:45:03.137Z",
+                  7705748
+                ]
+              ]
+            }
+          },
+          "meta": {
+            "token": {
+              "address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+              "name": "Tether USD",
+              "symbol": "USDT",
+              "coingecko_coin_id": "tether"
             }
           }
         }
