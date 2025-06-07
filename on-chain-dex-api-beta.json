@@ -1346,10 +1346,10 @@
             },
             "examples": {
               "one value": {
-                "value": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+                "value": "0x44ff8620b8ca30902395a7bd3f2407e1a091bf73"
               },
               "multiple values": {
-                "value": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xdac17f958d2ee523a2206206994597c13d831ec7"
+                "value": "0x44ff8620b8ca30902395a7bd3f2407e1a091bf73,0xdac17f958d2ee523a2206206994597c13d831ec7"
               }
             }
           },
@@ -1372,7 +1372,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Token"
+                  "$ref": "#/components/schemas/TokensData"
                 }
               }
             }
@@ -3752,6 +3752,133 @@
                     "id": "curve",
                     "type": "dex"
                   }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "TokensData": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "attributes": {
+                  "type": "object",
+                  "properties": {
+                    "address": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "symbol": {
+                      "type": "string"
+                    },
+                    "image_url": {
+                      "type": "string"
+                    },
+                    "coingecko_coin_id": {
+                      "type": "string"
+                    },
+                    "decimals": {
+                      "type": "integer"
+                    },
+                    "total_supply": {
+                      "type": "string"
+                    },
+                    "normalized_total_supply": {
+                      "type": "string"
+                    },
+                    "price_usd": {
+                      "type": "string"
+                    },
+                    "fdv_usd": {
+                      "type": "string"
+                    },
+                    "total_reserve_in_usd": {
+                      "type": "string"
+                    },
+                    "volume_usd": {
+                      "type": "object",
+                      "properties": {
+                        "h24": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "market_cap_usd": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "relationships": {
+                  "type": "object",
+                  "properties": {
+                    "top_pools": {
+                      "type": "object",
+                      "properties": {
+                        "data": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "type": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "example": {
+          "data": [
+            {
+              "id": "eth_0x44ff8620b8ca30902395a7bd3f2407e1a091bf73",
+              "type": "token",
+              "attributes": {
+                "address": "0x44ff8620b8ca30902395a7bd3f2407e1a091bf73",
+                "name": "Virtual Protocol",
+                "symbol": "VIRTUAL",
+                "decimals": 18,
+                "image_url": "https://coin-images.coingecko.com/coins/images/34057/large/LOGOMARK.png?1708356054",
+                "coingecko_coin_id": "virtual-protocol",
+                "total_supply": "1000000000000000000000000000.0",
+                "normalized_total_supply": "1000000000.0",
+                "price_usd": "1.8504100322",
+                "fdv_usd": "1850407260.24129",
+                "total_reserve_in_usd": "8720991.5967831836177735361998066186",
+                "volume_usd": {
+                  "h24": "2204224.92600213"
+                },
+                "market_cap_usd": "1211465187.61299"
+              },
+              "relationships": {
+                "top_pools": {
+                  "data": [
+                    {
+                      "id": "eth_0x1688d62c82abebf4d33ecea96d983fc1627966f6",
+                      "type": "pool"
+                    }
+                  ]
                 }
               }
             }
