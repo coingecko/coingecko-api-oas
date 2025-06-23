@@ -3275,10 +3275,6 @@
                 "type": "number",
                 "description": "coin facebook likes"
               },
-              "twitter_followers": {
-                "type": "number",
-                "description": "coin twitter followers"
-              },
               "reddit_average_posts_48h": {
                 "type": "number",
                 "description": "coin reddit average posts in 48 hours"
@@ -5101,7 +5097,6 @@
           },
           "community_data": {
             "facebook_likes": null,
-            "twitter_followers": 6585597,
             "reddit_average_posts_48h": 0,
             "reddit_average_comments_48h": 0,
             "reddit_subscribers": 0,
@@ -5438,10 +5433,6 @@
                 "type": "number",
                 "description": "coin facebook likes"
               },
-              "twitter_followers": {
-                "type": "number",
-                "description": "coin twitter followers"
-              },
               "reddit_average_posts_48h": {
                 "type": "number",
                 "description": "coin reddit average posts 48h"
@@ -5768,7 +5759,6 @@
           },
           "community_data": {
             "facebook_likes": null,
-            "twitter_followers": null,
             "reddit_average_posts_48h": 0,
             "reddit_average_comments_48h": 0,
             "reddit_subscribers": null,
@@ -7726,7 +7716,6 @@
           },
           "community_data": {
             "facebook_likes": null,
-            "twitter_followers": 181202,
             "reddit_average_posts_48h": 0,
             "reddit_average_comments_48h": 0,
             "reddit_subscribers": 0,
