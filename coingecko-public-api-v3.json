@@ -7999,10 +7999,6 @@
           "trade_volume_24h_btc": {
             "type": "number",
             "description": "exchange trade volume in BTC in 24 hours"
-          },
-          "trade_volume_24h_btc_normalized": {
-            "type": "number",
-            "description": "normalized trading volume by traffic in BTC in 24 hours <br> *refers to [`this blog`](https://blog.coingecko.com/trust-score/)."
           }
         },
         "example": [
@@ -8017,8 +8013,7 @@
             "has_trading_incentive": false,
             "trust_score": 10,
             "trust_score_rank": 1,
-            "trade_volume_24h_btc": 51075.6271283852,
-            "trade_volume_24h_btc_normalized": 47765.5886637453
+            "trade_volume_24h_btc": 51075.6271283852
           },
           {
             "id": "gdax",
@@ -8031,8 +8026,7 @@
             "has_trading_incentive": false,
             "trust_score": 10,
             "trust_score_rank": 2,
-            "trade_volume_24h_btc": 37443.7299607648,
-            "trade_volume_24h_btc_normalized": 37443.7299607648
+            "trade_volume_24h_btc": 37443.7299607648
           }
         ]
       },
@@ -8143,10 +8137,6 @@
           "trade_volume_24h_btc": {
             "type": "number"
           },
-          "trade_volume_24h_btc_normalized": {
-            "type": "number",
-            "description": "normalized trading volume by traffic in BTC in 24 hours <br> *refers to [`this blog`](https://blog.coingecko.com/trust-score/)."
-          },
           "coins": {
             "type": "number",
             "description": "number of coins listed on the exchange"
@@ -8183,7 +8173,6 @@
           "trust_score": 9,
           "trust_score_rank": 6,
           "trade_volume_24h_btc": 207319.133772613,
-          "trade_volume_24h_btc_normalized": 81673.2971244154,
           "coins": 384,
           "pairs": 1281,
           "tickers": [
