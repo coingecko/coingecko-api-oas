@@ -3219,6 +3219,21 @@
       },
       "SimplePrice": {
         "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/SimplePriceData"
+        },
+        "example": {
+          "bitcoin": {
+            "usd": 67187.3358936566,
+            "usd_market_cap": 1317802988326.25,
+            "usd_24h_vol": 31260929299.5248,
+            "usd_24h_change": 3.63727894677354,
+            "last_updated_at": 1711356300
+          }
+        }
+      },
+      "SimplePriceData": {
+        "type": "object",
         "properties": {
           "usd": {
             "type": "number",
@@ -3239,15 +3254,6 @@
           "last_updated_at": {
             "type": "number",
             "description": "last updated timestamp"
-          }
-        },
-        "example": {
-          "bitcoin": {
-            "usd": 67187.3358936566,
-            "usd_market_cap": 1317802988326.25,
-            "usd_24h_vol": 31260929299.5248,
-            "usd_24h_change": 3.63727894677354,
-            "last_updated_at": 1711356300
           }
         }
       },
@@ -3509,121 +3515,16 @@
         ]
       },
       "CoinsMarkets": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "coin ID"
-          },
-          "symbol": {
-            "type": "string",
-            "description": "coin symbol"
-          },
-          "name": {
-            "type": "string",
-            "description": "coin name"
-          },
-          "image": {
-            "type": "string",
-            "description": "coin image url"
-          },
-          "current_price": {
-            "type": "number",
-            "description": "coin current price in currency"
-          },
-          "market_cap": {
-            "type": "number",
-            "description": "coin market cap in currency"
-          },
-          "market_cap_rank": {
-            "type": "number",
-            "description": "coin rank by market cap"
-          },
-          "fully_diluted_valuation": {
-            "type": "number",
-            "description": "coin fully diluted valuation (fdv) in currency"
-          },
-          "total_volume": {
-            "type": "number",
-            "description": "coin total trading volume in currency"
-          },
-          "high_24h": {
-            "type": "number",
-            "description": "coin 24hr price high in currency"
-          },
-          "low_24h": {
-            "type": "number",
-            "description": "coin 24hr price low in currency"
-          },
-          "price_change_24h": {
-            "type": "number",
-            "description": "coin 24hr price change in currency"
-          },
-          "price_change_percentage_24h": {
-            "type": "number",
-            "description": "coin 24hr price change in percentage"
-          },
-          "market_cap_change_24h": {
-            "type": "number",
-            "description": "coin 24hr market cap change in currency"
-          },
-          "market_cap_change_percentage_24h": {
-            "type": "number",
-            "description": "coin 24hr market cap change in percentage"
-          },
-          "circulating_supply": {
-            "type": "number",
-            "description": "coin circulating supply"
-          },
-          "total_supply": {
-            "type": "number",
-            "description": "coin total supply"
-          },
-          "max_supply": {
-            "type": "number",
-            "description": "coin max supply"
-          },
-          "ath": {
-            "type": "number",
-            "description": "coin all time high (ATH) in currency"
-          },
-          "ath_change_percentage": {
-            "type": "number",
-            "description": "coin all time high (ATH) change in percentage"
-          },
-          "ath_date": {
-            "type": "string",
-            "format": "date-time",
-            "description": "coin all time high (ATH) date"
-          },
-          "atl": {
-            "type": "number",
-            "description": "coin all time low (atl) in currency"
-          },
-          "atl_change_percentage": {
-            "type": "number",
-            "description": "coin all time low (atl) change in percentage"
-          },
-          "atl_date": {
-            "type": "string",
-            "format": "date-time",
-            "description": "coin all time low (atl) date"
-          },
-          "roi": {
-            "type": "string"
-          },
-          "last_updated": {
-            "type": "string",
-            "format": "date-time",
-            "description": "coin last updated timestamp"
-          }
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/CoinsMarketsItem"
         },
         "example": [
           {
             "id": "bitcoin",
             "symbol": "btc",
             "name": "Bitcoin",
-            "image": "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1696501400",
+            "image": "<https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1696501400>",
             "current_price": 70187,
             "market_cap": 1381651251183,
             "market_cap_rank": 1,
@@ -3647,6 +3548,166 @@
             "roi": null,
             "last_updated": "2024-04-07T16:49:31.736Z"
           }
+        ]
+      },
+      "CoinsMarketsItem": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "coin ID"
+          },
+          "symbol": {
+            "type": "string",
+            "description": "coin symbol"
+          },
+          "name": {
+            "type": "string",
+            "description": "coin name"
+          },
+          "image": {
+            "type": "string",
+            "description": "coin image url"
+          },
+          "current_price": {
+            "type": "number",
+            "nullable": true,
+            "description": "coin current price in currency"
+          },
+          "market_cap": {
+            "type": "number",
+            "nullable": true,
+            "description": "coin market cap in currency"
+          },
+          "market_cap_rank": {
+            "type": "number",
+            "nullable": true,
+            "description": "coin rank by market cap"
+          },
+          "fully_diluted_valuation": {
+            "type": "number",
+            "nullable": true,
+            "description": "coin fully diluted valuation (fdv) in currency"
+          },
+          "total_volume": {
+            "type": "number",
+            "nullable": true,
+            "description": "coin total trading volume in currency"
+          },
+          "high_24h": {
+            "type": "number",
+            "nullable": true,
+            "description": "coin 24hr price high in currency"
+          },
+          "low_24h": {
+            "type": "number",
+            "nullable": true,
+            "description": "coin 24hr price low in currency"
+          },
+          "price_change_24h": {
+            "type": "number",
+            "nullable": true,
+            "description": "coin 24hr price change in currency"
+          },
+          "price_change_percentage_24h": {
+            "type": "number",
+            "nullable": true,
+            "description": "coin 24hr price change in percentage"
+          },
+          "market_cap_change_24h": {
+            "type": "number",
+            "nullable": true,
+            "description": "coin 24hr market cap change in currency"
+          },
+          "market_cap_change_percentage_24h": {
+            "type": "number",
+            "nullable": true,
+            "description": "coin 24hr market cap change in percentage"
+          },
+          "circulating_supply": {
+            "type": "number",
+            "nullable": true,
+            "description": "coin circulating supply"
+          },
+          "total_supply": {
+            "type": "number",
+            "nullable": true,
+            "description": "coin total supply"
+          },
+          "max_supply": {
+            "type": "number",
+            "nullable": true,
+            "description": "coin max supply"
+          },
+          "ath": {
+            "type": "number",
+            "nullable": true,
+            "description": "coin all time high (ATH) in currency"
+          },
+          "ath_change_percentage": {
+            "type": "number",
+            "nullable": true,
+            "description": "coin all time high (ATH) change in percentage"
+          },
+          "ath_date": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true,
+            "description": "coin all time high (ATH) date"
+          },
+          "atl": {
+            "type": "number",
+            "nullable": true,
+            "description": "coin all time low (atl) in currency"
+          },
+          "atl_change_percentage": {
+            "type": "number",
+            "nullable": true,
+            "description": "coin all time low (atl) change in percentage"
+          },
+          "atl_date": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true,
+            "description": "coin all time low (atl) date"
+          },
+          "roi": {
+            "type": "object",
+            "nullable": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/RoiData"
+              }
+            ],
+            "description": "return on investment data"
+          },
+          "last_updated": {
+            "type": "string",
+            "format": "date-time",
+            "description": "coin last updated timestamp"
+          }
+        }
+      },
+      "RoiData": {
+        "type": "object",
+        "properties": {
+          "times": {
+            "type": "number",
+            "description": "ROI multiplier"
+          },
+          "currency": {
+            "type": "string",
+            "description": "ROI currency"
+          },
+          "percentage": {
+            "type": "number",
+            "description": "ROI percentage"
+          }
+        },
+        "required": [
+          "times",
+          "currency",
+          "percentage"
         ]
       },
       "CoinsDataBase": {
@@ -3683,7 +3744,7 @@
             "type": "object",
             "description": "detailed coin asset platform and contract address",
             "additionalProperties": {
-              "type": "string"
+              "$ref": "#/components/schemas/DetailPlatformData"
             }
           },
           "block_time_in_minutes": {
@@ -4493,6 +4554,20 @@
                 }
               }
             }
+          }
+        }
+      },
+      "DetailPlatformData": {
+        "type": "object",
+        "properties": {
+          "decimal_place": {
+            "type": "number",
+            "nullable": true,
+            "description": "decimal places for the token"
+          },
+          "contract_address": {
+            "type": "string",
+            "description": "contract address on the platform"
           }
         }
       },
@@ -9192,16 +9267,9 @@
         ]
       },
       "ExchangesList": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "exchange ID"
-          },
-          "name": {
-            "type": "string",
-            "description": "exchange name"
-          }
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/ExchangesListItem"
         },
         "example": [
           {
@@ -9216,6 +9284,23 @@
             "id": "3xcalibur",
             "name": "3xcalibur"
           }
+        ]
+      },
+      "ExchangesListItem": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "exchange ID"
+          },
+          "name": {
+            "type": "string",
+            "description": "exchange name"
+          }
+        },
+        "required": [
+          "id",
+          "name"
         ]
       },
       "ExchangeData": {
