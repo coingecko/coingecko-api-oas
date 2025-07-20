@@ -3915,6 +3915,10 @@
             "type": "number",
             "description": "coin sentiment votes down percentage"
           },
+          "watchlist_portfolio_users": {
+            "type": "number",
+            "description": "number of users watching this coin in portfolio"
+          },
           "market_cap_rank": {
             "type": "number",
             "description": "coin rank by market cap"
