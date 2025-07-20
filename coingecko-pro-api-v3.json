@@ -1983,7 +1983,7 @@
         "tags": [
           "Asset Platforms"
         ],
-        "summary": "👑 Token Lists by Asset Platform ID",
+        "summary": "Token Lists by Asset Platform ID",
         "description": "This endpoint allows you to **get full list of tokens of a blockchain network (asset platform) that is supported by [Ethereum token list standard](https://tokenlists.org/)**",
         "operationId": "token-lists",
         "parameters": [
