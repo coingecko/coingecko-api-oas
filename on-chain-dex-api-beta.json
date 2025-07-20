@@ -1009,6 +1009,15 @@
             }
           },
           {
+            "name": "include_unknown_honeypot_tokens",
+            "in": "query",
+            "required": false,
+            "description": "when `checks` includes `no_honeypot`, set to **`true`** to also include  'unknown honeypot' tokens. Default value: `false`",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
             "name": "buy_tax_percentage_min",
             "in": "query",
             "required": false,
@@ -3990,6 +3999,9 @@
                   },
                   "freeze_authority": {
                     "type": "string"
+                  },
+                  "is_honeypot": {
+                    "type": "boolean"
                   }
                 }
               }
@@ -4039,7 +4051,8 @@
                 "last_updated": "2025-03-12T05:28:50Z"
               },
               "mint_authority": null,
-              "freeze_authority": null
+              "freeze_authority": null,
+              "is_honeypot": false
             }
           }
         }
@@ -4249,7 +4262,8 @@
                   "last_updated": "2025-03-12T13:07:47Z"
                 },
                 "mint_authority": null,
-                "freeze_authority": null
+                "freeze_authority": null,
+                "is_honeypot": false
               }
             },
             {
@@ -4289,7 +4303,8 @@
                   "last_updated": "2025-03-12T05:28:50Z"
                 },
                 "mint_authority": null,
-                "freeze_authority": null
+                "freeze_authority": null,
+                "is_honeypot": false
               }
             }
           ]
