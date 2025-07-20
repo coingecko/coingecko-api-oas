@@ -1488,6 +1488,40 @@
         }
       }
     },
+    "/token_lists/{asset_platform_id}/all.json": {
+      "get": {
+        "tags": [
+          "Asset Platforms"
+        ],
+        "summary": "Token Lists by Asset Platform ID",
+        "description": "This endpoint allows you to **get full list of tokens of a blockchain network (asset platform) that is supported by [Ethereum token list standard](https://tokenlists.org/)**",
+        "operationId": "token-lists",
+        "parameters": [
+          {
+            "name": "asset_platform_id",
+            "in": "path",
+            "description": "asset platform ID <br> *refers to [`/asset_platforms`](/reference/asset-platforms-list)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "ethereum"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List all tokens on CoinGecko based on asset platform ID",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TokenLists"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/coins/categories/list": {
       "get": {
         "tags": [
@@ -7861,6 +7895,85 @@
             }
           }
         ]
+      },
+      "TokenLists": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "logoURI": {
+            "type": "string"
+          },
+          "keywords": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "tokens": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "chainId": {
+                  "type": "number",
+                  "description": "chainlist's chain ID"
+                },
+                "address": {
+                  "type": "string",
+                  "description": "token contract address"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "token name"
+                },
+                "symbol": {
+                  "type": "string",
+                  "description": "token symbol"
+                },
+                "decimals": {
+                  "type": "number",
+                  "description": "token decimals"
+                },
+                "logoURI": {
+                  "type": "string",
+                  "description": "token image url"
+                }
+              }
+            }
+          }
+        },
+        "example": {
+          "name": "CoinGecko",
+          "logoURI": "https://static.coingecko.com/s/thumbnail-007177f3eca19695592f0b8b0eabbdae282b54154e1be912285c9034ea6cbaf2.png",
+          "keywords": [
+            "defi"
+          ],
+          "timestamp": "2024-04-08T14:02:47.028+00:00",
+          "tokens": [
+            {
+              "chainId": 1,
+              "address": "0xd2877702675e6ceb975b4a1dff9fb7baf4c91ea9",
+              "name": "Wrapped Terra Classic",
+              "symbol": "LUNC",
+              "decimals": 18,
+              "logoURI": "https://assets.coingecko.com/coins/images/13628/thumb/wluna.png?1696513376"
+            },
+            {
+              "chainId": 1,
+              "address": "0x5bb29c33c4a3c29f56f8aca40b4db91d8a5fe2c5",
+              "name": "One Share",
+              "symbol": "ONS",
+              "decimals": 18,
+              "logoURI": "https://assets.coingecko.com/coins/images/13531/thumb/bss.a1671c75.png?1696513292"
+            }
+          ]
+        }
       },
       "CategoriesList": {
         "type": "object",
