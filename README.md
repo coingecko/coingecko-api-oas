@@ -6,11 +6,23 @@
 
 These OpenAPI 3.0 Specs (OAS) define the CoinGecko API — documenting its endpoints, request/response structures, and related metadata.
 
-- Public/Demo API endpoints — [coingecko-public-api-v3.json](https://raw.githubusercontent.com/coingecko/coingecko-api-oas/refs/heads/main/coingecko-public-api-v3.json)
-- Pro API endpoints — [coingecko-pro-api-v3.json](https://raw.githubusercontent.com/coingecko/coingecko-api-oas/refs/heads/main/coingecko-pro-api-v3.json)
-- Onchain DEX (GeckoTerminal) API endpoints — [on-chain-dex-api-beta.json](https://raw.githubusercontent.com/coingecko/coingecko-api-oas/refs/heads/main/on-chain-dex-api-beta.json)
+### [CoinGecko Pro API](https://docs.coingecko.com/reference/endpoint-overview)
 
-### Click to Learn More 👇
+- CoinGecko Pro API — [coingecko-pro.json](https://raw.githubusercontent.com/coingecko/coingecko-api-oas/refs/heads/main/coingecko-pro.json)
+- GeckoTerminal Onchain API (Pro) — [onchain-pro.json](https://raw.githubusercontent.com/coingecko/coingecko-api-oas/refs/heads/main/onchain-pro.json)
+
+### [CoinGecko Public/Demo API](https://docs.coingecko.com/v3.0.1/reference/authentication)
+
+- CoinGecko Public/Demo API — [coingecko-demo.json](https://raw.githubusercontent.com/coingecko/coingecko-api-oas/refs/heads/main/coingecko-demo.json)
+- GeckoTerminal Onchain API (Demo) — [onchain-demo.json](https://raw.githubusercontent.com/coingecko/coingecko-api-oas/refs/heads/main/onchain-demo.json)
+
+<br />
+
+---
+
+<br />
+
+**Click Here to Learn More 👇**
 
 <p align="center">
     <a href="https://docs.coingecko.com">
