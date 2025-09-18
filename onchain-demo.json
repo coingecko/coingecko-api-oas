@@ -1,0 +1,3681 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Onchain DEX API (Demo)",
+    "version": "3.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.coingecko.com/api/v3/onchain"
+    }
+  ],
+  "security": [
+    {
+      "apiKeyAuth": []
+    },
+    {
+      "apiKeyQueryParam": []
+    }
+  ],
+  "paths": {
+    "/networks": {
+      "get": {
+        "summary": "Supported Networks List (ID Map)",
+        "tags": [
+          "Networks"
+        ],
+        "description": "This endpoint allows you to **query all the supported networks on GeckoTerminal**",
+        "operationId": "networks-list",
+        "x-mint": {
+          "href": "/v3.0.1/reference/networks-list"
+        },
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "page through results \n Default value: 1",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get list of supported networks",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NetworksList"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/networks/new_pools": {
+      "get": {
+        "summary": "New Pools List",
+        "tags": [
+          "Pools"
+        ],
+        "description": "This endpoint allows you to **query all the latest pools across all networks on GeckoTerminal**",
+        "operationId": "latest-pools-list",
+        "x-mint": {
+          "href": "/v3.0.1/reference/latest-pools-list"
+        },
+        "parameters": [
+          {
+            "name": "include",
+            "in": "query",
+            "required": false,
+            "description": "attributes to include, comma-separated if more than one to include \n Available values: `base_token`, `quote_token`, `dex`, `network`",
+            "schema": {
+              "type": "string",
+              "default": "base_token"
+            },
+            "examples": {
+              "one value": {
+                "value": "base_token"
+              },
+              "multiple values": {
+                "value": "base_token,quote_token,dex"
+              }
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "page through results \n Default value: 1",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get latest pools across all networks",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Pool"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/networks/trending_pools": {
+      "get": {
+        "summary": "Trending Pools List",
+        "tags": [
+          "Pools"
+        ],
+        "description": "This endpoint allows you to **query all the trending pools across all networks on GeckoTerminal**",
+        "operationId": "trending-pools-list",
+        "x-mint": {
+          "href": "/v3.0.1/reference/trending-pools-list"
+        },
+        "parameters": [
+          {
+            "name": "include",
+            "in": "query",
+            "required": false,
+            "description": "attributes to include, comma-separated if more than one to include \n Available values: `base_token`, `quote_token`, `dex`, `network`. \n Example: `base_token` or `base_token,dex`",
+            "schema": {
+              "type": "string",
+              "default": "base_token"
+            },
+            "examples": {
+              "one value": {
+                "value": "base_token"
+              },
+              "multiple values": {
+                "value": "base_token,quote_token,dex"
+              }
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "page through results \n Default value: 1",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "duration",
+            "in": "query",
+            "required": false,
+            "description": "duration to sort trending list by \n Default value: 24h",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "5m",
+                "1h",
+                "6h",
+                "24h"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get trending pools across all networks",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Pool"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/networks/{network}/dexes": {
+      "get": {
+        "summary": "Supported Dexes List by Network (ID Map)",
+        "tags": [
+          "Dexes"
+        ],
+        "description": "This endpoint allows you to **query all the supported decentralized exchanges (DEXs) based on the provided network on GeckoTerminal**",
+        "operationId": "dexes-list",
+        "x-mint": {
+          "href": "/v3.0.1/reference/dexes-list"
+        },
+        "parameters": [
+          {
+            "name": "network",
+            "in": "path",
+            "description": "network ID \n *refers to [/networks](/reference/networks-list)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "eth",
+              "default": "eth"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "page through results \n Default value: 1",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get list of supported DEXs on a network",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DexesList"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/networks/{network}/dexes/{dex}/pools": {
+      "get": {
+        "summary": "Top Pools by Dex",
+        "tags": [
+          "Pools"
+        ],
+        "description": "This endpoint allows you to **query all the top pools based on the provided network and decentralized exchange (DEX)**",
+        "operationId": "top-pools-dex",
+        "x-mint": {
+          "href": "/v3.0.1/reference/top-pools-dex"
+        },
+        "parameters": [
+          {
+            "name": "network",
+            "in": "path",
+            "description": "network ID \n *refers to [/networks](/reference/networks-list)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "eth",
+              "default": "eth"
+            }
+          },
+          {
+            "name": "dex",
+            "in": "path",
+            "description": "DEX ID \n *refers to [/networks/{network}/dexes](/reference/dexes-list)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "sushiswap",
+              "default": "sushiswap"
+            }
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "required": false,
+            "description": "attributes to include, comma-separated if more than one to include \n Available values: `base_token`, `quote_token`, `dex`",
+            "schema": {
+              "type": "string",
+              "default": "base_token"
+            },
+            "examples": {
+              "one value": {
+                "value": "base_token"
+              },
+              "multiple values": {
+                "value": "base_token,quote_token,dex"
+              }
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "page through results \n Default value: 1",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "description": "sort the pools by field \n Default value: h24_tx_count_desc",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "h24_tx_count_desc",
+                "h24_volume_usd_desc"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get top pools on a network's DEX",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Pool"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/networks/{network}/new_pools": {
+      "get": {
+        "summary": "New Pools by Network",
+        "tags": [
+          "Pools"
+        ],
+        "description": "This endpoint allows you to **query all the latest pools based on provided network**",
+        "operationId": "latest-pools-network",
+        "x-mint": {
+          "href": "/v3.0.1/reference/latest-pools-network"
+        },
+        "parameters": [
+          {
+            "name": "network",
+            "in": "path",
+            "description": "network ID \n *refers to [/networks](/reference/networks-list)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "eth",
+              "default": "eth"
+            }
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "required": false,
+            "description": "attributes to include, comma-separated if more than one to include \n Available values: `base_token`, `quote_token`, `dex`",
+            "schema": {
+              "type": "string",
+              "default": "base_token"
+            },
+            "examples": {
+              "one value": {
+                "value": "base_token"
+              },
+              "multiple values": {
+                "value": "base_token,quote_token,dex"
+              }
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "page through results \n Default value: 1",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get latest pools on a network",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Pool"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/networks/{network}/pools": {
+      "get": {
+        "summary": "Top Pools by Network",
+        "tags": [
+          "Pools"
+        ],
+        "description": "This endpoint allows you to **query all the top pools based on the provided network**",
+        "operationId": "top-pools-network",
+        "x-mint": {
+          "href": "/v3.0.1/reference/top-pools-network"
+        },
+        "parameters": [
+          {
+            "name": "network",
+            "in": "path",
+            "description": "network ID \n *refers to [/networks](/reference/networks-list)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "eth",
+              "default": "eth"
+            }
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "required": false,
+            "description": "attributes to include, comma-separated if more than one to include \n Available values: `base_token`, `quote_token`, `dex`",
+            "schema": {
+              "type": "string",
+              "default": "base_token"
+            },
+            "examples": {
+              "one value": {
+                "value": "base_token"
+              },
+              "multiple values": {
+                "value": "base_token,quote_token,dex"
+              }
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "page through results \n Default value: 1",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "description": "sort the pools by field \n Default value: h24_tx_count_desc",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "h24_tx_count_desc",
+                "h24_volume_usd_desc"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get top pools on a network",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Pool"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/networks/{network}/pools/multi/{addresses}": {
+      "get": {
+        "summary": "Multiple Pools Data by Pool Addresses",
+        "tags": [
+          "Pools"
+        ],
+        "description": "This endpoint allows you to **query multiple pools based on the provided network and pool address**",
+        "operationId": "pools-addresses",
+        "x-mint": {
+          "href": "/v3.0.1/reference/pools-addresses"
+        },
+        "parameters": [
+          {
+            "name": "network",
+            "in": "path",
+            "description": "network ID \n *refers to [/networks](/reference/networks-list)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "eth",
+              "default": "eth"
+            }
+          },
+          {
+            "name": "addresses",
+            "in": "path",
+            "description": "pool contract address, comma-separated if more than one pool contract address",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640"
+            },
+            "examples": {
+              "one value": {
+                "value": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640"
+              },
+              "multiple values": {
+                "value": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640,0x0d4a11d5eeaac28ec3f61d100daf4d40471f1852"
+              }
+            }
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "required": false,
+            "description": "attributes to include, comma-separated if more than one to include \n Available values: `base_token`, `quote_token`, `dex`",
+            "schema": {
+              "type": "string",
+              "default": "base_token"
+            },
+            "examples": {
+              "one value": {
+                "value": "base_token"
+              },
+              "multiple values": {
+                "value": "base_token,quote_token,dex"
+              }
+            }
+          },
+          {
+            "name": "include_volume_breakdown",
+            "in": "query",
+            "required": false,
+            "description": "include volume breakdown, default: false",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "include_composition",
+            "in": "query",
+            "required": false,
+            "description": "include pool composition, default: false",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get multiple pools on a network",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PoolInfo"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/networks/{network}/pools/{address}": {
+      "get": {
+        "summary": "Specific Pool Data by Pool Address",
+        "tags": [
+          "Pools"
+        ],
+        "description": "This endpoint allows you to **query the specific pool based on the provided network and pool address**",
+        "operationId": "pool-address",
+        "x-mint": {
+          "href": "/v3.0.1/reference/pool-address"
+        },
+        "parameters": [
+          {
+            "name": "network",
+            "in": "path",
+            "description": "network ID \n *refers to [/networks](/reference/networks-list)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "eth",
+              "default": "eth"
+            }
+          },
+          {
+            "name": "address",
+            "in": "path",
+            "description": "pool address",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
+              "default": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640"
+            }
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "required": false,
+            "description": "attributes to include, comma-separated if more than one to include \n Available values: `base_token`, `quote_token`, `dex`",
+            "schema": {
+              "type": "string",
+              "default": "base_token"
+            },
+            "examples": {
+              "one value": {
+                "value": "base_token"
+              },
+              "multiple values": {
+                "value": "base_token,quote_token,dex"
+              }
+            }
+          },
+          {
+            "name": "include_volume_breakdown",
+            "in": "query",
+            "required": false,
+            "description": "include volume breakdown, default: false",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "include_composition",
+            "in": "query",
+            "required": false,
+            "description": "include pool composition, default: false",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get specific pool on a network",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PoolInfo"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/networks/{network}/pools/{pool_address}/info": {
+      "get": {
+        "summary": "Pool Tokens Info by Pool Address",
+        "tags": [
+          "Tokens"
+        ],
+        "description": "This endpoint allows you to **query pool metadata (base and quote token details, image, socials, websites, description, contract address, etc.) based on a provided pool contract address on a network**",
+        "operationId": "pool-token-info-contract-address",
+        "x-mint": {
+          "href": "/v3.0.1/reference/pool-token-info-contract-address"
+        },
+        "parameters": [
+          {
+            "name": "network",
+            "in": "path",
+            "description": "network ID \n *refers to [/networks](/reference/networks-list)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "eth",
+              "default": "eth"
+            }
+          },
+          {
+            "name": "pool_address",
+            "in": "path",
+            "description": "pool contract address",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "0x06da0fd433c1a5d7a4faa01111c044910a184553",
+              "default": "0x06da0fd433c1a5d7a4faa01111c044910a184553"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get pool tokens info on a network",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PoolTokensInfo"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/networks/{network}/pools/{pool_address}/ohlcv/{timeframe}": {
+      "get": {
+        "summary": "Pool OHLCV chart by Pool Address",
+        "tags": [
+          "OHLCV"
+        ],
+        "description": "This endpoint allows you to **get the OHLCV chart (Open, High, Low, Close, Volume) of a pool based on the provided pool address on a network**",
+        "operationId": "pool-ohlcv-contract-address",
+        "x-mint": {
+          "href": "/v3.0.1/reference/pool-ohlcv-contract-address"
+        },
+        "parameters": [
+          {
+            "name": "network",
+            "in": "path",
+            "description": "network ID \n *refers to [/networks](/reference/networks-list)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "eth",
+              "default": "eth"
+            }
+          },
+          {
+            "name": "pool_address",
+            "in": "path",
+            "description": "pool contract address",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "0x06da0fd433c1a5d7a4faa01111c044910a184553",
+              "default": "0x06da0fd433c1a5d7a4faa01111c044910a184553"
+            }
+          },
+          {
+            "name": "timeframe",
+            "in": "path",
+            "description": "timeframe of the OHLCV chart",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "day",
+                "hour",
+                "minute"
+              ]
+            }
+          },
+          {
+            "name": "aggregate",
+            "in": "query",
+            "required": false,
+            "description": "time period to aggregate each OHLCV \n Available values (day): `1` \n Available values (hour): `1` , `4` , `12` \n Available values (minute): `1` , `5` , `15` \n Default value: 1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "before_timestamp",
+            "in": "query",
+            "required": false,
+            "description": "return OHLCV data before this timestamp (integer seconds since epoch)",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "number of OHLCV results to return, maximum 1000 \n Default value: 100",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "currency",
+            "in": "query",
+            "required": false,
+            "description": "return OHLCV in USD or quote token \n Default value: usd",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "usd",
+                "token"
+              ]
+            }
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "required": false,
+            "description": "return OHLCV for token \n use this to invert the chart \n Available values: 'base', 'quote' or token address \n Default value: 'base'",
+            "schema": {
+              "type": "string",
+              "default": "base"
+            },
+            "examples": {
+              "base": {
+                "value": "base"
+              },
+              "quote": {
+                "value": "quote"
+              },
+              "base_token_address": {
+                "value": "0xdac17f958d2ee523a2206206994597c13d831ec7"
+              },
+              "quote_token_address": {
+                "value": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+              }
+            }
+          },
+          {
+            "name": "include_empty_intervals",
+            "in": "query",
+            "required": false,
+            "description": "include empty intervals with no trade data, default: false",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get OHLCV data of a pool",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OHLCV"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/networks/{network}/pools/{pool_address}/trades": {
+      "get": {
+        "summary": "Past 24 Hour Trades by Pool Address",
+        "tags": [
+          "Trades"
+        ],
+        "description": "This endpoint allows you to **query the last 300 trades in the past 24 hours based on the provided pool address**",
+        "operationId": "pool-trades-contract-address",
+        "x-mint": {
+          "href": "/v3.0.1/reference/pool-trades-contract-address"
+        },
+        "parameters": [
+          {
+            "name": "network",
+            "in": "path",
+            "description": "network ID \n *refers to [/networks](/reference/networks-list)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "eth",
+              "default": "eth"
+            }
+          },
+          {
+            "name": "pool_address",
+            "in": "path",
+            "description": "pool contract address",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "0x06da0fd433c1a5d7a4faa01111c044910a184553",
+              "default": "0x06da0fd433c1a5d7a4faa01111c044910a184553"
+            }
+          },
+          {
+            "name": "trade_volume_in_usd_greater_than",
+            "in": "query",
+            "required": false,
+            "description": "filter trades by trade volume in USD greater than this value \n Default value: 0",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "required": false,
+            "description": "return trades for token \n use this to invert the chart \n Available values: 'base', 'quote' or token address \n Default value: 'base'",
+            "schema": {
+              "type": "string",
+              "default": "base"
+            },
+            "examples": {
+              "base": {
+                "value": "base"
+              },
+              "quote": {
+                "value": "quote"
+              },
+              "base_token_address": {
+                "value": "0xdac17f958d2ee523a2206206994597c13d831ec7"
+              },
+              "quote_token_address": {
+                "value": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get last 300 trades in past 24 hours from a pool",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Trades"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/networks/{network}/tokens/multi/{addresses}": {
+      "get": {
+        "summary": "Tokens Data by Token Addresses",
+        "tags": [
+          "Tokens"
+        ],
+        "description": "This endpoint allows you to **query multiple tokens data based on the provided token contract addresses on a network**",
+        "operationId": "tokens-data-contract-addresses",
+        "x-mint": {
+          "href": "/v3.0.1/reference/tokens-data-contract-addresses"
+        },
+        "parameters": [
+          {
+            "name": "network",
+            "in": "path",
+            "description": "network ID \n *refers to [/networks](/reference/networks-list)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "eth",
+              "default": "eth"
+            }
+          },
+          {
+            "name": "addresses",
+            "in": "path",
+            "description": "token contract address, comma-separated if more than one token contract address",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "0x44ff8620b8ca30902395a7bd3f2407e1a091bf73"
+            },
+            "examples": {
+              "one value": {
+                "value": "0x44ff8620b8ca30902395a7bd3f2407e1a091bf73"
+              },
+              "multiple values": {
+                "value": "0x44ff8620b8ca30902395a7bd3f2407e1a091bf73,0xdac17f958d2ee523a2206206994597c13d831ec7"
+              }
+            }
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "required": false,
+            "description": "attributes to include",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "top_pools"
+              ]
+            }
+          },
+          {
+            "name": "include_composition",
+            "in": "query",
+            "required": false,
+            "description": "include pool composition, default: false",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get multiple tokens on a network",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TokensData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/networks/{network}/tokens/{address}": {
+      "get": {
+        "summary": "Token Data by Token Address",
+        "tags": [
+          "Tokens"
+        ],
+        "description": "This endpoint allows you to **query specific token data based on the provided token contract address on a network**",
+        "operationId": "token-data-contract-address",
+        "x-mint": {
+          "href": "/v3.0.1/reference/token-data-contract-address"
+        },
+        "parameters": [
+          {
+            "name": "network",
+            "in": "path",
+            "description": "network ID \n *refers to [/networks](/reference/networks-list)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "eth",
+              "default": "eth"
+            }
+          },
+          {
+            "name": "address",
+            "in": "path",
+            "description": "token contract address",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+              "default": "0xdac17f958d2ee523a2206206994597c13d831ec7"
+            }
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "required": false,
+            "description": "attributes to include",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "top_pools"
+              ]
+            }
+          },
+          {
+            "name": "include_composition",
+            "in": "query",
+            "required": false,
+            "description": "include pool composition, default: false",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get specific token on a network",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Token"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/networks/{network}/tokens/{address}/info": {
+      "get": {
+        "summary": "Token Info by Token Address",
+        "tags": [
+          "Tokens"
+        ],
+        "description": "This endpoint allows you to **query token metadata (name, symbol,  CoinGecko ID, image, socials, websites, description, etc.) based on a provided token contract address on a network**",
+        "operationId": "token-info-contract-address",
+        "x-mint": {
+          "href": "/v3.0.1/reference/token-info-contract-address"
+        },
+        "parameters": [
+          {
+            "name": "network",
+            "in": "path",
+            "description": "network ID \n *refers to [/networks](/reference/networks-list)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "eth",
+              "default": "eth"
+            }
+          },
+          {
+            "name": "address",
+            "in": "path",
+            "description": "token contract address",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+              "default": "0xdac17f958d2ee523a2206206994597c13d831ec7"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get specific token info on a network",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TokenInfo"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/networks/{network}/tokens/{token_address}/pools": {
+      "get": {
+        "summary": "Top Pools by Token Address",
+        "tags": [
+          "Tokens"
+        ],
+        "description": "This endpoint allows you to **query top pools based on the provided token contract address on a network**",
+        "operationId": "top-pools-contract-address",
+        "x-mint": {
+          "href": "/v3.0.1/reference/top-pools-contract-address"
+        },
+        "parameters": [
+          {
+            "name": "network",
+            "in": "path",
+            "description": "network ID \n *refers to [/networks](/reference/networks-list)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "eth",
+              "default": "eth"
+            }
+          },
+          {
+            "name": "token_address",
+            "in": "path",
+            "description": "token contract address",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+              "default": "0xdac17f958d2ee523a2206206994597c13d831ec7"
+            }
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "required": false,
+            "description": "attributes to include, comma-separated if more than one to include \n Available values: `base_token`, `quote_token`, `dex`",
+            "schema": {
+              "type": "string",
+              "default": "base_token"
+            },
+            "examples": {
+              "one value": {
+                "value": "base_token"
+              },
+              "multiple values": {
+                "value": "base_token,quote_token,dex"
+              }
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "page through results \n Default value: 1",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "description": "sort the pools by field \n Default value: h24_volume_usd_liquidity_desc",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "h24_volume_usd_liquidity_desc",
+                "h24_tx_count_desc",
+                "h24_volume_usd_desc"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get top pools for a token",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Pool"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/networks/{network}/trending_pools": {
+      "get": {
+        "summary": "Trending Pools by Network",
+        "tags": [
+          "Pools"
+        ],
+        "description": "This endpoint allows you to **query the trending pools based on the provided network**",
+        "operationId": "trending-pools-network",
+        "x-mint": {
+          "href": "/v3.0.1/reference/trending-pools-network"
+        },
+        "parameters": [
+          {
+            "name": "network",
+            "in": "path",
+            "description": "network ID \n *refers to [/networks](/reference/networks-list)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "eth",
+              "default": "eth"
+            }
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "required": false,
+            "description": "attributes to include, comma-separated if more than one to include \n Available values: `base_token`, `quote_token`, `dex`",
+            "schema": {
+              "type": "string",
+              "default": "base_token"
+            },
+            "examples": {
+              "one value": {
+                "value": "base_token"
+              },
+              "multiple values": {
+                "value": "base_token,quote_token,dex"
+              }
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "page through results \n Default value: 1",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "duration",
+            "in": "query",
+            "required": false,
+            "description": "duration to sort trending list by \n Default value: 24h",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "5m",
+                "1h",
+                "6h",
+                "24h"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get trending pools on a network",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Pool"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/search/pools": {
+      "get": {
+        "summary": "Search Pools",
+        "tags": [
+          "Pools"
+        ],
+        "description": "This endpoint allows you to **search for pools on a network**",
+        "operationId": "search-pools",
+        "x-mint": {
+          "href": "/v3.0.1/reference/search-pools"
+        },
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "description": "search query",
+            "schema": {
+              "type": "string",
+              "example": "weth",
+              "default": "weth"
+            }
+          },
+          {
+            "name": "network",
+            "in": "query",
+            "description": "network ID \n *refers to [/networks](/reference/networks-list)",
+            "schema": {
+              "type": "string",
+              "example": "eth",
+              "default": "eth"
+            }
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "required": false,
+            "description": "attributes to include, comma-separated if more than one to include \n Available values: `base_token`, `quote_token`, `dex`",
+            "schema": {
+              "type": "string",
+              "default": "base_token"
+            },
+            "examples": {
+              "one value": {
+                "value": "base_token"
+              },
+              "multiple values": {
+                "value": "base_token,quote_token,dex"
+              }
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "page through results \n Default value: 1",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Search for pools on a network",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Pool"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/simple/networks/{network}/token_price/{addresses}": {
+      "get": {
+        "summary": "Token Price by Token Addresses",
+        "tags": [
+          "Simple"
+        ],
+        "description": "This endpoint allows you to **get token price based on the provided token contract address on a network**",
+        "operationId": "onchain-simple-price",
+        "x-mint": {
+          "href": "/v3.0.1/reference/onchain-simple-price"
+        },
+        "parameters": [
+          {
+            "name": "network",
+            "in": "path",
+            "description": "network ID \n *refers to [/networks](/reference/networks-list)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "eth",
+              "default": "eth"
+            }
+          },
+          {
+            "name": "addresses",
+            "in": "path",
+            "description": "token contract address, comma-separated if more than one token contract address",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+            },
+            "examples": {
+              "one value": {
+                "value": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+              },
+              "multiple values": {
+                "value": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+              }
+            }
+          },
+          {
+            "name": "include_market_cap",
+            "in": "query",
+            "description": "include market capitalization, default: false",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "mcap_fdv_fallback",
+            "in": "query",
+            "description": "return FDV if market cap is not available, default: false",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "include_24hr_vol",
+            "in": "query",
+            "description": "include 24hr volume, default: false",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "include_24hr_price_change",
+            "in": "query",
+            "description": "include 24hr price change, default: false",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "include_total_reserve_in_usd",
+            "in": "query",
+            "description": "include total reserve in USD, default: false",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get current USD prices of multiple tokens on a network",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OnchainSimplePrice"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tokens/info_recently_updated": {
+      "get": {
+        "summary": "Most Recently Updated Tokens List",
+        "tags": [
+          "Tokens"
+        ],
+        "description": "This endpoint allows you to **query 100 most recently updated tokens info of a specific network or across all networks on GeckoTerminal**",
+        "operationId": "tokens-info-recent-updated",
+        "x-mint": {
+          "href": "/v3.0.1/reference/tokens-info-recent-updated"
+        },
+        "parameters": [
+          {
+            "name": "include",
+            "in": "query",
+            "required": false,
+            "description": "Attributes for related resources to include, which will be returned under the top-level 'included' key",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "network"
+              ]
+            }
+          },
+          {
+            "name": "network",
+            "in": "query",
+            "description": "filter tokens by provided network \n *refers to [/networks](/reference/networks-list)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "eth",
+              "default": "eth"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get 100 tokens info across all networks ordered by most recently updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TokenInfoRecentlyUpdated"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "apiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-cg-demo-api-key"
+      },
+      "apiKeyQueryParam": {
+        "type": "apiKey",
+        "in": "query",
+        "name": "x_cg_demo_api_key"
+      }
+    },
+    "schemas": {
+      "DexesList": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "attributes": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "example": {
+          "data": [
+            {
+              "id": "uniswap_v2",
+              "type": "dex",
+              "attributes": {
+                "name": "Uniswap V2"
+              }
+            },
+            {
+              "id": "sushiswap",
+              "type": "dex",
+              "attributes": {
+                "name": "SushiSwap"
+              }
+            },
+            {
+              "id": "uniswap_v3",
+              "type": "dex",
+              "attributes": {
+                "name": "Uniswap V3"
+              }
+            }
+          ]
+        }
+      },
+      "NetworksList": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "attributes": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "coingecko_asset_platform_id": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "example": {
+          "data": [
+            {
+              "id": "eth",
+              "type": "network",
+              "attributes": {
+                "name": "Ethereum",
+                "coingecko_asset_platform_id": "ethereum"
+              }
+            },
+            {
+              "id": "bsc",
+              "type": "network",
+              "attributes": {
+                "name": "BNB Chain",
+                "coingecko_asset_platform_id": "binance-smart-chain"
+              }
+            },
+            {
+              "id": "polygon_pos",
+              "type": "network",
+              "attributes": {
+                "name": "Polygon POS",
+                "coingecko_asset_platform_id": "polygon-pos"
+              }
+            }
+          ]
+        }
+      },
+      "OHLCV": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "attributes": {
+                "type": "object",
+                "properties": {
+                  "ohlcv_list": {
+                    "type": "array",
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "number"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "meta": {
+            "type": "object",
+            "properties": {
+              "base": {
+                "type": "object",
+                "properties": {
+                  "address": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "symbol": {
+                    "type": "string"
+                  },
+                  "coingecko_coin_id": {
+                    "type": "string"
+                  }
+                }
+              },
+              "quote": {
+                "type": "object",
+                "properties": {
+                  "address": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "symbol": {
+                    "type": "string"
+                  },
+                  "coingecko_coin_id": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "example": {
+          "data": {
+            "id": "bc786a99-7205-4c80-aaa1-b9634d97c926",
+            "type": "ohlcv_request_response",
+            "attributes": {
+              "ohlcv_list": [
+                [
+                  1712534400,
+                  3454.61590249189,
+                  3660.85954963415,
+                  3417.91885296256,
+                  3660.85954963415,
+                  306823.277031161
+                ],
+                [
+                  1712448000,
+                  3362.60273217873,
+                  3455.28884490954,
+                  3352.95305060685,
+                  3454.61590249189,
+                  242144.864784184
+                ],
+                [
+                  1712361600,
+                  3323.05578706056,
+                  3391.19811016133,
+                  3317.73497182435,
+                  3362.60273217873,
+                  273323.661682931
+                ]
+              ]
+            }
+          },
+          "meta": {
+            "base": {
+              "address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+              "name": "Wrapped Ether",
+              "symbol": "WETH",
+              "coingecko_coin_id": "weth"
+            },
+            "quote": {
+              "address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+              "name": "Tether USD",
+              "symbol": "USDT",
+              "coingecko_coin_id": "tether"
+            }
+          }
+        }
+      },
+      "OnchainSimplePrice": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "attributes": {
+                "type": "object",
+                "properties": {
+                  "token_prices": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "example": {
+          "data": {
+            "id": "1ba898f0-eda2-4291-9491-9a5b323f66ef",
+            "type": "simple_token_price",
+            "attributes": {
+              "token_prices": {
+                "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": "2289.33"
+              },
+              "market_cap_usd": {
+                "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": "6692452895.779648"
+              },
+              "h24_volume_usd": {
+                "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": "965988358.733808"
+              },
+              "h24_price_change_percentage": {
+                "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": "3.3870290336"
+              },
+              "total_reserve_in_usd": {
+                "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": "1576179559.94669772339136684208"
+              }
+            }
+          }
+        }
+      },
+      "Pool": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "attributes": {
+                  "type": "object",
+                  "properties": {
+                    "base_token_price_usd": {
+                      "type": "string"
+                    },
+                    "base_token_price_native_currency": {
+                      "type": "string"
+                    },
+                    "quote_token_price_usd": {
+                      "type": "string"
+                    },
+                    "quote_token_price_native_currency": {
+                      "type": "string"
+                    },
+                    "base_token_price_quote_token": {
+                      "type": "string"
+                    },
+                    "quote_token_price_base_token": {
+                      "type": "string"
+                    },
+                    "address": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "pool_created_at": {
+                      "type": "string"
+                    },
+                    "fdv_usd": {
+                      "type": "string"
+                    },
+                    "market_cap_usd": {
+                      "type": "string"
+                    },
+                    "price_change_percentage": {
+                      "type": "object",
+                      "properties": {
+                        "m5": {
+                          "type": "string"
+                        },
+                        "m15": {
+                          "type": "string"
+                        },
+                        "m30": {
+                          "type": "string"
+                        },
+                        "h1": {
+                          "type": "string"
+                        },
+                        "h6": {
+                          "type": "string"
+                        },
+                        "h24": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "transactions": {
+                      "type": "object",
+                      "properties": {
+                        "m5": {
+                          "type": "object",
+                          "properties": {
+                            "buys": {
+                              "type": "integer"
+                            },
+                            "sells": {
+                              "type": "integer"
+                            },
+                            "buyers": {
+                              "type": "integer"
+                            },
+                            "sellers": {
+                              "type": "integer"
+                            }
+                          }
+                        },
+                        "m15": {
+                          "type": "object",
+                          "properties": {
+                            "buys": {
+                              "type": "integer"
+                            },
+                            "sells": {
+                              "type": "integer"
+                            },
+                            "buyers": {
+                              "type": "integer"
+                            },
+                            "sellers": {
+                              "type": "integer"
+                            }
+                          }
+                        },
+                        "m30": {
+                          "type": "object",
+                          "properties": {
+                            "buys": {
+                              "type": "integer"
+                            },
+                            "sells": {
+                              "type": "integer"
+                            },
+                            "buyers": {
+                              "type": "integer"
+                            },
+                            "sellers": {
+                              "type": "integer"
+                            }
+                          }
+                        },
+                        "h1": {
+                          "type": "object",
+                          "properties": {
+                            "buys": {
+                              "type": "integer"
+                            },
+                            "sells": {
+                              "type": "integer"
+                            },
+                            "buyers": {
+                              "type": "integer"
+                            },
+                            "sellers": {
+                              "type": "integer"
+                            }
+                          }
+                        },
+                        "h24": {
+                          "type": "object",
+                          "properties": {
+                            "buys": {
+                              "type": "integer"
+                            },
+                            "sells": {
+                              "type": "integer"
+                            },
+                            "buyers": {
+                              "type": "integer"
+                            },
+                            "sellers": {
+                              "type": "integer"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "volume_usd": {
+                      "type": "object",
+                      "properties": {
+                        "m5": {
+                          "type": "string"
+                        },
+                        "m15": {
+                          "type": "string"
+                        },
+                        "m30": {
+                          "type": "string"
+                        },
+                        "h1": {
+                          "type": "string"
+                        },
+                        "h6": {
+                          "type": "string"
+                        },
+                        "h24": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "reserve_in_usd": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "relationships": {
+                  "type": "object",
+                  "properties": {
+                    "base_token": {
+                      "type": "object",
+                      "properties": {
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "type": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "quote_token": {
+                      "type": "object",
+                      "properties": {
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "type": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "dex": {
+                      "type": "object",
+                      "properties": {
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "type": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "attributes": {
+                  "type": "object",
+                  "properties": {
+                    "address": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "symbol": {
+                      "type": "string"
+                    },
+                    "decimals": {
+                      "type": "integer"
+                    },
+                    "image_url": {
+                      "type": "string"
+                    },
+                    "coingecko_coin_id": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "example": {
+          "data": [
+            {
+              "id": "eth_0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
+              "type": "pool",
+              "attributes": {
+                "base_token_price_usd": "3653.12491645176",
+                "base_token_price_native_currency": "1.0",
+                "quote_token_price_usd": "0.998343707926245",
+                "quote_token_price_native_currency": "0.000273040545093221",
+                "base_token_price_quote_token": "3662.46",
+                "quote_token_price_base_token": "0.00027304",
+                "address": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
+                "name": "WETH / USDC 0.05%",
+                "pool_created_at": "2021-12-29T12:35:14Z",
+                "fdv_usd": "11007041041",
+                "market_cap_usd": null,
+                "price_change_percentage": {
+                  "m5": "0",
+                  "m15": "0.21",
+                  "m30": "0.31",
+                  "h1": "0.51",
+                  "h6": "0.86",
+                  "h24": "7.71"
+                },
+                "transactions": {
+                  "m5": {
+                    "buys": 7,
+                    "sells": 2,
+                    "buyers": 7,
+                    "sellers": 2
+                  },
+                  "m15": {
+                    "buys": 19,
+                    "sells": 27,
+                    "buyers": 19,
+                    "sellers": 27
+                  },
+                  "m30": {
+                    "buys": 49,
+                    "sells": 61,
+                    "buyers": 45,
+                    "sellers": 57
+                  },
+                  "h1": {
+                    "buys": 97,
+                    "sells": 144,
+                    "buyers": 83,
+                    "sellers": 124
+                  },
+                  "h24": {
+                    "buys": 2966,
+                    "sells": 3847,
+                    "buyers": 1625,
+                    "sellers": 2399
+                  }
+                },
+                "volume_usd": {
+                  "m5": "868581.7348314",
+                  "m15": "2056262.885098",
+                  "m30": "4081230.098456",
+                  "h1": "16798158.0138526",
+                  "h6": "164054610.850188",
+                  "h24": "536545444.904535"
+                },
+                "reserve_in_usd": "163988541.3812"
+              },
+              "relationships": {
+                "base_token": {
+                  "data": {
+                    "id": "eth_0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+                    "type": "token"
+                  }
+                },
+                "quote_token": {
+                  "data": {
+                    "id": "eth_0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+                    "type": "token"
+                  }
+                },
+                "dex": {
+                  "data": {
+                    "id": "uniswap_v3",
+                    "type": "dex"
+                  }
+                }
+              }
+            }
+          ],
+          "included": [
+            {
+              "id": "eth_0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+              "type": "token",
+              "attributes": {
+                "address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+                "name": "Wrapped Ether",
+                "symbol": "WETH",
+                "decimals": 18,
+                "image_url": "https://assets.coingecko.com/coins/images/2518/small/weth.png?1696503332",
+                "coingecko_coin_id": "weth"
+              }
+            }
+          ]
+        }
+      },
+      "PoolInfo": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "attributes": {
+                  "type": "object",
+                  "properties": {
+                    "base_token_price_usd": {
+                      "type": "string"
+                    },
+                    "base_token_price_native_currency": {
+                      "type": "string"
+                    },
+                    "quote_token_price_usd": {
+                      "type": "string"
+                    },
+                    "quote_token_price_native_currency": {
+                      "type": "string"
+                    },
+                    "base_token_price_quote_token": {
+                      "type": "string"
+                    },
+                    "quote_token_price_base_token": {
+                      "type": "string"
+                    },
+                    "address": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "pool_name": {
+                      "type": "string"
+                    },
+                    "pool_fee_percentage": {
+                      "type": "string"
+                    },
+                    "pool_created_at": {
+                      "type": "string"
+                    },
+                    "fdv_usd": {
+                      "type": "string"
+                    },
+                    "market_cap_usd": {
+                      "type": "string"
+                    },
+                    "price_change_percentage": {
+                      "type": "object",
+                      "properties": {
+                        "m5": {
+                          "type": "string"
+                        },
+                        "m15": {
+                          "type": "string"
+                        },
+                        "m30": {
+                          "type": "string"
+                        },
+                        "h1": {
+                          "type": "string"
+                        },
+                        "h6": {
+                          "type": "string"
+                        },
+                        "h24": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "transactions": {
+                      "type": "object",
+                      "properties": {
+                        "m5": {
+                          "type": "object",
+                          "properties": {
+                            "buys": {
+                              "type": "integer"
+                            },
+                            "sells": {
+                              "type": "integer"
+                            },
+                            "buyers": {
+                              "type": "integer"
+                            },
+                            "sellers": {
+                              "type": "integer"
+                            }
+                          }
+                        },
+                        "m15": {
+                          "type": "object",
+                          "properties": {
+                            "buys": {
+                              "type": "integer"
+                            },
+                            "sells": {
+                              "type": "integer"
+                            },
+                            "buyers": {
+                              "type": "integer"
+                            },
+                            "sellers": {
+                              "type": "integer"
+                            }
+                          }
+                        },
+                        "m30": {
+                          "type": "object",
+                          "properties": {
+                            "buys": {
+                              "type": "integer"
+                            },
+                            "sells": {
+                              "type": "integer"
+                            },
+                            "buyers": {
+                              "type": "integer"
+                            },
+                            "sellers": {
+                              "type": "integer"
+                            }
+                          }
+                        },
+                        "h1": {
+                          "type": "object",
+                          "properties": {
+                            "buys": {
+                              "type": "integer"
+                            },
+                            "sells": {
+                              "type": "integer"
+                            },
+                            "buyers": {
+                              "type": "integer"
+                            },
+                            "sellers": {
+                              "type": "integer"
+                            }
+                          }
+                        },
+                        "h6": {
+                          "type": "object",
+                          "properties": {
+                            "buys": {
+                              "type": "integer"
+                            },
+                            "sells": {
+                              "type": "integer"
+                            },
+                            "buyers": {
+                              "type": "integer"
+                            },
+                            "sellers": {
+                              "type": "integer"
+                            }
+                          }
+                        },
+                        "h24": {
+                          "type": "object",
+                          "properties": {
+                            "buys": {
+                              "type": "integer"
+                            },
+                            "sells": {
+                              "type": "integer"
+                            },
+                            "buyers": {
+                              "type": "integer"
+                            },
+                            "sellers": {
+                              "type": "integer"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "volume_usd": {
+                      "type": "object",
+                      "properties": {
+                        "m5": {
+                          "type": "string"
+                        },
+                        "m15": {
+                          "type": "string"
+                        },
+                        "m30": {
+                          "type": "string"
+                        },
+                        "h1": {
+                          "type": "string"
+                        },
+                        "h6": {
+                          "type": "string"
+                        },
+                        "h24": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "reserve_in_usd": {
+                      "type": "string"
+                    },
+                    "locked_liquidity_percentage": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "relationships": {
+                  "type": "object",
+                  "properties": {
+                    "base_token": {
+                      "type": "object",
+                      "properties": {
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "type": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "quote_token": {
+                      "type": "object",
+                      "properties": {
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "type": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "dex": {
+                      "type": "object",
+                      "properties": {
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "type": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "attributes": {
+                  "type": "object",
+                  "properties": {
+                    "address": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "symbol": {
+                      "type": "string"
+                    },
+                    "decimals": {
+                      "type": "integer"
+                    },
+                    "image_url": {
+                      "type": "string"
+                    },
+                    "coingecko_coin_id": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "example": {
+          "data": [
+            {
+              "id": "eth_0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
+              "type": "pool",
+              "attributes": {
+                "base_token_price_usd": "3653.12491645176",
+                "base_token_price_native_currency": "1.0",
+                "quote_token_price_usd": "0.998343707926245",
+                "quote_token_price_native_currency": "0.000273040545093221",
+                "base_token_price_quote_token": "3662.46",
+                "quote_token_price_base_token": "0.00027304",
+                "address": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
+                "name": "WETH / USDC 0.05%",
+                "pool_name": "WETH / USDC",
+                "pool_fee_percentage": "0.05",
+                "pool_created_at": "2021-12-29T12:35:14Z",
+                "fdv_usd": "11007041041",
+                "market_cap_usd": null,
+                "price_change_percentage": {
+                  "m5": "0",
+                  "m15": "0.21",
+                  "m30": "0.31",
+                  "h1": "0.51",
+                  "h6": "0.86",
+                  "h24": "7.71"
+                },
+                "transactions": {
+                  "m5": {
+                    "buys": 7,
+                    "sells": 2,
+                    "buyers": 7,
+                    "sellers": 2
+                  },
+                  "m15": {
+                    "buys": 19,
+                    "sells": 27,
+                    "buyers": 19,
+                    "sellers": 27
+                  },
+                  "m30": {
+                    "buys": 49,
+                    "sells": 61,
+                    "buyers": 45,
+                    "sellers": 57
+                  },
+                  "h1": {
+                    "buys": 97,
+                    "sells": 144,
+                    "buyers": 83,
+                    "sellers": 124
+                  },
+                  "h6": {
+                    "buys": 677,
+                    "sells": 790,
+                    "buyers": 323,
+                    "sellers": 495
+                  },
+                  "h24": {
+                    "buys": 2966,
+                    "sells": 3847,
+                    "buyers": 1625,
+                    "sellers": 2399
+                  }
+                },
+                "volume_usd": {
+                  "m5": "868581.7348314",
+                  "m15": "1261496.07334221",
+                  "m30": "2380625.03132076",
+                  "h1": "16798158.0138526",
+                  "h6": "164054610.850188",
+                  "h24": "536545444.904535"
+                },
+                "reserve_in_usd": "163988541.3812",
+                "locked_liquidity_percentage": "0.0"
+              },
+              "relationships": {
+                "base_token": {
+                  "data": {
+                    "id": "eth_0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+                    "type": "token"
+                  }
+                },
+                "quote_token": {
+                  "data": {
+                    "id": "eth_0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+                    "type": "token"
+                  }
+                },
+                "dex": {
+                  "data": {
+                    "id": "uniswap_v3",
+                    "type": "dex"
+                  }
+                }
+              }
+            }
+          ],
+          "included": [
+            {
+              "id": "eth_0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+              "type": "token",
+              "attributes": {
+                "address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+                "name": "Wrapped Ether",
+                "symbol": "WETH",
+                "decimals": 18,
+                "image_url": "https://assets.coingecko.com/coins/images/2518/small/weth.png?1696503332",
+                "coingecko_coin_id": "weth"
+              }
+            }
+          ]
+        }
+      },
+      "PoolTokensInfo": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/TokenInfo"
+          }
+        ],
+        "example": {
+          "data": [
+            {
+              "id": "eth_0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+              "type": "token",
+              "attributes": {
+                "address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+                "name": "Wrapped Ether",
+                "symbol": "WETH",
+                "image_url": "https://assets.coingecko.com/coins/images/2518/small/weth.png?1696503332",
+                "image": {
+                  "thumb": "https://assets.coingecko.com/coins/images/2518/thumb/weth.png?1696503332",
+                  "small": "https://assets.coingecko.com/coins/images/2518/small/weth.png?1696503332",
+                  "large": "https://assets.coingecko.com/coins/images/2518/large/weth.png?1696503332"
+                },
+                "coingecko_coin_id": "weth",
+                "websites": [
+                  "https://weth.io/"
+                ],
+                "description": "WETH is the tokenized/packaged form of ETH that you use to pay for items when you interact with Ethereum dApps...",
+                "gt_score": 92.6605504587156,
+                "gt_score_details": {
+                  "pool": 87.5,
+                  "transaction": 0,
+                  "creation": 100,
+                  "info": 100,
+                  "holders": 100
+                },
+                "discord_url": null,
+                "telegram_handle": null,
+                "twitter_handle": null,
+                "categories": [],
+                "gt_categories_id": [],
+                "holders": {
+                  "count": 1385496,
+                  "distribution_percentage": {
+                    "top_10": "55.1184",
+                    "11_30": "13.5825",
+                    "31_50": "4.7971",
+                    "rest": "26.502"
+                  },
+                  "last_updated": "2025-03-12T13:07:47Z"
+                },
+                "mint_authority": null,
+                "freeze_authority": null,
+                "is_honeypot": false
+              }
+            },
+            {
+              "id": "eth_0xdac17f958d2ee523a2206206994597c13d831ec7",
+              "type": "token",
+              "attributes": {
+                "address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+                "name": "Tether USD",
+                "symbol": "USDT",
+                "image_url": "https://assets.coingecko.com/coins/images/325/small/Tether.png?1696501661",
+                "coingecko_coin_id": "tether",
+                "websites": [
+                  "https://tether.to/"
+                ],
+                "description": "Tether (USDT) is a cryptocurrency with a value meant to mirror the value of the U.S. dollar. ...",
+                "gt_score": 92.6605504587156,
+                "gt_score_details": {
+                  "pool": 87.5,
+                  "transaction": 0,
+                  "creation": 100,
+                  "info": 100,
+                  "holders": 0
+                },
+                "discord_url": null,
+                "telegram_handle": null,
+                "twitter_handle": "Tether_to",
+                "categories": [],
+                "gt_categories_id": [],
+                "holders": {
+                  "count": 7041203,
+                  "distribution_percentage": {
+                    "top_10": "45.5782",
+                    "11_30": "13.4293",
+                    "31_50": "3.9681",
+                    "rest": "37.0244"
+                  },
+                  "last_updated": "2025-03-12T05:28:50Z"
+                },
+                "mint_authority": null,
+                "freeze_authority": null,
+                "is_honeypot": false
+              }
+            }
+          ]
+        }
+      },
+      "Token": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "attributes": {
+                "type": "object",
+                "properties": {
+                  "address": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "symbol": {
+                    "type": "string"
+                  },
+                  "image_url": {
+                    "type": "string"
+                  },
+                  "coingecko_coin_id": {
+                    "type": "string"
+                  },
+                  "decimals": {
+                    "type": "integer"
+                  },
+                  "total_supply": {
+                    "type": "string"
+                  },
+                  "normalized_total_supply": {
+                    "type": "string"
+                  },
+                  "price_usd": {
+                    "type": "string"
+                  },
+                  "fdv_usd": {
+                    "type": "string"
+                  },
+                  "total_reserve_in_usd": {
+                    "type": "string"
+                  },
+                  "volume_usd": {
+                    "type": "object",
+                    "properties": {
+                      "h24": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "market_cap_usd": {
+                    "type": "string"
+                  }
+                }
+              },
+              "relationships": {
+                "type": "object",
+                "properties": {
+                  "top_pools": {
+                    "type": "object",
+                    "properties": {
+                      "data": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "type": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "attributes": {
+                  "type": "object",
+                  "properties": {
+                    "base_token_price_usd": {
+                      "type": "string"
+                    },
+                    "base_token_price_native_currency": {
+                      "type": "string"
+                    },
+                    "quote_token_price_usd": {
+                      "type": "string"
+                    },
+                    "quote_token_price_native_currency": {
+                      "type": "string"
+                    },
+                    "base_token_price_quote_token": {
+                      "type": "string"
+                    },
+                    "quote_token_price_base_token": {
+                      "type": "string"
+                    },
+                    "address": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "pool_created_at": {
+                      "type": "string"
+                    },
+                    "token_price_usd": {
+                      "type": "string"
+                    },
+                    "fdv_usd": {
+                      "type": "string"
+                    },
+                    "market_cap_usd": {
+                      "type": "string"
+                    },
+                    "price_change_percentage": {
+                      "type": "object",
+                      "properties": {
+                        "m5": {
+                          "type": "string"
+                        },
+                        "m15": {
+                          "type": "string"
+                        },
+                        "m30": {
+                          "type": "string"
+                        },
+                        "h1": {
+                          "type": "string"
+                        },
+                        "h6": {
+                          "type": "string"
+                        },
+                        "h24": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "transactions": {
+                      "type": "object",
+                      "properties": {
+                        "m5": {
+                          "type": "object",
+                          "properties": {
+                            "buys": {
+                              "type": "integer"
+                            },
+                            "sells": {
+                              "type": "integer"
+                            },
+                            "buyers": {
+                              "type": "integer"
+                            },
+                            "sellers": {
+                              "type": "integer"
+                            }
+                          }
+                        },
+                        "m15": {
+                          "type": "object",
+                          "properties": {
+                            "buys": {
+                              "type": "integer"
+                            },
+                            "sells": {
+                              "type": "integer"
+                            },
+                            "buyers": {
+                              "type": "integer"
+                            },
+                            "sellers": {
+                              "type": "integer"
+                            }
+                          }
+                        },
+                        "m30": {
+                          "type": "object",
+                          "properties": {
+                            "buys": {
+                              "type": "integer"
+                            },
+                            "sells": {
+                              "type": "integer"
+                            },
+                            "buyers": {
+                              "type": "integer"
+                            },
+                            "sellers": {
+                              "type": "integer"
+                            }
+                          }
+                        },
+                        "h1": {
+                          "type": "object",
+                          "properties": {
+                            "buys": {
+                              "type": "integer"
+                            },
+                            "sells": {
+                              "type": "integer"
+                            },
+                            "buyers": {
+                              "type": "integer"
+                            },
+                            "sellers": {
+                              "type": "integer"
+                            }
+                          }
+                        },
+                        "h24": {
+                          "type": "object",
+                          "properties": {
+                            "buys": {
+                              "type": "integer"
+                            },
+                            "sells": {
+                              "type": "integer"
+                            },
+                            "buyers": {
+                              "type": "integer"
+                            },
+                            "sellers": {
+                              "type": "integer"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "volume_usd": {
+                      "type": "object",
+                      "properties": {
+                        "m5": {
+                          "type": "string"
+                        },
+                        "m15": {
+                          "type": "string"
+                        },
+                        "m30": {
+                          "type": "string"
+                        },
+                        "h1": {
+                          "type": "string"
+                        },
+                        "h6": {
+                          "type": "string"
+                        },
+                        "h24": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "reserve_in_usd": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "relationships": {
+                  "type": "object",
+                  "properties": {
+                    "base_token": {
+                      "type": "object",
+                      "properties": {
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "type": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "quote_token": {
+                      "type": "object",
+                      "properties": {
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "type": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "dex": {
+                      "type": "object",
+                      "properties": {
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "type": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "example": {
+          "data": {
+            "id": "eth_0xdac17f958d2ee523a2206206994597c13d831ec7",
+            "type": "token",
+            "attributes": {
+              "address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+              "name": "Tether USD",
+              "symbol": "USDT",
+              "image_url": "https://assets.coingecko.com/coins/images/325/small/Tether.png?1696501661",
+              "coingecko_coin_id": "tether",
+              "decimals": 6,
+              "total_supply": "49999156520373530.0",
+              "normalized_total_supply": "49999156520.37353",
+              "price_usd": "0.99720157",
+              "fdv_usd": "49859223957",
+              "total_reserve_in_usd": "417994486.4342195821530162288",
+              "volume_usd": {
+                "h24": "814387053.106936"
+              },
+              "market_cap_usd": "106918274170.211"
+            },
+            "relationships": {
+              "top_pools": {
+                "data": [
+                  {
+                    "id": "eth_0xbebc44782c7db0a1a60cb6fe97d0b483032ff1c7",
+                    "type": "pool"
+                  },
+                  {
+                    "id": "eth_0x3416cf6c708da44db2624d63ea0aaef7113527c6",
+                    "type": "pool"
+                  },
+                  {
+                    "id": "eth_0x11b815efb8f581194ae79006d24e0d814b7697f6",
+                    "type": "pool"
+                  }
+                ]
+              }
+            }
+          },
+          "included": [
+            {
+              "id": "eth_0xbebc44782c7db0a1a60cb6fe97d0b483032ff1c7",
+              "type": "pool",
+              "attributes": {
+                "base_token_price_usd": "0.999745541005697",
+                "base_token_price_native_currency": "0.000273214695167948",
+                "quote_token_price_usd": "0.997201571758263",
+                "quote_token_price_native_currency": "0.000274189521081092",
+                "base_token_price_quote_token": "0.99644470",
+                "quote_token_price_base_token": "1.00356798",
+                "address": "0xbebc44782c7db0a1a60cb6fe97d0b483032ff1c7",
+                "name": "DAI / USDC / USDT",
+                "pool_created_at": "2022-07-13T11:48:12Z",
+                "token_price_usd": "0.999745541005697",
+                "fdv_usd": "3270150238",
+                "market_cap_usd": "4870754520.25286",
+                "price_change_percentage": {
+                  "m5": "0",
+                  "m15": "0.01",
+                  "m30": "0.02",
+                  "h1": "-0.15",
+                  "h6": "-0.5",
+                  "h24": "-0.19"
+                },
+                "transactions": {
+                  "m5": {
+                    "buys": 0,
+                    "sells": 0,
+                    "buyers": null,
+                    "sellers": null
+                  },
+                  "m15": {
+                    "buys": 1,
+                    "sells": 0,
+                    "buyers": null,
+                    "sellers": null
+                  },
+                  "m30": {
+                    "buys": 2,
+                    "sells": 0,
+                    "buyers": null,
+                    "sellers": null
+                  },
+                  "h1": {
+                    "buys": 4,
+                    "sells": 1,
+                    "buyers": null,
+                    "sellers": null
+                  },
+                  "h24": {
+                    "buys": 67,
+                    "sells": 84,
+                    "buyers": null,
+                    "sellers": null
+                  }
+                },
+                "volume_usd": {
+                  "m5": "0.0",
+                  "m15": "287334.7997",
+                  "m30": "394221.288",
+                  "h1": "1502319.288637997",
+                  "h6": "45415206.49514137",
+                  "h24": "69802183.6886975"
+                },
+                "reserve_in_usd": "184383775.4111"
+              },
+              "relationships": {
+                "base_token": {
+                  "data": {
+                    "id": "eth_0x6b175474e89094c44da98b954eedeac495271d0f",
+                    "type": "token"
+                  }
+                },
+                "quote_token": {
+                  "data": {
+                    "id": "eth_0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+                    "type": "token"
+                  }
+                },
+                "dex": {
+                  "data": {
+                    "id": "curve",
+                    "type": "dex"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "TokenInfo": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "attributes": {
+                "type": "object",
+                "properties": {
+                  "address": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "symbol": {
+                    "type": "string"
+                  },
+                  "image_url": {
+                    "type": "string"
+                  },
+                  "image": {
+                    "type": "object",
+                    "properties": {
+                      "thumb": {
+                        "type": "string"
+                      },
+                      "small": {
+                        "type": "string"
+                      },
+                      "large": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "coingecko_coin_id": {
+                    "type": "string"
+                  },
+                  "websites": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "gt_score": {
+                    "type": "number"
+                  },
+                  "gt_score_details": {
+                    "type": "object",
+                    "properties": {
+                      "pool": {
+                        "type": "number"
+                      },
+                      "transaction": {
+                        "type": "number"
+                      },
+                      "creation": {
+                        "type": "number"
+                      },
+                      "info": {
+                        "type": "number"
+                      },
+                      "holders": {
+                        "type": "number"
+                      }
+                    }
+                  },
+                  "discord_url": {
+                    "type": "string"
+                  },
+                  "telegram_handle": {
+                    "type": "string"
+                  },
+                  "twitter_handle": {
+                    "type": "string"
+                  },
+                  "categories": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "gt_categories_id": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "holders": {
+                    "type": "object",
+                    "properties": {
+                      "count": {
+                        "type": "integer"
+                      },
+                      "distribution_percentage": {
+                        "type": "object",
+                        "properties": {
+                          "top_10": {
+                            "type": "number"
+                          },
+                          "11_30": {
+                            "type": "number"
+                          },
+                          "31_50": {
+                            "type": "number"
+                          },
+                          "rest": {
+                            "type": "number"
+                          }
+                        }
+                      },
+                      "last_updated": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "mint_authority": {
+                    "type": "string"
+                  },
+                  "freeze_authority": {
+                    "type": "string"
+                  },
+                  "is_honeypot": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "example": {
+          "data": {
+            "id": "eth_0xdac17f958d2ee523a2206206994597c13d831ec7",
+            "type": "token",
+            "attributes": {
+              "address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+              "name": "Tether USD",
+              "symbol": "USDT",
+              "image_url": "https://assets.coingecko.com/coins/images/325/small/Tether.png?1696501661",
+              "image": {
+                "thumb": "https://assets.coingecko.com/coins/images/325/thumb/Tether.png?1696501661",
+                "small": "https://assets.coingecko.com/coins/images/325/small/Tether.png?1696501661",
+                "large": "https://assets.coingecko.com/coins/images/325/large/Tether.png?1696501661"
+              },
+              "coingecko_coin_id": "tether",
+              "websites": [
+                "https://tether.to/"
+              ],
+              "description": "Tether (USDT) is a cryptocurrency with a value meant to mirror the value of the U.S. dollar...",
+              "gt_score": 92.6605504587156,
+              "gt_score_details": {
+                "pool": 87.5,
+                "transaction": 0,
+                "creation": 100,
+                "info": 100,
+                "holders": 0
+              },
+              "discord_url": null,
+              "telegram_handle": null,
+              "twitter_handle": "Tether_to",
+              "categories": [],
+              "gt_categories_id": [],
+              "holders": {
+                "count": 7041203,
+                "distribution_percentage": {
+                  "top_10": "45.5782",
+                  "11_30": "13.4293",
+                  "31_50": "3.9681",
+                  "rest": "37.0244"
+                },
+                "last_updated": "2025-03-12T05:28:50Z"
+              },
+              "mint_authority": null,
+              "freeze_authority": null,
+              "is_honeypot": false
+            }
+          }
+        }
+      },
+      "TokenInfoRecentlyUpdated": {
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "attributes": {
+                "type": "object",
+                "properties": {
+                  "address": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "symbol": {
+                    "type": "string"
+                  },
+                  "image_url": {
+                    "type": "string"
+                  },
+                  "coingecko_coin_id": {
+                    "type": "string"
+                  },
+                  "websites": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "gt_score": {
+                    "type": "number"
+                  },
+                  "metadata_updated_at": {
+                    "type": "string"
+                  }
+                }
+              },
+              "relationships": {
+                "type": "object",
+                "properties": {
+                  "network": {
+                    "type": "object",
+                    "properties": {
+                      "data": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "example": {
+          "data": [
+            {
+              "id": "solana_8kgMCX7ezivU472eXaiGRu8xzNetpdxKDvNQBwKRipxi",
+              "type": "token",
+              "attributes": {
+                "address": "8kgMCX7ezivU472eXaiGRu8xzNetpdxKDvNQBwKRipxi",
+                "name": "WIZARDS OF DOGE",
+                "symbol": "WOD",
+                "decimals": 6,
+                "image_url": "https://assets.geckoterminal.com/23fwhe56einulc0vqgs6bhkfusfr",
+                "coingecko_coin_id": null,
+                "websites": [
+                  "https://wizzoordofwod.com"
+                ],
+                "discord_url": null,
+                "telegram_handle": null,
+                "twitter_handle": "wizzoordofwod",
+                "description": "Our mission is to help the IRL Wizards of Doge go viral in support of Elon’s DOGE initiative and to propagate wizards throughout the realm",
+                "gt_score": 62.50770642201834,
+                "metadata_updated_at": "2025-05-26T07:47:20Z"
+              },
+              "relationships": {
+                "network": {
+                  "data": {
+                    "id": "solana",
+                    "type": "network"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "TokensData": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "attributes": {
+                  "type": "object",
+                  "properties": {
+                    "address": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "symbol": {
+                      "type": "string"
+                    },
+                    "image_url": {
+                      "type": "string"
+                    },
+                    "coingecko_coin_id": {
+                      "type": "string"
+                    },
+                    "decimals": {
+                      "type": "integer"
+                    },
+                    "total_supply": {
+                      "type": "string"
+                    },
+                    "normalized_total_supply": {
+                      "type": "string"
+                    },
+                    "price_usd": {
+                      "type": "string"
+                    },
+                    "fdv_usd": {
+                      "type": "string"
+                    },
+                    "total_reserve_in_usd": {
+                      "type": "string"
+                    },
+                    "volume_usd": {
+                      "type": "object",
+                      "properties": {
+                        "h24": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "market_cap_usd": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "relationships": {
+                  "type": "object",
+                  "properties": {
+                    "top_pools": {
+                      "type": "object",
+                      "properties": {
+                        "data": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "type": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "example": {
+          "data": [
+            {
+              "id": "eth_0x44ff8620b8ca30902395a7bd3f2407e1a091bf73",
+              "type": "token",
+              "attributes": {
+                "address": "0x44ff8620b8ca30902395a7bd3f2407e1a091bf73",
+                "name": "Virtual Protocol",
+                "symbol": "VIRTUAL",
+                "decimals": 18,
+                "image_url": "https://coin-images.coingecko.com/coins/images/34057/large/LOGOMARK.png?1708356054",
+                "coingecko_coin_id": "virtual-protocol",
+                "total_supply": "1000000000000000000000000000.0",
+                "normalized_total_supply": "1000000000.0",
+                "price_usd": "1.8504100322",
+                "fdv_usd": "1850407260.24129",
+                "total_reserve_in_usd": "8720991.5967831836177735361998066186",
+                "volume_usd": {
+                  "h24": "2204224.92600213"
+                },
+                "market_cap_usd": "1211465187.61299"
+              },
+              "relationships": {
+                "top_pools": {
+                  "data": [
+                    {
+                      "id": "eth_0x1688d62c82abebf4d33ecea96d983fc1627966f6",
+                      "type": "pool"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      },
+      "Trades": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "attributes": {
+                  "type": "object",
+                  "properties": {
+                    "block_number": {
+                      "type": "integer"
+                    },
+                    "tx_hash": {
+                      "type": "string"
+                    },
+                    "tx_from_address": {
+                      "type": "string"
+                    },
+                    "from_token_amount": {
+                      "type": "string"
+                    },
+                    "to_token_amount": {
+                      "type": "string"
+                    },
+                    "price_from_in_currency_token": {
+                      "type": "string"
+                    },
+                    "price_to_in_currency_token": {
+                      "type": "string"
+                    },
+                    "price_from_in_usd": {
+                      "type": "string"
+                    },
+                    "price_to_in_usd": {
+                      "type": "string"
+                    },
+                    "block_timestamp": {
+                      "type": "string"
+                    },
+                    "kind": {
+                      "type": "string"
+                    },
+                    "volume_in_usd": {
+                      "type": "string"
+                    },
+                    "from_token_address": {
+                      "type": "string"
+                    },
+                    "to_token_address": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "example": {
+          "data": [
+            {
+              "id": "eth_19612255_0x0b8ac5a16c291832c1b4d5f0d8ef2d9d58e207cd8132c32392295617daa4d422_158_1712595165",
+              "type": "trade",
+              "attributes": {
+                "block_number": 19612255,
+                "tx_hash": "0x0b8ac5a16c291832c1b4d5f0d8ef2d9d58e207cd8132c32392295617daa4d422",
+                "tx_from_address": "0x42c037c594eefeca741e9dd66af91e7ffd930872",
+                "from_token_amount": "1.51717616246451",
+                "to_token_amount": "5535.099061",
+                "price_from_in_currency_token": "1.0",
+                "price_to_in_currency_token": "0.000274100995437363",
+                "price_from_in_usd": "3656.8970003075",
+                "price_to_in_usd": "1.00235910799619",
+                "block_timestamp": "2024-04-08T16:52:35Z",
+                "kind": "buy",
+                "volume_in_usd": "5548.15695745452",
+                "from_token_address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+                "to_token_address": "0xdac17f958d2ee523a2206206994597c13d831ec7"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "x-readme": {
+    "explorer-enabled": true,
+    "proxy-enabled": true
+  }
+}
