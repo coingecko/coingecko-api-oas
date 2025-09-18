@@ -16,8 +16,6 @@ These OpenAPI 3.0 Specs (OAS) define the CoinGecko API — documenting its endpo
 - CoinGecko Public/Demo API — [coingecko-demo.json](https://raw.githubusercontent.com/coingecko/coingecko-api-oas/refs/heads/main/coingecko-demo.json)
 - GeckoTerminal Onchain API (Demo) — [onchain-demo.json](https://raw.githubusercontent.com/coingecko/coingecko-api-oas/refs/heads/main/onchain-demo.json)
 
-<br />
-
 ---
 
 <br />
