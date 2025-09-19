@@ -16,7 +16,7 @@
     {
       "apiKeyQueryParam": []
     }
-  ], 
+  ],
   "paths": {
     "/simple/networks/{network}/token_price/{addresses}": {
       "get": {
