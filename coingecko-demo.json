@@ -161,7 +161,7 @@
           {
             "name": "include_24hr_change",
             "in": "query",
-            "description": "include 24hr change, default: false",
+            "description": "include 24hr change percentage, default: false",
             "schema": {
               "type": "boolean"
             }
@@ -2620,6 +2620,21 @@
       },
       "SimplePrice": {
         "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/SimplePriceData"
+        },
+        "example": {
+          "bitcoin": {
+            "usd": 67187.3358936566,
+            "usd_market_cap": 1317802988326.25,
+            "usd_24h_vol": 31260929299.5248,
+            "usd_24h_change": 3.63727894677354,
+            "last_updated_at": 1711356300
+          }
+        }
+      },
+      "SimplePriceData": {
+        "type": "object",
         "properties": {
           "usd": {
             "type": "number",
@@ -2635,20 +2650,11 @@
           },
           "usd_24h_change": {
             "type": "number",
-            "description": "24hr change in USD"
+            "description": "24hr change percentage in USD"
           },
           "last_updated_at": {
             "type": "number",
             "description": "last updated timestamp"
-          }
-        },
-        "example": {
-          "bitcoin": {
-            "usd": 67187.3358936566,
-            "usd_market_cap": 1317802988326.25,
-            "usd_24h_vol": 31260929299.5248,
-            "usd_24h_change": 3.63727894677354,
-            "last_updated_at": 1711356300
           }
         }
       },
