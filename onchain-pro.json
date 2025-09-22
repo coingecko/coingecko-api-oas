@@ -2910,10 +2910,22 @@
               "base_token_price_native_currency": {
                 "type": "string"
               },
+              "base_token_balance": {
+                "type": "string"
+              },
+              "base_token_liquidity_usd": {
+                "type": "string"
+              },
               "quote_token_price_usd": {
                 "type": "string"
               },
               "quote_token_price_native_currency": {
+                "type": "string"
+              },
+              "quote_token_balance": {
+                "type": "string"
+              },
+              "quote_token_liquidity_usd": {
                 "type": "string"
               },
               "base_token_price_quote_token": {
@@ -3096,6 +3108,75 @@
                   }
                 }
               },
+              "net_buy_volume_usd": {
+                "type": "object",
+                "properties": {
+                  "m5": {
+                    "type": "string"
+                  },
+                  "m15": {
+                    "type": "string"
+                  },
+                  "m30": {
+                    "type": "string"
+                  },
+                  "h1": {
+                    "type": "string"
+                  },
+                  "h6": {
+                    "type": "string"
+                  },
+                  "h24": {
+                    "type": "string"
+                  }
+                }
+              },
+              "buy_volume_usd": {
+                "type": "object",
+                "properties": {
+                  "m5": {
+                    "type": "string"
+                  },
+                  "m15": {
+                    "type": "string"
+                  },
+                  "m30": {
+                    "type": "string"
+                  },
+                  "h1": {
+                    "type": "string"
+                  },
+                  "h6": {
+                    "type": "string"
+                  },
+                  "h24": {
+                    "type": "string"
+                  }
+                }
+              },
+              "sell_volume_usd": {
+                "type": "object",
+                "properties": {
+                  "m5": {
+                    "type": "string"
+                  },
+                  "m15": {
+                    "type": "string"
+                  },
+                  "m30": {
+                    "type": "string"
+                  },
+                  "h1": {
+                    "type": "string"
+                  },
+                  "h6": {
+                    "type": "string"
+                  },
+                  "h24": {
+                    "type": "string"
+                  }
+                }
+              },
               "reserve_in_usd": {
                 "type": "string"
               },
@@ -3212,68 +3293,103 @@
               "id": "eth_0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
               "type": "pool",
               "attributes": {
-                "base_token_price_usd": "3653.12491645176",
+                "base_token_price_usd": "4459.91960575582",
                 "base_token_price_native_currency": "1.0",
-                "quote_token_price_usd": "0.998343707926245",
-                "quote_token_price_native_currency": "0.000273040545093221",
-                "base_token_price_quote_token": "3662.46",
-                "quote_token_price_base_token": "0.00027304",
+                "base_token_balance": "5783.57638014946",
+                "base_token_liquidity_usd": "25794285.689214855",
+                "quote_token_price_usd": "0.998614899014123",
+                "quote_token_price_native_currency": "0.000223861979768972",
+                "quote_token_balance": "64655288.355199",
+                "quote_token_liquidity_usd": "64552255.7925259",
+                "base_token_price_quote_token": "4467.038132299",
+                "quote_token_price_base_token": "0.0002238619798",
                 "address": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
                 "name": "WETH / USDC 0.05%",
-                "pool_name": "WETH / USDC 0.05%",
+                "pool_name": "WETH / USDC",
                 "pool_fee_percentage": "0.05",
                 "pool_created_at": "2021-12-29T12:35:14Z",
-                "fdv_usd": "11007041041",
-                "market_cap_usd": null,
+                "fdv_usd": "11160006028.1758",
+                "market_cap_usd": "11166433701.589",
                 "price_change_percentage": {
                   "m5": "0",
-                  "m15": "0.21",
-                  "m30": "0.31",
-                  "h1": "0.51",
-                  "h6": "0.86",
-                  "h24": "7.71"
+                  "m15": "0.027",
+                  "m30": "0.028",
+                  "h1": "0.039",
+                  "h6": "-0.435",
+                  "h24": "-0.221"
                 },
                 "transactions": {
                   "m5": {
-                    "buys": 7,
-                    "sells": 2,
-                    "buyers": 7,
-                    "sellers": 2
+                    "buys": 0,
+                    "sells": 4,
+                    "buyers": 0,
+                    "sellers": 4
                   },
                   "m15": {
-                    "buys": 19,
+                    "buys": 9,
                     "sells": 27,
-                    "buyers": 19,
-                    "sellers": 27
+                    "buyers": 9,
+                    "sellers": 23
                   },
                   "m30": {
-                    "buys": 49,
-                    "sells": 61,
-                    "buyers": 45,
-                    "sellers": 57
+                    "buys": 23,
+                    "sells": 43,
+                    "buyers": 18,
+                    "sellers": 37
                   },
                   "h1": {
-                    "buys": 97,
-                    "sells": 144,
-                    "buyers": 83,
-                    "sellers": 124
+                    "buys": 86,
+                    "sells": 104,
+                    "buyers": 56,
+                    "sellers": 79
+                  },
+                  "h6": {
+                    "buys": 383,
+                    "sells": 524,
+                    "buyers": 212,
+                    "sellers": 388
                   },
                   "h24": {
-                    "buys": 2966,
-                    "sells": 3847,
-                    "buyers": 1625,
-                    "sellers": 2399
+                    "buys": 1517,
+                    "sells": 1828,
+                    "buyers": 740,
+                    "sellers": 1302
                   }
                 },
                 "volume_usd": {
-                  "m5": "868581.7348314",
-                  "m15": "2056262.885098",
-                  "m30": "4081230.098456",
-                  "h1": "16798158.0138526",
-                  "h6": "164054610.850188",
-                  "h24": "536545444.904535"
+                  "m5": "37399.6069733459",
+                  "m15": "288043.30450079",
+                  "m30": "365553.90171076",
+                  "h1": "2801120.82868497",
+                  "h6": "5475445.24298699",
+                  "h24": "16190877.4119214"
                 },
-                "reserve_in_usd": "163988541.3812"
+                "net_buy_volume_usd": {
+                  "m5": "-37399.6069733459",
+                  "m15": "-106958.58061148",
+                  "m30": "-32014.899699526",
+                  "h1": "66459.25132413",
+                  "h6": "-336894.73878909",
+                  "h24": "-165843.81722825"
+                },
+                "buy_volume_usd": {
+                  "m5": "0.0",
+                  "m15": "90542.361944655",
+                  "m30": "166769.501005617",
+                  "h1": "1433790.04000455",
+                  "h6": "2569275.25209895",
+                  "h24": "8012516.79734659"
+                },
+                "sell_volume_usd": {
+                  "m5": "37399.6069733459",
+                  "m15": "197500.942556135",
+                  "m30": "198784.400705143",
+                  "h1": "1367330.78868042",
+                  "h6": "2906169.99088804",
+                  "h24": "8178360.61457484"
+                },
+                "reserve_in_usd": "90346541.3306",
+                "locked_liquidity_percentage": "0.0"
               },
               "relationships": {
                 "base_token": {
@@ -3306,7 +3422,7 @@
                 "name": "Wrapped Ether",
                 "symbol": "WETH",
                 "decimals": 18,
-                "image_url": "https://assets.coingecko.com/coins/images/2518/small/weth.png?1696503332",
+                "image_url": "https://coin-images.coingecko.com/coins/images/2518/large/weth.png?1696503332",
                 "coingecko_coin_id": "weth"
               }
             }
@@ -3362,68 +3478,102 @@
             "id": "eth_0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
             "type": "pool",
             "attributes": {
-              "base_token_price_usd": "3653.12491645176",
+              "base_token_price_usd": "4473.69429892668",
               "base_token_price_native_currency": "1.0",
-              "quote_token_price_usd": "0.998343707926245",
-              "quote_token_price_native_currency": "0.000273040545093221",
-              "base_token_price_quote_token": "3662.46",
-              "quote_token_price_base_token": "0.00027304",
+              "base_token_balance": "5713.28147604894",
+              "base_token_liquidity_usd": "25559474.76756355",
+              "quote_token_price_usd": "0.997996963545633",
+              "quote_token_price_native_currency": "0.000223037878108427",
+              "quote_token_balance": "64636039.082111",
+              "quote_token_liquidity_usd": "64494052.04397222",
+              "base_token_price_quote_token": "4483.543371561",
+              "quote_token_price_base_token": "0.0002230378781",
               "address": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
               "name": "WETH / USDC 0.05%",
-              "pool_name": "WETH / USDC 0.05%",
+              "pool_name": "WETH / USDC",
               "pool_fee_percentage": "0.05",
               "pool_created_at": "2021-12-29T12:35:14Z",
-              "fdv_usd": "11007041041",
-              "market_cap_usd": null,
+              "fdv_usd": "11190873336.847",
+              "market_cap_usd": "11195941219.2312",
               "price_change_percentage": {
                 "m5": "0",
-                "m15": "0.21",
-                "m30": "0.31",
-                "h1": "0.51",
-                "h6": "0.86",
-                "h24": "7.71"
+                "m15": "0.01",
+                "m30": "0",
+                "h1": "0",
+                "h6": "-0.31",
+                "h24": "0.06"
               },
               "transactions": {
                 "m5": {
-                  "buys": 7,
-                  "sells": 2,
-                  "buyers": 7,
-                  "sellers": 2
+                  "buys": 0,
+                  "sells": 4,
+                  "buyers": 0,
+                  "sellers": 4
                 },
                 "m15": {
-                  "buys": 19,
-                  "sells": 27,
-                  "buyers": 19,
-                  "sellers": 27
+                  "buys": 7,
+                  "sells": 14,
+                  "buyers": 7,
+                  "sellers": 13
                 },
                 "m30": {
-                  "buys": 49,
-                  "sells": 61,
-                  "buyers": 45,
-                  "sellers": 57
+                  "buys": 36,
+                  "sells": 36,
+                  "buyers": 30,
+                  "sellers": 31
                 },
                 "h1": {
-                  "buys": 97,
-                  "sells": 144,
-                  "buyers": 83,
-                  "sellers": 124
+                  "buys": 72,
+                  "sells": 66,
+                  "buyers": 52,
+                  "sellers": 55
+                },
+                "h6": {
+                  "buys": 394,
+                  "sells": 374,
+                  "buyers": 270,
+                  "sellers": 306
                 },
                 "h24": {
-                  "buys": 2966,
-                  "sells": 3847,
-                  "buyers": 1625,
-                  "sellers": 2399
+                  "buys": 1405,
+                  "sells": 1769,
+                  "buyers": 720,
+                  "sellers": 1312
                 }
               },
               "volume_usd": {
-                "m5": "868581.7348314",
-                "m15": "2056262.885098",
-                "m30": "4081230.098456",
-                "h1": "16798158.0138526",
-                "h6": "164054610.850188",
-                "h24": "536545444.904535"
+                "m5": "14474.0609971508",
+                "m15": "97230.627441051",
+                "m30": "217572.719149789",
+                "h1": "398012.377874174",
+                "h6": "2624801.54967643",
+                "h24": "14524209.5484025"
               },
-              "reserve_in_usd": "163988541.3812",
+              "net_buy_volume_usd": {
+                "m5": "-14474.0609971508",
+                "m15": "20088.5420905036",
+                "m30": "112265.1687880188",
+                "h1": "213181.8440453441",
+                "h6": "39055.74647786",
+                "h24": "-3562.19491886"
+              },
+              "buy_volume_usd": {
+                "m5": "0.0",
+                "m15": "58659.5847657773",
+                "m30": "164918.943968904",
+                "h1": "305597.110959759",
+                "h6": "1331928.64807714",
+                "h24": "7260323.6767418"
+              },
+              "sell_volume_usd": {
+                "m5": "14474.0609971508",
+                "m15": "38571.0426752737",
+                "m30": "52653.7751808852",
+                "h1": "92415.2669144149",
+                "h6": "1292872.90159928",
+                "h24": "7263885.87166066"
+              },
+              "reserve_in_usd": "90053526.8909",
               "locked_liquidity_percentage": "0.0"
             },
             "relationships": {
@@ -3456,7 +3606,7 @@
                 "name": "Wrapped Ether",
                 "symbol": "WETH",
                 "decimals": 18,
-                "image_url": "https://assets.coingecko.com/coins/images/2518/small/weth.png?1696503332",
+                "image_url": "https://coin-images.coingecko.com/coins/images/2518/large/weth.png?1696503332",
                 "coingecko_coin_id": "weth"
               }
             }
@@ -3706,14 +3856,14 @@
                   "symbol": {
                     "type": "string"
                   },
+                  "decimals": {
+                    "type": "integer"
+                  },
                   "image_url": {
                     "type": "string"
                   },
                   "coingecko_coin_id": {
                     "type": "string"
-                  },
-                  "decimals": {
-                    "type": "integer"
                   },
                   "total_supply": {
                     "type": "string"
@@ -3789,10 +3939,22 @@
                     "base_token_price_native_currency": {
                       "type": "string"
                     },
+                    "base_token_balance": {
+                      "type": "string"
+                    },
+                    "base_token_liquidity_usd": {
+                      "type": "string"
+                    },
                     "quote_token_price_usd": {
                       "type": "string"
                     },
                     "quote_token_price_native_currency": {
+                      "type": "string"
+                    },
+                    "quote_token_balance": {
+                      "type": "string"
+                    },
+                    "quote_token_liquidity_usd": {
                       "type": "string"
                     },
                     "base_token_price_quote_token": {
@@ -3897,6 +4059,23 @@
                           }
                         },
                         "h1": {
+                          "type": "object",
+                          "properties": {
+                            "buys": {
+                              "type": "integer"
+                            },
+                            "sells": {
+                              "type": "integer"
+                            },
+                            "buyers": {
+                              "type": "integer"
+                            },
+                            "sellers": {
+                              "type": "integer"
+                            }
+                          }
+                        },
+                        "h6": {
                           "type": "object",
                           "properties": {
                             "buys": {
@@ -4025,32 +4204,32 @@
               "address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
               "name": "Tether USD",
               "symbol": "USDT",
-              "image_url": "https://assets.coingecko.com/coins/images/325/small/Tether.png?1696501661",
-              "coingecko_coin_id": "tether",
               "decimals": 6,
-              "total_supply": "49999156520373530.0",
-              "normalized_total_supply": "49999156520.37353",
-              "price_usd": "0.99720157",
-              "fdv_usd": "49859223957",
-              "total_reserve_in_usd": "417994486.4342195821530162288",
+              "image_url": "https://coin-images.coingecko.com/coins/images/325/large/Tether.png?1696501661",
+              "coingecko_coin_id": "tether",
+              "total_supply": "91775654692250534.0",
+              "normalized_total_supply": "91775654692.2505",
+              "price_usd": "0.999188255",
+              "fdv_usd": "91700939859.6687",
+              "total_reserve_in_usd": "405089394.14192413773442554227",
               "volume_usd": {
-                "h24": "814387053.106936"
+                "h24": "1142454033.37436"
               },
-              "market_cap_usd": "106918274170.211"
+              "market_cap_usd": "171798403974.784"
             },
             "relationships": {
               "top_pools": {
                 "data": [
                   {
-                    "id": "eth_0xbebc44782c7db0a1a60cb6fe97d0b483032ff1c7",
+                    "id": "eth_0x667701e51b4d1ca244f17c78f7ab8744b4c99f9b",
                     "type": "pool"
                   },
                   {
-                    "id": "eth_0x3416cf6c708da44db2624d63ea0aaef7113527c6",
+                    "id": "eth_0xf063bd202e45d6b2843102cb4ece339026645d4a",
                     "type": "pool"
                   },
                   {
-                    "id": "eth_0x11b815efb8f581194ae79006d24e0d814b7697f6",
+                    "id": "eth_0x8aa4e11cbdf30eedc92100f4c8a31ff748e201d44712cc8c90d189edaa8e4e47",
                     "type": "pool"
                   }
                 ]
@@ -4059,87 +4238,97 @@
           },
           "included": [
             {
-              "id": "eth_0xbebc44782c7db0a1a60cb6fe97d0b483032ff1c7",
+              "id": "eth_0x667701e51b4d1ca244f17c78f7ab8744b4c99f9b",
               "type": "pool",
               "attributes": {
-                "base_token_price_usd": "0.999745541005697",
-                "base_token_price_native_currency": "0.000273214695167948",
-                "quote_token_price_usd": "0.997201571758263",
-                "quote_token_price_native_currency": "0.000274189521081092",
-                "base_token_price_quote_token": "0.99644470",
-                "quote_token_price_base_token": "1.00356798",
-                "address": "0xbebc44782c7db0a1a60cb6fe97d0b483032ff1c7",
-                "name": "DAI / USDC / USDT",
-                "pool_created_at": "2022-07-13T11:48:12Z",
-                "token_price_usd": "0.999745541005697",
-                "fdv_usd": "3270150238",
-                "market_cap_usd": "4870754520.25286",
+                "base_token_price_usd": "0.999949947925521",
+                "base_token_price_native_currency": "0.000223341206041575",
+                "base_token_balance": "74198606.301554",
+                "base_token_liquidity_usd": "74194892.50738515",
+                "quote_token_price_usd": "0.99918825500163",
+                "quote_token_price_native_currency": "0.000223171080110164",
+                "quote_token_balance": "29771050.29628",
+                "quote_token_liquidity_usd": "29746883.795105774",
+                "base_token_price_quote_token": "1.0007623117",
+                "quote_token_price_base_token": "0.9992382689",
+                "address": "0x667701e51b4d1ca244f17c78f7ab8744b4c99f9b",
+                "name": "USDC / USDT",
+                "pool_created_at": "2025-09-18T08:28:30Z",
+                "token_price_usd": "0.99918825500163",
+                "fdv_usd": "91700939859.6687",
+                "market_cap_usd": "171798403975.064",
                 "price_change_percentage": {
-                  "m5": "0",
-                  "m15": "0.01",
-                  "m30": "0.02",
-                  "h1": "-0.15",
-                  "h6": "-0.5",
-                  "h24": "-0.19"
+                  "m5": "-0.02",
+                  "m15": "-0.65",
+                  "m30": "-0.01",
+                  "h1": "0",
+                  "h6": "-0.18",
+                  "h24": "-0.5"
                 },
                 "transactions": {
                   "m5": {
                     "buys": 0,
-                    "sells": 0,
-                    "buyers": null,
-                    "sellers": null
+                    "sells": 2,
+                    "buyers": 0,
+                    "sellers": 2
                   },
                   "m15": {
-                    "buys": 1,
-                    "sells": 0,
-                    "buyers": null,
-                    "sellers": null
+                    "buys": 4,
+                    "sells": 7,
+                    "buyers": 3,
+                    "sellers": 5
                   },
                   "m30": {
-                    "buys": 2,
-                    "sells": 0,
-                    "buyers": null,
-                    "sellers": null
+                    "buys": 12,
+                    "sells": 19,
+                    "buyers": 7,
+                    "sellers": 9
                   },
                   "h1": {
-                    "buys": 4,
-                    "sells": 1,
-                    "buyers": null,
-                    "sellers": null
+                    "buys": 39,
+                    "sells": 48,
+                    "buyers": 16,
+                    "sellers": 15
+                  },
+                  "h6": {
+                    "buys": 180,
+                    "sells": 271,
+                    "buyers": 31,
+                    "sellers": 35
                   },
                   "h24": {
-                    "buys": 67,
-                    "sells": 84,
-                    "buyers": null,
-                    "sellers": null
+                    "buys": 870,
+                    "sells": 1109,
+                    "buyers": 55,
+                    "sellers": 59
                   }
                 },
                 "volume_usd": {
-                  "m5": "0.0",
-                  "m15": "287334.7997",
-                  "m30": "394221.288",
-                  "h1": "1502319.288637997",
-                  "h6": "45415206.49514137",
-                  "h24": "69802183.6886975"
+                  "m5": "988.7572917698",
+                  "m15": "1857835.95996426",
+                  "m30": "3190909.49729904",
+                  "h1": "9434171.29930675",
+                  "h6": "84784863.3965608",
+                  "h24": "388004708.962186"
                 },
-                "reserve_in_usd": "184383775.4111"
+                "reserve_in_usd": "103939687.035"
               },
               "relationships": {
                 "base_token": {
-                  "data": {
-                    "id": "eth_0x6b175474e89094c44da98b954eedeac495271d0f",
-                    "type": "token"
-                  }
-                },
-                "quote_token": {
                   "data": {
                     "id": "eth_0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
                     "type": "token"
                   }
                 },
+                "quote_token": {
+                  "data": {
+                    "id": "eth_0xdac17f958d2ee523a2206206994597c13d831ec7",
+                    "type": "token"
+                  }
+                },
                 "dex": {
                   "data": {
-                    "id": "curve",
+                    "id": "fluid-ethereum",
                     "type": "dex"
                   }
                 }
@@ -4174,14 +4363,14 @@
                     "symbol": {
                       "type": "string"
                     },
+                    "decimals": {
+                      "type": "integer"
+                    },
                     "image_url": {
                       "type": "string"
                     },
                     "coingecko_coin_id": {
                       "type": "string"
-                    },
-                    "decimals": {
-                      "type": "integer"
                     },
                     "total_supply": {
                       "type": "string"
@@ -4237,6 +4426,279 @@
                 }
               }
             }
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "attributes": {
+                  "type": "object",
+                  "properties": {
+                    "base_token_price_usd": {
+                      "type": "string"
+                    },
+                    "base_token_price_native_currency": {
+                      "type": "string"
+                    },
+                    "base_token_balance": {
+                      "type": "string"
+                    },
+                    "base_token_liquidity_usd": {
+                      "type": "string"
+                    },
+                    "quote_token_price_usd": {
+                      "type": "string"
+                    },
+                    "quote_token_price_native_currency": {
+                      "type": "string"
+                    },
+                    "quote_token_balance": {
+                      "type": "string"
+                    },
+                    "quote_token_liquidity_usd": {
+                      "type": "string"
+                    },
+                    "base_token_price_quote_token": {
+                      "type": "string"
+                    },
+                    "quote_token_price_base_token": {
+                      "type": "string"
+                    },
+                    "address": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "pool_created_at": {
+                      "type": "string"
+                    },
+                    "fdv_usd": {
+                      "type": "string"
+                    },
+                    "market_cap_usd": {
+                      "type": "string"
+                    },
+                    "price_change_percentage": {
+                      "type": "object",
+                      "properties": {
+                        "m5": {
+                          "type": "string"
+                        },
+                        "m15": {
+                          "type": "string"
+                        },
+                        "m30": {
+                          "type": "string"
+                        },
+                        "h1": {
+                          "type": "string"
+                        },
+                        "h6": {
+                          "type": "string"
+                        },
+                        "h24": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "transactions": {
+                      "type": "object",
+                      "properties": {
+                        "m5": {
+                          "type": "object",
+                          "properties": {
+                            "buys": {
+                              "type": "integer"
+                            },
+                            "sells": {
+                              "type": "integer"
+                            },
+                            "buyers": {
+                              "type": "integer"
+                            },
+                            "sellers": {
+                              "type": "integer"
+                            }
+                          }
+                        },
+                        "m15": {
+                          "type": "object",
+                          "properties": {
+                            "buys": {
+                              "type": "integer"
+                            },
+                            "sells": {
+                              "type": "integer"
+                            },
+                            "buyers": {
+                              "type": "integer"
+                            },
+                            "sellers": {
+                              "type": "integer"
+                            }
+                          }
+                        },
+                        "m30": {
+                          "type": "object",
+                          "properties": {
+                            "buys": {
+                              "type": "integer"
+                            },
+                            "sells": {
+                              "type": "integer"
+                            },
+                            "buyers": {
+                              "type": "integer"
+                            },
+                            "sellers": {
+                              "type": "integer"
+                            }
+                          }
+                        },
+                        "h1": {
+                          "type": "object",
+                          "properties": {
+                            "buys": {
+                              "type": "integer"
+                            },
+                            "sells": {
+                              "type": "integer"
+                            },
+                            "buyers": {
+                              "type": "integer"
+                            },
+                            "sellers": {
+                              "type": "integer"
+                            }
+                          }
+                        },
+                        "h6": {
+                          "type": "object",
+                          "properties": {
+                            "buys": {
+                              "type": "integer"
+                            },
+                            "sells": {
+                              "type": "integer"
+                            },
+                            "buyers": {
+                              "type": "integer"
+                            },
+                            "sellers": {
+                              "type": "integer"
+                            }
+                          }
+                        },
+                        "h24": {
+                          "type": "object",
+                          "properties": {
+                            "buys": {
+                              "type": "integer"
+                            },
+                            "sells": {
+                              "type": "integer"
+                            },
+                            "buyers": {
+                              "type": "integer"
+                            },
+                            "sellers": {
+                              "type": "integer"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "volume_usd": {
+                      "type": "object",
+                      "properties": {
+                        "m5": {
+                          "type": "string"
+                        },
+                        "m15": {
+                          "type": "string"
+                        },
+                        "m30": {
+                          "type": "string"
+                        },
+                        "h1": {
+                          "type": "string"
+                        },
+                        "h6": {
+                          "type": "string"
+                        },
+                        "h24": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "reserve_in_usd": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "relationships": {
+                  "type": "object",
+                  "properties": {
+                    "base_token": {
+                      "type": "object",
+                      "properties": {
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "type": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "quote_token": {
+                      "type": "object",
+                      "properties": {
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "type": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "dex": {
+                      "type": "object",
+                      "properties": {
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "type": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "example": {
@@ -4253,22 +4715,120 @@
                 "coingecko_coin_id": "virtual-protocol",
                 "total_supply": "1000000000000000000000000000.0",
                 "normalized_total_supply": "1000000000.0",
-                "price_usd": "1.8504100322",
-                "fdv_usd": "1850407260.24129",
-                "total_reserve_in_usd": "8720991.5967831836177735361998066186",
+                "price_usd": "1.2360509143",
+                "fdv_usd": "1236049062.71205",
+                "total_reserve_in_usd": "1057431.7464185216625800287534040469",
                 "volume_usd": {
-                  "h24": "2204224.92600213"
+                  "h24": "38713.9260903249"
                 },
-                "market_cap_usd": "1211465187.61299"
+                "market_cap_usd": "810357802.002085"
               },
               "relationships": {
                 "top_pools": {
                   "data": [
                     {
-                      "id": "eth_0x1688d62c82abebf4d33ecea96d983fc1627966f6",
+                      "id": "eth_0x95a45a87dd4d3a1803039072f37e075f37b23d75",
                       "type": "pool"
                     }
                   ]
+                }
+              }
+            }
+          ],
+          "included": [
+            {
+              "id": "eth_0x95a45a87dd4d3a1803039072f37e075f37b23d75",
+              "type": "pool",
+              "attributes": {
+                "base_token_price_usd": "1.23605091431632",
+                "base_token_price_native_currency": "0.000276634218716478",
+                "base_token_balance": "632455.064963526",
+                "base_token_liquidity_usd": "781765.7043993239",
+                "quote_token_price_usd": "4468.28678620552",
+                "quote_token_price_native_currency": "1.0",
+                "quote_token_balance": "47.9170335228147",
+                "quote_token_liquidity_usd": "214107.04772415984",
+                "base_token_price_quote_token": "0.0002766342187",
+                "quote_token_price_base_token": "3614.881790979",
+                "address": "0x95a45a87dd4d3a1803039072f37e075f37b23d75",
+                "name": "VIRTUAL / WETH 1%",
+                "pool_created_at": "2023-12-24T15:16:59Z",
+                "fdv_usd": "1236049062.69573",
+                "market_cap_usd": "810357802.002085",
+                "price_change_percentage": {
+                  "m5": "0",
+                  "m15": "0",
+                  "m30": "-0.01",
+                  "h1": "-0.033",
+                  "h6": "-1.177",
+                  "h24": "-3.945"
+                },
+                "transactions": {
+                  "m5": {
+                    "buys": 0,
+                    "sells": 0,
+                    "buyers": 0,
+                    "sellers": 0
+                  },
+                  "m15": {
+                    "buys": 0,
+                    "sells": 0,
+                    "buyers": 0,
+                    "sellers": 0
+                  },
+                  "m30": {
+                    "buys": 0,
+                    "sells": 4,
+                    "buyers": 0,
+                    "sellers": 4
+                  },
+                  "h1": {
+                    "buys": 0,
+                    "sells": 12,
+                    "buyers": 0,
+                    "sellers": 8
+                  },
+                  "h6": {
+                    "buys": 5,
+                    "sells": 39,
+                    "buyers": 4,
+                    "sellers": 26
+                  },
+                  "h24": {
+                    "buys": 17,
+                    "sells": 68,
+                    "buyers": 13,
+                    "sellers": 44
+                  }
+                },
+                "volume_usd": {
+                  "m5": "0.0",
+                  "m15": "0.0",
+                  "m30": "124.147451535",
+                  "h1": "349.000957995",
+                  "h6": "15478.0378042767",
+                  "h24": "21703.1874601209"
+                },
+                "reserve_in_usd": "995880.9039"
+              },
+              "relationships": {
+                "base_token": {
+                  "data": {
+                    "id": "eth_0x44ff8620b8ca30902395a7bd3f2407e1a091bf73",
+                    "type": "token"
+                  }
+                },
+                "quote_token": {
+                  "data": {
+                    "id": "eth_0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+                    "type": "token"
+                  }
+                },
+                "dex": {
+                  "data": {
+                    "id": "uniswap_v3",
+                    "type": "dex"
+                  }
                 }
               }
             }
@@ -4407,7 +4967,14 @@
                     "type": "string"
                   },
                   "is_honeypot": {
-                    "type": "boolean"
+                    "oneOf": [
+                      {
+                        "type": "boolean"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
                   }
                 }
               }

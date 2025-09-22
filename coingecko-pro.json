@@ -186,7 +186,7 @@
           {
             "name": "include_24hr_change",
             "in": "query",
-            "description": "include 24hr change, default: false",
+            "description": "include 24hr change percentage, default: false",
             "schema": {
               "type": "boolean"
             }
@@ -3708,7 +3708,7 @@
           },
           "usd_24h_change": {
             "type": "number",
-            "description": "24hr change in USD"
+            "description": "24hr change percentage in USD"
           },
           "last_updated_at": {
             "type": "number",
@@ -3866,65 +3866,250 @@
         ]
       },
       "TopGainersLosers": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "id": {
-              "type": "string",
-              "description": "coin ID"
-            },
-            "symbol": {
-              "type": "string",
-              "description": "coin symbol"
-            },
-            "name": {
-              "type": "string",
-              "description": "coin name"
-            },
-            "image": {
-              "type": "string",
-              "description": "coin image url"
-            },
-            "market_cap_rank": {
-              "type": "number",
-              "description": "coin rank by market cap"
-            },
-            "usd": {
-              "type": "number",
-              "description": "coin price in USD"
-            },
-            "usd_24h_vol": {
-              "type": "number",
-              "description": "coin 24hr volume in USD"
-            },
-            "usd_1y_change": {
-              "type": "number",
-              "description": "coin 1 year change in USD"
+        "type": "object",
+        "properties": {
+          "top_gainers": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "coin ID"
+                },
+                "symbol": {
+                  "type": "string",
+                  "description": "coin symbol"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "coin name"
+                },
+                "image": {
+                  "type": "string",
+                  "description": "coin image url"
+                },
+                "market_cap_rank": {
+                  "type": "number",
+                  "description": "coin rank by market cap"
+                },
+                "usd": {
+                  "type": "number",
+                  "description": "coin price in USD"
+                },
+                "usd_24h_vol": {
+                  "type": "number",
+                  "description": "coin 24hr volume in USD"
+                },
+                "usd_24h_change": {
+                  "type": "number",
+                  "nullable": true,
+                  "description": "coin 24hr change percentage in USD"
+                },
+                "usd_1h_change": {
+                  "type": "number",
+                  "nullable": true,
+                  "description": "coin 1hr change percentage in USD"
+                },
+                "usd_7d_change": {
+                  "type": "number",
+                  "nullable": true,
+                  "description": "coin 7 day change percentage in USD"
+                },
+                "usd_14d_change": {
+                  "type": "number",
+                  "nullable": true,
+                  "description": "coin 14 day change percentage in USD"
+                },
+                "usd_30d_change": {
+                  "type": "number",
+                  "nullable": true,
+                  "description": "coin 30 day change percentage in USD"
+                },
+                "usd_200d_change": {
+                  "type": "number",
+                  "nullable": true,
+                  "description": "coin 200 day change percentage in USD"
+                },
+                "usd_1y_change": {
+                  "type": "number",
+                  "nullable": true,
+                  "description": "coin 1 year change percentage in USD"
+                }
+              }
+            }
+          },
+          "top_losers": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "coin ID"
+                },
+                "symbol": {
+                  "type": "string",
+                  "description": "coin symbol"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "coin name"
+                },
+                "image": {
+                  "type": "string",
+                  "description": "coin image url"
+                },
+                "market_cap_rank": {
+                  "type": "number",
+                  "description": "coin rank by market cap"
+                },
+                "usd": {
+                  "type": "number",
+                  "description": "coin price in USD"
+                },
+                "usd_24h_vol": {
+                  "type": "number",
+                  "description": "coin 24hr volume in USD"
+                },
+                "usd_24h_change": {
+                  "type": "number",
+                  "nullable": true,
+                  "description": "coin 24hr change percentage in USD"
+                },
+                "usd_1h_change": {
+                  "type": "number",
+                  "nullable": true,
+                  "description": "coin 1hr change percentage in USD"
+                },
+                "usd_7d_change": {
+                  "type": "number",
+                  "nullable": true,
+                  "description": "coin 7 day change percentage in USD"
+                },
+                "usd_14d_change": {
+                  "type": "number",
+                  "nullable": true,
+                  "description": "coin 14 day change percentage in USD"
+                },
+                "usd_30d_change": {
+                  "type": "number",
+                  "nullable": true,
+                  "description": "coin 30 day change percentage in USD"
+                },
+                "usd_200d_change": {
+                  "type": "number",
+                  "nullable": true,
+                  "description": "coin 200 day change percentage in USD"
+                },
+                "usd_1y_change": {
+                  "type": "number",
+                  "nullable": true,
+                  "description": "coin 1 year change percentage in USD"
+                }
+              }
             }
           }
         },
         "example": {
           "top_gainers": [
             {
-              "id": "bonk",
-              "symbol": "bonk",
-              "name": "Bonk",
-              "image": "https://assets.coingecko.com/coins/images/28600/original/bonk.jpg?1696527587",
-              "market_cap_rank": 75,
-              "usd": 0.000024645873833743,
-              "usd_24h_vol": 105344205.633894,
-              "usd_1y_change": 4244.15510979623
+              "id": "hemi",
+              "symbol": "hemi",
+              "name": "Hemi",
+              "image": "https://coin-images.coingecko.com/coins/images/68469/original/hemi.png?1755838145",
+              "market_cap_rank": 504,
+              "usd": 0.11185590814980959,
+              "usd_24h_vol": 37605963.6544256,
+              "usd_24h_change": 97.50734564945273,
+              "usd_1h_change": -0.17390830639913413,
+              "usd_7d_change": 109.51907994608104,
+              "usd_14d_change": 174.05573448108248,
+              "usd_30d_change": null,
+              "usd_200d_change": null,
+              "usd_1y_change": null
             },
             {
-              "id": "0x0-ai-ai-smart-contract",
-              "symbol": "0x0",
-              "name": "0x0.ai: AI Smart Contract",
-              "image": "https://assets.coingecko.com/coins/images/28880/original/0x0.png?1696527857",
-              "market_cap_rank": 235,
-              "usd": 0.388236182838391,
-              "usd_24h_vol": 1608196.56989005,
-              "usd_1y_change": 3688.24996780839
+              "id": "pumpbtc-2",
+              "symbol": "pump",
+              "name": "PumpBTC",
+              "image": "https://coin-images.coingecko.com/coins/images/55057/original/pumpbtc.jpg?1743518852",
+              "market_cap_rank": 884,
+              "usd": 0.16754354002402758,
+              "usd_24h_vol": 140450837.37342194,
+              "usd_24h_change": 79.0420542402058,
+              "usd_1h_change": 8.40284698009908,
+              "usd_7d_change": 28.741928455454058,
+              "usd_14d_change": 313.0525092121525,
+              "usd_30d_change": 324.6502118828966,
+              "usd_200d_change": null,
+              "usd_1y_change": null
+            },
+            {
+              "id": "thena",
+              "symbol": "the",
+              "name": "Thena",
+              "image": "https://coin-images.coingecko.com/coins/images/28864/original/Symbol-Color200x200.png?1706810126",
+              "market_cap_rank": 642,
+              "usd": 0.6638151932043868,
+              "usd_24h_vol": 487895427.62352824,
+              "usd_24h_change": 61.81094922342915,
+              "usd_1h_change": 0.9390562783319398,
+              "usd_7d_change": 86.44786589199917,
+              "usd_14d_change": 97.8025192992777,
+              "usd_30d_change": 73.66796131254053,
+              "usd_200d_change": 55.59406002775006,
+              "usd_1y_change": 331.98491608746525
+            }
+          ],
+          "top_losers": [
+            {
+              "id": "alchemist-ai",
+              "symbol": "alch",
+              "name": "Alchemist AI",
+              "image": "https://coin-images.coingecko.com/coins/images/52302/original/small-logo.png?1733053544",
+              "market_cap_rank": 756,
+              "usd": 0.07041470135934932,
+              "usd_24h_vol": 27971580.84457393,
+              "usd_24h_change": -17.226320551694926,
+              "usd_1h_change": -2.2542371779000514,
+              "usd_7d_change": -23.040652631290545,
+              "usd_14d_change": -19.470542701647435,
+              "usd_30d_change": -46.09430540829394,
+              "usd_200d_change": 45.86147201477917,
+              "usd_1y_change": null
+            },
+            {
+              "id": "openvpp",
+              "symbol": "ovpp",
+              "name": "OpenVPP",
+              "image": "https://coin-images.coingecko.com/coins/images/68508/original/IMG_9538.jpeg?1756034149",
+              "market_cap_rank": 656,
+              "usd": 0.0928916427310922,
+              "usd_24h_vol": 2056051.9687436165,
+              "usd_24h_change": -16.433799392732045,
+              "usd_1h_change": 6.52588781595783,
+              "usd_7d_change": -30.059713680473045,
+              "usd_14d_change": 26.47704349007484,
+              "usd_30d_change": null,
+              "usd_200d_change": null,
+              "usd_1y_change": null
+            },
+            {
+              "id": "tutorial",
+              "symbol": "tut",
+              "name": "Tutorial",
+              "image": "https://coin-images.coingecko.com/coins/images/54299/original/image_2025-02-08_18-56-13.png?1739165439",
+              "market_cap_rank": 709,
+              "usd": 0.07931969147215992,
+              "usd_24h_vol": 100448249.77316675,
+              "usd_24h_change": -14.152000966660887,
+              "usd_1h_change": 1.2261498633124626,
+              "usd_7d_change": 15.617617995365999,
+              "usd_14d_change": 16.107294253488487,
+              "usd_30d_change": 32.794999688255686,
+              "usd_200d_change": 5109.0575785263345,
+              "usd_1y_change": null
             }
           ]
         }
