@@ -10411,48 +10411,46 @@
         },
         "example": {
           "name": "Binance (Futures)",
-          "open_interest_btc": 280210.26,
-          "trade_volume_24h_btc": "568502.31",
-          "number_of_perpetual_pairs": 330,
-          "number_of_futures_pairs": 44,
-          "image": "https://assets.coingecko.com/markets/images/466/small/binance_futures.jpg?1706864452",
+          "open_interest_btc": 350139.89,
+          "trade_volume_24h_btc": "689202.84",
+          "number_of_perpetual_pairs": 587,
+          "number_of_futures_pairs": 38,
+          "image": "https://coin-images.coingecko.com/markets/images/466/small/binance_futures.jpg?1706864452",
           "year_established": 2019,
           "country": null,
           "description": "",
           "url": "https://www.binance.com/",
-          "tickers": {
-            "tickers": [
-              {
-                "symbol": "1000BONKUSDT",
-                "base": "1000BONK",
-                "target": "USDT",
-                "coin_id": "1000bonk",
-                "target_coin_id": "tether",
-                "trade_url": "https://www.binance.com/en/futuresng/1000BONKUSDT",
-                "contract_type": "perpetual",
-                "last": 0.023,
-                "h24_percentage_change": -0.811,
-                "index": 0.0229866,
-                "index_basis_percentage": -0.071,
-                "bid_ask_spread": 0.000217533173808922,
-                "funding_rate": 0.005,
-                "open_interest_usd": 28102263.9997715,
-                "h24_volume": 2679284723,
-                "converted_volume": {
-                  "btc": "888.799603175094638929930629459045946",
-                  "eth": "18029.8066338945133622149580216234476206402026327668",
-                  "usd": "61648664.9602525617243462802989936852339753270611794"
-                },
-                "converted_last": {
-                  "btc": "0.000000331730179904099217651505502",
-                  "eth": "0.0000067293358108303271067525726423602078742716",
-                  "usd": "0.0230093742673322299700755918127159362875878"
-                },
-                "last_traded": 1712550723,
-                "expired_at": null
-              }
-            ]
-          }
+          "tickers": [
+            {
+              "symbol": "ASTERUSDT",
+              "base": "ASTER",
+              "target": "USDT",
+              "coin_id": "aster-2",
+              "target_coin_id": "tether",
+              "trade_url": "https://www.binance.com/en/futures/ASTERUSDT",
+              "contract_type": "perpetual",
+              "last": 1.873,
+              "h24_percentage_change": -5.246,
+              "index": 1.87233812,
+              "index_basis_percentage": -0.035,
+              "bid_ask_spread": 0.00015339028296849384,
+              "funding_rate": 0.009,
+              "open_interest_usd": 212983050.43153304,
+              "h24_volume": 664881040.0,
+              "converted_volume": {
+                "btc": "10920.642311073362831692974453819990348041448031650635228",
+                "eth": "296686.4951027005826156931722170663818779309188174859084723041529715688",
+                "usd": "1245690448.4593867566376892"
+              },
+              "converted_last": {
+                "btc": "0.00001642495672770780594329020790519156682230169780695",
+                "eth": "0.00044622492935382934459327216221576476579619554020894611233357497",
+                "usd": "1.873553874328235855"
+              },
+              "last_traded": 1759214622,
+              "expired_at": null
+            }
+          ]
         }
       },
       "DerivativesExchangesList": {
