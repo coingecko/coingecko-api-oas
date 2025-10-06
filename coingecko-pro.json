@@ -10369,7 +10369,7 @@
             "description": "derivatives exchange open interest in BTC"
           },
           "trade_volume_24h_btc": {
-            "type": "string",
+            "type": "number",
             "description": "derivatives exchange trade volume in BTC in 24 hours"
           },
           "number_of_perpetual_pairs": {
@@ -10405,7 +10405,7 @@
           "tickers": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/DerivativesTickersList"
+              "$ref": "#/components/schemas/DerivativesTickersItems"
             }
           }
         },
@@ -10451,6 +10451,107 @@
               "expired_at": null
             }
           ]
+        }
+      },
+      "DerivativesTickersItems": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "derivative ticker symbol"
+          },
+          "base": {
+            "type": "string",
+            "description": "derivative base asset"
+          },
+          "target": {
+            "type": "string",
+            "description": "derivative target asset"
+          },
+          "coin_id": {
+            "type": "string",
+            "description": "derivative base asset coin ID"
+          },
+          "target_coin_id": {
+            "type": "string",
+            "description": "derivative target asset coin ID"
+          },
+          "trade_url": {
+            "type": "string",
+            "description": "derivative trade url"
+          },
+          "contract_type": {
+            "type": "string",
+            "description": "derivative contract type"
+          },
+          "last": {
+            "type": "number",
+            "description": "derivative last price"
+          },
+          "h24_percentage_change": {
+            "type": "number",
+            "description": "derivative price percentage change in 24 hours"
+          },
+          "index": {
+            "type": "number",
+            "description": "derivative underlying asset price"
+          },
+          "index_basis_percentage": {
+            "type": "number",
+            "description": "difference of derivative price and index price in percentage"
+          },
+          "bid_ask_spread": {
+            "type": "number",
+            "description": "derivative bid ask spread"
+          },
+          "funding_rate": {
+            "type": "number",
+            "description": "derivative funding rate"
+          },
+          "open_interest_usd": {
+            "type": "number",
+            "description": "derivative open interest in USD"
+          },
+          "h24_volume": {
+            "type": "number",
+            "description": "derivative volume in 24 hours"
+          },
+          "converted_volume": {
+            "type": "object",
+            "properties": {
+              "btc": {
+                "type": "string"
+              },
+              "eth": {
+                "type": "string"
+              },
+              "usd": {
+                "type": "string"
+              }
+            }
+          },
+          "converted_last": {
+            "type": "object",
+            "properties": {
+              "btc": {
+                "type": "string"
+              },
+              "eth": {
+                "type": "string"
+              },
+              "usd": {
+                "type": "string"
+              }
+            }
+          },
+          "last_traded": {
+            "type": "number",
+            "description": "derivative last updated time"
+          },
+          "expired_at": {
+            "type": "string",
+            "nullable": true
+          }
         }
       },
       "DerivativesExchangesList": {
