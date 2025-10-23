@@ -1063,7 +1063,7 @@
           {
             "name": "date",
             "in": "query",
-            "description": "date of data snapshot (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`)",
+            "description": "date of data snapshot (`YYYY-MM-DD`)",
             "required": true,
             "schema": {
               "type": "string",
@@ -1072,9 +1072,6 @@
             "examples": {
               "iso_date": {
                 "value": "2024-01-01"
-              },
-              "iso_datetime": {
-                "value": "2024-01-01T00:00"
               }
             }
           },
