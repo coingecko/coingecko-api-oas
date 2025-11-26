@@ -2156,6 +2156,153 @@
         }
       }
     },
+    "/{entity}/public_treasury/{coin_id}": {
+      "get": {
+        "tags": [
+          "Public Treasury"
+        ],
+        "summary": "Crypto Treasury Holdings by Coin ID",
+        "description": "This endpoint allows you **query public companies & governments' cryptocurrency holdings** by Coin ID",
+        "operationId": "companies-public-treasury",
+        "x-mint": {
+          "href": "/v3.0.1/reference/companies-public-treasury"
+        },
+        "parameters": [
+          {
+            "name": "entity",
+            "in": "path",
+            "description": "public company or government entity",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "companies",
+                "governments"
+              ]
+            }
+          },
+          {
+            "name": "coin_id",
+            "in": "path",
+            "description": "coin ID. example: bitcoin, ethereum, solana, binancecoin",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "bitcoin",
+              "default": "bitcoin"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get public companies & governments crypto treasury holding data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicTreasury"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/public_treasury/{entity_id}": {
+      "get": {
+        "tags": [
+          "Public Treasury"
+        ],
+        "summary": "Crypto Treasury Holdings by Entity ID",
+        "description": "This endpoint allows you **query public companies & governments' cryptocurrency holdings** by Entity ID",
+        "operationId": "public-treasury-entity",
+        "x-mint": {
+          "href": "/v3.0.1/reference/public-treasury-entity"
+        },
+        "parameters": [
+          {
+            "name": "entity_id",
+            "in": "path",
+            "description": "public company or government entity ID \n *refers to [`/entities/list`](/reference/entities-list).",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "strategy",
+              "default": "strategy"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get public companies & governments crypto treasury holding data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicTreasuryEntity"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/entities/list": {
+      "get": {
+        "tags": [
+          "Public Treasury"
+        ],
+        "summary": "Entities List (ID Map)",
+        "description": "This endpoint allows you to **query all the supported entities on CoinGecko with entities ID, name, symbol, and country**",
+        "operationId": "entities-list",
+        "x-mint": {
+          "href": "/v3.0.1/reference/entities-list"
+        },
+        "parameters": [
+          {
+            "name": "entity_type",
+            "in": "query",
+            "description": "filter by entity type, default: false",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "company",
+                "government"
+              ]
+            }
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "total results per page, default: 100 \n Valid values: 1...250",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "page through results, default: 1",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List all entities with ID, name, symbol and country",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntitiesList"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/nfts/list": {
       "get": {
         "tags": [
@@ -2438,153 +2585,6 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/GlobalDeFi"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/{entity}/public_treasury/{coin_id}": {
-      "get": {
-        "tags": [
-          "Public Treasury"
-        ],
-        "summary": "Crypto Treasury Holdings by Coin ID",
-        "description": "This endpoint allows you **query public companies & governments' cryptocurrency holdings** by Coin ID",
-        "operationId": "companies-public-treasury",
-        "x-mint": {
-          "href": "/v3.0.1/reference/companies-public-treasury"
-        },
-        "parameters": [
-          {
-            "name": "entity",
-            "in": "path",
-            "description": "public company or government entity",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "companies",
-                "governments"
-              ]
-            }
-          },
-          {
-            "name": "coin_id",
-            "in": "path",
-            "description": "coin ID. example: bitcoin, ethereum, solana, binancecoin",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "example": "bitcoin",
-              "default": "bitcoin"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Get public companies & governments crypto treasury holding data",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PublicTreasury"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/public_treasury/{entity_id}": {
-      "get": {
-        "tags": [
-          "Public Treasury"
-        ],
-        "summary": "Crypto Treasury Holdings by Entity ID",
-        "description": "This endpoint allows you **query public companies & governments' cryptocurrency holdings** by Entity ID",
-        "operationId": "public-treasury-entity",
-        "x-mint": {
-          "href": "/v3.0.1/reference/public-treasury-entity"
-        },
-        "parameters": [
-          {
-            "name": "entity_id",
-            "in": "path",
-            "description": "public company or government entity ID \n *refers to [`/entities/list`](/reference/entities-list).",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "example": "strategy",
-              "default": "strategy"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Get public companies & governments crypto treasury holding data",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PublicTreasuryEntity"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/entities/list": {
-      "get": {
-        "tags": [
-          "Public Treasury"
-        ],
-        "summary": "Entities List (ID Map)",
-        "description": "This endpoint allows you to **query all the supported entities on CoinGecko with entities ID, name, symbol, and country**",
-        "operationId": "entities-list",
-        "x-mint": {
-          "href": "/v3.0.1/reference/entities-list"
-        },
-        "parameters": [
-          {
-            "name": "entity_type",
-            "in": "query",
-            "description": "filter by entity type, default: false",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "company",
-                "government"
-              ]
-            }
-          },
-          {
-            "name": "per_page",
-            "in": "query",
-            "description": "total results per page, default: 100 \n Valid values: 1...250",
-            "required": false,
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "description": "page through results, default: 1",
-            "required": false,
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "List all entities with ID, name, symbol and country",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EntitiesList"
                 }
               }
             }

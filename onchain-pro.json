@@ -202,173 +202,6 @@
         }
       }
     },
-    "/networks/trending_pools": {
-      "get": {
-        "summary": "Trending Pools List",
-        "tags": [
-          "Pools"
-        ],
-        "description": "This endpoint allows you to **query all the trending pools across all networks on GeckoTerminal**",
-        "operationId": "trending-pools-list",
-        "x-mint": {
-          "href": "/reference/trending-pools-list"
-        },
-        "parameters": [
-          {
-            "name": "include",
-            "in": "query",
-            "required": false,
-            "description": "attributes to include, comma-separated if more than one to include \n Available values: `base_token`, `quote_token`, `dex`, `network`. \n Example: `base_token` or `base_token,dex`",
-            "schema": {
-              "type": "string",
-              "default": "base_token"
-            },
-            "examples": {
-              "one value": {
-                "value": "base_token"
-              },
-              "multiple values": {
-                "value": "base_token,quote_token,dex"
-              }
-            }
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "required": false,
-            "description": "page through results \n Default value: 1",
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "name": "duration",
-            "in": "query",
-            "required": false,
-            "description": "duration to sort trending list by \n Default value: 24h",
-            "schema": {
-              "type": "string",
-              "enum": [
-                "5m",
-                "1h",
-                "6h",
-                "24h"
-              ]
-            }
-          },
-          {
-            "name": "include_gt_community_data",
-            "in": "query",
-            "required": false,
-            "description": "include GeckoTerminal community data (Sentiment votes, Suspicious reports) \n Default value: false",
-            "schema": {
-              "type": "boolean"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Get trending pools across all networks",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Pool"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/networks/{network}/trending_pools": {
-      "get": {
-        "summary": "Trending Pools by Network",
-        "tags": [
-          "Pools"
-        ],
-        "description": "This endpoint allows you to **query the trending pools based on the provided network**",
-        "operationId": "trending-pools-network",
-        "x-mint": {
-          "href": "/reference/trending-pools-network"
-        },
-        "parameters": [
-          {
-            "name": "network",
-            "in": "path",
-            "description": "network ID \n *refers to [/networks](/reference/networks-list)",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "example": "eth",
-              "default": "eth"
-            }
-          },
-          {
-            "name": "include",
-            "in": "query",
-            "required": false,
-            "description": "attributes to include, comma-separated if more than one to include \n Available values: `base_token`, `quote_token`, `dex`",
-            "schema": {
-              "type": "string",
-              "default": "base_token"
-            },
-            "examples": {
-              "one value": {
-                "value": "base_token"
-              },
-              "multiple values": {
-                "value": "base_token,quote_token,dex"
-              }
-            }
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "required": false,
-            "description": "page through results \n Default value: 1",
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "name": "duration",
-            "in": "query",
-            "required": false,
-            "description": "duration to sort trending list by \n Default value: 24h",
-            "schema": {
-              "type": "string",
-              "enum": [
-                "5m",
-                "1h",
-                "6h",
-                "24h"
-              ]
-            }
-          },
-          {
-            "name": "include_gt_community_data",
-            "in": "query",
-            "required": false,
-            "description": "include GeckoTerminal community data (Sentiment votes, Suspicious reports) \n Default value: false",
-            "schema": {
-              "type": "boolean"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Get trending pools on a network",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Pool"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/networks/{network}/pools/{address}": {
       "get": {
         "summary": "Specific Pool Data by Pool Address",
@@ -539,6 +372,173 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/MultiPoolInfo"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/networks/trending_pools": {
+      "get": {
+        "summary": "Trending Pools List",
+        "tags": [
+          "Pools"
+        ],
+        "description": "This endpoint allows you to **query all the trending pools across all networks on GeckoTerminal**",
+        "operationId": "trending-pools-list",
+        "x-mint": {
+          "href": "/reference/trending-pools-list"
+        },
+        "parameters": [
+          {
+            "name": "include",
+            "in": "query",
+            "required": false,
+            "description": "attributes to include, comma-separated if more than one to include \n Available values: `base_token`, `quote_token`, `dex`, `network`. \n Example: `base_token` or `base_token,dex`",
+            "schema": {
+              "type": "string",
+              "default": "base_token"
+            },
+            "examples": {
+              "one value": {
+                "value": "base_token"
+              },
+              "multiple values": {
+                "value": "base_token,quote_token,dex"
+              }
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "page through results \n Default value: 1",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "duration",
+            "in": "query",
+            "required": false,
+            "description": "duration to sort trending list by \n Default value: 24h",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "5m",
+                "1h",
+                "6h",
+                "24h"
+              ]
+            }
+          },
+          {
+            "name": "include_gt_community_data",
+            "in": "query",
+            "required": false,
+            "description": "include GeckoTerminal community data (Sentiment votes, Suspicious reports) \n Default value: false",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get trending pools across all networks",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Pool"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/networks/{network}/trending_pools": {
+      "get": {
+        "summary": "Trending Pools by Network",
+        "tags": [
+          "Pools"
+        ],
+        "description": "This endpoint allows you to **query the trending pools based on the provided network**",
+        "operationId": "trending-pools-network",
+        "x-mint": {
+          "href": "/reference/trending-pools-network"
+        },
+        "parameters": [
+          {
+            "name": "network",
+            "in": "path",
+            "description": "network ID \n *refers to [/networks](/reference/networks-list)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "eth",
+              "default": "eth"
+            }
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "required": false,
+            "description": "attributes to include, comma-separated if more than one to include \n Available values: `base_token`, `quote_token`, `dex`",
+            "schema": {
+              "type": "string",
+              "default": "base_token"
+            },
+            "examples": {
+              "one value": {
+                "value": "base_token"
+              },
+              "multiple values": {
+                "value": "base_token,quote_token,dex"
+              }
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "page through results \n Default value: 1",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "duration",
+            "in": "query",
+            "required": false,
+            "description": "duration to sort trending list by \n Default value: 24h",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "5m",
+                "1h",
+                "6h",
+                "24h"
+              ]
+            }
+          },
+          {
+            "name": "include_gt_community_data",
+            "in": "query",
+            "required": false,
+            "description": "include GeckoTerminal community data (Sentiment votes, Suspicious reports) \n Default value: false",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get trending pools on a network",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Pool"
                 }
               }
             }
@@ -731,6 +731,69 @@
         }
       }
     },
+    "/networks/new_pools": {
+      "get": {
+        "summary": "New Pools List",
+        "tags": [
+          "Pools"
+        ],
+        "description": "This endpoint allows you to **query all the latest pools across all networks on GeckoTerminal**",
+        "operationId": "latest-pools-list",
+        "x-mint": {
+          "href": "/reference/latest-pools-list"
+        },
+        "parameters": [
+          {
+            "name": "include",
+            "in": "query",
+            "required": false,
+            "description": "attributes to include, comma-separated if more than one to include \n Available values: `base_token`, `quote_token`, `dex`, `network`",
+            "schema": {
+              "type": "string",
+              "default": "base_token"
+            },
+            "examples": {
+              "one value": {
+                "value": "base_token"
+              },
+              "multiple values": {
+                "value": "base_token,quote_token,dex"
+              }
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "page through results \n Default value: 1",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "include_gt_community_data",
+            "in": "query",
+            "required": false,
+            "description": "include GeckoTerminal community data (Sentiment votes, Suspicious reports) \n Default value: false",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get latest pools across all networks",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Pool"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/networks/{network}/new_pools": {
       "get": {
         "summary": "New Pools by Network",
@@ -794,69 +857,6 @@
         "responses": {
           "200": {
             "description": "Get latest pools on a network",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Pool"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/networks/new_pools": {
-      "get": {
-        "summary": "New Pools List",
-        "tags": [
-          "Pools"
-        ],
-        "description": "This endpoint allows you to **query all the latest pools across all networks on GeckoTerminal**",
-        "operationId": "latest-pools-list",
-        "x-mint": {
-          "href": "/reference/latest-pools-list"
-        },
-        "parameters": [
-          {
-            "name": "include",
-            "in": "query",
-            "required": false,
-            "description": "attributes to include, comma-separated if more than one to include \n Available values: `base_token`, `quote_token`, `dex`, `network`",
-            "schema": {
-              "type": "string",
-              "default": "base_token"
-            },
-            "examples": {
-              "one value": {
-                "value": "base_token"
-              },
-              "multiple values": {
-                "value": "base_token,quote_token,dex"
-              }
-            }
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "required": false,
-            "description": "page through results \n Default value: 1",
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "name": "include_gt_community_data",
-            "in": "query",
-            "required": false,
-            "description": "include GeckoTerminal community data (Sentiment votes, Suspicious reports) \n Default value: false",
-            "schema": {
-              "type": "boolean"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Get latest pools across all networks",
             "content": {
               "application/json": {
                 "schema": {
