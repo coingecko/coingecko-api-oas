@@ -58,7 +58,7 @@
           {
             "name": "vs_currencies",
             "in": "query",
-            "description": "target currency of coins, comma-separated if querying more than 1 currency. \n *refers to [`/simple/supported_vs_currencies`](/reference/simple-supported-currencies).",
+            "description": "target currency of coins, comma-separated if querying more than 1 currency. \n *refers to [`/simple/supported_vs_currencies`](/v3.0.1/reference/simple-supported-currencies).",
             "required": true,
             "schema": {
               "type": "string",
@@ -76,7 +76,7 @@
           {
             "name": "ids",
             "in": "query",
-            "description": "coins' IDs, comma-separated if querying more than 1 coin. \n *refers to [`/coins/list`](/reference/coins-list).",
+            "description": "coins' IDs, comma-separated if querying more than 1 coin. \n *refers to [`/coins/list`](/v3.0.1/reference/coins-list).",
             "required": false,
             "schema": {
               "type": "string",
@@ -236,7 +236,7 @@
           {
             "name": "id",
             "in": "path",
-            "description": "asset platform's ID \n *refers to [`/asset_platforms`](/reference/asset-platforms-list).",
+            "description": "asset platform's ID \n *refers to [`/asset_platforms`](/v3.0.1/reference/asset-platforms-list).",
             "required": true,
             "schema": {
               "type": "string",
@@ -262,7 +262,7 @@
           {
             "name": "vs_currencies",
             "in": "query",
-            "description": "target currency of coins, comma-separated if querying more than 1 currency. \n *refers to [`/simple/supported_vs_currencies`](/reference/simple-supported-currencies).",
+            "description": "target currency of coins, comma-separated if querying more than 1 currency. \n *refers to [`/simple/supported_vs_currencies`](/v3.0.1/reference/simple-supported-currencies).",
             "required": true,
             "schema": {
               "type": "string",
@@ -435,7 +435,7 @@
           {
             "name": "vs_currency",
             "in": "query",
-            "description": "target currency of coins and market data \n *refers to [`/simple/supported_vs_currencies`](/reference/simple-supported-currencies).",
+            "description": "target currency of coins and market data \n *refers to [`/simple/supported_vs_currencies`](/v3.0.1/reference/simple-supported-currencies).",
             "required": true,
             "schema": {
               "type": "string",
@@ -446,7 +446,7 @@
           {
             "name": "ids",
             "in": "query",
-            "description": "coins' IDs, comma-separated if querying more than 1 coin. \n *refers to [`/coins/list`](/reference/coins-list).",
+            "description": "coins' IDs, comma-separated if querying more than 1 coin. \n *refers to [`/coins/list`](/v3.0.1/reference/coins-list).",
             "required": false,
             "schema": {
               "type": "string",
@@ -513,7 +513,7 @@
           {
             "name": "category",
             "in": "query",
-            "description": "filter based on coins' category \n *refers to [`/coins/categories/list`](/reference/coins-categories-list).",
+            "description": "filter based on coins' category \n *refers to [`/coins/categories/list`](/v3.0.1/reference/coins-categories-list).",
             "required": false,
             "schema": {
               "type": "string",
@@ -689,7 +689,7 @@
           {
             "name": "id",
             "in": "path",
-            "description": "coin ID \n *refers to [`/coins/list`](/reference/coins-list).",
+            "description": "coin ID \n *refers to [`/coins/list`](/v3.0.1/reference/coins-list).",
             "required": true,
             "schema": {
               "type": "string",
@@ -794,7 +794,7 @@
           {
             "name": "id",
             "in": "path",
-            "description": "coin ID \n *refers to [`/coins/list`](/reference/coins-list).",
+            "description": "coin ID \n *refers to [`/coins/list`](/v3.0.1/reference/coins-list).",
             "required": true,
             "schema": {
               "type": "string",
@@ -805,7 +805,7 @@
           {
             "name": "exchange_ids",
             "in": "query",
-            "description": "exchange ID \n *refers to [`/exchanges/list`](/reference/exchanges-list).",
+            "description": "exchange ID \n *refers to [`/exchanges/list`](/v3.0.1/reference/exchanges-list).",
             "required": false,
             "schema": {
               "type": "string",
@@ -898,7 +898,7 @@
           {
             "name": "id",
             "in": "path",
-            "description": "coin ID \n *refers to [`/coins/list`](/reference/coins-list).",
+            "description": "coin ID \n *refers to [`/coins/list`](/v3.0.1/reference/coins-list).",
             "required": true,
             "schema": {
               "type": "string",
@@ -956,7 +956,7 @@
           {
             "name": "id",
             "in": "path",
-            "description": "coin ID \n *refers to [`/coins/list`](/reference/coins-list).",
+            "description": "coin ID \n *refers to [`/coins/list`](/v3.0.1/reference/coins-list).",
             "required": true,
             "schema": {
               "type": "string",
@@ -967,7 +967,7 @@
           {
             "name": "vs_currency",
             "in": "query",
-            "description": "target currency of market data \n *refers to [`/simple/supported_vs_currencies`](/reference/simple-supported-currencies).",
+            "description": "target currency of market data \n *refers to [`/simple/supported_vs_currencies`](/v3.0.1/reference/simple-supported-currencies).",
             "required": true,
             "schema": {
               "type": "string",
@@ -1066,7 +1066,7 @@
           {
             "name": "id",
             "in": "path",
-            "description": "coin ID \n *refers to [`/coins/list`](/reference/coins-list).",
+            "description": "coin ID \n *refers to [`/coins/list`](/v3.0.1/reference/coins-list).",
             "required": true,
             "schema": {
               "type": "string",
@@ -1077,7 +1077,7 @@
           {
             "name": "vs_currency",
             "in": "query",
-            "description": "target currency of market data \n *refers to [`/simple/supported_vs_currencies`](/reference/simple-supported-currencies).",
+            "description": "target currency of market data \n *refers to [`/simple/supported_vs_currencies`](/v3.0.1/reference/simple-supported-currencies).",
             "required": true,
             "schema": {
               "type": "string",
@@ -1168,7 +1168,7 @@
           {
             "name": "id",
             "in": "path",
-            "description": "coin ID \n *refers to [`/coins/list`](/reference/coins-list).",
+            "description": "coin ID \n *refers to [`/coins/list`](/v3.0.1/reference/coins-list).",
             "required": true,
             "schema": {
               "type": "string",
@@ -1179,7 +1179,7 @@
           {
             "name": "vs_currency",
             "in": "query",
-            "description": "target currency of price data \n *refers to [`/simple/supported_vs_currencies`](/reference/simple-supported-currencies).",
+            "description": "target currency of price data \n *refers to [`/simple/supported_vs_currencies`](/v3.0.1/reference/simple-supported-currencies).",
             "required": true,
             "schema": {
               "type": "string",
@@ -1266,7 +1266,7 @@
           {
             "name": "id",
             "in": "path",
-            "description": "asset platform ID \n *refers to [`/asset_platforms`](/reference/asset-platforms-list).",
+            "description": "asset platform ID \n *refers to [`/asset_platforms`](/v3.0.1/reference/asset-platforms-list).",
             "required": true,
             "schema": {
               "type": "string",
@@ -1315,7 +1315,7 @@
           {
             "name": "id",
             "in": "path",
-            "description": "asset platform ID \n *refers to [`/asset_platforms`](/reference/asset-platforms-list).",
+            "description": "asset platform ID \n *refers to [`/asset_platforms`](/v3.0.1/reference/asset-platforms-list).",
             "required": true,
             "schema": {
               "type": "string",
@@ -1337,7 +1337,7 @@
           {
             "name": "vs_currency",
             "in": "query",
-            "description": "target currency of market data \n *refers to [`/simple/supported_vs_currencies`](/reference/simple-supported-currencies).",
+            "description": "target currency of market data \n *refers to [`/simple/supported_vs_currencies`](/v3.0.1/reference/simple-supported-currencies).",
             "required": true,
             "schema": {
               "type": "string",
@@ -1436,7 +1436,7 @@
           {
             "name": "id",
             "in": "path",
-            "description": "asset platform ID \n *refers to [`/asset_platforms`](/reference/asset-platforms-list)",
+            "description": "asset platform ID \n *refers to [`/asset_platforms`](/v3.0.1/reference/asset-platforms-list)",
             "required": true,
             "schema": {
               "type": "string",
@@ -1458,7 +1458,7 @@
           {
             "name": "vs_currency",
             "in": "query",
-            "description": "target currency of market data \n *refers to [`/simple/supported_vs_currencies`](/reference/simple-supported-currencies).",
+            "description": "target currency of market data \n *refers to [`/simple/supported_vs_currencies`](/v3.0.1/reference/simple-supported-currencies).",
             "required": true,
             "schema": {
               "type": "string",
@@ -1588,7 +1588,7 @@
           {
             "name": "asset_platform_id",
             "in": "path",
-            "description": "asset platform ID \n *refers to [`/asset_platforms`](/reference/asset-platforms-list)",
+            "description": "asset platform ID \n *refers to [`/asset_platforms`](/v3.0.1/reference/asset-platforms-list)",
             "required": true,
             "schema": {
               "type": "string",
@@ -1780,7 +1780,7 @@
           {
             "name": "id",
             "in": "path",
-            "description": "exchange ID \n *refers to [`/exchanges/list`](/reference/exchanges-list).",
+            "description": "exchange ID \n *refers to [`/exchanges/list`](/v3.0.1/reference/exchanges-list).",
             "required": true,
             "schema": {
               "type": "string",
@@ -1831,7 +1831,7 @@
           {
             "name": "id",
             "in": "path",
-            "description": "exchange ID \n *refers to [`/exchanges/list`](/reference/exchanges-list).",
+            "description": "exchange ID \n *refers to [`/exchanges/list`](/v3.0.1/reference/exchanges-list).",
             "required": true,
             "schema": {
               "type": "string",
@@ -1842,7 +1842,7 @@
           {
             "name": "coin_ids",
             "in": "query",
-            "description": "filter tickers by coin IDs, comma-separated if querying more than 1 coin \n *refers to [`/coins/list`](/reference/coins-list).",
+            "description": "filter tickers by coin IDs, comma-separated if querying more than 1 coin \n *refers to [`/coins/list`](/v3.0.1/reference/coins-list).",
             "required": false,
             "schema": {
               "type": "string",
@@ -1945,7 +1945,7 @@
           {
             "name": "id",
             "in": "path",
-            "description": "exchange ID or derivatives exchange ID \n *refers to [`/exchanges/list`](/reference/exchanges-list) or [`/derivatives/exchanges/list`](/reference/derivatives-exchanges-list).",
+            "description": "exchange ID or derivatives exchange ID \n *refers to [`/exchanges/list`](/v3.0.1/reference/exchanges-list) or [`/derivatives/exchanges/list`](/v3.0.1/reference/derivatives-exchanges-list).",
             "required": true,
             "schema": {
               "type": "string",
@@ -2095,7 +2095,7 @@
           {
             "name": "id",
             "in": "path",
-            "description": "derivative exchange ID \n *refers to [`/derivatives/exchanges/list`](/reference/derivatives-exchanges-list).",
+            "description": "derivative exchange ID \n *refers to [`/derivatives/exchanges/list`](/v3.0.1/reference/derivatives-exchanges-list).",
             "required": true,
             "schema": {
               "type": "string",
@@ -2149,6 +2149,64 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/DerivativesExchangesList"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/entities/list": {
+      "get": {
+        "tags": [
+          "Public Treasury"
+        ],
+        "summary": "Entities List (ID Map)",
+        "description": "This endpoint allows you to **query all the supported entities on CoinGecko with entities ID, name, symbol, and country**",
+        "operationId": "entities-list",
+        "x-mint": {
+          "href": "/v3.0.1/reference/entities-list"
+        },
+        "parameters": [
+          {
+            "name": "entity_type",
+            "in": "query",
+            "description": "filter by entity type, default: false",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "company",
+                "government"
+              ]
+            }
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "total results per page, default: 100 \n Valid values: 1...250",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "page through results, default: 1",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List all entities with ID, name, symbol and country",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntitiesList"
                 }
               }
             }
@@ -2222,7 +2280,7 @@
           {
             "name": "entity_id",
             "in": "path",
-            "description": "public company or government entity ID \n *refers to [`/entities/list`](/reference/entities-list).",
+            "description": "public company or government entity ID \n *refers to [`/entities/list`](/v3.0.1/reference/entities-list).",
             "required": true,
             "schema": {
               "type": "string",
@@ -2245,57 +2303,155 @@
         }
       }
     },
-    "/entities/list": {
+    "/public_treasury/{entity_id}/{coin_id}/holding_chart": {
       "get": {
         "tags": [
           "Public Treasury"
         ],
-        "summary": "Entities List (ID Map)",
-        "description": "This endpoint allows you to **query all the supported entities on CoinGecko with entities ID, name, symbol, and country**",
-        "operationId": "entities-list",
+        "summary": "Crypto Treasury Holdings Historical Chart Data by ID",
+        "description": "This endpoint allows you to **query historical cryptocurrency holdings chart of public companies & governments** by Entity ID and Coin ID",
+        "operationId": "public-treasury-entity-chart",
         "x-mint": {
-          "href": "/v3.0.1/reference/entities-list"
+          "href": "/v3.0.1/reference/public-treasury-entity-chart"
         },
         "parameters": [
           {
-            "name": "entity_type",
-            "in": "query",
-            "description": "filter by entity type, default: false",
-            "required": false,
+            "name": "entity_id",
+            "in": "path",
+            "description": "public company or government entity ID \n *refers to [`/entities/list`](/v3.0.1/reference/entities-list).",
+            "required": true,
             "schema": {
               "type": "string",
-              "enum": [
-                "company",
-                "government"
-              ]
+              "example": "strategy",
+              "default": "strategy"
             }
           },
           {
-            "name": "per_page",
-            "in": "query",
-            "description": "total results per page, default: 100 \n Valid values: 1...250",
-            "required": false,
+            "name": "coin_id",
+            "in": "path",
+            "description": "coin ID. example: bitcoin, ethereum, solana, binancecoin",
+            "required": true,
             "schema": {
-              "type": "integer"
+              "type": "string",
+              "example": "bitcoin",
+              "default": "bitcoin"
             }
           },
           {
-            "name": "page",
+            "name": "days",
             "in": "query",
-            "description": "page through results, default: 1",
-            "required": false,
+            "description": "data up to number of days ago \n Valid values: `7, 14, 30, 90, 180, 365`",
+            "required": true,
             "schema": {
-              "type": "integer"
+              "type": "string",
+              "default": "365"
+            }
+          },
+          {
+            "name": "include_empty_intervals",
+            "in": "query",
+            "required": false,
+            "description": "include empty intervals with no transaction data, default: false",
+            "schema": {
+              "type": "boolean",
+              "default": false
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "List all entities with ID, name, symbol and country",
+            "description": "Get public companies & governments crypto treasury holding historical chart data",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/EntitiesList"
+                  "$ref": "#/components/schemas/PublicTreasuryEntityChart"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/public_treasury/{entity_id}/transaction_history": {
+      "get": {
+        "tags": [
+          "Public Treasury"
+        ],
+        "summary": "Crypto Treasury Transaction History by Entity ID",
+        "description": "This endpoint allows you **query public companies & governments' cryptocurrency transaction history** by Entity ID",
+        "operationId": "public-treasury-transaction-history",
+        "x-mint": {
+          "href": "/v3.0.1/reference/public-treasury-transaction-history"
+        },
+        "parameters": [
+          {
+            "name": "entity_id",
+            "in": "path",
+            "description": "public company or government entity ID \n *refers to [`/entities/list`](/v3.0.1/reference/entities-list).",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "strategy",
+              "default": "strategy"
+            }
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "total results per page, default: `100` \n Valid values: 1...250",
+            "required": false,
+            "schema": {
+              "type": "number",
+              "default": 100
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "page through results, default: `1`",
+            "required": false,
+            "schema": {
+              "type": "number",
+              "default": 1
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "description": "use this to sort the order of transactions, default: `date_desc`",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "date_desc",
+                "date_asc",
+                "holding_net_change_desc",
+                "holding_net_change_asc",
+                "transaction_value_usd_desc",
+                "transaction_value_usd_asc",
+                "average_cost_desc",
+                "average_cost_asc"
+              ],
+              "default": "date_desc"
+            }
+          },
+          {
+            "name": "coin_ids",
+            "in": "query",
+            "description": "filter transactions by coin IDs, comma-separated if querying more than 1 coin \n *refers to [`/coins/list`](/v3.0.1/reference/coins-list).",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get public companies & governments crypto treasury transaction history",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicTreasuryTransactionHistory"
                 }
               }
             }
@@ -2384,7 +2540,7 @@
           {
             "name": "id",
             "in": "path",
-            "description": "NFTs ID \n *refers to [`/nfts/list`](/reference/nfts-list).",
+            "description": "NFTs ID \n *refers to [`/nfts/list`](/v3.0.1/reference/nfts-list).",
             "required": true,
             "schema": {
               "type": "string",
@@ -2422,7 +2578,7 @@
           {
             "name": "asset_platform_id",
             "in": "path",
-            "description": "asset platform ID \n *refers to [`/asset_platforms`](/reference/asset-platforms-list)",
+            "description": "asset platform ID \n *refers to [`/asset_platforms`](/v3.0.1/reference/asset-platforms-list)",
             "required": true,
             "schema": {
               "type": "string",
@@ -10882,6 +11038,124 @@
             "country": "US"
           }
         ]
+      },
+      "PublicTreasuryEntityChart": {
+        "type": "object",
+        "properties": {
+          "holdings": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              }
+            }
+          },
+          "holding_value_in_usd": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              }
+            }
+          }
+        },
+        "example": {
+          "holdings": [
+            [
+              1733097600000,
+              402100.0
+            ],
+            [
+              1733616000000,
+              423650.0
+            ]
+          ],
+          "holding_value_in_usd": [
+            [
+              1733097600000,
+              39129037461.438065
+            ],
+            [
+              1733616000000,
+              42272572276.103065
+            ]
+          ]
+        }
+      },
+      "PublicTreasuryTransactionHistory": {
+        "type": "object",
+        "properties": {
+          "transactions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "date": {
+                  "type": "number",
+                  "description": "transaction date in UNIX timestamp"
+                },
+                "source_url": {
+                  "type": "string",
+                  "description": "source document URL"
+                },
+                "coin_id": {
+                  "type": "string",
+                  "description": "coin ID"
+                },
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "buy",
+                    "sell"
+                  ],
+                  "description": "transaction type: buy or sell"
+                },
+                "holding_net_change": {
+                  "type": "number",
+                  "description": "net change in holdings after the transaction"
+                },
+                "transaction_value_usd": {
+                  "type": "number",
+                  "description": "transaction value in usd"
+                },
+                "holding_balance": {
+                  "type": "number",
+                  "description": "total holding balance after the transaction"
+                },
+                "average_entry_value_usd": {
+                  "type": "number",
+                  "description": "average entry value in usd after the transaction"
+                }
+              }
+            }
+          }
+        },
+        "example": {
+          "transactions": [
+            {
+              "date": 1763337600000,
+              "source_url": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt27517abcb8f459e3/691aaadfcd08266e2ec6fbe9/form-8-k_11-17-2025.pdf",
+              "coin_id": "bitcoin",
+              "type": "buy",
+              "holding_net_change": 8178.0,
+              "transaction_value_usd": 835554438.0,
+              "holding_balance": 649870.0,
+              "average_entry_value_usd": 102171.0
+            },
+            {
+              "date": 1762732800000,
+              "source_url": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/bltdba4fc803e019d1e/69114d2ecc0c83c2fa618ffc/form-8-k_11-10-2025.pdf",
+              "coin_id": "bitcoin",
+              "type": "buy",
+              "holding_net_change": 487.0,
+              "transaction_value_usd": 49945259.0,
+              "holding_balance": 641692.0,
+              "average_entry_value_usd": 102557.0
+            }
+          ]
+        }
       }
     }
   },
