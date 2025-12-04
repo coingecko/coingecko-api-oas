@@ -1734,6 +1734,99 @@
         }
       }
     },
+    "/networks/{network_id}/tokens/{token_address}/top_traders": {
+      "get": {
+        "summary": "💼 Top Token Traders by Token Address",
+        "tags": [
+          "Tokens"
+        ],
+        "description": "This endpoint allows you to **query top token traders based on the provided token contract address on a network**",
+        "operationId": "top-token-traders-token-address",
+        "x-mint": {
+          "href": "/reference/top-token-traders-token-address"
+        },
+        "parameters": [
+          {
+            "name": "network_id",
+            "in": "path",
+            "description": "network ID \n *refers to [/networks](/reference/networks-list)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "base",
+              "default": "base"
+            }
+          },
+          {
+            "name": "token_address",
+            "in": "path",
+            "description": "token contract address",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "0x6921b130d297cc43754afba22e5eac0fbf8db75b",
+              "default": "0x6921b130d297cc43754afba22e5eac0fbf8db75b"
+            }
+          },
+          {
+            "name": "traders",
+            "in": "query",
+            "description": "number of top token traders to return, you may use any integer or `max` \n Default value: 10",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "10"
+            },
+            "examples": {
+              "value-1": {
+                "value": "10"
+              },
+              "value-2": {
+                "value": "max"
+              }
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "sort the traders by field \n Default value: realized_pnl_usd_desc",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "realized_pnl_usd_desc",
+                "unrealized_pnl_usd_desc",
+                "total_buy_usd_desc",
+                "total_sell_usd_desc"
+              ],
+              "default": "realized_pnl_usd_desc"
+            }
+          },
+          {
+            "name": "include_address_label",
+            "in": "query",
+            "description": "include address label data, default: false",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get top token traders for a token",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TokenTrader"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/networks/{network}/tokens/{address}/top_holders": {
       "get": {
         "summary": "💼 Top Token Holders by Token Address",
@@ -5721,6 +5814,111 @@
                   "amount": "1901706692.0",
                   "percentage": "2.8124",
                   "value": "2425226.3"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "TokenTrader": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "attributes": {
+                "type": "object",
+                "properties": {
+                  "traders": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "address": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "label": {
+                          "type": "string"
+                        },
+                        "type": {
+                          "type": "string"
+                        },
+                        "realized_pnl_usd": {
+                          "type": "string"
+                        },
+                        "unrealized_pnl_usd": {
+                          "type": "string"
+                        },
+                        "token_balance": {
+                          "type": "string"
+                        },
+                        "average_buy_price_usd": {
+                          "type": "string"
+                        },
+                        "average_sell_price_usd": {
+                          "type": "string"
+                        },
+                        "total_buy_count": {
+                          "type": "integer"
+                        },
+                        "total_sell_count": {
+                          "type": "integer"
+                        },
+                        "total_buy_token_amount": {
+                          "type": "string"
+                        },
+                        "total_sell_token_amount": {
+                          "type": "string"
+                        },
+                        "total_buy_usd": {
+                          "type": "string"
+                        },
+                        "total_sell_usd": {
+                          "type": "string"
+                        },
+                        "explorer_url": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "example": {
+          "data": {
+            "id": "base_0x6921b130d297cc43754afba22e5eac0fbf8db75b",
+            "type": "top_trader",
+            "attributes": {
+              "traders": [
+                {
+                  "address": "0xf748879edbe8cca140940788163d7be4d2a2e46a",
+                  "name": "@zimagetsfox",
+                  "label": "zimagetsfox.eth",
+                  "type": "other",
+                  "realized_pnl_usd": "1157358.77",
+                  "unrealized_pnl_usd": "255071.37",
+                  "token_balance": "1454984.43",
+                  "average_buy_price_usd": "0.01144",
+                  "average_sell_price_usd": "0.03460",
+                  "total_buy_count": 48,
+                  "total_sell_count": 109,
+                  "total_buy_token_amount": "51422264.86",
+                  "total_sell_token_amount": "49967280.42",
+                  "total_buy_usd": "588308.47",
+                  "total_sell_usd": "1729021.16",
+                  "explorer_url": "https://etherscan.io/address/0xf748879edbe8cca140940788163d7be4d2a2e46a"
                 }
               ]
             }
