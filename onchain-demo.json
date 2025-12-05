@@ -18,6 +18,107 @@
     }
   ],
   "paths": {
+    "/simple/networks/{network}/token_price/{addresses}": {
+      "get": {
+        "summary": "Token Price by Token Addresses",
+        "tags": [
+          "Simple"
+        ],
+        "description": "This endpoint allows you to **get token price based on the provided token contract address on a network**",
+        "operationId": "onchain-simple-price",
+        "x-mint": {
+          "href": "/v3.0.1/reference/onchain-simple-price"
+        },
+        "parameters": [
+          {
+            "name": "network",
+            "in": "path",
+            "description": "network ID \n *refers to [/networks](/v3.0.1/reference/networks-list)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "eth",
+              "default": "eth"
+            }
+          },
+          {
+            "name": "addresses",
+            "in": "path",
+            "description": "token contract address, comma-separated if more than one token contract address",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+            },
+            "examples": {
+              "one value": {
+                "value": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+              },
+              "multiple values": {
+                "value": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+              }
+            }
+          },
+          {
+            "name": "include_market_cap",
+            "in": "query",
+            "description": "include market capitalization, default: false",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "mcap_fdv_fallback",
+            "in": "query",
+            "description": "return FDV if market cap is not available, default: false",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "include_24hr_vol",
+            "in": "query",
+            "description": "include 24hr volume, default: false",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "include_24hr_price_change",
+            "in": "query",
+            "description": "include 24hr price change, default: false",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "include_total_reserve_in_usd",
+            "in": "query",
+            "description": "include total reserve in USD, default: false",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get current USD prices of multiple tokens on a network",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OnchainSimplePrice"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/networks": {
       "get": {
         "summary": "Supported Networks List (ID Map)",
@@ -54,129 +155,6 @@
         }
       }
     },
-    "/networks/new_pools": {
-      "get": {
-        "summary": "New Pools List",
-        "tags": [
-          "Pools"
-        ],
-        "description": "This endpoint allows you to **query all the latest pools across all networks on GeckoTerminal**",
-        "operationId": "latest-pools-list",
-        "x-mint": {
-          "href": "/v3.0.1/reference/latest-pools-list"
-        },
-        "parameters": [
-          {
-            "name": "include",
-            "in": "query",
-            "required": false,
-            "description": "attributes to include, comma-separated if more than one to include \n Available values: `base_token`, `quote_token`, `dex`, `network`",
-            "schema": {
-              "type": "string",
-              "default": "base_token"
-            },
-            "examples": {
-              "one value": {
-                "value": "base_token"
-              },
-              "multiple values": {
-                "value": "base_token,quote_token,dex"
-              }
-            }
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "required": false,
-            "description": "page through results \n Default value: 1",
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Get latest pools across all networks",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Pool"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/networks/trending_pools": {
-      "get": {
-        "summary": "Trending Pools List",
-        "tags": [
-          "Pools"
-        ],
-        "description": "This endpoint allows you to **query all the trending pools across all networks on GeckoTerminal**",
-        "operationId": "trending-pools-list",
-        "x-mint": {
-          "href": "/v3.0.1/reference/trending-pools-list"
-        },
-        "parameters": [
-          {
-            "name": "include",
-            "in": "query",
-            "required": false,
-            "description": "attributes to include, comma-separated if more than one to include \n Available values: `base_token`, `quote_token`, `dex`, `network`. \n Example: `base_token` or `base_token,dex`",
-            "schema": {
-              "type": "string",
-              "default": "base_token"
-            },
-            "examples": {
-              "one value": {
-                "value": "base_token"
-              },
-              "multiple values": {
-                "value": "base_token,quote_token,dex"
-              }
-            }
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "required": false,
-            "description": "page through results \n Default value: 1",
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "name": "duration",
-            "in": "query",
-            "required": false,
-            "description": "duration to sort trending list by \n Default value: 24h",
-            "schema": {
-              "type": "string",
-              "enum": [
-                "5m",
-                "1h",
-                "6h",
-                "24h"
-              ]
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Get trending pools across all networks",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Pool"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/networks/{network}/dexes": {
       "get": {
         "summary": "Supported Dexes List by Network (ID Map)",
@@ -192,7 +170,7 @@
           {
             "name": "network",
             "in": "path",
-            "description": "network ID \n *refers to [/networks](/reference/networks-list)",
+            "description": "network ID \n *refers to [/networks](/v3.0.1/reference/networks-list)",
             "required": true,
             "schema": {
               "type": "string",
@@ -224,22 +202,22 @@
         }
       }
     },
-    "/networks/{network}/dexes/{dex}/pools": {
+    "/networks/{network}/pools/{address}": {
       "get": {
-        "summary": "Top Pools by Dex",
+        "summary": "Specific Pool Data by Pool Address",
         "tags": [
           "Pools"
         ],
-        "description": "This endpoint allows you to **query all the top pools based on the provided network and decentralized exchange (DEX)**",
-        "operationId": "top-pools-dex",
+        "description": "This endpoint allows you to **query the specific pool based on the provided network and pool address**",
+        "operationId": "pool-address",
         "x-mint": {
-          "href": "/v3.0.1/reference/top-pools-dex"
+          "href": "/v3.0.1/reference/pool-address"
         },
         "parameters": [
           {
             "name": "network",
             "in": "path",
-            "description": "network ID \n *refers to [/networks](/reference/networks-list)",
+            "description": "network ID \n *refers to [/networks](/v3.0.1/reference/networks-list)",
             "required": true,
             "schema": {
               "type": "string",
@@ -248,14 +226,14 @@
             }
           },
           {
-            "name": "dex",
+            "name": "address",
             "in": "path",
-            "description": "DEX ID \n *refers to [/networks/{network}/dexes](/reference/dexes-list)",
+            "description": "pool address",
             "required": true,
             "schema": {
               "type": "string",
-              "example": "sushiswap",
-              "default": "sushiswap"
+              "example": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
+              "default": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640"
             }
           },
           {
@@ -277,178 +255,31 @@
             }
           },
           {
-            "name": "page",
+            "name": "include_volume_breakdown",
             "in": "query",
             "required": false,
-            "description": "page through results \n Default value: 1",
+            "description": "include volume breakdown, default: false",
             "schema": {
-              "type": "integer"
+              "type": "boolean"
             }
           },
           {
-            "name": "sort",
+            "name": "include_composition",
             "in": "query",
             "required": false,
-            "description": "sort the pools by field \n Default value: h24_tx_count_desc",
+            "description": "include pool composition, default: false",
             "schema": {
-              "type": "string",
-              "enum": [
-                "h24_tx_count_desc",
-                "h24_volume_usd_desc"
-              ]
+              "type": "boolean"
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "Get top pools on a network's DEX",
+            "description": "Get specific pool on a network",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Pool"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/networks/{network}/new_pools": {
-      "get": {
-        "summary": "New Pools by Network",
-        "tags": [
-          "Pools"
-        ],
-        "description": "This endpoint allows you to **query all the latest pools based on provided network**",
-        "operationId": "latest-pools-network",
-        "x-mint": {
-          "href": "/v3.0.1/reference/latest-pools-network"
-        },
-        "parameters": [
-          {
-            "name": "network",
-            "in": "path",
-            "description": "network ID \n *refers to [/networks](/reference/networks-list)",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "example": "eth",
-              "default": "eth"
-            }
-          },
-          {
-            "name": "include",
-            "in": "query",
-            "required": false,
-            "description": "attributes to include, comma-separated if more than one to include \n Available values: `base_token`, `quote_token`, `dex`",
-            "schema": {
-              "type": "string",
-              "default": "base_token"
-            },
-            "examples": {
-              "one value": {
-                "value": "base_token"
-              },
-              "multiple values": {
-                "value": "base_token,quote_token,dex"
-              }
-            }
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "required": false,
-            "description": "page through results \n Default value: 1",
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Get latest pools on a network",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Pool"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/networks/{network}/pools": {
-      "get": {
-        "summary": "Top Pools by Network",
-        "tags": [
-          "Pools"
-        ],
-        "description": "This endpoint allows you to **query all the top pools based on the provided network**",
-        "operationId": "top-pools-network",
-        "x-mint": {
-          "href": "/v3.0.1/reference/top-pools-network"
-        },
-        "parameters": [
-          {
-            "name": "network",
-            "in": "path",
-            "description": "network ID \n *refers to [/networks](/reference/networks-list)",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "example": "eth",
-              "default": "eth"
-            }
-          },
-          {
-            "name": "include",
-            "in": "query",
-            "required": false,
-            "description": "attributes to include, comma-separated if more than one to include \n Available values: `base_token`, `quote_token`, `dex`",
-            "schema": {
-              "type": "string",
-              "default": "base_token"
-            },
-            "examples": {
-              "one value": {
-                "value": "base_token"
-              },
-              "multiple values": {
-                "value": "base_token,quote_token,dex"
-              }
-            }
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "required": false,
-            "description": "page through results \n Default value: 1",
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "name": "sort",
-            "in": "query",
-            "required": false,
-            "description": "sort the pools by field \n Default value: h24_tx_count_desc",
-            "schema": {
-              "type": "string",
-              "enum": [
-                "h24_tx_count_desc",
-                "h24_volume_usd_desc"
-              ]
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Get top pools on a network",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Pool"
+                  "$ref": "#/components/schemas/SinglePoolInfo"
                 }
               }
             }
@@ -471,7 +302,7 @@
           {
             "name": "network",
             "in": "path",
-            "description": "network ID \n *refers to [/networks](/reference/networks-list)",
+            "description": "network ID \n *refers to [/networks](/v3.0.1/reference/networks-list)",
             "required": true,
             "schema": {
               "type": "string",
@@ -548,38 +379,105 @@
         }
       }
     },
-    "/networks/{network}/pools/{address}": {
+    "/networks/trending_pools": {
       "get": {
-        "summary": "Specific Pool Data by Pool Address",
+        "summary": "Trending Pools List",
         "tags": [
           "Pools"
         ],
-        "description": "This endpoint allows you to **query the specific pool based on the provided network and pool address**",
-        "operationId": "pool-address",
+        "description": "This endpoint allows you to **query all the trending pools across all networks on GeckoTerminal**",
+        "operationId": "trending-pools-list",
         "x-mint": {
-          "href": "/v3.0.1/reference/pool-address"
+          "href": "/v3.0.1/reference/trending-pools-list"
+        },
+        "parameters": [
+          {
+            "name": "include",
+            "in": "query",
+            "required": false,
+            "description": "attributes to include, comma-separated if more than one to include \n Available values: `base_token`, `quote_token`, `dex`, `network`. \n Example: `base_token` or `base_token,dex`",
+            "schema": {
+              "type": "string",
+              "default": "base_token"
+            },
+            "examples": {
+              "one value": {
+                "value": "base_token"
+              },
+              "multiple values": {
+                "value": "base_token,quote_token,dex"
+              }
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "page through results \n Default value: 1",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "duration",
+            "in": "query",
+            "required": false,
+            "description": "duration to sort trending list by \n Default value: 24h",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "5m",
+                "1h",
+                "6h",
+                "24h"
+              ]
+            }
+          },
+          {
+            "name": "include_gt_community_data",
+            "in": "query",
+            "required": false,
+            "description": "include GeckoTerminal community data (Sentiment votes, Suspicious reports) \n Default value: false",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get trending pools across all networks",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Pool"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/networks/{network}/trending_pools": {
+      "get": {
+        "summary": "Trending Pools by Network",
+        "tags": [
+          "Pools"
+        ],
+        "description": "This endpoint allows you to **query the trending pools based on the provided network**",
+        "operationId": "trending-pools-network",
+        "x-mint": {
+          "href": "/v3.0.1/reference/trending-pools-network"
         },
         "parameters": [
           {
             "name": "network",
             "in": "path",
-            "description": "network ID \n *refers to [/networks](/reference/networks-list)",
+            "description": "network ID \n *refers to [/networks](/v3.0.1/reference/networks-list)",
             "required": true,
             "schema": {
               "type": "string",
               "example": "eth",
               "default": "eth"
-            }
-          },
-          {
-            "name": "address",
-            "in": "path",
-            "description": "pool address",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "example": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
-              "default": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640"
             }
           },
           {
@@ -601,12 +499,509 @@
             }
           },
           {
-            "name": "include_volume_breakdown",
+            "name": "page",
             "in": "query",
             "required": false,
-            "description": "include volume breakdown, default: false",
+            "description": "page through results \n Default value: 1",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "duration",
+            "in": "query",
+            "required": false,
+            "description": "duration to sort trending list by \n Default value: 24h",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "5m",
+                "1h",
+                "6h",
+                "24h"
+              ]
+            }
+          },
+          {
+            "name": "include_gt_community_data",
+            "in": "query",
+            "required": false,
+            "description": "include GeckoTerminal community data (Sentiment votes, Suspicious reports) \n Default value: false",
             "schema": {
               "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get trending pools on a network",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Pool"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/networks/{network}/pools": {
+      "get": {
+        "summary": "Top Pools by Network",
+        "tags": [
+          "Pools"
+        ],
+        "description": "This endpoint allows you to **query all the top pools based on the provided network**",
+        "operationId": "top-pools-network",
+        "x-mint": {
+          "href": "/v3.0.1/reference/top-pools-network"
+        },
+        "parameters": [
+          {
+            "name": "network",
+            "in": "path",
+            "description": "network ID \n *refers to [/networks](/v3.0.1/reference/networks-list)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "eth",
+              "default": "eth"
+            }
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "required": false,
+            "description": "attributes to include, comma-separated if more than one to include \n Available values: `base_token`, `quote_token`, `dex`",
+            "schema": {
+              "type": "string",
+              "default": "base_token"
+            },
+            "examples": {
+              "one value": {
+                "value": "base_token"
+              },
+              "multiple values": {
+                "value": "base_token,quote_token,dex"
+              }
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "page through results \n Default value: 1",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "description": "sort the pools by field \n Default value: h24_tx_count_desc",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "h24_tx_count_desc",
+                "h24_volume_usd_desc"
+              ]
+            }
+          },
+          {
+            "name": "include_gt_community_data",
+            "in": "query",
+            "required": false,
+            "description": "include GeckoTerminal community data (Sentiment votes, Suspicious reports) \n Default value: false",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get top pools on a network",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Pool"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/networks/{network}/dexes/{dex}/pools": {
+      "get": {
+        "summary": "Top Pools by Dex",
+        "tags": [
+          "Pools"
+        ],
+        "description": "This endpoint allows you to **query all the top pools based on the provided network and decentralized exchange (DEX)**",
+        "operationId": "top-pools-dex",
+        "x-mint": {
+          "href": "/v3.0.1/reference/top-pools-dex"
+        },
+        "parameters": [
+          {
+            "name": "network",
+            "in": "path",
+            "description": "network ID \n *refers to [/networks](/v3.0.1/reference/networks-list)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "eth",
+              "default": "eth"
+            }
+          },
+          {
+            "name": "dex",
+            "in": "path",
+            "description": "DEX ID \n *refers to [/networks/{network}/dexes](/v3.0.1/reference/dexes-list)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "sushiswap",
+              "default": "sushiswap"
+            }
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "required": false,
+            "description": "attributes to include, comma-separated if more than one to include \n Available values: `base_token`, `quote_token`, `dex`",
+            "schema": {
+              "type": "string",
+              "default": "base_token"
+            },
+            "examples": {
+              "one value": {
+                "value": "base_token"
+              },
+              "multiple values": {
+                "value": "base_token,quote_token,dex"
+              }
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "page through results \n Default value: 1",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "description": "sort the pools by field \n Default value: h24_tx_count_desc",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "h24_tx_count_desc",
+                "h24_volume_usd_desc"
+              ]
+            }
+          },
+          {
+            "name": "include_gt_community_data",
+            "in": "query",
+            "required": false,
+            "description": "include GeckoTerminal community data (Sentiment votes, Suspicious reports) \n Default value: false",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get top pools on a network's DEX",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Pool"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/networks/new_pools": {
+      "get": {
+        "summary": "New Pools List",
+        "tags": [
+          "Pools"
+        ],
+        "description": "This endpoint allows you to **query all the latest pools across all networks on GeckoTerminal**",
+        "operationId": "latest-pools-list",
+        "x-mint": {
+          "href": "/v3.0.1/reference/latest-pools-list"
+        },
+        "parameters": [
+          {
+            "name": "include",
+            "in": "query",
+            "required": false,
+            "description": "attributes to include, comma-separated if more than one to include \n Available values: `base_token`, `quote_token`, `dex`, `network`",
+            "schema": {
+              "type": "string",
+              "default": "base_token"
+            },
+            "examples": {
+              "one value": {
+                "value": "base_token"
+              },
+              "multiple values": {
+                "value": "base_token,quote_token,dex"
+              }
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "page through results \n Default value: 1",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "include_gt_community_data",
+            "in": "query",
+            "required": false,
+            "description": "include GeckoTerminal community data (Sentiment votes, Suspicious reports) \n Default value: false",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get latest pools across all networks",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Pool"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/networks/{network}/new_pools": {
+      "get": {
+        "summary": "New Pools by Network",
+        "tags": [
+          "Pools"
+        ],
+        "description": "This endpoint allows you to **query all the latest pools based on provided network**",
+        "operationId": "latest-pools-network",
+        "x-mint": {
+          "href": "/v3.0.1/reference/latest-pools-network"
+        },
+        "parameters": [
+          {
+            "name": "network",
+            "in": "path",
+            "description": "network ID \n *refers to [/networks](/v3.0.1/reference/networks-list)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "eth",
+              "default": "eth"
+            }
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "required": false,
+            "description": "attributes to include, comma-separated if more than one to include \n Available values: `base_token`, `quote_token`, `dex`",
+            "schema": {
+              "type": "string",
+              "default": "base_token"
+            },
+            "examples": {
+              "one value": {
+                "value": "base_token"
+              },
+              "multiple values": {
+                "value": "base_token,quote_token,dex"
+              }
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "page through results \n Default value: 1",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "include_gt_community_data",
+            "in": "query",
+            "required": false,
+            "description": "include GeckoTerminal community data (Sentiment votes, Suspicious reports) \n Default value: false",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get latest pools on a network",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Pool"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/networks/{network}/tokens/{token_address}/pools": {
+      "get": {
+        "summary": "Top Pools by Token Address",
+        "tags": [
+          "Tokens"
+        ],
+        "description": "This endpoint allows you to **query top pools based on the provided token contract address on a network**",
+        "operationId": "top-pools-contract-address",
+        "x-mint": {
+          "href": "/v3.0.1/reference/top-pools-contract-address"
+        },
+        "parameters": [
+          {
+            "name": "network",
+            "in": "path",
+            "description": "network ID \n *refers to [/networks](/v3.0.1/reference/networks-list)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "eth",
+              "default": "eth"
+            }
+          },
+          {
+            "name": "token_address",
+            "in": "path",
+            "description": "token contract address",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+              "default": "0xdac17f958d2ee523a2206206994597c13d831ec7"
+            }
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "required": false,
+            "description": "attributes to include, comma-separated if more than one to include \n Available values: `base_token`, `quote_token`, `dex`",
+            "schema": {
+              "type": "string",
+              "default": "base_token"
+            },
+            "examples": {
+              "one value": {
+                "value": "base_token"
+              },
+              "multiple values": {
+                "value": "base_token,quote_token,dex"
+              }
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "page through results \n Default value: 1",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "description": "sort the pools by field \n Default value: h24_volume_usd_liquidity_desc",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "h24_volume_usd_liquidity_desc",
+                "h24_tx_count_desc",
+                "h24_volume_usd_desc"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get top pools for a token",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PoolOld"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/networks/{network}/tokens/{address}": {
+      "get": {
+        "summary": "Token Data by Token Address",
+        "tags": [
+          "Tokens"
+        ],
+        "description": "This endpoint allows you to **query specific token data based on the provided token contract address on a network**",
+        "operationId": "token-data-contract-address",
+        "x-mint": {
+          "href": "/v3.0.1/reference/token-data-contract-address"
+        },
+        "parameters": [
+          {
+            "name": "network",
+            "in": "path",
+            "description": "network ID \n *refers to [/networks](/v3.0.1/reference/networks-list)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "eth",
+              "default": "eth"
+            }
+          },
+          {
+            "name": "address",
+            "in": "path",
+            "description": "token contract address",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+              "default": "0xdac17f958d2ee523a2206206994597c13d831ec7"
+            }
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "required": false,
+            "description": "attributes to include",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "top_pools"
+              ]
             }
           },
           {
@@ -621,11 +1016,137 @@
         ],
         "responses": {
           "200": {
-            "description": "Get specific pool on a network",
+            "description": "Get specific token on a network",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/SinglePoolInfo"
+                  "$ref": "#/components/schemas/Token"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/networks/{network}/tokens/multi/{addresses}": {
+      "get": {
+        "summary": "Tokens Data by Token Addresses",
+        "tags": [
+          "Tokens"
+        ],
+        "description": "This endpoint allows you to **query multiple tokens data based on the provided token contract addresses on a network**",
+        "operationId": "tokens-data-contract-addresses",
+        "x-mint": {
+          "href": "/v3.0.1/reference/tokens-data-contract-addresses"
+        },
+        "parameters": [
+          {
+            "name": "network",
+            "in": "path",
+            "description": "network ID \n *refers to [/networks](/v3.0.1/reference/networks-list)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "solana",
+              "default": "solana"
+            }
+          },
+          {
+            "name": "addresses",
+            "in": "path",
+            "description": "token contract address, comma-separated if more than one token contract address",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "6p6xgHyF7AeE6TZkSmFsko444wqoP15icUSqi2jfGiPN,2g4LS3y2myPe6vj9wTvoBE1wKqxvhnZPoZA9QU9upump"
+            },
+            "examples": {
+              "one value": {
+                "value": "6p6xgHyF7AeE6TZkSmFsko444wqoP15icUSqi2jfGiPN"
+              },
+              "multiple values": {
+                "value": "6p6xgHyF7AeE6TZkSmFsko444wqoP15icUSqi2jfGiPN,2g4LS3y2myPe6vj9wTvoBE1wKqxvhnZPoZA9QU9upump"
+              }
+            }
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "required": false,
+            "description": "attributes to include",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "top_pools"
+              ]
+            }
+          },
+          {
+            "name": "include_composition",
+            "in": "query",
+            "required": false,
+            "description": "include pool composition, default: false",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get multiple tokens on a network",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TokensData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/networks/{network}/tokens/{address}/info": {
+      "get": {
+        "summary": "Token Info by Token Address",
+        "tags": [
+          "Tokens"
+        ],
+        "description": "This endpoint allows you to **query token metadata (name, symbol,  CoinGecko ID, image, socials, websites, description, etc.) based on a provided token contract address on a network**",
+        "operationId": "token-info-contract-address",
+        "x-mint": {
+          "href": "/v3.0.1/reference/token-info-contract-address"
+        },
+        "parameters": [
+          {
+            "name": "network",
+            "in": "path",
+            "description": "network ID \n *refers to [/networks](/v3.0.1/reference/networks-list)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "eth",
+              "default": "eth"
+            }
+          },
+          {
+            "name": "address",
+            "in": "path",
+            "description": "token contract address",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+              "default": "0xdac17f958d2ee523a2206206994597c13d831ec7"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get specific token info on a network",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TokenInfo"
                 }
               }
             }
@@ -648,7 +1169,7 @@
           {
             "name": "network",
             "in": "path",
-            "description": "network ID \n *refers to [/networks](/reference/networks-list)",
+            "description": "network ID \n *refers to [/networks](/v3.0.1/reference/networks-list)",
             "required": true,
             "schema": {
               "type": "string",
@@ -697,7 +1218,7 @@
           {
             "name": "network",
             "in": "path",
-            "description": "network ID \n *refers to [/networks](/reference/networks-list)",
+            "description": "network ID \n *refers to [/networks](/v3.0.1/reference/networks-list)",
             "required": true,
             "schema": {
               "type": "string",
@@ -834,7 +1355,7 @@
           {
             "name": "network",
             "in": "path",
-            "description": "network ID \n *refers to [/networks](/reference/networks-list)",
+            "description": "network ID \n *refers to [/networks](/v3.0.1/reference/networks-list)",
             "required": true,
             "schema": {
               "type": "string",
@@ -901,372 +1422,6 @@
         }
       }
     },
-    "/networks/{network}/tokens/multi/{addresses}": {
-      "get": {
-        "summary": "Tokens Data by Token Addresses",
-        "tags": [
-          "Tokens"
-        ],
-        "description": "This endpoint allows you to **query multiple tokens data based on the provided token contract addresses on a network**",
-        "operationId": "tokens-data-contract-addresses",
-        "x-mint": {
-          "href": "/v3.0.1/reference/tokens-data-contract-addresses"
-        },
-        "parameters": [
-          {
-            "name": "network",
-            "in": "path",
-            "description": "network ID \n *refers to [/networks](/reference/networks-list)",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "example": "solana",
-              "default": "solana"
-            }
-          },
-          {
-            "name": "addresses",
-            "in": "path",
-            "description": "token contract address, comma-separated if more than one token contract address",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "default": "6p6xgHyF7AeE6TZkSmFsko444wqoP15icUSqi2jfGiPN,2g4LS3y2myPe6vj9wTvoBE1wKqxvhnZPoZA9QU9upump"
-            },
-            "examples": {
-              "one value": {
-                "value": "6p6xgHyF7AeE6TZkSmFsko444wqoP15icUSqi2jfGiPN"
-              },
-              "multiple values": {
-                "value": "6p6xgHyF7AeE6TZkSmFsko444wqoP15icUSqi2jfGiPN,2g4LS3y2myPe6vj9wTvoBE1wKqxvhnZPoZA9QU9upump"
-              }
-            }
-          },
-          {
-            "name": "include",
-            "in": "query",
-            "required": false,
-            "description": "attributes to include",
-            "schema": {
-              "type": "string",
-              "enum": [
-                "top_pools"
-              ]
-            }
-          },
-          {
-            "name": "include_composition",
-            "in": "query",
-            "required": false,
-            "description": "include pool composition, default: false",
-            "schema": {
-              "type": "boolean"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Get multiple tokens on a network",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/TokensData"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/networks/{network}/tokens/{address}": {
-      "get": {
-        "summary": "Token Data by Token Address",
-        "tags": [
-          "Tokens"
-        ],
-        "description": "This endpoint allows you to **query specific token data based on the provided token contract address on a network**",
-        "operationId": "token-data-contract-address",
-        "x-mint": {
-          "href": "/v3.0.1/reference/token-data-contract-address"
-        },
-        "parameters": [
-          {
-            "name": "network",
-            "in": "path",
-            "description": "network ID \n *refers to [/networks](/reference/networks-list)",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "example": "eth",
-              "default": "eth"
-            }
-          },
-          {
-            "name": "address",
-            "in": "path",
-            "description": "token contract address",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "example": "0xdac17f958d2ee523a2206206994597c13d831ec7",
-              "default": "0xdac17f958d2ee523a2206206994597c13d831ec7"
-            }
-          },
-          {
-            "name": "include",
-            "in": "query",
-            "required": false,
-            "description": "attributes to include",
-            "schema": {
-              "type": "string",
-              "enum": [
-                "top_pools"
-              ]
-            }
-          },
-          {
-            "name": "include_composition",
-            "in": "query",
-            "required": false,
-            "description": "include pool composition, default: false",
-            "schema": {
-              "type": "boolean"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Get specific token on a network",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Token"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/networks/{network}/tokens/{address}/info": {
-      "get": {
-        "summary": "Token Info by Token Address",
-        "tags": [
-          "Tokens"
-        ],
-        "description": "This endpoint allows you to **query token metadata (name, symbol,  CoinGecko ID, image, socials, websites, description, etc.) based on a provided token contract address on a network**",
-        "operationId": "token-info-contract-address",
-        "x-mint": {
-          "href": "/v3.0.1/reference/token-info-contract-address"
-        },
-        "parameters": [
-          {
-            "name": "network",
-            "in": "path",
-            "description": "network ID \n *refers to [/networks](/reference/networks-list)",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "example": "eth",
-              "default": "eth"
-            }
-          },
-          {
-            "name": "address",
-            "in": "path",
-            "description": "token contract address",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "example": "0xdac17f958d2ee523a2206206994597c13d831ec7",
-              "default": "0xdac17f958d2ee523a2206206994597c13d831ec7"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Get specific token info on a network",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/TokenInfo"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/networks/{network}/tokens/{token_address}/pools": {
-      "get": {
-        "summary": "Top Pools by Token Address",
-        "tags": [
-          "Tokens"
-        ],
-        "description": "This endpoint allows you to **query top pools based on the provided token contract address on a network**",
-        "operationId": "top-pools-contract-address",
-        "x-mint": {
-          "href": "/v3.0.1/reference/top-pools-contract-address"
-        },
-        "parameters": [
-          {
-            "name": "network",
-            "in": "path",
-            "description": "network ID \n *refers to [/networks](/reference/networks-list)",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "example": "eth",
-              "default": "eth"
-            }
-          },
-          {
-            "name": "token_address",
-            "in": "path",
-            "description": "token contract address",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "example": "0xdac17f958d2ee523a2206206994597c13d831ec7",
-              "default": "0xdac17f958d2ee523a2206206994597c13d831ec7"
-            }
-          },
-          {
-            "name": "include",
-            "in": "query",
-            "required": false,
-            "description": "attributes to include, comma-separated if more than one to include \n Available values: `base_token`, `quote_token`, `dex`",
-            "schema": {
-              "type": "string",
-              "default": "base_token"
-            },
-            "examples": {
-              "one value": {
-                "value": "base_token"
-              },
-              "multiple values": {
-                "value": "base_token,quote_token,dex"
-              }
-            }
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "required": false,
-            "description": "page through results \n Default value: 1",
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "name": "sort",
-            "in": "query",
-            "required": false,
-            "description": "sort the pools by field \n Default value: h24_volume_usd_liquidity_desc",
-            "schema": {
-              "type": "string",
-              "enum": [
-                "h24_volume_usd_liquidity_desc",
-                "h24_tx_count_desc",
-                "h24_volume_usd_desc"
-              ]
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Get top pools for a token",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Pool"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/networks/{network}/trending_pools": {
-      "get": {
-        "summary": "Trending Pools by Network",
-        "tags": [
-          "Pools"
-        ],
-        "description": "This endpoint allows you to **query the trending pools based on the provided network**",
-        "operationId": "trending-pools-network",
-        "x-mint": {
-          "href": "/v3.0.1/reference/trending-pools-network"
-        },
-        "parameters": [
-          {
-            "name": "network",
-            "in": "path",
-            "description": "network ID \n *refers to [/networks](/reference/networks-list)",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "example": "eth",
-              "default": "eth"
-            }
-          },
-          {
-            "name": "include",
-            "in": "query",
-            "required": false,
-            "description": "attributes to include, comma-separated if more than one to include \n Available values: `base_token`, `quote_token`, `dex`",
-            "schema": {
-              "type": "string",
-              "default": "base_token"
-            },
-            "examples": {
-              "one value": {
-                "value": "base_token"
-              },
-              "multiple values": {
-                "value": "base_token,quote_token,dex"
-              }
-            }
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "required": false,
-            "description": "page through results \n Default value: 1",
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "name": "duration",
-            "in": "query",
-            "required": false,
-            "description": "duration to sort trending list by \n Default value: 24h",
-            "schema": {
-              "type": "string",
-              "enum": [
-                "5m",
-                "1h",
-                "6h",
-                "24h"
-              ]
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Get trending pools on a network",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Pool"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/search/pools": {
       "get": {
         "summary": "Search Pools",
@@ -1292,7 +1447,7 @@
           {
             "name": "network",
             "in": "query",
-            "description": "network ID \n *refers to [/networks](/reference/networks-list)",
+            "description": "network ID \n *refers to [/networks](/v3.0.1/reference/networks-list)",
             "schema": {
               "type": "string",
               "example": "eth",
@@ -1333,108 +1488,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Pool"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/simple/networks/{network}/token_price/{addresses}": {
-      "get": {
-        "summary": "Token Price by Token Addresses",
-        "tags": [
-          "Simple"
-        ],
-        "description": "This endpoint allows you to **get token price based on the provided token contract address on a network**",
-        "operationId": "onchain-simple-price",
-        "x-mint": {
-          "href": "/v3.0.1/reference/onchain-simple-price"
-        },
-        "parameters": [
-          {
-            "name": "network",
-            "in": "path",
-            "description": "network ID \n *refers to [/networks](/reference/networks-list)",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "example": "eth",
-              "default": "eth"
-            }
-          },
-          {
-            "name": "addresses",
-            "in": "path",
-            "description": "token contract address, comma-separated if more than one token contract address",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "default": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-            },
-            "examples": {
-              "one value": {
-                "value": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-              },
-              "multiple values": {
-                "value": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
-              }
-            }
-          },
-          {
-            "name": "include_market_cap",
-            "in": "query",
-            "description": "include market capitalization, default: false",
-            "required": false,
-            "schema": {
-              "type": "boolean"
-            }
-          },
-          {
-            "name": "mcap_fdv_fallback",
-            "in": "query",
-            "description": "return FDV if market cap is not available, default: false",
-            "required": false,
-            "schema": {
-              "type": "boolean"
-            }
-          },
-          {
-            "name": "include_24hr_vol",
-            "in": "query",
-            "description": "include 24hr volume, default: false",
-            "required": false,
-            "schema": {
-              "type": "boolean"
-            }
-          },
-          {
-            "name": "include_24hr_price_change",
-            "in": "query",
-            "description": "include 24hr price change, default: false",
-            "required": false,
-            "schema": {
-              "type": "boolean"
-            }
-          },
-          {
-            "name": "include_total_reserve_in_usd",
-            "in": "query",
-            "description": "include total reserve in USD, default: false",
-            "required": false,
-            "schema": {
-              "type": "boolean"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Get current USD prices of multiple tokens on a network",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/OnchainSimplePrice"
+                  "$ref": "#/components/schemas/PoolOld"
                 }
               }
             }
@@ -1469,7 +1523,7 @@
           {
             "name": "network",
             "in": "query",
-            "description": "filter tokens by provided network \n *refers to [/networks](/reference/networks-list)",
+            "description": "filter tokens by provided network \n *refers to [/networks](/v3.0.1/reference/networks-list)",
             "required": false,
             "schema": {
               "type": "string",
@@ -1785,6 +1839,408 @@
         }
       },
       "Pool": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "attributes": {
+                  "type": "object",
+                  "properties": {
+                    "base_token_price_usd": {
+                      "type": "string"
+                    },
+                    "base_token_price_native_currency": {
+                      "type": "string"
+                    },
+                    "quote_token_price_usd": {
+                      "type": "string"
+                    },
+                    "quote_token_price_native_currency": {
+                      "type": "string"
+                    },
+                    "base_token_price_quote_token": {
+                      "type": "string"
+                    },
+                    "quote_token_price_base_token": {
+                      "type": "string"
+                    },
+                    "address": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "pool_created_at": {
+                      "type": "string"
+                    },
+                    "fdv_usd": {
+                      "type": "string"
+                    },
+                    "market_cap_usd": {
+                      "type": "string"
+                    },
+                    "price_change_percentage": {
+                      "type": "object",
+                      "properties": {
+                        "m5": {
+                          "type": "string"
+                        },
+                        "m15": {
+                          "type": "string"
+                        },
+                        "m30": {
+                          "type": "string"
+                        },
+                        "h1": {
+                          "type": "string"
+                        },
+                        "h6": {
+                          "type": "string"
+                        },
+                        "h24": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "transactions": {
+                      "type": "object",
+                      "properties": {
+                        "m5": {
+                          "type": "object",
+                          "properties": {
+                            "buys": {
+                              "type": "integer"
+                            },
+                            "sells": {
+                              "type": "integer"
+                            },
+                            "buyers": {
+                              "type": "integer"
+                            },
+                            "sellers": {
+                              "type": "integer"
+                            }
+                          }
+                        },
+                        "m15": {
+                          "type": "object",
+                          "properties": {
+                            "buys": {
+                              "type": "integer"
+                            },
+                            "sells": {
+                              "type": "integer"
+                            },
+                            "buyers": {
+                              "type": "integer"
+                            },
+                            "sellers": {
+                              "type": "integer"
+                            }
+                          }
+                        },
+                        "m30": {
+                          "type": "object",
+                          "properties": {
+                            "buys": {
+                              "type": "integer"
+                            },
+                            "sells": {
+                              "type": "integer"
+                            },
+                            "buyers": {
+                              "type": "integer"
+                            },
+                            "sellers": {
+                              "type": "integer"
+                            }
+                          }
+                        },
+                        "h1": {
+                          "type": "object",
+                          "properties": {
+                            "buys": {
+                              "type": "integer"
+                            },
+                            "sells": {
+                              "type": "integer"
+                            },
+                            "buyers": {
+                              "type": "integer"
+                            },
+                            "sellers": {
+                              "type": "integer"
+                            }
+                          }
+                        },
+                        "h24": {
+                          "type": "object",
+                          "properties": {
+                            "buys": {
+                              "type": "integer"
+                            },
+                            "sells": {
+                              "type": "integer"
+                            },
+                            "buyers": {
+                              "type": "integer"
+                            },
+                            "sellers": {
+                              "type": "integer"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "volume_usd": {
+                      "type": "object",
+                      "properties": {
+                        "m5": {
+                          "type": "string"
+                        },
+                        "m15": {
+                          "type": "string"
+                        },
+                        "m30": {
+                          "type": "string"
+                        },
+                        "h1": {
+                          "type": "string"
+                        },
+                        "h6": {
+                          "type": "string"
+                        },
+                        "h24": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "reserve_in_usd": {
+                      "type": "string"
+                    },
+                    "sentiment_vote_positive_percentage": {
+                      "type": "number"
+                    },
+                    "sentiment_vote_negative_percentage": {
+                      "type": "number"
+                    },
+                    "community_sus_report": {
+                      "type": "number"
+                    }
+                  }
+                },
+                "relationships": {
+                  "type": "object",
+                  "properties": {
+                    "base_token": {
+                      "type": "object",
+                      "properties": {
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "type": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "quote_token": {
+                      "type": "object",
+                      "properties": {
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "type": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "dex": {
+                      "type": "object",
+                      "properties": {
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "type": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "attributes": {
+                  "type": "object",
+                  "properties": {
+                    "address": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "symbol": {
+                      "type": "string"
+                    },
+                    "decimals": {
+                      "type": "integer"
+                    },
+                    "image_url": {
+                      "type": "string"
+                    },
+                    "coingecko_coin_id": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "example": {
+          "data": [
+            {
+              "id": "eth_0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
+              "type": "pool",
+              "attributes": {
+                "base_token_price_usd": "3653.12491645176",
+                "base_token_price_native_currency": "1.0",
+                "quote_token_price_usd": "0.998343707926245",
+                "quote_token_price_native_currency": "0.000273040545093221",
+                "base_token_price_quote_token": "3662.46",
+                "quote_token_price_base_token": "0.00027304",
+                "address": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
+                "name": "WETH / USDC 0.05%",
+                "pool_created_at": "2021-12-29T12:35:14Z",
+                "fdv_usd": "11007041041",
+                "market_cap_usd": null,
+                "price_change_percentage": {
+                  "m5": "0",
+                  "m15": "0.21",
+                  "m30": "0.31",
+                  "h1": "0.51",
+                  "h6": "0.86",
+                  "h24": "7.71"
+                },
+                "transactions": {
+                  "m5": {
+                    "buys": 7,
+                    "sells": 2,
+                    "buyers": 7,
+                    "sellers": 2
+                  },
+                  "m15": {
+                    "buys": 19,
+                    "sells": 27,
+                    "buyers": 19,
+                    "sellers": 27
+                  },
+                  "m30": {
+                    "buys": 49,
+                    "sells": 61,
+                    "buyers": 45,
+                    "sellers": 57
+                  },
+                  "h1": {
+                    "buys": 97,
+                    "sells": 144,
+                    "buyers": 83,
+                    "sellers": 124
+                  },
+                  "h24": {
+                    "buys": 2966,
+                    "sells": 3847,
+                    "buyers": 1625,
+                    "sellers": 2399
+                  }
+                },
+                "volume_usd": {
+                  "m5": "868581.7348314",
+                  "m15": "2056262.885098",
+                  "m30": "4081230.098456",
+                  "h1": "16798158.0138526",
+                  "h6": "164054610.850188",
+                  "h24": "536545444.904535"
+                },
+                "reserve_in_usd": "163988541.3812",
+                "sentiment_vote_positive_percentage": 0,
+                "sentiment_vote_negative_percentage": 0,
+                "community_sus_report": 0
+              },
+              "relationships": {
+                "base_token": {
+                  "data": {
+                    "id": "eth_0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+                    "type": "token"
+                  }
+                },
+                "quote_token": {
+                  "data": {
+                    "id": "eth_0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+                    "type": "token"
+                  }
+                },
+                "dex": {
+                  "data": {
+                    "id": "uniswap_v3",
+                    "type": "dex"
+                  }
+                }
+              }
+            }
+          ],
+          "included": [
+            {
+              "id": "eth_0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+              "type": "token",
+              "attributes": {
+                "address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+                "name": "Wrapped Ether",
+                "symbol": "WETH",
+                "decimals": 18,
+                "image_url": "https://assets.coingecko.com/coins/images/2518/small/weth.png?1696503332",
+                "coingecko_coin_id": "weth"
+              }
+            }
+          ]
+        }
+      },
+      "PoolOld": {
         "type": "object",
         "properties": {
           "data": {
@@ -2930,6 +3386,8 @@
                   "holders": 100
                 },
                 "discord_url": null,
+                "farcaster_url": null,
+                "zora_url": null,
                 "telegram_handle": null,
                 "twitter_handle": null,
                 "categories": [],
@@ -2971,6 +3429,8 @@
                   "holders": 0
                 },
                 "discord_url": null,
+                "farcaster_url": null,
+                "zora_url": null,
                 "telegram_handle": null,
                 "twitter_handle": "Tether_to",
                 "categories": [],
@@ -3577,6 +4037,12 @@
                   "discord_url": {
                     "type": "string"
                   },
+                  "farcaster_url": {
+                    "type": "string"
+                  },
+                  "zora_url": {
+                    "type": "string"
+                  },
                   "telegram_handle": {
                     "type": "string"
                   },
@@ -3672,6 +4138,8 @@
                 "holders": 0
               },
               "discord_url": null,
+              "farcaster_url": null,
+              "zora_url": null,
               "telegram_handle": null,
               "twitter_handle": "Tether_to",
               "categories": [],
