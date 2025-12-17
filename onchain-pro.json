@@ -108,7 +108,7 @@
             "name": "include_inactive_source",
             "in": "query",
             "required": false,
-            "description": "include tokens from inactive pools using the most recent swap, default: false",
+            "description": "include token price data from inactive pools using the most recent swap, default: false",
             "schema": {
               "type": "boolean",
               "default": false
@@ -1506,7 +1506,7 @@
             "name": "include_inactive_source",
             "in": "query",
             "required": false,
-            "description": "include tokens from inactive pools using the most recent swap, default: false",
+            "description": "include token data from inactive pools using the most recent swap, default: false",
             "schema": {
               "type": "boolean",
               "default": false
@@ -2238,7 +2238,7 @@
             "name": "include_inactive_source",
             "in": "query",
             "required": false,
-            "description": "include tokens from inactive pools using the most recent swap, default: false",
+            "description": "include token data from inactive pools using the most recent swap, default: false",
             "schema": {
               "type": "boolean",
               "default": false
