@@ -1694,7 +1694,7 @@
         "tags": [
           "Exchanges"
         ],
-        "summary": "Exchanges List with data",
+        "summary": "Exchanges List with Data",
         "description": "This endpoint allows you to **query all the supported exchanges with exchanges' data (ID, name, country, ...) that have active trading volumes on CoinGecko**",
         "operationId": "exchanges",
         "x-mint": {
@@ -9535,11 +9535,11 @@
           },
           "url": {
             "type": "string",
-            "description": "exchange website url"
+            "description": "exchange website URL"
           },
           "image": {
             "type": "string",
-            "description": "exchange image url"
+            "description": "exchange image URL"
           },
           "has_trading_incentive": {
             "type": "boolean",
