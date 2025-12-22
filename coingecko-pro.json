@@ -13886,11 +13886,27 @@
         }
       },
       "PublicTreasury": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/CompaniesTreasury"
+          },
+          {
+            "$ref": "#/components/schemas/GovernmentsTreasury"
+          }
+        ]
+      },
+      "CompaniesTreasury": {
         "type": "object",
+        "required": [
+          "total_holdings",
+          "total_value_usd",
+          "market_cap_dominance",
+          "companies"
+        ],
         "properties": {
           "total_holdings": {
             "type": "number",
-            "description": "total crypto holdings of companies or government"
+            "description": "total crypto holdings of companies"
           },
           "total_value_usd": {
             "type": "number",
@@ -13903,82 +13919,71 @@
           "companies": {
             "type": "array",
             "items": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "type": "string",
-                  "description": "company or government name"
-                },
-                "symbol": {
-                  "type": "string",
-                  "description": "company symbol"
-                },
-                "country": {
-                  "type": "string",
-                  "description": "company incorporated or government country"
-                },
-                "total_holdings": {
-                  "type": "number",
-                  "description": "total crypto holdings of company"
-                },
-                "total_entry_value_usd": {
-                  "type": "number",
-                  "description": "total entry value in usd"
-                },
-                "total_current_value_usd": {
-                  "type": "number",
-                  "description": "total current value of crypto holdings in usd"
-                },
-                "percentage_of_total_supply": {
-                  "type": "number",
-                  "description": "percentage of total crypto supply"
-                }
-              }
+              "$ref": "#/components/schemas/TreasuryEntity"
             }
           }
-        },
-        "example": {
-          "total_holdings": 1016926.31280703,
-          "total_value_usd": 119397213064.28789,
-          "market_cap_dominance": 4.84,
-          "companies": [
-            {
-              "name": "Strategy",
-              "symbol": "MSTR.US",
-              "country": "US",
-              "total_holdings": 638985,
-              "total_entry_value_usd": 47229000000,
-              "total_current_value_usd": 75023162670.74625,
-              "percentage_of_total_supply": 3.043
-            },
-            {
-              "name": "MARA Holdings",
-              "symbol": "MARA.US",
-              "country": "US",
-              "total_holdings": 52477,
-              "total_entry_value_usd": 0,
-              "total_current_value_usd": 6161319134.991824,
-              "percentage_of_total_supply": 0.25
-            },
-            {
-              "name": "XXI",
-              "symbol": "CEP.US",
-              "country": "US",
-              "total_holdings": 43514,
-              "total_entry_value_usd": 0,
-              "total_current_value_usd": 5108974233.283805,
-              "percentage_of_total_supply": 0.207
-            },
-            {
-              "name": "Bitcoin Standard Treasury Company",
-              "symbol": "CEPO.US",
-              "country": "US",
-              "total_holdings": 30021,
-              "total_entry_value_usd": 0,
-              "total_current_value_usd": 3524762500.7448893,
-              "percentage_of_total_supply": 0.143
+        }
+      },
+      "GovernmentsTreasury": {
+        "type": "object",
+        "required": [
+          "total_holdings",
+          "total_value_usd",
+          "market_cap_dominance",
+          "governments"
+        ],
+        "properties": {
+          "total_holdings": {
+            "type": "number",
+            "description": "total crypto holdings of governments"
+          },
+          "total_value_usd": {
+            "type": "number",
+            "description": "total crypto holdings value in usd"
+          },
+          "market_cap_dominance": {
+            "type": "number",
+            "description": "market cap dominance"
+          },
+          "governments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TreasuryEntity"
             }
-          ]
+          }
+        }
+      },
+      "TreasuryEntity": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "company or government name"
+          },
+          "symbol": {
+            "type": "string",
+            "description": "company symbol"
+          },
+          "country": {
+            "type": "string",
+            "description": "company incorporated or government country"
+          },
+          "total_holdings": {
+            "type": "number",
+            "description": "total crypto holdings"
+          },
+          "total_entry_value_usd": {
+            "type": "number",
+            "description": "total entry value in usd"
+          },
+          "total_current_value_usd": {
+            "type": "number",
+            "description": "total current value of crypto holdings in usd"
+          },
+          "percentage_of_total_supply": {
+            "type": "number",
+            "description": "percentage of total crypto supply"
+          }
         }
       },
       "PublicTreasuryEntity": {
