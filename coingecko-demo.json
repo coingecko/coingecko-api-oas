@@ -4065,6 +4065,7 @@
                 },
                 "trust_score": {
                   "type": "string",
+                  "nullable": true,
                   "description": "coin ticker trust score"
                 },
                 "bid_ask_spread_percentage": {
@@ -4916,6 +4917,7 @@
                 },
                 "trust_score": {
                   "type": "string",
+                  "nullable": true,
                   "description": "coin ticker trust score"
                 },
                 "bid_ask_spread_percentage": {
@@ -6619,7 +6621,7 @@
                 "eth": 404380,
                 "usd": 1381537193
               },
-              "trust_score": "green",
+              "trust_score": null,
               "bid_ask_spread_percentage": 0.010014,
               "timestamp": "2024-04-07T15:23:02+00:00",
               "last_traded_at": "2024-04-07T15:23:02+00:00",
@@ -6730,6 +6732,7 @@
                 },
                 "trust_score": {
                   "type": "string",
+                  "nullable": true,
                   "description": "coin ticker trust score"
                 },
                 "bid_ask_spread_percentage": {
@@ -6803,7 +6806,7 @@
                 "eth": 410802,
                 "usd": 1406996874
               },
-              "trust_score": "green",
+              "trust_score": null,
               "bid_ask_spread_percentage": 0.010014,
               "timestamp": "2024-04-08T04:02:01+00:00",
               "last_traded_at": "2024-04-08T04:02:01+00:00",
@@ -9267,7 +9270,7 @@
                 "eth": 3589,
                 "usd": 12213859
               },
-              "trust_score": "green",
+              "trust_score": null,
               "bid_ask_spread_percentage": 0.010001,
               "timestamp": "2024-04-07T15:34:49+00:00",
               "last_traded_at": "2024-04-07T15:34:49+00:00",
@@ -9756,7 +9759,7 @@
                 "eth": 410802,
                 "usd": 1406996874
               },
-              "trust_score": "green",
+              "trust_score": null,
               "bid_ask_spread_percentage": 0.010014,
               "timestamp": "2024-04-08T04:02:01+00:00",
               "last_traded_at": "2024-04-08T04:02:01+00:00",
@@ -9803,7 +9806,7 @@
                 "eth": 410802,
                 "usd": 1406996874
               },
-              "trust_score": "green",
+              "trust_score": null,
               "bid_ask_spread_percentage": 0.010014,
               "timestamp": "2024-04-08T04:02:01+00:00",
               "last_traded_at": "2024-04-08T04:02:01+00:00",
