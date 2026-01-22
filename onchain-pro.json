@@ -1203,6 +1203,39 @@
             "schema": {
               "type": "number"
             }
+          },
+          {
+            "name": "price_change_percentage_min",
+            "in": "query",
+            "required": false,
+            "description": "minimum price change percentage",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "price_change_percentage_max",
+            "in": "query",
+            "required": false,
+            "description": "maximum price change percentage",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "price_change_percentage_duration",
+            "in": "query",
+            "required": false,
+            "description": "duration for price change percentage metric",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "5m",
+                "1h",
+                "6h",
+                "24h"
+              ]
+            }
           }
         ],
         "responses": {

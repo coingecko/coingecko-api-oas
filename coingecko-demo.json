@@ -2258,6 +2258,46 @@
               "example": "bitcoin",
               "default": "bitcoin"
             }
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "Number of results to return per page",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 250,
+              "minimum": 1,
+              "maximum": 250,
+              "example": 250
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number to return",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1,
+              "minimum": 1,
+              "example": 1
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "description": "Sort order for results",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "total_holdings_usd_desc",
+                "total_holdings_usd_asc"
+              ],
+              "default": "total_holdings_usd_desc",
+              "example": "total_holdings_usd_desc"
+            }
           }
         ],
         "responses": {
@@ -11641,6 +11681,10 @@
                 "type": "number",
                 "description": "cryptocurrencies market cap change percentage in 24 hours in usd"
               },
+              "volume_change_percentage_24h_usd": {
+                "type": "number",
+                "description": "cryptocurrencies volume change percentage in 24 hours in usd"
+              },
               "updated_at": {
                 "type": "number"
               }
@@ -11797,6 +11841,7 @@
               "ada": 0.765987294694099
             },
             "market_cap_change_percentage_24h_usd": 1.72179506060272,
+            "volume_change_percentage_24h_usd": -0.2692391926571914,
             "updated_at": 1712512855
           }
         }
