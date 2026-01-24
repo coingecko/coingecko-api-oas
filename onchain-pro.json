@@ -2,7 +2,18 @@
   "openapi": "3.0.0",
   "info": {
     "title": "Onchain DEX API (Pro)",
-    "version": "3.0.0"
+    "version": "3.0.0",
+    "description": "The GeckoTerminal Onchain DEX API (Pro) provides comprehensive on-chain data for decentralized exchanges, including pools, tokens, trades, and OHLCV data across multiple blockchain networks.",
+    "contact": {
+      "name": "CoinGecko API Support",
+      "url": "https://www.coingecko.com/en/api/pricing",
+      "email": "api@coingecko.com"
+    },
+    "termsOfService": "https://www.coingecko.com/en/api_terms",
+    "license": {
+      "name": "Proprietary",
+      "url": "https://www.coingecko.com/en/api_terms"
+    }
   },
   "servers": [
     {
@@ -880,7 +891,7 @@
     },
     "/pools/megafilter": {
       "get": {
-        "summary": "🔥 Megafilter for Pools",
+        "summary": "\ud83d\udd25 Megafilter for Pools",
         "tags": [
           "Pools"
         ],
@@ -1295,7 +1306,7 @@
     },
     "/pools/trending_search": {
       "get": {
-        "summary": "💼 Trending Search Pools",
+        "summary": "\ud83d\udcbc Trending Search Pools",
         "tags": [
           "Pools"
         ],
@@ -1776,7 +1787,7 @@
     },
     "/networks/{network_id}/tokens/{token_address}/top_traders": {
       "get": {
-        "summary": "💼 Top Token Traders by Token Address",
+        "summary": "\ud83d\udcbc Top Token Traders by Token Address",
         "tags": [
           "Tokens"
         ],
@@ -1869,7 +1880,7 @@
     },
     "/networks/{network}/tokens/{address}/top_holders": {
       "get": {
-        "summary": "💼 Top Token Holders by Token Address",
+        "summary": "\ud83d\udcbc Top Token Holders by Token Address",
         "tags": [
           "Tokens"
         ],
@@ -1936,7 +1947,7 @@
     },
     "/networks/{network}/tokens/{token_address}/holders_chart": {
       "get": {
-        "summary": "💼 Historical Token Holders Chart by Token Address",
+        "summary": "\ud83d\udcbc Historical Token Holders Chart by Token Address",
         "tags": [
           "Tokens"
         ],
@@ -2137,7 +2148,7 @@
     },
     "/networks/{network}/tokens/{token_address}/ohlcv/{timeframe}": {
       "get": {
-        "summary": "💼 Token OHLCV chart by Token Address",
+        "summary": "\ud83d\udcbc Token OHLCV chart by Token Address",
         "tags": [
           "OHLCV"
         ],
@@ -2343,7 +2354,7 @@
     },
     "/networks/{network}/tokens/{token_address}/trades": {
       "get": {
-        "summary": "💼 Past 24 Hour Trades by Token Address",
+        "summary": "\ud83d\udcbc Past 24 Hour Trades by Token Address",
         "tags": [
           "Trades"
         ],
@@ -2401,7 +2412,7 @@
     },
     "/categories": {
       "get": {
-        "summary": "💼 Categories List",
+        "summary": "\ud83d\udcbc Categories List",
         "tags": [
           "Categories"
         ],
@@ -2455,7 +2466,7 @@
     },
     "/categories/{category_id}/pools": {
       "get": {
-        "summary": "💼 Pools by Category ID",
+        "summary": "\ud83d\udcbc Pools by Category ID",
         "tags": [
           "Categories"
         ],
@@ -2534,12 +2545,14 @@
       "apiKeyAuth": {
         "type": "apiKey",
         "in": "header",
-        "name": "x-cg-pro-api-key"
+        "name": "x-cg-pro-api-key",
+        "description": "API key passed in the `x-cg-pro-api-key` header for authentication"
       },
       "apiKeyQueryParam": {
         "type": "apiKey",
         "in": "query",
-        "name": "x_cg_pro_api_key"
+        "name": "x_cg_pro_api_key",
+        "description": "API key passed as the `x_cg_pro_api_key` query parameter for authentication"
       }
     },
     "schemas": {
@@ -2624,7 +2637,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Onchain Simple Price data structure"
       },
       "NetworksList": {
         "type": "object",
@@ -2682,7 +2696,8 @@
               }
             }
           ]
-        }
+        },
+        "description": "Networks List data structure"
       },
       "DexesList": {
         "type": "object",
@@ -2734,7 +2749,8 @@
               }
             }
           ]
-        }
+        },
+        "description": "Dexes List data structure"
       },
       "Pool": {
         "type": "object",
@@ -3136,7 +3152,8 @@
               }
             }
           ]
-        }
+        },
+        "description": "Liquidity pool data"
       },
       "PoolOld": {
         "type": "object",
@@ -3526,7 +3543,8 @@
               }
             }
           ]
-        }
+        },
+        "description": "Pool Old data structure"
       },
       "TopPoolOld": {
         "type": "object",
@@ -3920,7 +3938,8 @@
               }
             }
           ]
-        }
+        },
+        "description": "Top Pool Old data structure"
       },
       "PoolData": {
         "type": "object",
@@ -4268,7 +4287,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Pool Data data structure"
       },
       "MultiPoolInfo": {
         "type": "object",
@@ -4457,7 +4477,8 @@
               }
             }
           ]
-        }
+        },
+        "description": "Multi Pool Info data structure"
       },
       "SinglePoolInfo": {
         "type": "object",
@@ -4641,7 +4662,8 @@
               }
             }
           ]
-        }
+        },
+        "description": "Single Pool Info data structure"
       },
       "TrendingPools": {
         "type": "object",
@@ -4860,7 +4882,8 @@
               }
             }
           ]
-        }
+        },
+        "description": "Trending Pools data structure"
       },
       "Token": {
         "type": "object",
@@ -5369,7 +5392,8 @@
               }
             }
           ]
-        }
+        },
+        "description": "Token information"
       },
       "TokensData": {
         "type": "object",
@@ -6023,7 +6047,8 @@
               }
             }
           ]
-        }
+        },
+        "description": "Tokens Data data structure"
       },
       "TokenInfo": {
         "type": "object",
@@ -6226,7 +6251,8 @@
               "is_honeypot": false
             }
           }
-        }
+        },
+        "description": "Token Info data structure"
       },
       "TokenHolder": {
         "type": "object",
@@ -6303,7 +6329,8 @@
               ]
             }
           }
-        }
+        },
+        "description": "Token Holder data structure"
       },
       "TokenTrader": {
         "type": "object",
@@ -6408,7 +6435,8 @@
               ]
             }
           }
-        }
+        },
+        "description": "Token Trader data structure"
       },
       "TokenHolderChart": {
         "type": "object",
@@ -6486,7 +6514,8 @@
               "coingecko_coin_id": "tether"
             }
           }
-        }
+        },
+        "description": "Token Holder Chart data structure"
       },
       "PoolTokensInfo": {
         "type": "object",
@@ -6639,7 +6668,8 @@
               }
             }
           ]
-        }
+        },
+        "description": "Pool Tokens Info data structure"
       },
       "TokenInfoRecentlyUpdated": {
         "properties": {
@@ -6729,7 +6759,7 @@
                 "discord_url": null,
                 "telegram_handle": null,
                 "twitter_handle": "wizzoordofwod",
-                "description": "Our mission is to help the IRL Wizards of Doge go viral in support of Elon’s DOGE initiative and to propagate wizards throughout the realm",
+                "description": "Our mission is to help the IRL Wizards of Doge go viral in support of Elon\u2019s DOGE initiative and to propagate wizards throughout the realm",
                 "gt_score": 62.50770642201834,
                 "metadata_updated_at": "2025-05-26T07:47:20Z"
               },
@@ -6743,7 +6773,8 @@
               }
             }
           ]
-        }
+        },
+        "description": "Token Info Recently Updated data structure"
       },
       "OHLCV": {
         "type": "object",
@@ -6860,7 +6891,8 @@
               "coingecko_coin_id": "tether"
             }
           }
-        }
+        },
+        "description": "Open, High, Low, Close, Volume data"
       },
       "Trades": {
         "type": "object",
@@ -6950,7 +6982,8 @@
               }
             }
           ]
-        }
+        },
+        "description": "List of trades"
       },
       "TokenTrades": {
         "type": "object",
@@ -7048,7 +7081,8 @@
               }
             }
           ]
-        }
+        },
+        "description": "Token Trades data structure"
       },
       "OnchainCategoriesList": {
         "type": "object",
@@ -7147,7 +7181,8 @@
               }
             }
           ]
-        }
+        },
+        "description": "Onchain Categories List data structure"
       },
       "CategoriesPools": {
         "type": "object",
@@ -7445,12 +7480,17 @@
               }
             }
           ]
-        }
+        },
+        "description": "Categories Pools data structure"
       }
     }
   },
   "x-readme": {
     "explorer-enabled": true,
     "proxy-enabled": true
+  },
+  "externalDocs": {
+    "description": "CoinGecko API Documentation",
+    "url": "https://docs.coingecko.com"
   }
 }

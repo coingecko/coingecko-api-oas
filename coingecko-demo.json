@@ -2,7 +2,18 @@
   "openapi": "3.0.0",
   "info": {
     "title": "CoinGecko Demo API",
-    "version": "3.0.0"
+    "version": "3.0.0",
+    "description": "The CoinGecko Demo API provides free access to cryptocurrency data including prices, market data, and more. Perfect for testing and development purposes.",
+    "contact": {
+      "name": "CoinGecko API Support",
+      "url": "https://www.coingecko.com/en/api/pricing",
+      "email": "api@coingecko.com"
+    },
+    "termsOfService": "https://www.coingecko.com/en/api_terms",
+    "license": {
+      "name": "Proprietary",
+      "url": "https://www.coingecko.com/en/api_terms"
+    }
   },
   "servers": [
     {
@@ -2763,12 +2774,14 @@
       "apiKeyAuth": {
         "type": "apiKey",
         "in": "header",
-        "name": "x-cg-demo-api-key"
+        "name": "x-cg-demo-api-key",
+        "description": "API key passed in the `x-cg-demo-api-key` header for authentication"
       },
       "apiKeyQueryParam": {
         "type": "apiKey",
         "in": "query",
-        "name": "x_cg_demo_api_key"
+        "name": "x_cg_demo_api_key",
+        "description": "API key passed as the `x_cg_demo_api_key` query parameter for authentication"
       }
     },
     "schemas": {
@@ -2781,7 +2794,8 @@
         },
         "example": {
           "gecko_says": "(V3) To the Moon!"
-        }
+        },
+        "description": "Response from the API health check endpoint"
       },
       "SimplePrice": {
         "type": "object",
@@ -2796,7 +2810,8 @@
             "usd_24h_change": 3.63727894677354,
             "last_updated_at": 1711356300
           }
-        }
+        },
+        "description": "Simple price data for cryptocurrencies"
       },
       "SimplePriceData": {
         "type": "object",
@@ -2821,7 +2836,8 @@
             "type": "number",
             "description": "last updated timestamp"
           }
-        }
+        },
+        "description": "Price data structure for a single cryptocurrency"
       },
       "SimpleTokenPrice": {
         "type": "object",
@@ -2855,7 +2871,8 @@
             "usd_24h_change": 3.63727894677354,
             "last_updated_at": 1711356300
           }
-        }
+        },
+        "description": "Token price data including contract address information"
       },
       "CurrencyList": {
         "type": "array",
@@ -2925,7 +2942,8 @@
           "xau",
           "bits",
           "sats"
-        ]
+        ],
+        "description": "List of supported fiat currencies for price conversion"
       },
       "CoinsList": {
         "type": "array",
@@ -2969,7 +2987,8 @@
             "name": "01coin",
             "platforms": {}
           }
-        ]
+        ],
+        "description": "List of all available coins with their IDs, symbols, and names"
       },
       "CoinsMarkets": {
         "type": "object",
@@ -3110,7 +3129,8 @@
             "roi": null,
             "last_updated": "2024-04-07T16:49:31.736Z"
           }
-        ]
+        ],
+        "description": "Market data for multiple coins including price, volume, and market cap"
       },
       "CoinsIDDataBase": {
         "type": "object",
@@ -4113,7 +4133,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Detailed coin data by ID"
       },
       "CoinsContractAddressDataBase": {
         "type": "object",
@@ -4964,7 +4985,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Coin data retrieved by contract address"
       },
       "CoinsID": {
         "allOf": [
@@ -6632,7 +6654,8 @@
               "target_coin_id": "tether"
             }
           ]
-        }
+        },
+        "description": "Coins I D data structure"
       },
       "CoinsTickers": {
         "type": "object",
@@ -6816,7 +6839,8 @@
               "target_coin_id": "tether"
             }
           ]
-        }
+        },
+        "description": "Exchange ticker data for a coin"
       },
       "CoinsHistoricalData": {
         "type": "object",
@@ -7012,13 +7036,13 @@
             "sv": "Bitcoin",
             "vi": "Bitcoin",
             "tr": "Bitcoin",
-            "ru": "Биткоин",
-            "ja": "ビットコイン",
-            "zh": "比特币",
-            "zh-tw": "比特幣",
-            "ko": "비트코인",
-            "ar": "بيتكوين",
-            "th": "บิตคอยน์",
+            "ru": "\u0411\u0438\u0442\u043a\u043e\u0438\u043d",
+            "ja": "\u30d3\u30c3\u30c8\u30b3\u30a4\u30f3",
+            "zh": "\u6bd4\u7279\u5e01",
+            "zh-tw": "\u6bd4\u7279\u5e63",
+            "ko": "\ube44\ud2b8\ucf54\uc778",
+            "ar": "\u0628\u064a\u062a\u0643\u0648\u064a\u0646",
+            "th": "\u0e1a\u0e34\u0e15\u0e04\u0e2d\u0e22\u0e19\u0e4c",
             "id": "Bitcoin",
             "cs": "Bitcoin",
             "da": "Bitcoin",
@@ -7260,7 +7284,8 @@
             "alexa_rank": null,
             "bing_matches": null
           }
-        }
+        },
+        "description": "Historical price data for a coin at a specific date"
       },
       "CoinsMarketChart": {
         "type": "object",
@@ -7336,7 +7361,8 @@
               30137418199.6431
             ]
           ]
-        }
+        },
+        "description": "Historical market chart data for a coin"
       },
       "CoinsMarketChartRange": {
         "type": "object",
@@ -7412,7 +7438,8 @@
               13697382902.2424
             ]
           ]
-        }
+        },
+        "description": "Historical market chart data for a specific date range"
       },
       "CoinsOHLC": {
         "type": "array",
@@ -7444,7 +7471,8 @@
             61821,
             62068
           ]
-        ]
+        ],
+        "description": "Open, High, Low, Close price data for a coin"
       },
       "CoinsContractAddress": {
         "allOf": [
@@ -7592,7 +7620,7 @@
             "vi": "USDC",
             "tr": "USDC",
             "ru": "USDC",
-            "ja": "USDコイン",
+            "ja": "USD\u30b3\u30a4\u30f3",
             "zh": "USDC",
             "zh-tw": "USDC",
             "ko": "USDC",
@@ -7686,7 +7714,7 @@
               "bmd": 1.003,
               "bnb": 0.00170967,
               "brl": 5.08,
-              "btc": 0.00001429,
+              "btc": 1.429e-05,
               "cad": 1.36,
               "chf": 0.904508,
               "clp": 942.53,
@@ -7950,7 +7978,7 @@
               "bmd": 0.877647,
               "bnb": 0.00145528,
               "brl": 3.66,
-              "btc": 0.00001358,
+              "btc": 1.358e-05,
               "cad": 1.079,
               "chf": 0.803831,
               "clp": 641.06,
@@ -7999,7 +8027,7 @@
               "xdr": 0.618198,
               "xlm": 1.266586,
               "xrp": 0.51131826,
-              "yfi": 0.00001103,
+              "yfi": 1.103e-05,
               "zar": 12.52,
               "bits": 13.58,
               "link": 0.01893714,
@@ -8342,7 +8370,7 @@
               "bmd": 1.004,
               "bnb": 0.00171422,
               "brl": 5.09,
-              "btc": 0.00001471,
+              "btc": 1.471e-05,
               "cad": 1.36,
               "chf": 0.905681,
               "clp": 953.43,
@@ -8378,7 +8406,7 @@
               "sar": 3.77,
               "sek": 10.72,
               "sgd": 1.36,
-              "sol": 0.000012,
+              "sol": 1.2e-05,
               "thb": 36.78,
               "try": 32.21,
               "twd": 32.26,
@@ -8407,7 +8435,7 @@
               "bmd": 0.996404,
               "bnb": 0.00169154,
               "brl": 5.05,
-              "btc": 0.00001429,
+              "btc": 1.429e-05,
               "cad": 1.35,
               "chf": 0.89864,
               "clp": 936.41,
@@ -8443,7 +8471,7 @@
               "sar": 3.74,
               "sek": 10.64,
               "sgd": 1.34,
-              "sol": 0.000012,
+              "sol": 1.2e-05,
               "thb": 36.49,
               "try": 31.96,
               "twd": 32.01,
@@ -8476,13 +8504,13 @@
               "aed": 0.01482307,
               "ars": 3.43,
               "aud": 0.00605059,
-              "bch": 0.00002114,
+              "bch": 2.114e-05,
               "bdt": 0.436407,
               "bhd": 0.00103072,
               "bmd": 0.00398183,
-              "bnb": -8.98695386508e-7,
+              "bnb": -8.98695386508e-07,
               "brl": 0.02006244,
-              "btc": -4.08289757483e-7,
+              "btc": -4.08289757483e-07,
               "cad": 0.00541151,
               "chf": 0.00359115,
               "clp": -5.90309015913681,
@@ -8491,7 +8519,7 @@
               "dkk": 0.02740456,
               "dot": -0.00327886017878197,
               "eos": -0.030520948421398,
-              "eth": -5.818976995429e-6,
+              "eth": -5.818976995429e-06,
               "eur": 0.00322174,
               "gbp": 0.00315068,
               "gel": 0.01067131,
@@ -8527,11 +8555,11 @@
               "vef": 0.0003987,
               "vnd": 99.41,
               "xag": 0.00014025,
-              "xau": 1.71e-6,
+              "xau": 1.71e-06,
               "xdr": 0.00300321,
               "xlm": -0.0547530053062548,
               "xrp": -0.0181523667358481,
-              "yfi": -1.157937833455e-6,
+              "yfi": -1.157937833455e-06,
               "zar": 0.074448,
               "bits": -0.408289757483253,
               "link": -0.000669120508494617,
@@ -9258,7 +9286,7 @@
               "last": 0.9998,
               "volume": 12225554.4877,
               "converted_last": {
-                "btc": 0.00001435,
+                "btc": 1.435e-05,
                 "eth": 0.00029359,
                 "usd": 0.999143
               },
@@ -9280,7 +9308,8 @@
               "target_coin_id": "tether"
             }
           ]
-        }
+        },
+        "description": "Coins Contract Address data structure"
       },
       "AssetPlatforms": {
         "type": "array",
@@ -9338,7 +9367,8 @@
               "large": "https://coin-images.coingecko.com/asset_platforms/images/15/large/polygon_pos.png?1706606645"
             }
           }
-        ]
+        ],
+        "description": "List of asset platforms and blockchain networks"
       },
       "TokenLists": {
         "type": "object",
@@ -9417,7 +9447,8 @@
               "logoURI": "https://assets.coingecko.com/coins/images/13531/thumb/bss.a1671c75.png?1696513292"
             }
           ]
-        }
+        },
+        "description": "Token Lists data structure"
       },
       "CategoriesList": {
         "type": "object",
@@ -9440,7 +9471,8 @@
             "category_id": "aaccount-abstraction",
             "name": "Account Abstraction"
           }
-        ]
+        ],
+        "description": "Categories List data structure"
       },
       "Categories": {
         "type": "object",
@@ -9508,7 +9540,8 @@
             "volume_24h": 61146432400.1739,
             "updated_at": "2024-04-06T08:25:46.402Z"
           }
-        ]
+        ],
+        "description": "List of coin categories"
       },
       "Exchanges": {
         "type": "object",
@@ -9585,7 +9618,8 @@
             "trust_score_rank": 2,
             "trade_volume_24h_btc": 37443.7299607648
           }
-        ]
+        ],
+        "description": "List of cryptocurrency exchanges"
       },
       "ExchangesList": {
         "type": "object",
@@ -9612,7 +9646,8 @@
             "id": "3xcalibur",
             "name": "3xcalibur"
           }
-        ]
+        ],
+        "description": "Exchanges List data structure"
       },
       "ExchangeData": {
         "type": "object",
@@ -9769,7 +9804,8 @@
               "target_coin_id": "tether"
             }
           ]
-        }
+        },
+        "description": "Detailed exchange information"
       },
       "ExchangeTickers": {
         "allOf": [
@@ -9817,7 +9853,8 @@
               "coin_mcap_usd": 230926944910.5146
             }
           ]
-        }
+        },
+        "description": "Ticker data from a specific exchange"
       },
       "ExchangeVolumeChart": {
         "type": "array",
@@ -9840,7 +9877,8 @@
             1711799400000,
             "298240.5127048246776691"
           ]
-        ]
+        ],
+        "description": "Volume chart data for an exchange"
       },
       "DerivativesTickersList": {
         "type": "object",
@@ -9935,7 +9973,8 @@
             "last_traded_at": 1712467920,
             "expired_at": null
           }
-        ]
+        ],
+        "description": "Derivatives Tickers List data structure"
       },
       "DerivativesExchanges": {
         "type": "object",
@@ -10014,7 +10053,8 @@
             "description": "",
             "url": "https://www.bitget.com/en/"
           }
-        ]
+        ],
+        "description": "List of derivatives exchanges"
       },
       "DerivativesExchangesID": {
         "type": "object",
@@ -10110,7 +10150,8 @@
               "expired_at": null
             }
           ]
-        }
+        },
+        "description": "Derivatives Exchanges I D data structure"
       },
       "DerivativesTickersItems": {
         "type": "object",
@@ -10211,7 +10252,8 @@
             "type": "string",
             "nullable": true
           }
-        }
+        },
+        "description": "Derivatives Tickers Items data structure"
       },
       "DerivativesExchangesList": {
         "type": "object",
@@ -10238,7 +10280,8 @@
             "id": "deepcoin_derivatives",
             "name": "Deepcoin (Derivatives)"
           }
-        ]
+        ],
+        "description": "Derivatives Exchanges List data structure"
       },
       "NFTList": {
         "type": "object",
@@ -10279,7 +10322,8 @@
             "asset_platform_id": "ethereum",
             "symbol": "PPG"
           }
-        ]
+        ],
+        "description": "N F T List data structure"
       },
       "NFTData": {
         "type": "object",
@@ -10677,7 +10721,8 @@
             "native_currency": "2024-02-17T09:25:05.056Z",
             "usd": "2024-02-29T11:45:08.150Z"
           }
-        }
+        },
+        "description": "N F T Data data structure"
       },
       "ExchangeRates": {
         "type": "object",
@@ -10740,7 +10785,8 @@
               "type": "crypto"
             }
           }
-        }
+        },
+        "description": "Bitcoin exchange rates against various currencies"
       },
       "Search": {
         "type": "object",
@@ -10950,7 +10996,8 @@
               "thumb": "https://assets.coingecko.com/nft_contracts/images/1001/thumb/league-of-kingdoms-ethereum.jpg"
             }
           ]
-        }
+        },
+        "description": "Search data structure"
       },
       "TrendingSearch": {
         "type": "object",
@@ -11289,7 +11336,7 @@
                 "small": "https://assets.coingecko.com/coins/images/12493/small/GALA_token_image_-_200PNG.png?1709725869",
                 "large": "https://assets.coingecko.com/coins/images/12493/large/GALA_token_image_-_200PNG.png?1709725869",
                 "slug": "gala",
-                "price_btc": 8.99538550992028e-7,
+                "price_btc": 8.99538550992028e-07,
                 "score": 1,
                 "data": {
                   "price": 0.0627306136161425,
@@ -11570,7 +11617,8 @@
               }
             }
           ]
-        }
+        },
+        "description": "Trending coins, NFTs, and categories"
       },
       "Global": {
         "type": "object",
@@ -11796,7 +11844,8 @@
             "market_cap_change_percentage_24h_usd": 1.72179506060272,
             "updated_at": 1712512855
           }
-        }
+        },
+        "description": "Global cryptocurrency market data"
       },
       "GlobalDeFi": {
         "type": "object",
@@ -11845,7 +11894,8 @@
             "top_coin_name": "Lido Staked Ether",
             "top_coin_defi_dominance": 30.589442518868
           }
-        }
+        },
+        "description": "Global decentralized finance market data"
       },
       "PublicTreasury": {
         "oneOf": [
@@ -11855,7 +11905,8 @@
           {
             "$ref": "#/components/schemas/GovernmentsTreasury"
           }
-        ]
+        ],
+        "description": "Public Treasury data structure"
       },
       "CompaniesTreasury": {
         "type": "object",
@@ -11884,7 +11935,8 @@
               "$ref": "#/components/schemas/TreasuryEntity"
             }
           }
-        }
+        },
+        "description": "Companies Treasury data structure"
       },
       "GovernmentsTreasury": {
         "type": "object",
@@ -11913,7 +11965,8 @@
               "$ref": "#/components/schemas/TreasuryEntity"
             }
           }
-        }
+        },
+        "description": "Governments Treasury data structure"
       },
       "TreasuryEntity": {
         "type": "object",
@@ -11946,7 +11999,8 @@
             "type": "number",
             "description": "percentage of total crypto supply"
           }
-        }
+        },
+        "description": "Treasury Entity data structure"
       },
       "PublicTreasuryEntity": {
         "type": "object",
@@ -12016,7 +12070,8 @@
               "percentage_of_total_supply": 3.043
             }
           ]
-        }
+        },
+        "description": "Public Treasury Entity data structure"
       },
       "EntitiesList": {
         "type": "array",
@@ -12054,7 +12109,8 @@
             "name": "MARA Holdings",
             "country": "US"
           }
-        ]
+        ],
+        "description": "Entities List data structure"
       },
       "PublicTreasuryEntityChart": {
         "type": "object",
@@ -12099,7 +12155,8 @@
               42272572276.103065
             ]
           ]
-        }
+        },
+        "description": "Public Treasury Entity Chart data structure"
       },
       "PublicTreasuryTransactionHistory": {
         "type": "object",
@@ -12172,12 +12229,17 @@
               "average_entry_value_usd": 102557.0
             }
           ]
-        }
+        },
+        "description": "Public Treasury Transaction History data structure"
       }
     }
   },
   "x-readme": {
     "explorer-enabled": true,
     "proxy-enabled": true
+  },
+  "externalDocs": {
+    "description": "CoinGecko API Documentation",
+    "url": "https://docs.coingecko.com"
   }
 }

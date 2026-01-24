@@ -2,7 +2,18 @@
   "openapi": "3.0.0",
   "info": {
     "title": "Onchain DEX API (Demo)",
-    "version": "3.0.0"
+    "version": "3.0.0",
+    "description": "The GeckoTerminal Onchain DEX API (Demo) provides free access to on-chain data for decentralized exchanges. Perfect for testing and development purposes.",
+    "contact": {
+      "name": "CoinGecko API Support",
+      "url": "https://www.coingecko.com/en/api/pricing",
+      "email": "api@coingecko.com"
+    },
+    "termsOfService": "https://www.coingecko.com/en/api_terms",
+    "license": {
+      "name": "Proprietary",
+      "url": "https://www.coingecko.com/en/api_terms"
+    }
   },
   "servers": [
     {
@@ -1592,12 +1603,14 @@
       "apiKeyAuth": {
         "type": "apiKey",
         "in": "header",
-        "name": "x-cg-demo-api-key"
+        "name": "x-cg-demo-api-key",
+        "description": "API key passed in the `x-cg-demo-api-key` header for authentication"
       },
       "apiKeyQueryParam": {
         "type": "apiKey",
         "in": "query",
-        "name": "x_cg_demo_api_key"
+        "name": "x_cg_demo_api_key",
+        "description": "API key passed as the `x_cg_demo_api_key` query parameter for authentication"
       }
     },
     "schemas": {
@@ -1651,7 +1664,8 @@
               }
             }
           ]
-        }
+        },
+        "description": "Dexes List data structure"
       },
       "NetworksList": {
         "type": "object",
@@ -1709,7 +1723,8 @@
               }
             }
           ]
-        }
+        },
+        "description": "Networks List data structure"
       },
       "OHLCV": {
         "type": "object",
@@ -1826,7 +1841,8 @@
               "coingecko_coin_id": "tether"
             }
           }
-        }
+        },
+        "description": "Open, High, Low, Close, Volume data"
       },
       "OnchainSimplePrice": {
         "type": "object",
@@ -1909,7 +1925,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Onchain Simple Price data structure"
       },
       "Pool": {
         "type": "object",
@@ -2311,7 +2328,8 @@
               }
             }
           ]
-        }
+        },
+        "description": "Liquidity pool data"
       },
       "PoolOld": {
         "type": "object",
@@ -2701,7 +2719,8 @@
               }
             }
           ]
-        }
+        },
+        "description": "Pool Old data structure"
       },
       "TopPoolOld": {
         "type": "object",
@@ -3095,7 +3114,8 @@
               }
             }
           ]
-        }
+        },
+        "description": "Top Pool Old data structure"
       },
       "PoolData": {
         "type": "object",
@@ -3443,7 +3463,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Pool Data data structure"
       },
       "MultiPoolInfo": {
         "type": "object",
@@ -3632,7 +3653,8 @@
               }
             }
           ]
-        }
+        },
+        "description": "Multi Pool Info data structure"
       },
       "SinglePoolInfo": {
         "type": "object",
@@ -3816,7 +3838,8 @@
               }
             }
           ]
-        }
+        },
+        "description": "Single Pool Info data structure"
       },
       "PoolTokensInfo": {
         "allOf": [
@@ -3918,7 +3941,8 @@
               }
             }
           ]
-        }
+        },
+        "description": "Pool Tokens Info data structure"
       },
       "Token": {
         "type": "object",
@@ -4427,7 +4451,8 @@
               }
             }
           ]
-        }
+        },
+        "description": "Token information"
       },
       "TokenInfo": {
         "type": "object",
@@ -4630,7 +4655,8 @@
               "is_honeypot": false
             }
           }
-        }
+        },
+        "description": "Token Info data structure"
       },
       "TokenInfoRecentlyUpdated": {
         "properties": {
@@ -4720,7 +4746,7 @@
                 "discord_url": null,
                 "telegram_handle": null,
                 "twitter_handle": "wizzoordofwod",
-                "description": "Our mission is to help the IRL Wizards of Doge go viral in support of Elon’s DOGE initiative and to propagate wizards throughout the realm",
+                "description": "Our mission is to help the IRL Wizards of Doge go viral in support of Elon\u2019s DOGE initiative and to propagate wizards throughout the realm",
                 "gt_score": 62.50770642201834,
                 "metadata_updated_at": "2025-05-26T07:47:20Z"
               },
@@ -4734,7 +4760,8 @@
               }
             }
           ]
-        }
+        },
+        "description": "Token Info Recently Updated data structure"
       },
       "TokensData": {
         "type": "object",
@@ -5388,7 +5415,8 @@
               }
             }
           ]
-        }
+        },
+        "description": "Tokens Data data structure"
       },
       "Trades": {
         "type": "object",
@@ -5478,12 +5506,17 @@
               }
             }
           ]
-        }
+        },
+        "description": "List of trades"
       }
     }
   },
   "x-readme": {
     "explorer-enabled": true,
     "proxy-enabled": true
+  },
+  "externalDocs": {
+    "description": "CoinGecko API Documentation",
+    "url": "https://docs.coingecko.com"
   }
 }
