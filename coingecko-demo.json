@@ -658,6 +658,16 @@
                 "18"
               ]
             }
+          },
+          {
+            "name": "include_rehypothecated",
+            "in": "query",
+            "description": "include rehypothecated tokens in results, default: false \n When true, returns `market_cap_rank_with_rehypothecated` field",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
           }
         ],
         "responses": {
@@ -3042,6 +3052,11 @@
             "type": "number",
             "description": "coin rank by market cap"
           },
+          "market_cap_rank_with_rehypothecated": {
+            "type": "number",
+            "nullable": true,
+            "description": "coin rank by market cap including rehypothecated tokens"
+          },
           "fully_diluted_valuation": {
             "type": "number",
             "description": "coin fully diluted valuation (fdv) in currency"
@@ -3148,7 +3163,8 @@
             "atl_change_percentage": 103455.83335,
             "atl_date": "2013-07-06T00:00:00.000Z",
             "roi": null,
-            "last_updated": "2024-04-07T16:49:31.736Z"
+            "last_updated": "2024-04-07T16:49:31.736Z",
+            "market_cap_rank_with_rehypothecated": 1
           }
         ]
       },
@@ -3517,6 +3533,10 @@
             "type": "number",
             "description": "coin rank by market cap"
           },
+          "market_cap_rank_with_rehypothecated": {
+            "type": "number",
+            "description": "coin rank by market cap including rehypothecated tokens"
+          },
           "market_data": {
             "type": "object",
             "description": "coin market data",
@@ -3660,6 +3680,10 @@
               "market_cap_rank": {
                 "type": "number",
                 "description": "coin rank by market cap"
+              },
+              "market_cap_rank_with_rehypothecated": {
+                "type": "number",
+                "description": "coin rank by market cap including rehypothecated tokens"
               },
               "fully_diluted_valuation": {
                 "type": "object",
@@ -4369,6 +4393,10 @@
             "type": "number",
             "description": "coin rank by market cap"
           },
+          "market_cap_rank_with_rehypothecated": {
+            "type": "number",
+            "description": "coin rank by market cap including rehypothecated tokens"
+          },
           "market_data": {
             "type": "object",
             "description": "coin market data",
@@ -4512,6 +4540,10 @@
               "market_cap_rank": {
                 "type": "number",
                 "description": "coin rank by market cap"
+              },
+              "market_cap_rank_with_rehypothecated": {
+                "type": "number",
+                "description": "coin rank by market cap including rehypothecated tokens"
               },
               "fully_diluted_valuation": {
                 "type": "object",
@@ -5098,6 +5130,7 @@
           "sentiment_votes_down_percentage": 15.93,
           "watchlist_portfolio_users": 1541900,
           "market_cap_rank": 1,
+          "market_cap_rank_with_rehypothecated": 1,
           "market_data": {
             "current_price": {
               "aed": 256486,
@@ -5624,6 +5657,7 @@
               "sats": 1967528713437466
             },
             "market_cap_rank": 1,
+            "market_cap_rank_with_rehypothecated": 1,
             "fully_diluted_valuation": {
               "aed": 5383795207730,
               "ars": 1261557793726526,
@@ -7718,6 +7752,7 @@
           "sentiment_votes_down_percentage": 66.67,
           "watchlist_portfolio_users": 126374,
           "market_cap_rank": 7,
+          "market_cap_rank_with_rehypothecated": 7,
           "market_data": {
             "current_price": {
               "aed": 3.68,
@@ -8244,6 +8279,7 @@
               "sats": 47080789009277
             },
             "market_cap_rank": 7,
+            "market_cap_rank_with_rehypothecated": 7,
             "fully_diluted_valuation": {
               "aed": 121002864723,
               "ars": 28353995864398,
