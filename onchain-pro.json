@@ -129,6 +129,80 @@
         }
       }
     },
+    "/search/pools": {
+      "get": {
+        "summary": "Search Pools",
+        "tags": [
+          "Search"
+        ],
+        "description": "This endpoint allows you to **search for pools on a network by pool address, token name, token symbol, or token contract address**",
+        "operationId": "search-pools",
+        "x-mint": {
+          "href": "/reference/search-pools"
+        },
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "description": "search query, can be pool contract address, token name, token symbol, or token contract address",
+            "schema": {
+              "type": "string",
+              "example": "weth",
+              "default": "weth"
+            }
+          },
+          {
+            "name": "network",
+            "in": "query",
+            "description": "network ID \n *refers to [/networks](/reference/networks-list)",
+            "schema": {
+              "type": "string",
+              "example": "eth",
+              "default": "eth"
+            }
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "required": false,
+            "description": "attributes to include, comma-separated if more than one to include \n Available values: `base_token`, `quote_token`, `dex`",
+            "schema": {
+              "type": "string",
+              "default": "base_token"
+            },
+            "examples": {
+              "one value": {
+                "value": "base_token"
+              },
+              "multiple values": {
+                "value": "base_token,quote_token,dex"
+              }
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "page through results \n Default value: 1",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Search for pools on a network",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PoolOld"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/networks": {
       "get": {
         "summary": "Supported Networks List (ID Map)",
@@ -1245,80 +1319,6 @@
         "responses": {
           "200": {
             "description": "Get pools based on various filters across all networks",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PoolOld"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/search/pools": {
-      "get": {
-        "summary": "Search Pools",
-        "tags": [
-          "Pools"
-        ],
-        "description": "This endpoint allows you to **search for pools on a network**",
-        "operationId": "search-pools",
-        "x-mint": {
-          "href": "/reference/search-pools"
-        },
-        "parameters": [
-          {
-            "name": "query",
-            "in": "query",
-            "description": "search query",
-            "schema": {
-              "type": "string",
-              "example": "weth",
-              "default": "weth"
-            }
-          },
-          {
-            "name": "network",
-            "in": "query",
-            "description": "network ID \n *refers to [/networks](/reference/networks-list)",
-            "schema": {
-              "type": "string",
-              "example": "eth",
-              "default": "eth"
-            }
-          },
-          {
-            "name": "include",
-            "in": "query",
-            "required": false,
-            "description": "attributes to include, comma-separated if more than one to include \n Available values: `base_token`, `quote_token`, `dex`",
-            "schema": {
-              "type": "string",
-              "default": "base_token"
-            },
-            "examples": {
-              "one value": {
-                "value": "base_token"
-              },
-              "multiple values": {
-                "value": "base_token,quote_token,dex"
-              }
-            }
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "required": false,
-            "description": "page through results \n Default value: 1",
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Search for pools on a network",
             "content": {
               "application/json": {
                 "schema": {

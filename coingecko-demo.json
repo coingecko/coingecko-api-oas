@@ -384,6 +384,42 @@
         }
       }
     },
+    "/search": {
+      "get": {
+        "tags": [
+          "Search"
+        ],
+        "summary": "Search Queries",
+        "description": "This endpoint allows you to **search for coins, categories and markets listed on CoinGecko**",
+        "operationId": "search-data",
+        "x-mint": {
+          "href": "/v3.0.1/reference/search-data"
+        },
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "description": "search query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of coins, categories and markets matching search term ordered by market cap",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Search"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/coins/list": {
       "get": {
         "tags": [
@@ -2723,42 +2759,6 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ExchangeRates"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/search": {
-      "get": {
-        "tags": [
-          "Search"
-        ],
-        "summary": "Search Queries",
-        "description": "This endpoint allows you to **search for coins, categories and markets listed on CoinGecko**",
-        "operationId": "search-data",
-        "x-mint": {
-          "href": "/v3.0.1/reference/search-data"
-        },
-        "parameters": [
-          {
-            "name": "query",
-            "in": "query",
-            "description": "search query",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "List of coins, categories and markets matching search term ordered by market cap",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Search"
                 }
               }
             }
