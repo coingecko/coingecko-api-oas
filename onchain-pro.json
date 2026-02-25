@@ -1468,6 +1468,15 @@
                 "h24_volume_usd_desc"
               ]
             }
+          },
+          {
+            "name": "include_gt_community_data",
+            "in": "query",
+            "required": false,
+            "description": "include GeckoTerminal community data (Sentiment votes, Suspicious reports) \n Default value: false",
+            "schema": {
+              "type": "boolean"
+            }
           }
         ],
         "responses": {
@@ -1954,6 +1963,16 @@
               "value-2": {
                 "value": "max"
               }
+            }
+          },
+          {
+            "name": "include_pnl_details",
+            "in": "query",
+            "required": false,
+            "description": "include PnL details for token holders, default: false",
+            "schema": {
+              "type": "boolean",
+              "default": false
             }
           }
         ],
@@ -3753,6 +3772,15 @@
                     },
                     "reserve_in_usd": {
                       "type": "string"
+                    },
+                    "sentiment_vote_positive_percentage": {
+                      "type": "number"
+                    },
+                    "sentiment_vote_negative_percentage": {
+                      "type": "number"
+                    },
+                    "community_sus_report": {
+                      "type": "number"
                     },
                     "last_trade_timestamp": {
                       "type": "integer"
@@ -6305,6 +6333,30 @@
                         },
                         "value": {
                           "type": "string"
+                        },
+                        "average_buy_price_usd": {
+                          "type": "string"
+                        },
+                        "total_buy_count": {
+                          "type": "number"
+                        },
+                        "total_sell_count": {
+                          "type": "number"
+                        },
+                        "unrealized_pnl_usd": {
+                          "type": "string"
+                        },
+                        "unrealized_pnl_percentage": {
+                          "type": "string"
+                        },
+                        "realized_pnl_usd": {
+                          "type": "string"
+                        },
+                        "realized_pnl_percentage": {
+                          "type": "string"
+                        },
+                        "explorer_url": {
+                          "type": "string"
                         }
                       }
                     }
@@ -6323,19 +6375,35 @@
               "holders": [
                 {
                   "rank": 1,
-                  "address": "0xade9bcd4b968ee26bed102dd43a55f6a8c2416df",
-                  "label": "V3 Pool",
-                  "amount": "3841335481.0",
-                  "percentage": "5.6808",
-                  "value": "4898814.26"
+                  "address": "0x56bbe4200fdd412854bcf05f2c992827b64ee5c1",
+                  "label": null,
+                  "amount": "9703812154.0",
+                  "percentage": "14.3507",
+                  "value": "1016009.26",
+                  "average_buy_price_usd": null,
+                  "total_buy_count": null,
+                  "total_sell_count": null,
+                  "unrealized_pnl_usd": null,
+                  "unrealized_pnl_percentage": null,
+                  "realized_pnl_usd": null,
+                  "realized_pnl_percentage": null,
+                  "explorer_url": "https://basescan.org/address/0x56bbe4200fdd412854bcf05f2c992827b64ee5c1"
                 },
                 {
                   "rank": 2,
-                  "address": "0x1d9d215c477543d63cfc0be7b214ab94833d3df2",
+                  "address": "0x5e498b4edf68820b859650e8d02d5ede3e6c260e",
                   "label": null,
-                  "amount": "1901706692.0",
-                  "percentage": "2.8124",
-                  "value": "2425226.3"
+                  "amount": "9702318320.0",
+                  "percentage": "14.3485",
+                  "value": "1015852.85",
+                  "average_buy_price_usd": null,
+                  "total_buy_count": null,
+                  "total_sell_count": null,
+                  "unrealized_pnl_usd": null,
+                  "unrealized_pnl_percentage": null,
+                  "realized_pnl_usd": null,
+                  "realized_pnl_percentage": null,
+                  "explorer_url": "https://basescan.org/address/0x5e498b4edf68820b859650e8d02d5ede3e6c260e"
                 }
               ]
             }
