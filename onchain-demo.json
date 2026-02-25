@@ -962,6 +962,15 @@
                 "h24_volume_usd_desc"
               ]
             }
+          },
+          {
+            "name": "include_gt_community_data",
+            "in": "query",
+            "required": false,
+            "description": "include GeckoTerminal community data (Sentiment votes, Suspicious reports) \n Default value: false",
+            "schema": {
+              "type": "boolean"
+            }
           }
         ],
         "responses": {
@@ -2892,6 +2901,15 @@
                     "reserve_in_usd": {
                       "type": "string"
                     },
+                    "sentiment_vote_positive_percentage": {
+                      "type": "number"
+                    },
+                    "sentiment_vote_negative_percentage": {
+                      "type": "number"
+                    },
+                    "community_sus_report": {
+                      "type": "number"
+                    },
                     "last_trade_timestamp": {
                       "type": "integer"
                     }
@@ -4720,7 +4738,7 @@
                 "discord_url": null,
                 "telegram_handle": null,
                 "twitter_handle": "wizzoordofwod",
-                "description": "Our mission is to help the IRL Wizards of Doge go viral in support of Elon’s DOGE initiative and to propagate wizards throughout the realm",
+                "description": "Our mission is to help the IRL Wizards of Doge go viral in support of Elon's DOGE initiative and to propagate wizards throughout the realm",
                 "gt_score": 62.50770642201834,
                 "metadata_updated_at": "2025-05-26T07:47:20Z"
               },

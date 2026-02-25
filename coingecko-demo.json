@@ -658,6 +658,16 @@
                 "18"
               ]
             }
+          },
+          {
+            "name": "include_rehypothecated",
+            "in": "query",
+            "description": "include rehypothecated tokens in results, default: false \n When true, returns `market_cap_rank_with_rehypothecated` field",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
           }
         ],
         "responses": {
@@ -2258,6 +2268,46 @@
               "example": "bitcoin",
               "default": "bitcoin"
             }
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "Number of results to return per page",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 250,
+              "minimum": 1,
+              "maximum": 250,
+              "example": 250
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number to return",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1,
+              "minimum": 1,
+              "example": 1
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "description": "Sort order for results",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "total_holdings_usd_desc",
+                "total_holdings_usd_asc"
+              ],
+              "default": "total_holdings_usd_desc",
+              "example": "total_holdings_usd_desc"
+            }
           }
         ],
         "responses": {
@@ -2295,6 +2345,40 @@
               "type": "string",
               "example": "strategy",
               "default": "strategy"
+            }
+          },
+          {
+            "name": "holding_amount_change",
+            "in": "query",
+            "description": "include holding amount change for specified timeframes, comma-separated if querying more than 1 timeframe \n Valid values: 7d, 14d, 30d, 90d, 1y, ytd",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "examples": {
+              "one value": {
+                "value": "7d"
+              },
+              "multiple values": {
+                "value": "7d,30d,1y"
+              }
+            }
+          },
+          {
+            "name": "holding_change_percentage",
+            "in": "query",
+            "description": "include holding change percentage for specified timeframes, comma-separated if querying more than 1 timeframe \n Valid values: 7d, 14d, 30d, 90d, 1y, ytd",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "examples": {
+              "one value": {
+                "value": "30d"
+              },
+              "multiple values": {
+                "value": "7d,30d,90d,1y"
+              }
             }
           }
         ],
@@ -3002,6 +3086,11 @@
             "type": "number",
             "description": "coin rank by market cap"
           },
+          "market_cap_rank_with_rehypothecated": {
+            "type": "number",
+            "nullable": true,
+            "description": "coin rank by market cap including rehypothecated tokens"
+          },
           "fully_diluted_valuation": {
             "type": "number",
             "description": "coin fully diluted valuation (fdv) in currency"
@@ -3108,7 +3197,8 @@
             "atl_change_percentage": 103455.83335,
             "atl_date": "2013-07-06T00:00:00.000Z",
             "roi": null,
-            "last_updated": "2024-04-07T16:49:31.736Z"
+            "last_updated": "2024-04-07T16:49:31.736Z",
+            "market_cap_rank_with_rehypothecated": 1
           }
         ]
       },
@@ -3477,6 +3567,10 @@
             "type": "number",
             "description": "coin rank by market cap"
           },
+          "market_cap_rank_with_rehypothecated": {
+            "type": "number",
+            "description": "coin rank by market cap including rehypothecated tokens"
+          },
           "market_data": {
             "type": "object",
             "description": "coin market data",
@@ -3620,6 +3714,10 @@
               "market_cap_rank": {
                 "type": "number",
                 "description": "coin rank by market cap"
+              },
+              "market_cap_rank_with_rehypothecated": {
+                "type": "number",
+                "description": "coin rank by market cap including rehypothecated tokens"
               },
               "fully_diluted_valuation": {
                 "type": "object",
@@ -4065,6 +4163,7 @@
                 },
                 "trust_score": {
                   "type": "string",
+                  "nullable": true,
                   "description": "coin ticker trust score"
                 },
                 "bid_ask_spread_percentage": {
@@ -4328,6 +4427,10 @@
             "type": "number",
             "description": "coin rank by market cap"
           },
+          "market_cap_rank_with_rehypothecated": {
+            "type": "number",
+            "description": "coin rank by market cap including rehypothecated tokens"
+          },
           "market_data": {
             "type": "object",
             "description": "coin market data",
@@ -4471,6 +4574,10 @@
               "market_cap_rank": {
                 "type": "number",
                 "description": "coin rank by market cap"
+              },
+              "market_cap_rank_with_rehypothecated": {
+                "type": "number",
+                "description": "coin rank by market cap including rehypothecated tokens"
               },
               "fully_diluted_valuation": {
                 "type": "object",
@@ -4916,6 +5023,7 @@
                 },
                 "trust_score": {
                   "type": "string",
+                  "nullable": true,
                   "description": "coin ticker trust score"
                 },
                 "bid_ask_spread_percentage": {
@@ -5056,6 +5164,7 @@
           "sentiment_votes_down_percentage": 15.93,
           "watchlist_portfolio_users": 1541900,
           "market_cap_rank": 1,
+          "market_cap_rank_with_rehypothecated": 1,
           "market_data": {
             "current_price": {
               "aed": 256486,
@@ -5582,6 +5691,7 @@
               "sats": 1967528713437466
             },
             "market_cap_rank": 1,
+            "market_cap_rank_with_rehypothecated": 1,
             "fully_diluted_valuation": {
               "aed": 5383795207730,
               "ars": 1261557793726526,
@@ -6619,7 +6729,7 @@
                 "eth": 404380,
                 "usd": 1381537193
               },
-              "trust_score": "green",
+              "trust_score": null,
               "bid_ask_spread_percentage": 0.010014,
               "timestamp": "2024-04-07T15:23:02+00:00",
               "last_traded_at": "2024-04-07T15:23:02+00:00",
@@ -6730,6 +6840,7 @@
                 },
                 "trust_score": {
                   "type": "string",
+                  "nullable": true,
                   "description": "coin ticker trust score"
                 },
                 "bid_ask_spread_percentage": {
@@ -6803,7 +6914,7 @@
                 "eth": 410802,
                 "usd": 1406996874
               },
-              "trust_score": "green",
+              "trust_score": null,
               "bid_ask_spread_percentage": 0.010014,
               "timestamp": "2024-04-08T04:02:01+00:00",
               "last_traded_at": "2024-04-08T04:02:01+00:00",
@@ -7675,6 +7786,7 @@
           "sentiment_votes_down_percentage": 66.67,
           "watchlist_portfolio_users": 126374,
           "market_cap_rank": 7,
+          "market_cap_rank_with_rehypothecated": 7,
           "market_data": {
             "current_price": {
               "aed": 3.68,
@@ -8201,6 +8313,7 @@
               "sats": 47080789009277
             },
             "market_cap_rank": 7,
+            "market_cap_rank_with_rehypothecated": 7,
             "fully_diluted_valuation": {
               "aed": 121002864723,
               "ars": 28353995864398,
@@ -9267,7 +9380,7 @@
                 "eth": 3589,
                 "usd": 12213859
               },
-              "trust_score": "green",
+              "trust_score": null,
               "bid_ask_spread_percentage": 0.010001,
               "timestamp": "2024-04-07T15:34:49+00:00",
               "last_traded_at": "2024-04-07T15:34:49+00:00",
@@ -9756,7 +9869,7 @@
                 "eth": 410802,
                 "usd": 1406996874
               },
-              "trust_score": "green",
+              "trust_score": null,
               "bid_ask_spread_percentage": 0.010014,
               "timestamp": "2024-04-08T04:02:01+00:00",
               "last_traded_at": "2024-04-08T04:02:01+00:00",
@@ -9803,7 +9916,7 @@
                 "eth": 410802,
                 "usd": 1406996874
               },
-              "trust_score": "green",
+              "trust_score": null,
               "bid_ask_spread_percentage": 0.010014,
               "timestamp": "2024-04-08T04:02:01+00:00",
               "last_traded_at": "2024-04-08T04:02:01+00:00",
@@ -11638,6 +11751,10 @@
                 "type": "number",
                 "description": "cryptocurrencies market cap change percentage in 24 hours in usd"
               },
+              "volume_change_percentage_24h_usd": {
+                "type": "number",
+                "description": "cryptocurrencies volume change percentage in 24 hours in usd"
+              },
               "updated_at": {
                 "type": "number"
               }
@@ -11794,6 +11911,7 @@
               "ada": 0.765987294694099
             },
             "market_cap_change_percentage_24h_usd": 1.72179506060272,
+            "volume_change_percentage_24h_usd": -0.2692391926571914,
             "updated_at": 1712512855
           }
         }
@@ -11979,6 +12097,22 @@
             "type": "string",
             "description": "official Twitter handle of the entity"
           },
+          "total_treasury_value_usd": {
+            "type": "number",
+            "description": "total current value of all holdings in USD"
+          },
+          "unrealized_pnl": {
+            "type": "number",
+            "description": "unrealized profit and loss (current value - total entry value)"
+          },
+          "m_nav": {
+            "type": "number",
+            "description": "market to net asset value ratio"
+          },
+          "total_asset_value_per_share_usd": {
+            "type": "number",
+            "description": "total asset value per share in USD"
+          },
           "holdings": {
             "type": "array",
             "description": "list of cryptocurrency assets held by the entity",
@@ -11996,6 +12130,78 @@
                 "percentage_of_total_supply": {
                   "type": "number",
                   "description": "percentage of total crypto supply"
+                },
+                "amount_per_share": {
+                  "type": "number",
+                  "description": "amount of cryptocurrency per share"
+                },
+                "entity_value_usd_percentage": {
+                  "type": "number",
+                  "description": "percentage of entity's total treasury value"
+                },
+                "current_value_usd": {
+                  "type": "number",
+                  "description": "current value of holdings in USD"
+                },
+                "total_entry_value_usd": {
+                  "type": "number",
+                  "description": "total entry cost/purchase value in USD"
+                },
+                "average_entry_value_usd": {
+                  "type": "number",
+                  "description": "average entry cost per unit in USD"
+                },
+                "unrealized_pnl": {
+                  "type": "number",
+                  "description": "unrealized profit and loss for this holding"
+                },
+                "holding_amount_change": {
+                  "type": "object",
+                  "description": "holding amount changes over different timeframes (only present if holding_amount_change param is used)",
+                  "properties": {
+                    "7d": {
+                      "type": "number"
+                    },
+                    "14d": {
+                      "type": "number"
+                    },
+                    "30d": {
+                      "type": "number"
+                    },
+                    "90d": {
+                      "type": "number"
+                    },
+                    "1y": {
+                      "type": "number"
+                    },
+                    "ytd": {
+                      "type": "number"
+                    }
+                  }
+                },
+                "holding_change_percentage": {
+                  "type": "object",
+                  "description": "holding change percentages over different timeframes (only present if holding_change_percentage param is used)",
+                  "properties": {
+                    "7d": {
+                      "type": "number"
+                    },
+                    "14d": {
+                      "type": "number"
+                    },
+                    "30d": {
+                      "type": "number"
+                    },
+                    "90d": {
+                      "type": "number"
+                    },
+                    "1y": {
+                      "type": "number"
+                    },
+                    "ytd": {
+                      "type": "number"
+                    }
+                  }
                 }
               }
             }
@@ -12009,11 +12215,37 @@
           "country": "US",
           "website_url": "https://www.strategy.com/",
           "twitter_screen_name": "Strategy",
+          "total_treasury_value_usd": 48119580010.663155,
+          "unrealized_pnl": -6554973853.336845,
+          "m_nav": 0.99,
+          "total_asset_value_per_share_usd": 150.46302495438903,
           "holdings": [
             {
               "coin_id": "bitcoin",
-              "amount": 638985,
-              "percentage_of_total_supply": 3.043
+              "amount": 714644.0,
+              "percentage_of_total_supply": 3.403,
+              "amount_per_share": 0.0022345892873893874,
+              "entity_value_usd_percentage": 100.0,
+              "current_value_usd": 48119580010.663155,
+              "total_entry_value_usd": 54674553864.0,
+              "average_entry_value_usd": 76506.0,
+              "unrealized_pnl": -6554973853.336845,
+              "holding_amount_change": {
+                "7d": 1142.0,
+                "14d": 1997.0,
+                "30d": 27234.0,
+                "90d": 72952.0,
+                "1y": 235904.0,
+                "ytd": 42144.0
+              },
+              "holding_change_percentage": {
+                "7d": 0.16,
+                "14d": 0.28,
+                "30d": 3.962,
+                "90d": 11.369,
+                "1y": 49.276,
+                "ytd": 6.267
+              }
             }
           ]
         }
