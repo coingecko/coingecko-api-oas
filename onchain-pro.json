@@ -131,7 +131,7 @@
     },
     "/search/pools": {
       "get": {
-        "summary": "Search Pools",
+        "summary": "Search Pools & Tokens",
         "tags": [
           "Search"
         ],
