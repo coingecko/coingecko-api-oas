@@ -6140,6 +6140,21 @@
                       "type": "string"
                     }
                   },
+                  "discord_url": {
+                    "type": "string"
+                  },
+                  "farcaster_url": {
+                    "type": "string"
+                  },
+                  "zora_url": {
+                    "type": "string"
+                  },
+                  "telegram_handle": {
+                    "type": "string"
+                  },
+                  "twitter_handle": {
+                    "type": "string"
+                  },
                   "description": {
                     "type": "string"
                   },
@@ -6166,20 +6181,8 @@
                       }
                     }
                   },
-                  "discord_url": {
-                    "type": "string"
-                  },
-                  "farcaster_url": {
-                    "type": "string"
-                  },
-                  "zora_url": {
-                    "type": "string"
-                  },
-                  "telegram_handle": {
-                    "type": "string"
-                  },
-                  "twitter_handle": {
-                    "type": "string"
+                  "gt_verified": {
+                    "type": "boolean"
                   },
                   "categories": {
                     "type": "array",
@@ -6260,6 +6263,11 @@
               "websites": [
                 "https://tether.to/"
               ],
+              "discord_url": null,
+              "farcaster_url": null,
+              "zora_url": null,
+              "telegram_handle": null,
+              "twitter_handle": "Tether_to",
               "description": "Tether (USDT) is a cryptocurrency with a value meant to mirror the value of the U.S. dollar...",
               "gt_score": 92.6605504587156,
               "gt_score_details": {
@@ -6269,11 +6277,7 @@
                 "info": 100,
                 "holders": 0
               },
-              "discord_url": null,
-              "farcaster_url": null,
-              "zora_url": null,
-              "telegram_handle": null,
-              "twitter_handle": "Tether_to",
+              "gt_verified": true,
               "categories": [],
               "gt_categories_id": [],
               "holders": {
