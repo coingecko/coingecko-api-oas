@@ -1051,12 +1051,13 @@
           {
             "name": "interval",
             "in": "query",
-            "description": "data interval, leave empty for auto granularity Possible value: daily",
+            "description": "data interval, leave empty for auto granularity",
             "required": false,
             "schema": {
               "type": "string",
               "enum": [
-                "daily"
+                "daily",
+                "hourly"
               ]
             }
           },
@@ -1421,12 +1422,13 @@
           {
             "name": "interval",
             "in": "query",
-            "description": "data interval, leave empty for auto granularity Possible value: daily",
+            "description": "data interval, leave empty for auto granularity",
             "required": false,
             "schema": {
               "type": "string",
               "enum": [
-                "daily"
+                "daily",
+                "hourly"
               ]
             }
           },
@@ -3715,6 +3717,11 @@
                 "type": "number",
                 "description": "coin rank by market cap"
               },
+              "outstanding_token_value_usd": {
+                "type": "number",
+                "nullable": true,
+                "description": "outstanding token value in USD"
+              },
               "market_cap_rank_with_rehypothecated": {
                 "type": "number",
                 "description": "coin rank by market cap including rehypothecated tokens"
@@ -3984,6 +3991,11 @@
               "circulating_supply": {
                 "type": "number",
                 "description": "coin circulating supply"
+              },
+              "outstanding_supply": {
+                "type": "number",
+                "nullable": true,
+                "description": "tokens outstanding in the market, circulated/tradable or planned for circulation"
               },
               "last_updated": {
                 "type": "string",
@@ -4575,6 +4587,11 @@
                 "type": "number",
                 "description": "coin rank by market cap"
               },
+              "outstanding_token_value_usd": {
+                "type": "number",
+                "nullable": true,
+                "description": "outstanding token value in USD"
+              },
               "market_cap_rank_with_rehypothecated": {
                 "type": "number",
                 "description": "coin rank by market cap including rehypothecated tokens"
@@ -4844,6 +4861,11 @@
               "circulating_supply": {
                 "type": "number",
                 "description": "coin circulating supply"
+              },
+              "outstanding_supply": {
+                "type": "number",
+                "nullable": true,
+                "description": "tokens outstanding in the market, circulated/tradable or planned for circulation"
               },
               "last_updated": {
                 "type": "string",
@@ -5691,6 +5713,7 @@
               "sats": 1967528713437466
             },
             "market_cap_rank": 1,
+            "outstanding_token_value_usd": null,
             "market_cap_rank_with_rehypothecated": 1,
             "fully_diluted_valuation": {
               "aed": 5383795207730,
@@ -6681,6 +6704,7 @@
             "total_supply": 21000000,
             "max_supply": 21000000,
             "circulating_supply": 19675962,
+            "outstanding_supply": 20003043.0,
             "last_updated": "2024-04-07T15:24:51.021Z"
           },
           "community_data": {
@@ -8313,6 +8337,7 @@
               "sats": 47080789009277
             },
             "market_cap_rank": 7,
+            "outstanding_token_value_usd": null,
             "market_cap_rank_with_rehypothecated": 7,
             "fully_diluted_valuation": {
               "aed": 121002864723,
@@ -9303,6 +9328,7 @@
             "total_supply": 32937454819.1184,
             "max_supply": null,
             "circulating_supply": 32936427353.685,
+            "outstanding_supply": null,
             "last_updated": "2024-04-07T16:35:22.339Z"
           },
           "community_data": {

@@ -6166,6 +6166,9 @@
                       }
                     }
                   },
+                  "gt_verified": {
+                    "type": "boolean"
+                  },
                   "discord_url": {
                     "type": "string"
                   },
@@ -6269,6 +6272,7 @@
                 "info": 100,
                 "holders": 0
               },
+              "gt_verified": true,
               "discord_url": null,
               "farcaster_url": null,
               "zora_url": null,
@@ -6665,6 +6669,7 @@
                   "info": 100,
                   "holders": 100
                 },
+                "gt_verified": true,
                 "discord_url": null,
                 "farcaster_url": null,
                 "zora_url": null,
@@ -6708,6 +6713,7 @@
                   "info": 100,
                   "holders": 0
                 },
+                "gt_verified": true,
                 "discord_url": null,
                 "farcaster_url": null,
                 "zora_url": null,

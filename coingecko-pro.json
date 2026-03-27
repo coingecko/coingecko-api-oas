@@ -3764,6 +3764,127 @@
         }
       }
     },
+    "/news": {
+      "get": {
+        "tags": [
+          "News"
+        ],
+        "summary": "💼 Crypto News",
+        "description": "This endpoint allows you to **query the latest crypto news and guides on CoinGecko**",
+        "operationId": "news",
+        "x-mint": {
+          "href": "/reference/news"
+        },
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "page through results \n Default value: **1**",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1,
+              "minimum": 1,
+              "maximum": 20
+            }
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "total results per page \n Default value: **10**",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 10,
+              "minimum": 1,
+              "maximum": 20
+            }
+          },
+          {
+            "name": "coin_id",
+            "in": "query",
+            "description": "filter news by coin ID \n *refers to [`/coins/list`](/reference/coins-list).",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "language",
+            "in": "query",
+            "description": "filter news by language \n Default value: **en**",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "en",
+              "enum": [
+                "en",
+                "ru",
+                "de",
+                "pl",
+                "es",
+                "vi",
+                "fr",
+                "pt-br",
+                "ar",
+                "bg",
+                "cs",
+                "da",
+                "el",
+                "fi",
+                "he",
+                "hi",
+                "hr",
+                "hu",
+                "id",
+                "it",
+                "ja",
+                "ko",
+                "lt",
+                "nl",
+                "no",
+                "ro",
+                "sk",
+                "sl",
+                "sv",
+                "th",
+                "tr",
+                "uk",
+                "zh",
+                "zh-tw"
+              ]
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "filter news by type \n Default value: **all** \n Note: `guides` filter is only applicable if `coin_id` is specified and valid",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "all",
+              "enum": [
+                "all",
+                "news",
+                "guides"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List latest crypto news",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/News"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/global": {
       "get": {
         "tags": [
@@ -5131,6 +5252,11 @@
                 "type": "number",
                 "description": "coin rank by market cap"
               },
+              "outstanding_token_value_usd": {
+                "type": "number",
+                "nullable": true,
+                "description": "outstanding token value in USD"
+              },
               "market_cap_rank_with_rehypothecated": {
                 "type": "number",
                 "description": "coin rank by market cap including rehypothecated tokens"
@@ -5400,6 +5526,11 @@
               "circulating_supply": {
                 "type": "number",
                 "description": "coin circulating supply"
+              },
+              "outstanding_supply": {
+                "type": "number",
+                "nullable": true,
+                "description": "tokens outstanding in the market, circulated/tradable or planned for circulation"
               },
               "last_updated": {
                 "type": "string",
@@ -5991,6 +6122,11 @@
                 "type": "number",
                 "description": "coin rank by market cap"
               },
+              "outstanding_token_value_usd": {
+                "type": "number",
+                "nullable": true,
+                "description": "outstanding token value in USD"
+              },
               "market_cap_rank_with_rehypothecated": {
                 "type": "number",
                 "description": "coin rank by market cap including rehypothecated tokens"
@@ -6260,6 +6396,11 @@
               "circulating_supply": {
                 "type": "number",
                 "description": "coin circulating supply"
+              },
+              "outstanding_supply": {
+                "type": "number",
+                "nullable": true,
+                "description": "tokens outstanding in the market, circulated/tradable or planned for circulation"
               },
               "last_updated": {
                 "type": "string",
@@ -7129,6 +7270,7 @@
               "sats": 1967528713437466
             },
             "market_cap_rank": 1,
+            "outstanding_token_value_usd": null,
             "market_cap_rank_with_rehypothecated": 1,
             "fully_diluted_valuation": {
               "aed": 5383795207730,
@@ -8119,6 +8261,7 @@
             "total_supply": 21000000,
             "max_supply": 21000000,
             "circulating_supply": 19675962,
+            "outstanding_supply": 20003043.0,
             "last_updated": "2024-04-07T15:24:51.021Z"
           },
           "community_data": {
@@ -9825,6 +9968,7 @@
               "sats": 47080789009277
             },
             "market_cap_rank": 7,
+            "outstanding_token_value_usd": null,
             "market_cap_rank_with_rehypothecated": 7,
             "fully_diluted_valuation": {
               "aed": 121002864723,
@@ -10815,6 +10959,7 @@
             "total_supply": 32937454819.1184,
             "max_supply": null,
             "circulating_supply": 32936427353.685,
+            "outstanding_supply": 20003043.0,
             "last_updated": "2024-04-07T16:35:22.339Z"
           },
           "community_data": {
@@ -14452,6 +14597,84 @@
               "average_entry_value_usd": 102557.0
             }
           ]
+        }
+      },
+      "News": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/NewsArticle"
+        },
+        "example": [
+          {
+            "title": "Bitcoin stalls: Why BTC risks $65K fall despite $23M whale buy",
+            "url": "https://ambcrypto.com/bitcoin-stalls-why-btc-risks-65k-fall-despite-23m-whale-buy/",
+            "image": "https://assets.coingecko.com/articles/images/106731445/large/open-uri20260327-7-fuq6r9.?1774609423",
+            "author": "Gladys Makena",
+            "posted_at": "2026-03-27T11:00:42Z",
+            "type": "news",
+            "source_name": "AMBCrypto",
+            "related_coin_ids": [
+              "1-token-2",
+              "1-token",
+              "bitcoin"
+            ]
+          },
+          {
+            "title": "How to Fetch Historical Crypto Data with Python",
+            "url": "https://www.coingecko.com/learn/how-to-fetch-historical-crypto-data-with-python",
+            "image": "https://coin-images.coingecko.com/posts/images/102135584/large/How_To_Fetch_Historical_Crypto_Data_with_Python.png?1771925926",
+            "author": "Brian Lee",
+            "posted_at": "2026-02-24T06:26:58Z",
+            "type": "guide",
+            "source_name": "CoinGecko",
+            "related_coin_ids": [
+              "bitcoin"
+            ]
+          }
+        ]
+      },
+      "NewsArticle": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "news article title"
+          },
+          "url": {
+            "type": "string",
+            "description": "news article URL"
+          },
+          "image": {
+            "type": "string",
+            "description": "news article image URL"
+          },
+          "author": {
+            "type": "string",
+            "description": "news article author"
+          },
+          "posted_at": {
+            "type": "string",
+            "description": "news article published timestamp in ISO 8601 format"
+          },
+          "type": {
+            "type": "string",
+            "description": "news article type",
+            "enum": [
+              "news",
+              "guide"
+            ]
+          },
+          "source_name": {
+            "type": "string",
+            "description": "news article source name"
+          },
+          "related_coin_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "related coin IDs"
+          }
         }
       }
     }
