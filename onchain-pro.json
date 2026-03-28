@@ -6114,6 +6114,9 @@
                   "symbol": {
                     "type": "string"
                   },
+                  "decimals": {
+                    "type": "integer"
+                  },
                   "image_url": {
                     "type": "string"
                   },
@@ -6139,6 +6142,21 @@
                     "items": {
                       "type": "string"
                     }
+                  },
+                  "discord_url": {
+                    "type": "string"
+                  },
+                  "farcaster_url": {
+                    "type": "string"
+                  },
+                  "zora_url": {
+                    "type": "string"
+                  },
+                  "telegram_handle": {
+                    "type": "string"
+                  },
+                  "twitter_handle": {
+                    "type": "string"
                   },
                   "description": {
                     "type": "string"
@@ -6169,28 +6187,13 @@
                   "gt_verified": {
                     "type": "boolean"
                   },
-                  "discord_url": {
-                    "type": "string"
-                  },
-                  "farcaster_url": {
-                    "type": "string"
-                  },
-                  "zora_url": {
-                    "type": "string"
-                  },
-                  "telegram_handle": {
-                    "type": "string"
-                  },
-                  "twitter_handle": {
-                    "type": "string"
-                  },
                   "categories": {
                     "type": "array",
                     "items": {
                       "type": "string"
                     }
                   },
-                  "gt_categories_id": {
+                  "gt_category_ids": {
                     "type": "array",
                     "items": {
                       "type": "string"
@@ -6253,42 +6256,43 @@
               "address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
               "name": "Tether USD",
               "symbol": "USDT",
-              "image_url": "https://assets.coingecko.com/coins/images/325/small/Tether.png?1696501661",
+              "decimals": 6,
+              "image_url": "https://coin-images.coingecko.com/coins/images/325/large/Tether.png?1696501661",
               "image": {
-                "thumb": "https://assets.coingecko.com/coins/images/325/thumb/Tether.png?1696501661",
-                "small": "https://assets.coingecko.com/coins/images/325/small/Tether.png?1696501661",
-                "large": "https://assets.coingecko.com/coins/images/325/large/Tether.png?1696501661"
+                "thumb": "https://coin-images.coingecko.com/coins/images/325/thumb/Tether.png?1696501661",
+                "small": "https://coin-images.coingecko.com/coins/images/325/small/Tether.png?1696501661",
+                "large": "https://coin-images.coingecko.com/coins/images/325/large/Tether.png?1696501661"
               },
               "coingecko_coin_id": "tether",
               "websites": [
-                "https://tether.to/"
+                "https://tether.to"
               ],
-              "description": "Tether (USDT) is a cryptocurrency with a value meant to mirror the value of the U.S. dollar...",
-              "gt_score": 92.6605504587156,
-              "gt_score_details": {
-                "pool": 87.5,
-                "transaction": 0,
-                "creation": 100,
-                "info": 100,
-                "holders": 0
-              },
-              "gt_verified": true,
               "discord_url": null,
               "farcaster_url": null,
               "zora_url": null,
               "telegram_handle": null,
               "twitter_handle": "Tether_to",
+              "description": "Tether (USDT) is a cryptocurrency with a value meant to mirror the value of the U.S. dollar...",
+              "gt_score": 92.66055045871559,
+              "gt_score_details": {
+                "pool": 87.5,
+                "transaction": 100.0,
+                "creation": 100.0,
+                "info": 100.0,
+                "holders": 100.0
+              },
+              "gt_verified": true,
               "categories": [],
-              "gt_categories_id": [],
+              "gt_category_ids": [],
               "holders": {
-                "count": 7041203,
+                "count": 9409235,
                 "distribution_percentage": {
-                  "top_10": "45.5782",
-                  "11_30": "13.4293",
-                  "31_50": "3.9681",
-                  "rest": "37.0244"
+                  "top_10": "47.5704",
+                  "11_30": "11.3944",
+                  "31_50": "5.1233",
+                  "rest": "35.9119"
                 },
-                "last_updated": "2025-03-12T05:28:50Z"
+                "last_updated": "2026-03-18T03:13:27Z"
               },
               "mint_authority": null,
               "freeze_authority": null,
