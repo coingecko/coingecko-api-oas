@@ -48,8 +48,8 @@
         "tags": [
           "Simple"
         ],
-        "summary": "Coin Price by IDs",
-        "description": "This endpoint allows you to **query the prices of one or more coins by using their unique Coin API IDs**",
+        "summary": "Coin Price by IDs, Symbols, or Names",
+        "description": "This endpoint allows you to **query the prices of one or more coins by using their unique Coin API IDs, symbols, or names**",
         "operationId": "simple-price",
         "x-mint": {
           "href": "/v3.0.1/reference/simple-price"
@@ -3231,7 +3231,8 @@
             "type": "object",
             "description": "coin asset platform and contract address",
             "additionalProperties": {
-              "type": "string"
+              "type": "string",
+              "nullable": true
             }
           },
           "detail_platforms": {
@@ -4253,7 +4254,8 @@
             "type": "object",
             "description": "coin asset platform and contract address",
             "additionalProperties": {
-              "type": "string"
+              "type": "string",
+              "nullable": true
             }
           },
           "detail_platforms": {
