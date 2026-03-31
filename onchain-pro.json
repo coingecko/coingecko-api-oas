@@ -1666,7 +1666,7 @@
         "tags": [
           "Tokens"
         ],
-        "description": "This endpoint allows you to **query token metadata (name, symbol,  CoinGecko ID, image, socials, websites, description, etc.) based on a provided token contract address on a network**",
+        "description": "This endpoint allows you to **query token metadata (name, symbol, CoinGecko ID, image, socials, websites, description, etc.) based on a provided token contract address on a network**",
         "operationId": "token-info-contract-address",
         "x-mint": {
           "href": "/reference/token-info-contract-address"
@@ -2813,19 +2813,23 @@
                       "type": "string"
                     },
                     "base_token_price_native_currency": {
-                      "type": "string"
+                      "type": "string",
+                      "nullable": true
                     },
                     "quote_token_price_usd": {
                       "type": "string"
                     },
                     "quote_token_price_native_currency": {
-                      "type": "string"
+                      "type": "string",
+                      "nullable": true
                     },
                     "base_token_price_quote_token": {
-                      "type": "string"
+                      "type": "string",
+                      "nullable": true
                     },
                     "quote_token_price_base_token": {
-                      "type": "string"
+                      "type": "string",
+                      "nullable": true
                     },
                     "address": {
                       "type": "string"
@@ -2837,10 +2841,12 @@
                       "type": "string"
                     },
                     "fdv_usd": {
-                      "type": "string"
+                      "type": "string",
+                      "nullable": true
                     },
                     "market_cap_usd": {
-                      "type": "string"
+                      "type": "string",
+                      "nullable": true
                     },
                     "price_change_percentage": {
                       "type": "object",
@@ -2920,6 +2926,23 @@
                           }
                         },
                         "h1": {
+                          "type": "object",
+                          "properties": {
+                            "buys": {
+                              "type": "integer"
+                            },
+                            "sells": {
+                              "type": "integer"
+                            },
+                            "buyers": {
+                              "type": "integer"
+                            },
+                            "sellers": {
+                              "type": "integer"
+                            }
+                          }
+                        },
+                        "h6": {
                           "type": "object",
                           "properties": {
                             "buys": {
@@ -3027,6 +3050,22 @@
                         }
                       }
                     },
+                    "network": {
+                      "type": "object",
+                      "properties": {
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "type": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    },
                     "dex": {
                       "type": "object",
                       "properties": {
@@ -3136,6 +3175,12 @@
                     "buyers": 83,
                     "sellers": 124
                   },
+                  "h6": {
+                    "buys": 394,
+                    "sells": 374,
+                    "buyers": 270,
+                    "sellers": 306
+                  },
                   "h24": {
                     "buys": 2966,
                     "sells": 3847,
@@ -3167,6 +3212,12 @@
                   "data": {
                     "id": "eth_0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
                     "type": "token"
+                  }
+                },
+                "network": {
+                  "data": {
+                    "id": "eth",
+                    "type": "network"
                   }
                 },
                 "dex": {
@@ -3239,10 +3290,12 @@
                       "type": "string"
                     },
                     "fdv_usd": {
-                      "type": "string"
+                      "type": "string",
+                      "nullable": true
                     },
                     "market_cap_usd": {
-                      "type": "string"
+                      "type": "string",
+                      "nullable": true
                     },
                     "price_change_percentage": {
                       "type": "object",
@@ -3322,6 +3375,23 @@
                           }
                         },
                         "h1": {
+                          "type": "object",
+                          "properties": {
+                            "buys": {
+                              "type": "integer"
+                            },
+                            "sells": {
+                              "type": "integer"
+                            },
+                            "buyers": {
+                              "type": "integer"
+                            },
+                            "sellers": {
+                              "type": "integer"
+                            }
+                          }
+                        },
+                        "h6": {
                           "type": "object",
                           "properties": {
                             "buys": {
@@ -3420,6 +3490,22 @@
                         }
                       }
                     },
+                    "network": {
+                      "type": "object",
+                      "properties": {
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "type": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    },
                     "dex": {
                       "type": "object",
                       "properties": {
@@ -3529,6 +3615,12 @@
                     "buyers": 83,
                     "sellers": 124
                   },
+                  "h6": {
+                    "buys": 394,
+                    "sells": 374,
+                    "buyers": 270,
+                    "sellers": 306
+                  },
                   "h24": {
                     "buys": 2966,
                     "sells": 3847,
@@ -3557,6 +3649,12 @@
                   "data": {
                     "id": "eth_0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
                     "type": "token"
+                  }
+                },
+                "network": {
+                  "data": {
+                    "id": "eth",
+                    "type": "network"
                   }
                 },
                 "dex": {
@@ -3626,6 +3724,9 @@
                       "type": "string"
                     },
                     "pool_created_at": {
+                      "type": "string"
+                    },
+                    "token_price_usd": {
                       "type": "string"
                     },
                     "fdv_usd": {
@@ -3712,6 +3813,23 @@
                           }
                         },
                         "h1": {
+                          "type": "object",
+                          "properties": {
+                            "buys": {
+                              "type": "integer"
+                            },
+                            "sells": {
+                              "type": "integer"
+                            },
+                            "buyers": {
+                              "type": "integer"
+                            },
+                            "sellers": {
+                              "type": "integer"
+                            }
+                          }
+                        },
+                        "h6": {
                           "type": "object",
                           "properties": {
                             "buys": {
@@ -4039,16 +4157,19 @@
                 "type": "string"
               },
               "pool_fee_percentage": {
-                "type": "string"
+                "type": "string",
+                "nullable": true
               },
               "pool_created_at": {
                 "type": "string"
               },
               "fdv_usd": {
-                "type": "string"
+                "type": "string",
+                "nullable": true
               },
               "market_cap_usd": {
-                "type": "string"
+                "type": "string",
+                "nullable": true
               },
               "price_change_percentage": {
                 "type": "object",
@@ -4276,7 +4397,8 @@
                 "type": "string"
               },
               "locked_liquidity_percentage": {
-                "type": "string"
+                "type": "string",
+                "nullable": true
               }
             }
           },
@@ -4726,7 +4848,7 @@
                   "type": "object",
                   "properties": {
                     "trending_rank": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "address": {
                       "type": "string"
@@ -4741,7 +4863,8 @@
                       "type": "string"
                     },
                     "market_cap_usd": {
-                      "type": "string"
+                      "type": "string",
+                      "nullable": true
                     },
                     "volume_usd": {
                       "type": "object",
@@ -6331,7 +6454,8 @@
                           "type": "string"
                         },
                         "label": {
-                          "type": "string"
+                          "type": "string",
+                          "nullable": true
                         },
                         "amount": {
                           "type": "string"
@@ -6454,10 +6578,12 @@
                           "type": "string"
                         },
                         "unrealized_pnl_usd": {
-                          "type": "string"
+                          "type": "string",
+                          "nullable": true
                         },
                         "token_balance": {
-                          "type": "string"
+                          "type": "string",
+                          "nullable": true
                         },
                         "average_buy_price_usd": {
                           "type": "string"
@@ -6557,9 +6683,6 @@
               "token": {
                 "type": "object",
                 "properties": {
-                  "address": {
-                    "type": "string"
-                  },
                   "name": {
                     "type": "string"
                   },
@@ -6567,6 +6690,9 @@
                     "type": "string"
                   },
                   "coingecko_coin_id": {
+                    "type": "string"
+                  },
+                  "address": {
                     "type": "string"
                   }
                 }
@@ -6759,63 +6885,89 @@
       "TokenInfoRecentlyUpdated": {
         "properties": {
           "data": {
-            "type": "object",
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "type": {
-                "type": "string"
-              },
-              "attributes": {
-                "type": "object",
-                "properties": {
-                  "address": {
-                    "type": "string"
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "symbol": {
-                    "type": "string"
-                  },
-                  "image_url": {
-                    "type": "string"
-                  },
-                  "coingecko_coin_id": {
-                    "type": "string"
-                  },
-                  "websites": {
-                    "type": "array",
-                    "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "attributes": {
+                  "type": "object",
+                  "properties": {
+                    "address": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "symbol": {
+                      "type": "string"
+                    },
+                    "decimals": {
+                      "type": "integer"
+                    },
+                    "image_url": {
+                      "type": "string"
+                    },
+                    "coingecko_coin_id": {
+                      "type": "string"
+                    },
+                    "websites": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "discord_url": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "farcaster_url": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "zora_url": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "telegram_handle": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "twitter_handle": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "gt_score": {
+                      "type": "number"
+                    },
+                    "metadata_updated_at": {
                       "type": "string"
                     }
-                  },
-                  "description": {
-                    "type": "string"
-                  },
-                  "gt_score": {
-                    "type": "number"
-                  },
-                  "metadata_updated_at": {
-                    "type": "string"
                   }
-                }
-              },
-              "relationships": {
-                "type": "object",
-                "properties": {
-                  "network": {
-                    "type": "object",
-                    "properties": {
-                      "data": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "type": {
-                            "type": "string"
+                },
+                "relationships": {
+                  "type": "object",
+                  "properties": {
+                    "network": {
+                      "type": "object",
+                      "properties": {
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "type": {
+                              "type": "string"
+                            }
                           }
                         }
                       }
@@ -6894,9 +7046,6 @@
               "base": {
                 "type": "object",
                 "properties": {
-                  "address": {
-                    "type": "string"
-                  },
                   "name": {
                     "type": "string"
                   },
@@ -6904,6 +7053,9 @@
                     "type": "string"
                   },
                   "coingecko_coin_id": {
+                    "type": "string"
+                  },
+                  "address": {
                     "type": "string"
                   }
                 }
@@ -6911,9 +7063,6 @@
               "quote": {
                 "type": "object",
                 "properties": {
-                  "address": {
-                    "type": "string"
-                  },
                   "name": {
                     "type": "string"
                   },
@@ -6921,6 +7070,9 @@
                     "type": "string"
                   },
                   "coingecko_coin_id": {
+                    "type": "string"
+                  },
+                  "address": {
                     "type": "string"
                   }
                 }
@@ -7294,10 +7446,12 @@
                       "type": "string"
                     },
                     "base_token_price_quote_token": {
-                      "type": "string"
+                      "type": "string",
+                      "nullable": true
                     },
                     "quote_token_price_base_token": {
-                      "type": "string"
+                      "type": "string",
+                      "nullable": true
                     },
                     "address": {
                       "type": "string"
@@ -7354,38 +7508,6 @@
                 "relationships": {
                   "type": "object",
                   "properties": {
-                    "network": {
-                      "type": "object",
-                      "properties": {
-                        "data": {
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "type": "string"
-                            },
-                            "type": {
-                              "type": "string"
-                            }
-                          }
-                        }
-                      }
-                    },
-                    "dex": {
-                      "type": "object",
-                      "properties": {
-                        "data": {
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "type": "string"
-                            },
-                            "type": {
-                              "type": "string"
-                            }
-                          }
-                        }
-                      }
-                    },
                     "base_token": {
                       "type": "object",
                       "properties": {
@@ -7403,6 +7525,38 @@
                       }
                     },
                     "quote_token": {
+                      "type": "object",
+                      "properties": {
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "type": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "network": {
+                      "type": "object",
+                      "properties": {
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "type": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "dex": {
                       "type": "object",
                       "properties": {
                         "data": {

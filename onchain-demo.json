@@ -1234,7 +1234,7 @@
         "tags": [
           "Tokens"
         ],
-        "description": "This endpoint allows you to **query token metadata (name, symbol,  CoinGecko ID, image, socials, websites, description, etc.) based on a provided token contract address on a network**",
+        "description": "This endpoint allows you to **query token metadata (name, symbol, CoinGecko ID, image, socials, websites, description, etc.) based on a provided token contract address on a network**",
         "operationId": "token-info-contract-address",
         "x-mint": {
           "href": "/v3.0.1/reference/token-info-contract-address"
@@ -2064,6 +2064,23 @@
                             }
                           }
                         },
+                        "h6": {
+                          "type": "object",
+                          "properties": {
+                            "buys": {
+                              "type": "integer"
+                            },
+                            "sells": {
+                              "type": "integer"
+                            },
+                            "buyers": {
+                              "type": "integer"
+                            },
+                            "sellers": {
+                              "type": "integer"
+                            }
+                          }
+                        },
                         "h24": {
                           "type": "object",
                           "properties": {
@@ -2140,6 +2157,22 @@
                       }
                     },
                     "quote_token": {
+                      "type": "object",
+                      "properties": {
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "type": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "network": {
                       "type": "object",
                       "properties": {
                         "data": {
@@ -2466,6 +2499,23 @@
                             }
                           }
                         },
+                        "h6": {
+                          "type": "object",
+                          "properties": {
+                            "buys": {
+                              "type": "integer"
+                            },
+                            "sells": {
+                              "type": "integer"
+                            },
+                            "buyers": {
+                              "type": "integer"
+                            },
+                            "sellers": {
+                              "type": "integer"
+                            }
+                          }
+                        },
                         "h24": {
                           "type": "object",
                           "properties": {
@@ -2756,6 +2806,9 @@
                     "pool_created_at": {
                       "type": "string"
                     },
+                    "token_price_usd": {
+                      "type": "string"
+                    },
                     "fdv_usd": {
                       "type": "string"
                     },
@@ -2840,6 +2893,23 @@
                           }
                         },
                         "h1": {
+                          "type": "object",
+                          "properties": {
+                            "buys": {
+                              "type": "integer"
+                            },
+                            "sells": {
+                              "type": "integer"
+                            },
+                            "buyers": {
+                              "type": "integer"
+                            },
+                            "sellers": {
+                              "type": "integer"
+                            }
+                          }
+                        },
+                        "h6": {
                           "type": "object",
                           "properties": {
                             "buys": {
@@ -3024,6 +3094,7 @@
                 "address": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
                 "name": "WETH / USDC 0.05%",
                 "pool_created_at": "2021-12-29T12:35:14Z",
+                "token_price_usd": "0.999284499078426",
                 "fdv_usd": "11007041041",
                 "market_cap_usd": null,
                 "price_change_percentage": {
@@ -3837,11 +3908,194 @@
         }
       },
       "PoolTokensInfo": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/TokenInfo"
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "attributes": {
+                  "type": "object",
+                  "properties": {
+                    "address": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "symbol": {
+                      "type": "string"
+                    },
+                    "decimals": {
+                      "type": "integer"
+                    },
+                    "image_url": {
+                      "type": "string"
+                    },
+                    "image": {
+                      "type": "object",
+                      "properties": {
+                        "thumb": {
+                          "type": "string"
+                        },
+                        "small": {
+                          "type": "string"
+                        },
+                        "large": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "coingecko_coin_id": {
+                      "type": "string"
+                    },
+                    "websites": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "discord_url": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "farcaster_url": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "zora_url": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "telegram_handle": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "twitter_handle": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "gt_score": {
+                      "type": "number"
+                    },
+                    "gt_score_details": {
+                      "type": "object",
+                      "properties": {
+                        "pool": {
+                          "type": "number"
+                        },
+                        "transaction": {
+                          "type": "number"
+                        },
+                        "creation": {
+                          "type": "number"
+                        },
+                        "info": {
+                          "type": "number"
+                        },
+                        "holders": {
+                          "type": "number"
+                        }
+                      }
+                    },
+                    "gt_verified": {
+                      "type": "boolean"
+                    },
+                    "categories": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "gt_category_ids": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "holders": {
+                      "type": "object",
+                      "properties": {
+                        "count": {
+                          "type": "integer"
+                        },
+                        "distribution_percentage": {
+                          "type": "object",
+                          "properties": {
+                            "top_10": {
+                              "type": "string"
+                            },
+                            "11_30": {
+                              "type": "string"
+                            },
+                            "31_50": {
+                              "type": "string"
+                            },
+                            "rest": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "last_updated": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "mint_authority": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "freeze_authority": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "is_honeypot": {
+                      "oneOf": [
+                        {
+                          "type": "boolean"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "relationships": {
+                  "type": "object",
+                  "properties": {
+                    "pool": {
+                      "type": "object",
+                      "properties": {
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "type": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
-        ],
+        },
         "example": {
           "data": [
             {
@@ -3891,6 +4145,14 @@
                 "mint_authority": null,
                 "freeze_authority": null,
                 "is_honeypot": false
+              },
+              "relationships": {
+                "pool": {
+                  "data": {
+                    "id": "eth_0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
+                    "type": "pool"
+                  }
+                }
               }
             },
             {
@@ -3935,6 +4197,14 @@
                 "mint_authority": null,
                 "freeze_authority": null,
                 "is_honeypot": false
+              },
+              "relationships": {
+                "pool": {
+                  "data": {
+                    "id": "eth_0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
+                    "type": "pool"
+                  }
+                }
               }
             }
           ]
@@ -4568,16 +4838,16 @@
                         "type": "object",
                         "properties": {
                           "top_10": {
-                            "type": "number"
+                            "type": "string"
                           },
                           "11_30": {
-                            "type": "number"
+                            "type": "string"
                           },
                           "31_50": {
-                            "type": "number"
+                            "type": "string"
                           },
                           "rest": {
-                            "type": "number"
+                            "type": "string"
                           }
                         }
                       },
@@ -4661,65 +4931,92 @@
         }
       },
       "TokenInfoRecentlyUpdated": {
+        "type": "object",
         "properties": {
           "data": {
-            "type": "object",
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "type": {
-                "type": "string"
-              },
-              "attributes": {
-                "type": "object",
-                "properties": {
-                  "address": {
-                    "type": "string"
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "symbol": {
-                    "type": "string"
-                  },
-                  "image_url": {
-                    "type": "string"
-                  },
-                  "coingecko_coin_id": {
-                    "type": "string"
-                  },
-                  "websites": {
-                    "type": "array",
-                    "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "attributes": {
+                  "type": "object",
+                  "properties": {
+                    "address": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "symbol": {
+                      "type": "string"
+                    },
+                    "decimals": {
+                      "type": "integer"
+                    },
+                    "image_url": {
+                      "type": "string"
+                    },
+                    "coingecko_coin_id": {
+                      "type": "string"
+                    },
+                    "websites": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "discord_url": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "farcaster_url": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "zora_url": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "telegram_handle": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "twitter_handle": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "gt_score": {
+                      "type": "number"
+                    },
+                    "metadata_updated_at": {
                       "type": "string"
                     }
-                  },
-                  "description": {
-                    "type": "string"
-                  },
-                  "gt_score": {
-                    "type": "number"
-                  },
-                  "metadata_updated_at": {
-                    "type": "string"
                   }
-                }
-              },
-              "relationships": {
-                "type": "object",
-                "properties": {
-                  "network": {
-                    "type": "object",
-                    "properties": {
-                      "data": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "type": {
-                            "type": "string"
+                },
+                "relationships": {
+                  "type": "object",
+                  "properties": {
+                    "network": {
+                      "type": "object",
+                      "properties": {
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "type": {
+                              "type": "string"
+                            }
                           }
                         }
                       }
