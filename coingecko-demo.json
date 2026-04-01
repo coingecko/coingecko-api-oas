@@ -48,8 +48,8 @@
         "tags": [
           "Simple"
         ],
-        "summary": "Coin Price by IDs",
-        "description": "This endpoint allows you to **query the prices of one or more coins by using their unique Coin API IDs**",
+        "summary": "Coin Price by IDs, Symbols, or Names",
+        "description": "This endpoint allows you to **query the prices of one or more coins by using their unique Coin API IDs, symbols, or names**",
         "operationId": "simple-price",
         "x-mint": {
           "href": "/v3.0.1/reference/simple-price"
@@ -377,6 +377,42 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CurrencyList"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/search": {
+      "get": {
+        "tags": [
+          "Search"
+        ],
+        "summary": "Search Queries",
+        "description": "This endpoint allows you to **search for coins, categories and markets listed on CoinGecko**",
+        "operationId": "search-data",
+        "x-mint": {
+          "href": "/v3.0.1/reference/search-data"
+        },
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "description": "search query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of coins, categories and markets matching search term ordered by market cap",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Search"
                 }
               }
             }
@@ -1015,12 +1051,13 @@
           {
             "name": "interval",
             "in": "query",
-            "description": "data interval, leave empty for auto granularity Possible value: daily",
+            "description": "data interval, leave empty for auto granularity",
             "required": false,
             "schema": {
               "type": "string",
               "enum": [
-                "daily"
+                "daily",
+                "hourly"
               ]
             }
           },
@@ -1385,12 +1422,13 @@
           {
             "name": "interval",
             "in": "query",
-            "description": "data interval, leave empty for auto granularity Possible value: daily",
+            "description": "data interval, leave empty for auto granularity",
             "required": false,
             "schema": {
               "type": "string",
               "enum": [
-                "daily"
+                "daily",
+                "hourly"
               ]
             }
           },
@@ -2730,42 +2768,6 @@
         }
       }
     },
-    "/search": {
-      "get": {
-        "tags": [
-          "Search"
-        ],
-        "summary": "Search Queries",
-        "description": "This endpoint allows you to **search for coins, categories and markets listed on CoinGecko**",
-        "operationId": "search-data",
-        "x-mint": {
-          "href": "/v3.0.1/reference/search-data"
-        },
-        "parameters": [
-          {
-            "name": "query",
-            "in": "query",
-            "description": "search query",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "List of coins, categories and markets matching search term ordered by market cap",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Search"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/search/trending": {
       "get": {
         "tags": [
@@ -3101,26 +3103,32 @@
           },
           "high_24h": {
             "type": "number",
+            "nullable": true,
             "description": "coin 24hr price high in currency"
           },
           "low_24h": {
             "type": "number",
+            "nullable": true,
             "description": "coin 24hr price low in currency"
           },
           "price_change_24h": {
             "type": "number",
+            "nullable": true,
             "description": "coin 24hr price change in currency"
           },
           "price_change_percentage_24h": {
             "type": "number",
+            "nullable": true,
             "description": "coin 24hr price change in percentage"
           },
           "market_cap_change_24h": {
             "type": "number",
+            "nullable": true,
             "description": "coin 24hr market cap change in currency"
           },
           "market_cap_change_percentage_24h": {
             "type": "number",
+            "nullable": true,
             "description": "coin 24hr market cap change in percentage"
           },
           "circulating_supply": {
@@ -3133,6 +3141,7 @@
           },
           "max_supply": {
             "type": "number",
+            "nullable": true,
             "description": "coin max supply"
           },
           "ath": {
@@ -3162,7 +3171,19 @@
             "description": "coin all time low (atl) date"
           },
           "roi": {
-            "type": "string"
+            "type": "object",
+            "nullable": true,
+            "properties": {
+              "times": {
+                "type": "number"
+              },
+              "currency": {
+                "type": "string"
+              },
+              "percentage": {
+                "type": "number"
+              }
+            }
           },
           "last_updated": {
             "type": "string",
@@ -3223,20 +3244,31 @@
           },
           "asset_platform_id": {
             "type": "string",
+            "nullable": true,
             "description": "coin asset platform ID"
           },
           "platforms": {
             "type": "object",
             "description": "coin asset platform and contract address",
             "additionalProperties": {
-              "type": "string"
+              "type": "string",
+              "nullable": true
             }
           },
           "detail_platforms": {
             "type": "object",
             "description": "detailed coin asset platform and contract address",
             "additionalProperties": {
-              "type": "string"
+              "type": "object",
+              "properties": {
+                "decimal_place": {
+                  "type": "number",
+                  "nullable": true
+                },
+                "contract_address": {
+                  "type": "string"
+                }
+              }
             }
           },
           "block_time_in_minutes": {
@@ -3245,6 +3277,7 @@
           },
           "hashing_algorithm": {
             "type": "string",
+            "nullable": true,
             "description": "blockchain hashing algorithm"
           },
           "categories": {
@@ -3277,6 +3310,7 @@
           },
           "public_notice": {
             "type": "string",
+            "nullable": true,
             "description": "public notice"
           },
           "additional_notices": {
@@ -3413,6 +3447,7 @@
           },
           "genesis_date": {
             "type": "string",
+            "nullable": true,
             "description": "coin genesis date",
             "format": "date-time"
           },
@@ -3592,18 +3627,22 @@
               },
               "total_value_locked": {
                 "type": "number",
+                "nullable": true,
                 "description": "total value locked"
               },
               "mcap_to_tvl_ratio": {
                 "type": "number",
+                "nullable": true,
                 "description": "market cap to total value locked ratio"
               },
               "fdv_to_tvl_ratio": {
                 "type": "number",
+                "nullable": true,
                 "description": "fully diluted valuation to total value locked ratio"
               },
               "roi": {
                 "type": "number",
+                "nullable": true,
                 "description": "coin return on investment"
               },
               "ath": {
@@ -3715,6 +3754,11 @@
                 "type": "number",
                 "description": "coin rank by market cap"
               },
+              "outstanding_token_value_usd": {
+                "type": "number",
+                "nullable": true,
+                "description": "outstanding token value in USD"
+              },
               "market_cap_rank_with_rehypothecated": {
                 "type": "number",
                 "description": "coin rank by market cap including rehypothecated tokens"
@@ -3822,6 +3866,21 @@
               "market_cap_change_percentage_24h": {
                 "type": "number",
                 "description": "coin 24hr market cap change in percentage"
+              },
+              "price_change_24h_in_currency": {
+                "type": "object",
+                "description": "coin 24hr price change in currency",
+                "properties": {
+                  "btc": {
+                    "type": "number"
+                  },
+                  "eur": {
+                    "type": "number"
+                  },
+                  "usd": {
+                    "type": "number"
+                  }
+                }
               },
               "price_change_percentage_1h_in_currency": {
                 "type": "object",
@@ -3979,11 +4038,21 @@
               },
               "max_supply": {
                 "type": "number",
+                "nullable": true,
                 "description": "coin max supply"
+              },
+              "max_supply_infinite": {
+                "type": "boolean",
+                "description": "coin max supply infinite"
               },
               "circulating_supply": {
                 "type": "number",
                 "description": "coin circulating supply"
+              },
+              "outstanding_supply": {
+                "type": "number",
+                "nullable": true,
+                "description": "tokens outstanding in the market, circulated/tradable or planned for circulation"
               },
               "last_updated": {
                 "type": "string",
@@ -4208,6 +4277,10 @@
                 "target_coin_id": {
                   "type": "string",
                   "description": "coin ticker target currency coin ID"
+                },
+                "coin_mcap_usd": {
+                  "type": "number",
+                  "description": "coin market cap in USD"
                 }
               }
             }
@@ -4241,14 +4314,24 @@
             "type": "object",
             "description": "coin asset platform and contract address",
             "additionalProperties": {
-              "type": "string"
+              "type": "string",
+              "nullable": true
             }
           },
           "detail_platforms": {
             "type": "object",
             "description": "detailed coin asset platform and contract address",
             "additionalProperties": {
-              "type": "string"
+              "type": "object",
+              "properties": {
+                "decimal_place": {
+                  "type": "number",
+                  "nullable": true
+                },
+                "contract_address": {
+                  "type": "string"
+                }
+              }
             }
           },
           "block_time_in_minutes": {
@@ -4257,6 +4340,7 @@
           },
           "hashing_algorithm": {
             "type": "string",
+            "nullable": true,
             "description": "blockchain hashing algorithm"
           },
           "categories": {
@@ -4272,6 +4356,7 @@
           },
           "public_notice": {
             "type": "string",
+            "nullable": true,
             "description": "public notice"
           },
           "additional_notices": {
@@ -4408,8 +4493,13 @@
           },
           "genesis_date": {
             "type": "string",
+            "nullable": true,
             "description": "coin genesis date",
             "format": "date-time"
+          },
+          "contract_address": {
+            "type": "string",
+            "description": "coin contract address"
           },
           "sentiment_votes_up_percentage": {
             "type": "number",
@@ -4452,18 +4542,22 @@
               },
               "total_value_locked": {
                 "type": "number",
+                "nullable": true,
                 "description": "total value locked"
               },
               "mcap_to_tvl_ratio": {
                 "type": "number",
+                "nullable": true,
                 "description": "market cap to total value locked ratio"
               },
               "fdv_to_tvl_ratio": {
                 "type": "number",
+                "nullable": true,
                 "description": "fully diluted valuation to total value locked ratio"
               },
               "roi": {
                 "type": "number",
+                "nullable": true,
                 "description": "coin return on investment"
               },
               "ath": {
@@ -4575,6 +4669,11 @@
                 "type": "number",
                 "description": "coin rank by market cap"
               },
+              "outstanding_token_value_usd": {
+                "type": "number",
+                "nullable": true,
+                "description": "outstanding token value in USD"
+              },
               "market_cap_rank_with_rehypothecated": {
                 "type": "number",
                 "description": "coin rank by market cap including rehypothecated tokens"
@@ -4682,6 +4781,21 @@
               "market_cap_change_percentage_24h": {
                 "type": "number",
                 "description": "coin 24hr market cap change in percentage"
+              },
+              "price_change_24h_in_currency": {
+                "type": "object",
+                "description": "coin 24hr price change in currency",
+                "properties": {
+                  "btc": {
+                    "type": "number"
+                  },
+                  "eur": {
+                    "type": "number"
+                  },
+                  "usd": {
+                    "type": "number"
+                  }
+                }
               },
               "price_change_percentage_1h_in_currency": {
                 "type": "object",
@@ -4839,11 +4953,21 @@
               },
               "max_supply": {
                 "type": "number",
+                "nullable": true,
                 "description": "coin max supply"
+              },
+              "max_supply_infinite": {
+                "type": "boolean",
+                "description": "whether max supply is infinite"
               },
               "circulating_supply": {
                 "type": "number",
                 "description": "coin circulating supply"
+              },
+              "outstanding_supply": {
+                "type": "number",
+                "nullable": true,
+                "description": "tokens outstanding in the market, circulated/tradable or planned for circulation"
               },
               "last_updated": {
                 "type": "string",
@@ -5068,6 +5192,10 @@
                 "target_coin_id": {
                   "type": "string",
                   "description": "coin ticker target currency coin ID"
+                },
+                "coin_mcap_usd": {
+                  "type": "number",
+                  "description": "coin market cap in USD"
                 }
               }
             }
@@ -5691,6 +5819,7 @@
               "sats": 1967528713437466
             },
             "market_cap_rank": 1,
+            "outstanding_token_value_usd": null,
             "market_cap_rank_with_rehypothecated": 1,
             "fully_diluted_valuation": {
               "aed": 5383795207730,
@@ -6681,6 +6810,7 @@
             "total_supply": 21000000,
             "max_supply": 21000000,
             "circulating_supply": 19675962,
+            "outstanding_supply": 20003043.0,
             "last_updated": "2024-04-07T15:24:51.021Z"
           },
           "community_data": {
@@ -6785,12 +6915,7 @@
                       "type": "string",
                       "description": "exchange image url"
                     }
-                  },
-                  "required": [
-                    "name",
-                    "identifier",
-                    "has_trading_incentive"
-                  ]
+                  }
                 },
                 "last": {
                   "type": "number",
@@ -6883,6 +7008,10 @@
                 "target_coin_id": {
                   "type": "string",
                   "description": "coin ticker target currency coin ID"
+                },
+                "coin_mcap_usd": {
+                  "type": "number",
+                  "description": "coin market cap in USD"
                 }
               }
             }
@@ -7798,7 +7927,7 @@
               "bmd": 1.003,
               "bnb": 0.00170967,
               "brl": 5.08,
-              "btc": 0.00001429,
+              "btc": 1.429e-05,
               "cad": 1.36,
               "chf": 0.904508,
               "clp": 942.53,
@@ -8062,7 +8191,7 @@
               "bmd": 0.877647,
               "bnb": 0.00145528,
               "brl": 3.66,
-              "btc": 0.00001358,
+              "btc": 1.358e-05,
               "cad": 1.079,
               "chf": 0.803831,
               "clp": 641.06,
@@ -8111,7 +8240,7 @@
               "xdr": 0.618198,
               "xlm": 1.266586,
               "xrp": 0.51131826,
-              "yfi": 0.00001103,
+              "yfi": 1.103e-05,
               "zar": 12.52,
               "bits": 13.58,
               "link": 0.01893714,
@@ -8313,6 +8442,7 @@
               "sats": 47080789009277
             },
             "market_cap_rank": 7,
+            "outstanding_token_value_usd": null,
             "market_cap_rank_with_rehypothecated": 7,
             "fully_diluted_valuation": {
               "aed": 121002864723,
@@ -8455,7 +8585,7 @@
               "bmd": 1.004,
               "bnb": 0.00171422,
               "brl": 5.09,
-              "btc": 0.00001471,
+              "btc": 1.471e-05,
               "cad": 1.36,
               "chf": 0.905681,
               "clp": 953.43,
@@ -8491,7 +8621,7 @@
               "sar": 3.77,
               "sek": 10.72,
               "sgd": 1.36,
-              "sol": 0.000012,
+              "sol": 1.2e-05,
               "thb": 36.78,
               "try": 32.21,
               "twd": 32.26,
@@ -8520,7 +8650,7 @@
               "bmd": 0.996404,
               "bnb": 0.00169154,
               "brl": 5.05,
-              "btc": 0.00001429,
+              "btc": 1.429e-05,
               "cad": 1.35,
               "chf": 0.89864,
               "clp": 936.41,
@@ -8556,7 +8686,7 @@
               "sar": 3.74,
               "sek": 10.64,
               "sgd": 1.34,
-              "sol": 0.000012,
+              "sol": 1.2e-05,
               "thb": 36.49,
               "try": 31.96,
               "twd": 32.01,
@@ -8589,13 +8719,13 @@
               "aed": 0.01482307,
               "ars": 3.43,
               "aud": 0.00605059,
-              "bch": 0.00002114,
+              "bch": 2.114e-05,
               "bdt": 0.436407,
               "bhd": 0.00103072,
               "bmd": 0.00398183,
-              "bnb": -8.98695386508e-7,
+              "bnb": -8.98695386508e-07,
               "brl": 0.02006244,
-              "btc": -4.08289757483e-7,
+              "btc": -4.08289757483e-07,
               "cad": 0.00541151,
               "chf": 0.00359115,
               "clp": -5.90309015913681,
@@ -8604,7 +8734,7 @@
               "dkk": 0.02740456,
               "dot": -0.00327886017878197,
               "eos": -0.030520948421398,
-              "eth": -5.818976995429e-6,
+              "eth": -5.818976995429e-06,
               "eur": 0.00322174,
               "gbp": 0.00315068,
               "gel": 0.01067131,
@@ -8640,11 +8770,11 @@
               "vef": 0.0003987,
               "vnd": 99.41,
               "xag": 0.00014025,
-              "xau": 1.71e-6,
+              "xau": 1.71e-06,
               "xdr": 0.00300321,
               "xlm": -0.0547530053062548,
               "xrp": -0.0181523667358481,
-              "yfi": -1.157937833455e-6,
+              "yfi": -1.157937833455e-06,
               "zar": 0.074448,
               "bits": -0.408289757483253,
               "link": -0.000669120508494617,
@@ -9303,6 +9433,7 @@
             "total_supply": 32937454819.1184,
             "max_supply": null,
             "circulating_supply": 32936427353.685,
+            "outstanding_supply": null,
             "last_updated": "2024-04-07T16:35:22.339Z"
           },
           "community_data": {
@@ -9371,7 +9502,7 @@
               "last": 0.9998,
               "volume": 12225554.4877,
               "converted_last": {
-                "btc": 0.00001435,
+                "btc": 1.435e-05,
                 "eth": 0.00029359,
                 "usd": 0.999143
               },
@@ -9501,6 +9632,21 @@
                   "type": "string",
                   "description": "token image url"
                 }
+              }
+            }
+          },
+          "version": {
+            "type": "object",
+            "description": "token list version",
+            "properties": {
+              "major": {
+                "type": "number"
+              },
+              "minor": {
+                "type": "number"
+              },
+              "patch": {
+                "type": "number"
               }
             }
           }
@@ -9736,10 +9882,12 @@
           },
           "year_established": {
             "type": "number",
+            "nullable": true,
             "description": "exchange established year"
           },
           "country": {
             "type": "string",
+            "nullable": true,
             "description": "exchange incorporated country"
           },
           "description": {
@@ -9804,9 +9952,6 @@
             "type": "number",
             "description": "exchange trust score rank"
           },
-          "trade_volume_24h_btc": {
-            "type": "number"
-          },
           "coins": {
             "type": "number",
             "description": "number of coins listed on the exchange"
@@ -9814,6 +9959,9 @@
           "pairs": {
             "type": "number",
             "description": "number of trading pairs on the exchange"
+          },
+          "trade_volume_24h_btc": {
+            "type": "number"
           },
           "tickers": {
             "type": "array",
@@ -9937,7 +10085,14 @@
         "items": {
           "type": "array",
           "items": {
-            "type": "number"
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ]
           }
         },
         "example": [
@@ -10141,7 +10296,7 @@
             "description": "derivatives exchange open interest in BTC"
           },
           "trade_volume_24h_btc": {
-            "type": "number",
+            "type": "string",
             "description": "derivatives exchange trade volume in BTC in 24 hours"
           },
           "number_of_perpetual_pairs": {
@@ -10401,6 +10556,10 @@
             "type": "string",
             "description": "NFT collection ID"
           },
+          "web_slug": {
+            "type": "string",
+            "description": "NFT collection web slug"
+          },
           "contract_address": {
             "type": "string",
             "description": "NFT collection contract address"
@@ -10430,13 +10589,8 @@
             }
           },
           "banner_image": {
-            "type": "object",
-            "description": "NFT collection banner image url",
-            "properties": {
-              "small": {
-                "type": "string"
-              }
-            }
+            "type": "string",
+            "description": "NFT collection banner image url"
           },
           "description": {
             "type": "string",
@@ -10547,6 +10701,7 @@
           },
           "one_day_sales": {
             "type": "number",
+            "nullable": true,
             "description": "NFT collection one day sales"
           },
           "one_day_sales_24h_percentage_change": {
@@ -10555,6 +10710,7 @@
           },
           "one_day_average_sale_price": {
             "type": "number",
+            "nullable": true,
             "description": "NFT collection one day average sale price"
           },
           "one_day_average_sale_price_24h_percentage_change": {
@@ -11160,7 +11316,16 @@
                       "description": "coin sparkline image url"
                     },
                     "content": {
-                      "type": "string"
+                      "type": "object",
+                      "nullable": true,
+                      "properties": {
+                        "title": {
+                          "type": "string"
+                        },
+                        "description": {
+                          "type": "string"
+                        }
+                      }
                     }
                   }
                 }
@@ -11227,7 +11392,16 @@
                       "description": "NFT collection sparkline image url"
                     },
                     "content": {
-                      "type": "string"
+                      "type": "object",
+                      "nullable": true,
+                      "properties": {
+                        "title": {
+                          "type": "string"
+                        },
+                        "description": {
+                          "type": "string"
+                        }
+                      }
                     }
                   }
                 }
@@ -11402,7 +11576,7 @@
                 "small": "https://assets.coingecko.com/coins/images/12493/small/GALA_token_image_-_200PNG.png?1709725869",
                 "large": "https://assets.coingecko.com/coins/images/12493/large/GALA_token_image_-_200PNG.png?1709725869",
                 "slug": "gala",
-                "price_btc": 8.99538550992028e-7,
+                "price_btc": 8.99538550992028e-07,
                 "score": 1,
                 "data": {
                   "price": 0.0627306136161425,
@@ -11977,12 +12151,6 @@
       },
       "CompaniesTreasury": {
         "type": "object",
-        "required": [
-          "total_holdings",
-          "total_value_usd",
-          "market_cap_dominance",
-          "companies"
-        ],
         "properties": {
           "total_holdings": {
             "type": "number",
@@ -12006,12 +12174,6 @@
       },
       "GovernmentsTreasury": {
         "type": "object",
-        "required": [
-          "total_holdings",
-          "total_value_usd",
-          "market_cap_dominance",
-          "governments"
-        ],
         "properties": {
           "total_holdings": {
             "type": "number",
@@ -12083,6 +12245,7 @@
           },
           "symbol": {
             "type": "string",
+            "nullable": true,
             "description": "stock market symbol for public company"
           },
           "country": {
@@ -12095,7 +12258,8 @@
           },
           "twitter_screen_name": {
             "type": "string",
-            "description": "official Twitter handle of the entity"
+            "description": "official Twitter handle of the entity",
+            "nullable": true
           },
           "total_treasury_value_usd": {
             "type": "number",
@@ -12103,15 +12267,18 @@
           },
           "unrealized_pnl": {
             "type": "number",
+            "nullable": true,
             "description": "unrealized profit and loss (current value - total entry value)"
           },
           "m_nav": {
             "type": "number",
-            "description": "market to net asset value ratio"
+            "description": "market to net asset value ratio",
+            "nullable": true
           },
           "total_asset_value_per_share_usd": {
             "type": "number",
-            "description": "total asset value per share in USD"
+            "description": "total asset value per share in USD",
+            "nullable": true
           },
           "holdings": {
             "type": "array",
@@ -12124,7 +12291,7 @@
                   "description": "coin ID"
                 },
                 "amount": {
-                  "type": "integer",
+                  "type": "number",
                   "description": "amount of the cryptocurrency held"
                 },
                 "percentage_of_total_supply": {
@@ -12133,7 +12300,8 @@
                 },
                 "amount_per_share": {
                   "type": "number",
-                  "description": "amount of cryptocurrency per share"
+                  "description": "amount of cryptocurrency per share",
+                  "nullable": true
                 },
                 "entity_value_usd_percentage": {
                   "type": "number",
@@ -12145,14 +12313,17 @@
                 },
                 "total_entry_value_usd": {
                   "type": "number",
+                  "nullable": true,
                   "description": "total entry cost/purchase value in USD"
                 },
                 "average_entry_value_usd": {
                   "type": "number",
+                  "nullable": true,
                   "description": "average entry cost per unit in USD"
                 },
                 "unrealized_pnl": {
                   "type": "number",
+                  "nullable": true,
                   "description": "unrealized profit and loss for this holding"
                 },
                 "holding_amount_change": {

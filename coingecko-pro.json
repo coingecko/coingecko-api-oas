@@ -73,8 +73,8 @@
         "tags": [
           "Simple"
         ],
-        "summary": "Coin Price by IDs",
-        "description": "This endpoint allows you to **query the prices of one or more coins by using their unique Coin API IDs**",
+        "summary": "Coin Price by IDs, Symbols, or Names",
+        "description": "This endpoint allows you to **query the prices of one or more coins by using their unique Coin API IDs, symbols, or names**",
         "operationId": "simple-price",
         "x-mint": {
           "href": "/reference/simple-price"
@@ -405,6 +405,42 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CurrencyList"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/search": {
+      "get": {
+        "tags": [
+          "Search"
+        ],
+        "summary": "Search Queries",
+        "description": "This endpoint allows you to **search for coins, categories and markets listed on CoinGecko**",
+        "operationId": "search-data",
+        "x-mint": {
+          "href": "/reference/search-data"
+        },
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "description": "search query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of coins, categories and markets matching search term ordered by market cap",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Search"
                 }
               }
             }
@@ -3683,42 +3719,6 @@
         }
       }
     },
-    "/search": {
-      "get": {
-        "tags": [
-          "Search"
-        ],
-        "summary": "Search Queries",
-        "description": "This endpoint allows you to **search for coins, categories and markets listed on CoinGecko**",
-        "operationId": "search-data",
-        "x-mint": {
-          "href": "/reference/search-data"
-        },
-        "parameters": [
-          {
-            "name": "query",
-            "in": "query",
-            "description": "search query",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "List of coins, categories and markets matching search term ordered by market cap",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Search"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/search/trending": {
       "get": {
         "tags": [
@@ -3757,6 +3757,127 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/TrendingSearch"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/news": {
+      "get": {
+        "tags": [
+          "News"
+        ],
+        "summary": "💼 Crypto News",
+        "description": "This endpoint allows you to **query the latest crypto news and guides on CoinGecko**",
+        "operationId": "news",
+        "x-mint": {
+          "href": "/reference/news"
+        },
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "page through results \n Default value: **1**",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1,
+              "minimum": 1,
+              "maximum": 20
+            }
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "total results per page \n Default value: **10**",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 10,
+              "minimum": 1,
+              "maximum": 20
+            }
+          },
+          {
+            "name": "coin_id",
+            "in": "query",
+            "description": "filter news by coin ID \n *refers to [`/coins/list`](/reference/coins-list).",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "language",
+            "in": "query",
+            "description": "filter news by language \n Default value: **en**",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "en",
+              "enum": [
+                "en",
+                "ru",
+                "de",
+                "pl",
+                "es",
+                "vi",
+                "fr",
+                "pt-br",
+                "ar",
+                "bg",
+                "cs",
+                "da",
+                "el",
+                "fi",
+                "he",
+                "hi",
+                "hr",
+                "hu",
+                "id",
+                "it",
+                "ja",
+                "ko",
+                "lt",
+                "nl",
+                "no",
+                "ro",
+                "sk",
+                "sl",
+                "sv",
+                "th",
+                "tr",
+                "uk",
+                "zh",
+                "zh-tw"
+              ]
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "filter news by type \n Default value: **all** \n Note: `guides` filter is only applicable if `coin_id` is specified and valid",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "all",
+              "enum": [
+                "all",
+                "news",
+                "guides"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List latest crypto news",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/News"
                 }
               }
             }
@@ -4611,12 +4732,7 @@
             "type": "number",
             "description": "ROI percentage"
           }
-        },
-        "required": [
-          "times",
-          "currency",
-          "percentage"
-        ]
+        }
       },
       "CoinsIDDataBase": {
         "type": "object",
@@ -4639,13 +4755,15 @@
           },
           "asset_platform_id": {
             "type": "string",
-            "description": "coin asset platform ID"
+            "description": "coin asset platform ID",
+            "nullable": true
           },
           "platforms": {
             "type": "object",
             "description": "coin asset platform and contract address",
             "additionalProperties": {
-              "type": "string"
+              "type": "string",
+              "nullable": true
             }
           },
           "detail_platforms": {
@@ -4661,7 +4779,8 @@
           },
           "hashing_algorithm": {
             "type": "string",
-            "description": "blockchain hashing algorithm"
+            "description": "blockchain hashing algorithm",
+            "nullable": true
           },
           "categories": {
             "type": "array",
@@ -4693,7 +4812,8 @@
           },
           "public_notice": {
             "type": "string",
-            "description": "public notice"
+            "description": "public notice",
+            "nullable": true
           },
           "additional_notices": {
             "type": "array",
@@ -4830,15 +4950,18 @@
           "genesis_date": {
             "type": "string",
             "description": "coin genesis date",
-            "format": "date-time"
+            "format": "date-time",
+            "nullable": true
           },
           "sentiment_votes_up_percentage": {
             "type": "number",
-            "description": "coin sentiment votes up percentage"
+            "description": "coin sentiment votes up percentage",
+            "nullable": true
           },
           "sentiment_votes_down_percentage": {
             "type": "number",
-            "description": "coin sentiment votes down percentage"
+            "description": "coin sentiment votes down percentage",
+            "nullable": true
           },
           "ico_data": {
             "type": "object",
@@ -4973,7 +5096,8 @@
                 "type": "boolean",
                 "description": "pre-sale ended"
               }
-            }
+            },
+            "nullable": true
           },
           "watchlist_portfolio_users": {
             "type": "number",
@@ -4981,7 +5105,8 @@
           },
           "market_cap_rank": {
             "type": "number",
-            "description": "coin rank by market cap"
+            "description": "coin rank by market cap",
+            "nullable": true
           },
           "market_cap_rank_with_rehypothecated": {
             "type": "number",
@@ -5130,6 +5255,11 @@
               "market_cap_rank": {
                 "type": "number",
                 "description": "coin rank by market cap"
+              },
+              "outstanding_token_value_usd": {
+                "type": "number",
+                "nullable": true,
+                "description": "outstanding token value in USD"
               },
               "market_cap_rank_with_rehypothecated": {
                 "type": "number",
@@ -5401,6 +5531,11 @@
                 "type": "number",
                 "description": "coin circulating supply"
               },
+              "outstanding_supply": {
+                "type": "number",
+                "nullable": true,
+                "description": "tokens outstanding in the market, circulated/tradable or planned for circulation"
+              },
               "last_updated": {
                 "type": "string",
                 "description": "coin market data last updated timestamp",
@@ -5624,6 +5759,10 @@
                 "target_coin_id": {
                   "type": "string",
                   "description": "coin ticker target currency coin ID"
+                },
+                "coin_mcap_usd": {
+                  "type": "number",
+                  "description": "coin market cap in usd"
                 }
               }
             }
@@ -5657,7 +5796,8 @@
             "type": "object",
             "description": "coin asset platform and contract address",
             "additionalProperties": {
-              "type": "string"
+              "type": "string",
+              "nullable": true
             }
           },
           "detail_platforms": {
@@ -5673,7 +5813,8 @@
           },
           "hashing_algorithm": {
             "type": "string",
-            "description": "blockchain hashing algorithm"
+            "description": "blockchain hashing algorithm",
+            "nullable": true
           },
           "categories": {
             "type": "array",
@@ -5688,7 +5829,8 @@
           },
           "public_notice": {
             "type": "string",
-            "description": "public notice"
+            "description": "public notice",
+            "nullable": true
           },
           "additional_notices": {
             "type": "array",
@@ -5825,15 +5967,22 @@
           "genesis_date": {
             "type": "string",
             "description": "coin genesis date",
-            "format": "date-time"
+            "format": "date-time",
+            "nullable": true
+          },
+          "contract_address": {
+            "type": "string",
+            "description": "coin contract address"
           },
           "sentiment_votes_up_percentage": {
             "type": "number",
-            "description": "coin sentiment votes up percentage"
+            "description": "coin sentiment votes up percentage",
+            "nullable": true
           },
           "sentiment_votes_down_percentage": {
             "type": "number",
-            "description": "coin sentiment votes down percentage"
+            "description": "coin sentiment votes down percentage",
+            "nullable": true
           },
           "watchlist_portfolio_users": {
             "type": "number",
@@ -5841,7 +5990,8 @@
           },
           "market_cap_rank": {
             "type": "number",
-            "description": "coin rank by market cap"
+            "description": "coin rank by market cap",
+            "nullable": true
           },
           "market_cap_rank_with_rehypothecated": {
             "type": "number",
@@ -5990,6 +6140,11 @@
               "market_cap_rank": {
                 "type": "number",
                 "description": "coin rank by market cap"
+              },
+              "outstanding_token_value_usd": {
+                "type": "number",
+                "nullable": true,
+                "description": "outstanding token value in USD"
               },
               "market_cap_rank_with_rehypothecated": {
                 "type": "number",
@@ -6261,6 +6416,11 @@
                 "type": "number",
                 "description": "coin circulating supply"
               },
+              "outstanding_supply": {
+                "type": "number",
+                "nullable": true,
+                "description": "tokens outstanding in the market, circulated/tradable or planned for circulation"
+              },
               "last_updated": {
                 "type": "string",
                 "description": "coin market data last updated timestamp",
@@ -6484,6 +6644,10 @@
                 "target_coin_id": {
                   "type": "string",
                   "description": "coin ticker target currency coin ID"
+                },
+                "coin_mcap_usd": {
+                  "type": "number",
+                  "description": "coin market cap in usd"
                 }
               }
             }
@@ -7129,6 +7293,7 @@
               "sats": 1967528713437466
             },
             "market_cap_rank": 1,
+            "outstanding_token_value_usd": null,
             "market_cap_rank_with_rehypothecated": 1,
             "fully_diluted_valuation": {
               "aed": 5383795207730,
@@ -8119,6 +8284,7 @@
             "total_supply": 21000000,
             "max_supply": 21000000,
             "circulating_supply": 19675962,
+            "outstanding_supply": 20003043.0,
             "last_updated": "2024-04-07T15:24:51.021Z"
           },
           "community_data": {
@@ -8177,7 +8343,8 @@
               "trade_url": "https://www.binance.com/en/trade/BTC_USDT?ref=37754157",
               "token_info_url": null,
               "coin_id": "bitcoin",
-              "target_coin_id": "tether"
+              "target_coin_id": "tether",
+              "coin_mcap_usd": 230926944910.5146
             }
           ]
         }
@@ -8223,12 +8390,7 @@
                       "type": "string",
                       "description": "exchange image url"
                     }
-                  },
-                  "required": [
-                    "name",
-                    "identifier",
-                    "has_trading_incentive"
-                  ]
+                  }
                 },
                 "last": {
                   "type": "number",
@@ -8321,6 +8483,10 @@
                 "target_coin_id": {
                   "type": "string",
                   "description": "coin ticker target currency coin ID"
+                },
+                "coin_mcap_usd": {
+                  "type": "number",
+                  "description": "coin market cap in usd"
                 }
               }
             }
@@ -8362,7 +8528,8 @@
               "trade_url": "https://www.binance.com/en/trade/BTC_USDT?ref=37754157",
               "token_info_url": null,
               "coin_id": "bitcoin",
-              "target_coin_id": "tether"
+              "target_coin_id": "tether",
+              "coin_mcap_usd": 230926944910.5146
             }
           ]
         }
@@ -9310,7 +9477,7 @@
               "bmd": 1.003,
               "bnb": 0.00170967,
               "brl": 5.08,
-              "btc": 0.00001429,
+              "btc": 1.429e-05,
               "cad": 1.36,
               "chf": 0.904508,
               "clp": 942.53,
@@ -9574,7 +9741,7 @@
               "bmd": 0.877647,
               "bnb": 0.00145528,
               "brl": 3.66,
-              "btc": 0.00001358,
+              "btc": 1.358e-05,
               "cad": 1.079,
               "chf": 0.803831,
               "clp": 641.06,
@@ -9623,7 +9790,7 @@
               "xdr": 0.618198,
               "xlm": 1.266586,
               "xrp": 0.51131826,
-              "yfi": 0.00001103,
+              "yfi": 1.103e-05,
               "zar": 12.52,
               "bits": 13.58,
               "link": 0.01893714,
@@ -9825,6 +9992,7 @@
               "sats": 47080789009277
             },
             "market_cap_rank": 7,
+            "outstanding_token_value_usd": null,
             "market_cap_rank_with_rehypothecated": 7,
             "fully_diluted_valuation": {
               "aed": 121002864723,
@@ -9967,7 +10135,7 @@
               "bmd": 1.004,
               "bnb": 0.00171422,
               "brl": 5.09,
-              "btc": 0.00001471,
+              "btc": 1.471e-05,
               "cad": 1.36,
               "chf": 0.905681,
               "clp": 953.43,
@@ -10032,7 +10200,7 @@
               "bmd": 0.996404,
               "bnb": 0.00169154,
               "brl": 5.05,
-              "btc": 0.00001429,
+              "btc": 1.429e-05,
               "cad": 1.35,
               "chf": 0.89864,
               "clp": 936.41,
@@ -10101,13 +10269,13 @@
               "aed": 0.01482307,
               "ars": 3.43,
               "aud": 0.00605059,
-              "bch": 0.00002114,
+              "bch": 2.114e-05,
               "bdt": 0.436407,
               "bhd": 0.00103072,
               "bmd": 0.00398183,
-              "bnb": -8.98695386508e-7,
+              "bnb": -8.98695386508e-07,
               "brl": 0.02006244,
-              "btc": -4.08289757483e-7,
+              "btc": -4.08289757483e-07,
               "cad": 0.00541151,
               "chf": 0.00359115,
               "clp": -5.90309015913681,
@@ -10116,7 +10284,7 @@
               "dkk": 0.02740456,
               "dot": -0.00327886017878197,
               "eos": -0.030520948421398,
-              "eth": -5.818976995429e-6,
+              "eth": -5.818976995429e-06,
               "eur": 0.00322174,
               "gbp": 0.00315068,
               "gel": 0.01067131,
@@ -10152,11 +10320,11 @@
               "vef": 0.0003987,
               "vnd": 99.41,
               "xag": 0.00014025,
-              "xau": 1.71e-6,
+              "xau": 1.71e-06,
               "xdr": 0.00300321,
               "xlm": -0.0547530053062548,
               "xrp": -0.0181523667358481,
-              "yfi": -1.157937833455e-6,
+              "yfi": -1.157937833455e-06,
               "zar": 0.074448,
               "bits": -0.408289757483253,
               "link": -0.000669120508494617,
@@ -10815,6 +10983,7 @@
             "total_supply": 32937454819.1184,
             "max_supply": null,
             "circulating_supply": 32936427353.685,
+            "outstanding_supply": 20003043.0,
             "last_updated": "2024-04-07T16:35:22.339Z"
           },
           "community_data": {
@@ -10883,7 +11052,7 @@
               "last": 0.9998,
               "volume": 12225554.4877,
               "converted_last": {
-                "btc": 0.00001435,
+                "btc": 1.435e-05,
                 "eth": 0.00029359,
                 "usd": 0.999143
               },
@@ -10902,7 +11071,8 @@
               "trade_url": "https://www.bitunix.com/spot-trade?symbol=USDCUSDT",
               "token_info_url": null,
               "coin_id": "usd-coin",
-              "target_coin_id": "tether"
+              "target_coin_id": "tether",
+              "coin_mcap_usd": 230926944910.5146
             }
           ]
         }
@@ -10931,19 +11101,20 @@
             },
             "native_coin_id": {
               "type": "string",
-              "description": "chain native coin ID"
+              "description": "chain native coin ID",
+              "nullable": true
             },
             "image": {
               "type": "object",
               "description": "image of the asset platform",
               "properties": {
-                "large": {
+                "thumb": {
                   "type": "string"
                 },
                 "small": {
                   "type": "string"
                 },
-                "thumb": {
+                "large": {
                   "type": "string"
                 }
               }
@@ -11013,6 +11184,21 @@
                   "type": "string",
                   "description": "token image url"
                 }
+              }
+            }
+          },
+          "version": {
+            "type": "object",
+            "description": "token list version",
+            "properties": {
+              "major": {
+                "type": "number"
+              },
+              "minor": {
+                "type": "number"
+              },
+              "patch": {
+                "type": "number"
               }
             }
           }
@@ -11148,10 +11334,12 @@
           },
           "year_established": {
             "type": "number",
+            "nullable": true,
             "description": "exchange established year"
           },
           "country": {
             "type": "string",
+            "nullable": true,
             "description": "exchange country"
           },
           "description": {
@@ -11168,6 +11356,7 @@
           },
           "has_trading_incentive": {
             "type": "boolean",
+            "nullable": true,
             "description": "exchange trading incentive"
           },
           "trust_score": {
@@ -11243,11 +11432,7 @@
             "type": "string",
             "description": "exchange name"
           }
-        },
-        "required": [
-          "id",
-          "name"
-        ]
+        }
       },
       "ExchangeData": {
         "type": "object",
@@ -11258,11 +11443,13 @@
           },
           "year_established": {
             "type": "number",
-            "description": "exchange established year"
+            "description": "exchange established year",
+            "nullable": true
           },
           "country": {
             "type": "string",
-            "description": "exchange incorporated country"
+            "description": "exchange incorporated country",
+            "nullable": true
           },
           "description": {
             "type": "string",
@@ -11278,33 +11465,41 @@
           },
           "facebook_url": {
             "type": "string",
-            "description": "exchange facebook url"
+            "description": "exchange facebook url",
+            "nullable": true
           },
           "reddit_url": {
             "type": "string",
-            "description": "exchange reddit url"
+            "description": "exchange reddit url",
+            "nullable": true
           },
           "telegram_url": {
             "type": "string",
-            "description": "exchange telegram url"
+            "description": "exchange telegram url",
+            "nullable": true
           },
           "slack_url": {
             "type": "string",
-            "description": "exchange slack url"
+            "description": "exchange slack url",
+            "nullable": true
           },
           "other_url_1": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "other_url_2": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "twitter_handle": {
             "type": "string",
-            "description": "exchange twitter handle"
+            "description": "exchange twitter handle",
+            "nullable": true
           },
           "has_trading_incentive": {
             "type": "boolean",
-            "description": "exchange trading incentive"
+            "description": "exchange trading incentive",
+            "nullable": true
           },
           "centralized": {
             "type": "boolean",
@@ -11312,11 +11507,13 @@
           },
           "public_notice": {
             "type": "string",
-            "description": "public notice for exchange"
+            "description": "public notice for exchange",
+            "nullable": true
           },
           "alert_notice": {
             "type": "string",
-            "description": "alert notice for exchange"
+            "description": "alert notice for exchange",
+            "nullable": true
           },
           "trust_score": {
             "type": "number",
@@ -11326,9 +11523,6 @@
             "type": "number",
             "description": "exchange trust score rank"
           },
-          "trade_volume_24h_btc": {
-            "type": "number"
-          },
           "coins": {
             "type": "number",
             "description": "number of coins listed on the exchange"
@@ -11336,6 +11530,9 @@
           "pairs": {
             "type": "number",
             "description": "number of trading pairs on the exchange"
+          },
+          "trade_volume_24h_btc": {
+            "type": "number"
           },
           "tickers": {
             "type": "array",
@@ -11345,6 +11542,61 @@
                   "$ref": "#/components/schemas/CoinsTickers"
                 }
               ]
+            }
+          },
+          "status_updates": {
+            "type": "array",
+            "description": "exchange status updates",
+            "items": {
+              "type": "object",
+              "properties": {
+                "description": {
+                  "type": "string"
+                },
+                "category": {
+                  "type": "string"
+                },
+                "created_at": {
+                  "type": "string"
+                },
+                "user": {
+                  "type": "string"
+                },
+                "user_title": {
+                  "type": "string"
+                },
+                "pin": {
+                  "type": "boolean"
+                },
+                "project": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "image": {
+                      "type": "object",
+                      "properties": {
+                        "thumb": {
+                          "type": "string"
+                        },
+                        "small": {
+                          "type": "string"
+                        },
+                        "large": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
             }
           }
         },
@@ -11463,7 +11715,14 @@
         "items": {
           "type": "array",
           "items": {
-            "type": "number"
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ]
           }
         },
         "example": [
@@ -11664,10 +11923,11 @@
           },
           "open_interest_btc": {
             "type": "number",
-            "description": "derivatives exchange open interest in BTC"
+            "description": "derivatives exchange open interest in BTC",
+            "nullable": true
           },
           "trade_volume_24h_btc": {
-            "type": "number",
+            "type": "string",
             "description": "derivatives exchange trade volume in BTC in 24 hours"
           },
           "number_of_perpetual_pairs": {
@@ -11927,6 +12187,10 @@
             "type": "string",
             "description": "NFT collection ID"
           },
+          "web_slug": {
+            "type": "string",
+            "description": "NFT collection web slug"
+          },
           "contract_address": {
             "type": "string",
             "description": "NFT collection contract address"
@@ -11956,13 +12220,8 @@
             }
           },
           "banner_image": {
-            "type": "object",
-            "description": "NFT collection banner image url",
-            "properties": {
-              "small": {
-                "type": "string"
-              }
-            }
+            "type": "string",
+            "description": "NFT collection banner image url"
           },
           "description": {
             "type": "string",
@@ -11978,7 +12237,8 @@
           },
           "market_cap_rank": {
             "type": "number",
-            "description": "coin market cap rank"
+            "description": "coin market cap rank",
+            "nullable": true
           },
           "floor_price": {
             "type": "object",
@@ -12073,7 +12333,8 @@
           },
           "one_day_sales": {
             "type": "number",
-            "description": "NFT collection one day sales"
+            "description": "NFT collection one day sales",
+            "nullable": true
           },
           "one_day_sales_24h_percentage_change": {
             "type": "number",
@@ -12081,7 +12342,8 @@
           },
           "one_day_average_sale_price": {
             "type": "number",
-            "description": "NFT collection one day average sale price"
+            "description": "NFT collection one day average sale price",
+            "nullable": true
           },
           "one_day_average_sale_price_24h_percentage_change": {
             "type": "number",
@@ -12222,6 +12484,7 @@
         },
         "example": {
           "id": "pudgy-penguins",
+          "web_slug": "pudgy-penguins",
           "contract_address": "0xBd3531dA5CF5857e7CfAA92426877b022e612cf8",
           "asset_platform_id": "ethereum",
           "name": "Pudgy Penguins",
@@ -12329,7 +12592,8 @@
             },
             "contract_address": {
               "type": "string",
-              "description": "NFT collection contract address"
+              "description": "NFT collection contract address",
+              "nullable": true
             },
             "asset_platform_id": {
               "type": "string",
@@ -12357,7 +12621,8 @@
             },
             "description": {
               "type": "string",
-              "description": "NFT collection description"
+              "description": "NFT collection description",
+              "nullable": true
             },
             "native_currency": {
               "type": "string",
@@ -12449,7 +12714,8 @@
             },
             "number_of_unique_addresses": {
               "type": "number",
-              "description": "number of unique address owning the NFTs"
+              "description": "number of unique address owning the NFTs",
+              "nullable": true
             },
             "number_of_unique_addresses_24h_percentage_change": {
               "type": "number",
@@ -12461,11 +12727,13 @@
             },
             "total_supply": {
               "type": "number",
-              "description": "NFT collection total supply"
+              "description": "NFT collection total supply",
+              "nullable": true
             },
             "one_day_sales": {
               "type": "number",
-              "description": "NFT collection one day sales"
+              "description": "NFT collection one day sales",
+              "nullable": true
             },
             "one_day_sales_24h_percentage_change": {
               "type": "number",
@@ -12473,7 +12741,8 @@
             },
             "one_day_average_sale_price": {
               "type": "number",
-              "description": "NFT collection one day average sale price"
+              "description": "NFT collection one day average sale price",
+              "nullable": true
             },
             "one_day_average_sale_price_24h_percentage_change": {
               "type": "number",
@@ -13148,7 +13417,16 @@
                       "description": "coin sparkline image url"
                     },
                     "content": {
-                      "type": "string"
+                      "type": "object",
+                      "nullable": true,
+                      "properties": {
+                        "title": {
+                          "type": "string"
+                        },
+                        "description": {
+                          "type": "string"
+                        }
+                      }
                     }
                   }
                 }
@@ -13215,7 +13493,16 @@
                       "description": "NFT collection sparkline image url"
                     },
                     "content": {
-                      "type": "string"
+                      "type": "object",
+                      "nullable": true,
+                      "properties": {
+                        "title": {
+                          "type": "string"
+                        },
+                        "description": {
+                          "type": "string"
+                        }
+                      }
                     }
                   }
                 }
@@ -13390,7 +13677,7 @@
                 "small": "https://assets.coingecko.com/coins/images/12493/small/GALA_token_image_-_200PNG.png?1709725869",
                 "large": "https://assets.coingecko.com/coins/images/12493/large/GALA_token_image_-_200PNG.png?1709725869",
                 "slug": "gala",
-                "price_btc": 8.99538550992028e-7,
+                "price_btc": 8.99538550992028e-07,
                 "score": 1,
                 "data": {
                   "price": 0.0627306136161425,
@@ -14025,12 +14312,6 @@
       },
       "CompaniesTreasury": {
         "type": "object",
-        "required": [
-          "total_holdings",
-          "total_value_usd",
-          "market_cap_dominance",
-          "companies"
-        ],
         "properties": {
           "total_holdings": {
             "type": "number",
@@ -14054,12 +14335,6 @@
       },
       "GovernmentsTreasury": {
         "type": "object",
-        "required": [
-          "total_holdings",
-          "total_value_usd",
-          "market_cap_dominance",
-          "governments"
-        ],
         "properties": {
           "total_holdings": {
             "type": "number",
@@ -14452,6 +14727,84 @@
               "average_entry_value_usd": 102557.0
             }
           ]
+        }
+      },
+      "News": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/NewsArticle"
+        },
+        "example": [
+          {
+            "title": "Bitcoin stalls: Why BTC risks $65K fall despite $23M whale buy",
+            "url": "https://ambcrypto.com/bitcoin-stalls-why-btc-risks-65k-fall-despite-23m-whale-buy/",
+            "image": "https://assets.coingecko.com/articles/images/106731445/large/open-uri20260327-7-fuq6r9.?1774609423",
+            "author": "Gladys Makena",
+            "posted_at": "2026-03-27T11:00:42Z",
+            "type": "news",
+            "source_name": "AMBCrypto",
+            "related_coin_ids": [
+              "1-token-2",
+              "1-token",
+              "bitcoin"
+            ]
+          },
+          {
+            "title": "How to Fetch Historical Crypto Data with Python",
+            "url": "https://www.coingecko.com/learn/how-to-fetch-historical-crypto-data-with-python",
+            "image": "https://coin-images.coingecko.com/posts/images/102135584/large/How_To_Fetch_Historical_Crypto_Data_with_Python.png?1771925926",
+            "author": "Brian Lee",
+            "posted_at": "2026-02-24T06:26:58Z",
+            "type": "guide",
+            "source_name": "CoinGecko",
+            "related_coin_ids": [
+              "bitcoin"
+            ]
+          }
+        ]
+      },
+      "NewsArticle": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "news article title"
+          },
+          "url": {
+            "type": "string",
+            "description": "news article URL"
+          },
+          "image": {
+            "type": "string",
+            "description": "news article image URL"
+          },
+          "author": {
+            "type": "string",
+            "description": "news article author"
+          },
+          "posted_at": {
+            "type": "string",
+            "description": "news article published timestamp in ISO 8601 format"
+          },
+          "type": {
+            "type": "string",
+            "description": "news article type",
+            "enum": [
+              "news",
+              "guide"
+            ]
+          },
+          "source_name": {
+            "type": "string",
+            "description": "news article source name"
+          },
+          "related_coin_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "related coin IDs"
+          }
         }
       }
     }
