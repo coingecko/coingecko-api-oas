@@ -6790,6 +6790,11 @@
                 "websites": [
                   "https://weth.io/"
                 ],
+                "discord_url": null,
+                "farcaster_url": null,
+                "zora_url": null,
+                "telegram_handle": null,
+                "twitter_handle": null,
                 "description": "WETH is the tokenized/packaged form of ETH that you use to pay for items when you interact with Ethereum dApps...",
                 "gt_score": 92.6605504587156,
                 "gt_score_details": {
@@ -6800,13 +6805,8 @@
                   "holders": 100
                 },
                 "gt_verified": true,
-                "discord_url": null,
-                "farcaster_url": null,
-                "zora_url": null,
-                "telegram_handle": null,
-                "twitter_handle": null,
                 "categories": [],
-                "gt_categories_id": [],
+                "gt_category_ids": [],
                 "holders": {
                   "count": 1385496,
                   "distribution_percentage": {
@@ -6834,6 +6834,11 @@
                 "websites": [
                   "https://tether.to/"
                 ],
+                "discord_url": null,
+                "farcaster_url": null,
+                "zora_url": null,
+                "telegram_handle": null,
+                "twitter_handle": "Tether_to",
                 "description": "Tether (USDT) is a cryptocurrency with a value meant to mirror the value of the U.S. dollar. ...",
                 "gt_score": 92.6605504587156,
                 "gt_score_details": {
@@ -6844,13 +6849,8 @@
                   "holders": 0
                 },
                 "gt_verified": true,
-                "discord_url": null,
-                "farcaster_url": null,
-                "zora_url": null,
-                "telegram_handle": null,
-                "twitter_handle": "Tether_to",
                 "categories": [],
-                "gt_categories_id": [],
+                "gt_category_ids": [],
                 "holders": {
                   "count": 7041203,
                   "distribution_percentage": {
