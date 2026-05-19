@@ -4043,6 +4043,10 @@
           "api_key_monthly_call_credit": {
             "type": "number",
             "description": "Specific monthly credit limit configured for the API key used to authenticate this request"
+          },
+          "api_key_current_total_monthly_calls": {
+            "type": "integer",
+            "description": "Total API calls made this month by this API key"
           }
         },
         "example": {
@@ -4052,7 +4056,8 @@
           "current_total_monthly_calls": 104,
           "current_remaining_monthly_calls": 999896,
           "api_key_rate_limit_request_per_minute": 500,
-          "api_key_monthly_call_credit": 500000
+          "api_key_monthly_call_credit": 500000,
+          "api_key_current_total_monthly_calls": 8
         }
       },
       "SimplePrice": {
