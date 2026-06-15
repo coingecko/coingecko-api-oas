@@ -676,6 +676,7 @@
                   "preview_listing": false,
                   "public_notice": null,
                   "additional_notices": [],
+                  "has_supply_breakdown": false,
                   "description": {
                     "en": "Bitcoin is the first successful internet money based on peer-to-peer technology..."
                   },
@@ -2116,6 +2117,7 @@
                   "preview_listing": false,
                   "public_notice": null,
                   "additional_notices": [],
+                  "has_supply_breakdown": false,
                   "localization": {
                     "en": "WETH",
                     "de": "",
@@ -9202,6 +9204,7 @@
           "preview_listing",
           "public_notice",
           "additional_notices",
+          "has_supply_breakdown",
           "description",
           "links",
           "image",
@@ -9298,6 +9301,10 @@
             "items": {
               "type": "string"
             }
+          },
+          "has_supply_breakdown": {
+            "type": "boolean",
+            "description": "Whether detailed supply breakdown data is available via /coins/supply_breakdown"
           },
           "localization": {
             "type": "object",
@@ -10012,6 +10019,7 @@
           "preview_listing",
           "public_notice",
           "additional_notices",
+          "has_supply_breakdown",
           "description",
           "links",
           "image",
@@ -10120,6 +10128,10 @@
             "items": {
               "type": "string"
             }
+          },
+          "has_supply_breakdown": {
+            "type": "boolean",
+            "description": "Whether detailed supply breakdown data is available via /coins/supply_breakdown"
           },
           "localization": {
             "type": "object",

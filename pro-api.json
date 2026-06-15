@@ -760,6 +760,7 @@
                   "preview_listing": false,
                   "public_notice": null,
                   "additional_notices": [],
+                  "has_supply_breakdown": false,
                   "description": {
                     "en": "Bitcoin is the first successful internet money based on peer-to-peer technology..."
                   },
@@ -2323,6 +2324,7 @@
                   "preview_listing": false,
                   "public_notice": null,
                   "additional_notices": [],
+                  "has_supply_breakdown": false,
                   "localization": {
                     "en": "WETH",
                     "de": "",
@@ -3152,6 +3154,62 @@
                       1735862400000,
                       "19804871.0"
                     ]
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/coins/{id}/supply_breakdown": {
+      "get": {
+        "summary": "Coin Supply Breakdown by ID",
+        "description": "To query the supply breakdown of a coin based on provided coin ID",
+        "operationId": "coins-id-supply-breakdown",
+        "x-mint": {
+          "href": "/reference/coins-id-supply-breakdown"
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Coin ID. \n*refers to [`/coins/list`](/reference/coins-list).",
+            "schema": {
+              "type": "string",
+              "default": "uniswap"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Coin supply breakdown data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CoinSupplyBreakdown"
+                },
+                "example": {
+                  "id": "uniswap",
+                  "symbol": "uni",
+                  "name": "Uniswap",
+                  "supply_data": {
+                    "total_supply": 894182420.0329479,
+                    "circulating_supply": 622047561.5538775,
+                    "outstanding_supply": 0.0,
+                    "non_circulating_supply": 272134858.4790704,
+                    "last_updated": "2026-06-15T04:23:07.552Z"
+                  },
+                  "non_circulating_wallets": [
+                    {
+                      "address": "0x1a9C8182C09F50C8318d769245beA52c32BE35BC",
+                      "label": "UNI Timelock",
+                      "balance": 272134858.4790704,
+                      "percentage_of_total_supply": 30.4329777849204,
+                      "anomaly": false,
+                      "last_updated": "2026-06-14T12:10:34.565Z"
+                    }
                   ]
                 }
               }
@@ -6357,6 +6415,93 @@
                       "bitcoin",
                       "ethereum"
                     ]
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/insights": {
+      "get": {
+        "summary": "Coin Insights",
+        "description": "To query the latest coin insights on CoinGecko",
+        "operationId": "insights",
+        "x-mint": {
+          "href": "/reference/insights"
+        },
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "Page through results. \nDefault value: 1 \nValid values: 1...20",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "required": false,
+            "description": "Total results per page. \nDefault value: 10 \nValid values: 1...20",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "coin_id",
+            "in": "query",
+            "required": false,
+            "description": "Filter insights by coin ID. \n*refers to [`/coins/list`](/reference/coins-list).",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "required": false,
+            "description": "Starting date in ISO date string (`YYYY-MM-DD`).",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "required": false,
+            "description": "Ending date in ISO date string (`YYYY-MM-DD`).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of latest coin insights",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Insights"
+                },
+                "example": [
+                  {
+                    "title": "Solana Experiences Surge in Memecoin Launches and Impersonation Scams",
+                    "description": "Solana's network is seeing a rise in memecoin launches and rapid pumps. However, this speculative activity is accompanied by impersonation scams, posing risks to the ecosystem.",
+                    "related_coin_ids": [
+                      "wrapped-solana"
+                    ],
+                    "posted_at": "2026-06-15T03:56:19.514666Z"
+                  },
+                  {
+                    "title": "Solana Sees Rising Tokenized Asset Volumes and Institutional RWA Products",
+                    "description": "Blockworks data indicates growing tokenized-asset volumes on Solana across various categories. Institutional products, like OnRe's dollar/reinsurance-backed offering, are emerging, increasing RWA activity.",
+                    "related_coin_ids": [
+                      "wrapped-solana"
+                    ],
+                    "posted_at": "2026-06-15T03:56:19.486886Z"
                   }
                 ]
               }
@@ -12022,6 +12167,7 @@
           "preview_listing",
           "public_notice",
           "additional_notices",
+          "has_supply_breakdown",
           "description",
           "links",
           "image",
@@ -12118,6 +12264,10 @@
             "items": {
               "type": "string"
             }
+          },
+          "has_supply_breakdown": {
+            "type": "boolean",
+            "description": "Whether detailed supply breakdown data is available via /coins/supply_breakdown"
           },
           "localization": {
             "type": "object",
@@ -12832,6 +12982,7 @@
           "preview_listing",
           "public_notice",
           "additional_notices",
+          "has_supply_breakdown",
           "description",
           "links",
           "image",
@@ -12940,6 +13091,10 @@
             "items": {
               "type": "string"
             }
+          },
+          "has_supply_breakdown": {
+            "type": "boolean",
+            "description": "Whether detailed supply breakdown data is available via /coins/supply_breakdown"
           },
           "localization": {
             "type": "object",
@@ -20823,6 +20978,122 @@
                   }
                 }
               }
+            }
+          }
+        }
+      },
+      "CoinSupplyBreakdown": {
+        "type": "object",
+        "required": [
+          "id",
+          "symbol",
+          "name",
+          "supply_data",
+          "non_circulating_wallets"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Coin ID"
+          },
+          "symbol": {
+            "type": "string",
+            "description": "Coin symbol"
+          },
+          "name": {
+            "type": "string",
+            "description": "Coin name"
+          },
+          "supply_data": {
+            "type": "object",
+            "description": "Supply data",
+            "properties": {
+              "total_supply": {
+                "type": "number",
+                "description": "Total supply"
+              },
+              "circulating_supply": {
+                "type": "number",
+                "description": "Circulating supply"
+              },
+              "outstanding_supply": {
+                "type": "number",
+                "description": "Outstanding supply"
+              },
+              "non_circulating_supply": {
+                "type": "number",
+                "description": "Non-circulating supply"
+              },
+              "last_updated": {
+                "type": "string",
+                "description": "Last updated timestamp in ISO 8601 format"
+              }
+            }
+          },
+          "non_circulating_wallets": {
+            "type": "array",
+            "description": "List of non-circulating wallets",
+            "items": {
+              "type": "object",
+              "properties": {
+                "address": {
+                  "type": "string",
+                  "description": "Wallet address"
+                },
+                "label": {
+                  "type": "string",
+                  "description": "Wallet label"
+                },
+                "balance": {
+                  "type": "number",
+                  "description": "Wallet balance"
+                },
+                "percentage_of_total_supply": {
+                  "type": "number",
+                  "description": "Percentage of total supply held by this wallet"
+                },
+                "anomaly": {
+                  "type": "boolean",
+                  "description": "Whether this wallet has an anomaly flag"
+                },
+                "last_updated": {
+                  "type": "string",
+                  "description": "Last updated timestamp in ISO 8601 format"
+                }
+              }
+            }
+          }
+        }
+      },
+      "Insights": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": [
+            "title",
+            "description",
+            "related_coin_ids",
+            "posted_at"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "description": "Insight title"
+            },
+            "description": {
+              "type": "string",
+              "description": "Insight description"
+            },
+            "related_coin_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Related coin IDs"
+            },
+            "posted_at": {
+              "type": "string",
+              "description": "Insight posted timestamp in ISO 8601 format"
             }
           }
         }
