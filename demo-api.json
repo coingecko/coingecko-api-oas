@@ -7012,7 +7012,9 @@
                       },
                       "mint_authority": "no",
                       "freeze_authority": "no",
-                      "is_honeypot": "unknown"
+                      "is_honeypot": "unknown",
+                      "developer_address": "4t7dHZcUzNC96d79won5TRZsvwP1bumhPNf3awR5BHdu",
+                      "developer_holding_percentage": "0.0"
                     }
                   }
                 }
@@ -7088,7 +7090,9 @@
                         "gt_verified": true,
                         "mint_authority": "no",
                         "freeze_authority": "no",
-                        "is_honeypot": "unknown"
+                        "is_honeypot": "unknown",
+                        "developer_address": null,
+                        "developer_holding_percentage": null
                       },
                       "relationships": {
                         "pool": {
@@ -7113,7 +7117,9 @@
                         "gt_verified": true,
                         "mint_authority": "no",
                         "freeze_authority": "no",
-                        "is_honeypot": "unknown"
+                        "is_honeypot": "unknown",
+                        "developer_address": "4t7dHZcUzNC96d79won5TRZsvwP1bumhPNf3awR5BHdu",
+                        "developer_holding_percentage": "0.0"
                       },
                       "relationships": {
                         "pool": {
@@ -14589,7 +14595,9 @@
               "holders",
               "mint_authority",
               "freeze_authority",
-              "is_honeypot"
+              "is_honeypot",
+              "developer_address",
+              "developer_holding_percentage"
             ],
             "properties": {
               "address": {
@@ -14754,6 +14762,16 @@
                   }
                 ],
                 "description": "Whether the token is a honeypot (boolean or 'unknown')"
+              },
+              "developer_address": {
+                "type": "string",
+                "nullable": true,
+                "description": "Developer wallet address"
+              },
+              "developer_holding_percentage": {
+                "type": "string",
+                "nullable": true,
+                "description": "Developer holding as a percentage of total supply"
               }
             }
           }
