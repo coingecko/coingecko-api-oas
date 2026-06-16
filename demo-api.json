@@ -8590,12 +8590,14 @@
       "headerAuth": {
         "type": "apiKey",
         "in": "header",
-        "name": "x-cg-demo-api-key"
+        "name": "x-cg-demo-api-key",
+        "description": "Learn how to [set up your API key](https://docs.coingecko.com/docs/setting-up-your-api-key)"
       },
       "queryAuth": {
         "type": "apiKey",
         "in": "query",
-        "name": "x_cg_demo_api_key"
+        "name": "x_cg_demo_api_key",
+        "description": "Learn how to [set up your API key](https://docs.coingecko.com/docs/setting-up-your-api-key)"
       }
     },
     "schemas": {

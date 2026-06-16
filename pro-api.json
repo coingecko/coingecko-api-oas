@@ -11570,12 +11570,14 @@
       "headerAuth": {
         "type": "apiKey",
         "in": "header",
-        "name": "x-cg-pro-api-key"
+        "name": "x-cg-pro-api-key",
+        "description": "Learn how to [set up your API key](https://docs.coingecko.com/docs/setting-up-your-api-key)"
       },
       "queryAuth": {
         "type": "apiKey",
         "in": "query",
-        "name": "x_cg_pro_api_key"
+        "name": "x_cg_pro_api_key",
+        "description": "Learn how to [set up your API key](https://docs.coingecko.com/docs/setting-up-your-api-key)"
       }
     },
     "schemas": {
