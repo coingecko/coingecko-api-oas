@@ -676,6 +676,7 @@
                   "preview_listing": false,
                   "public_notice": null,
                   "additional_notices": [],
+                  "has_supply_breakdown": false,
                   "description": {
                     "en": "Bitcoin is the first successful internet money based on peer-to-peer technology..."
                   },
@@ -2116,6 +2117,7 @@
                   "preview_listing": false,
                   "public_notice": null,
                   "additional_notices": [],
+                  "has_supply_breakdown": false,
                   "localization": {
                     "en": "WETH",
                     "de": "",
@@ -6970,6 +6972,7 @@
                         "small": "https://coin-images.coingecko.com/coins/images/51589/small/pippin_logo.png?1731570163",
                         "large": "https://coin-images.coingecko.com/coins/images/51589/large/pippin_logo.png?1731570163"
                       },
+                      "banner_image_url": "https://assets.geckoterminal.com/kn680ou6904r03syp0ecu52ihy9c",
                       "coingecko_coin_id": "pippin",
                       "websites": [
                         "https://pippin.love",
@@ -7010,7 +7013,9 @@
                       },
                       "mint_authority": "no",
                       "freeze_authority": "no",
-                      "is_honeypot": "unknown"
+                      "is_honeypot": "unknown",
+                      "developer_address": "4t7dHZcUzNC96d79won5TRZsvwP1bumhPNf3awR5BHdu",
+                      "developer_holding_percentage": "0.0"
                     }
                   }
                 }
@@ -7081,12 +7086,15 @@
                         "symbol": "SOL",
                         "decimals": 9,
                         "image_url": "https://coin-images.coingecko.com/coins/images/21629/large/solana.jpg?1696520989",
+                        "banner_image_url": null,
                         "coingecko_coin_id": "wrapped-solana",
                         "gt_score": 88.9908256880734,
                         "gt_verified": true,
                         "mint_authority": "no",
                         "freeze_authority": "no",
-                        "is_honeypot": "unknown"
+                        "is_honeypot": "unknown",
+                        "developer_address": null,
+                        "developer_holding_percentage": null
                       },
                       "relationships": {
                         "pool": {
@@ -7106,12 +7114,15 @@
                         "symbol": "pippin",
                         "decimals": 6,
                         "image_url": "https://coin-images.coingecko.com/coins/images/51589/large/pippin_logo.png?1731570163",
+                        "banner_image_url": "https://assets.geckoterminal.com/kn680ou6904r03syp0ecu52ihy9c",
                         "coingecko_coin_id": "pippin",
                         "gt_score": 86.54440366972477,
                         "gt_verified": true,
                         "mint_authority": "no",
                         "freeze_authority": "no",
-                        "is_honeypot": "unknown"
+                        "is_honeypot": "unknown",
+                        "developer_address": "4t7dHZcUzNC96d79won5TRZsvwP1bumhPNf3awR5BHdu",
+                        "developer_holding_percentage": "0.0"
                       },
                       "relationships": {
                         "pool": {
@@ -8582,12 +8593,14 @@
       "headerAuth": {
         "type": "apiKey",
         "in": "header",
-        "name": "x-cg-demo-api-key"
+        "name": "x-cg-demo-api-key",
+        "description": "Learn how to [set up your API key](https://docs.coingecko.com/docs/setting-up-your-api-key)"
       },
       "queryAuth": {
         "type": "apiKey",
         "in": "query",
-        "name": "x_cg_demo_api_key"
+        "name": "x_cg_demo_api_key",
+        "description": "Learn how to [set up your API key](https://docs.coingecko.com/docs/setting-up-your-api-key)"
       }
     },
     "schemas": {
@@ -9202,6 +9215,7 @@
           "preview_listing",
           "public_notice",
           "additional_notices",
+          "has_supply_breakdown",
           "description",
           "links",
           "image",
@@ -9298,6 +9312,10 @@
             "items": {
               "type": "string"
             }
+          },
+          "has_supply_breakdown": {
+            "type": "boolean",
+            "description": "Whether detailed supply breakdown data is available via /coins/supply_breakdown"
           },
           "localization": {
             "type": "object",
@@ -10012,6 +10030,7 @@
           "preview_listing",
           "public_notice",
           "additional_notices",
+          "has_supply_breakdown",
           "description",
           "links",
           "image",
@@ -10120,6 +10139,10 @@
             "items": {
               "type": "string"
             }
+          },
+          "has_supply_breakdown": {
+            "type": "boolean",
+            "description": "Whether detailed supply breakdown data is available via /coins/supply_breakdown"
           },
           "localization": {
             "type": "object",
@@ -14561,6 +14584,7 @@
               "decimals",
               "image_url",
               "image",
+              "banner_image_url",
               "coingecko_coin_id",
               "websites",
               "discord_url",
@@ -14577,7 +14601,9 @@
               "holders",
               "mint_authority",
               "freeze_authority",
-              "is_honeypot"
+              "is_honeypot",
+              "developer_address",
+              "developer_holding_percentage"
             ],
             "properties": {
               "address": {
@@ -14615,6 +14641,11 @@
                     "type": "string"
                   }
                 }
+              },
+              "banner_image_url": {
+                "type": "string",
+                "nullable": true,
+                "description": "Token banner image URL"
               },
               "coingecko_coin_id": {
                 "type": "string",
@@ -14742,6 +14773,16 @@
                   }
                 ],
                 "description": "Whether the token is a honeypot (boolean or 'unknown')"
+              },
+              "developer_address": {
+                "type": "string",
+                "nullable": true,
+                "description": "Developer wallet address"
+              },
+              "developer_holding_percentage": {
+                "type": "string",
+                "nullable": true,
+                "description": "Developer holding as a percentage of total supply"
               }
             }
           }
