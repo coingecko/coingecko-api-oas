@@ -9119,6 +9119,7 @@
                         "small": "https://coin-images.coingecko.com/coins/images/51589/small/pippin_logo.png?1731570163",
                         "large": "https://coin-images.coingecko.com/coins/images/51589/large/pippin_logo.png?1731570163"
                       },
+                      "banner_image_url": "https://assets.geckoterminal.com/kn680ou6904r03syp0ecu52ihy9c",
                       "coingecko_coin_id": "pippin",
                       "websites": [
                         "https://pippin.love",
@@ -9232,6 +9233,7 @@
                         "symbol": "SOL",
                         "decimals": 9,
                         "image_url": "https://coin-images.coingecko.com/coins/images/21629/large/solana.jpg?1696520989",
+                        "banner_image_url": null,
                         "coingecko_coin_id": "wrapped-solana",
                         "gt_score": 88.9908256880734,
                         "gt_verified": true,
@@ -9259,6 +9261,7 @@
                         "symbol": "pippin",
                         "decimals": 6,
                         "image_url": "https://coin-images.coingecko.com/coins/images/51589/large/pippin_logo.png?1731570163",
+                        "banner_image_url": "https://assets.geckoterminal.com/kn680ou6904r03syp0ecu52ihy9c",
                         "coingecko_coin_id": "pippin",
                         "gt_score": 86.54440366972477,
                         "gt_verified": true,
@@ -9476,7 +9479,8 @@
                 "realized_pnl_usd_desc",
                 "unrealized_pnl_usd_desc",
                 "total_buy_usd_desc",
-                "total_sell_usd_desc"
+                "total_sell_usd_desc",
+                "token_balance_desc"
               ]
             }
           },
@@ -19190,6 +19194,7 @@
               "decimals",
               "image_url",
               "image",
+              "banner_image_url",
               "coingecko_coin_id",
               "websites",
               "discord_url",
@@ -19246,6 +19251,11 @@
                     "type": "string"
                   }
                 }
+              },
+              "banner_image_url": {
+                "type": "string",
+                "nullable": true,
+                "description": "Token banner image URL"
               },
               "coingecko_coin_id": {
                 "type": "string",
