@@ -598,7 +598,8 @@
             "name": "community_data",
             "in": "query",
             "required": false,
-            "description": "Include community data. \nDefault: true",
+            "deprecated": true,
+            "description": "Include community data. \nDeprecated: has no effect as of 28 August 2026; the `community_data` object is no longer returned.",
             "schema": {
               "type": "boolean"
             }
@@ -607,7 +608,8 @@
             "name": "developer_data",
             "in": "query",
             "required": false,
-            "description": "Include developer data. \nDefault: true",
+            "deprecated": true,
+            "description": "Include developer data. \nDeprecated: has no effect as of 28 August 2026; the `developer_data` object is no longer returned.",
             "schema": {
               "type": "boolean"
             }
@@ -869,37 +871,6 @@
                     "circulating_supply": 19675377,
                     "outstanding_supply": null,
                     "last_updated": "2024-04-07T15:24:51.021Z"
-                  },
-                  "community_data": {
-                    "facebook_likes": null,
-                    "reddit_average_posts_48h": 7.333,
-                    "reddit_average_comments_48h": 384.667,
-                    "reddit_subscribers": 6127543,
-                    "reddit_accounts_active_48h": 3498,
-                    "telegram_channel_user_count": null
-                  },
-                  "developer_data": {
-                    "forks": 36433,
-                    "stars": 76697,
-                    "subscribers": 3967,
-                    "total_issues": 7743,
-                    "closed_issues": 7379,
-                    "pull_requests_merged": 11204,
-                    "pull_request_contributors": 829,
-                    "code_additions_deletions_4_weeks": {
-                      "additions": 1264,
-                      "deletions": -1314
-                    },
-                    "commit_count_4_weeks": 108,
-                    "last_4_weeks_commit_activity_series": [
-                      0,
-                      3,
-                      2,
-                      0,
-                      1,
-                      0,
-                      0
-                    ]
                   },
                   "tickers": [
                     {
@@ -1639,27 +1610,6 @@
                       "sats": 33597400748372.91
                     }
                   },
-                  "community_data": {
-                    "facebook_likes": null,
-                    "reddit_average_posts_48h": 0.0,
-                    "reddit_average_comments_48h": 0.0,
-                    "reddit_subscribers": null,
-                    "reddit_accounts_active_48h": 0.0
-                  },
-                  "developer_data": {
-                    "forks": null,
-                    "stars": null,
-                    "subscribers": null,
-                    "total_issues": null,
-                    "closed_issues": null,
-                    "pull_requests_merged": null,
-                    "pull_request_contributors": null,
-                    "code_additions_deletions_4_weeks": {
-                      "additions": null,
-                      "deletions": null
-                    },
-                    "commit_count_4_weeks": null
-                  },
                   "public_interest_stats": {
                     "alexa_rank": null,
                     "bing_matches": null
@@ -2310,29 +2260,6 @@
                     "outstanding_supply": null,
                     "last_updated": "2026-05-25T10:09:02.821Z"
                   },
-                  "community_data": {
-                    "facebook_likes": null,
-                    "reddit_average_posts_48h": 0.0,
-                    "reddit_average_comments_48h": 0.0,
-                    "reddit_subscribers": 0,
-                    "reddit_accounts_active_48h": 0,
-                    "telegram_channel_user_count": null
-                  },
-                  "developer_data": {
-                    "forks": 0,
-                    "stars": 0,
-                    "subscribers": 0,
-                    "total_issues": 0,
-                    "closed_issues": 0,
-                    "pull_requests_merged": 0,
-                    "pull_request_contributors": 0,
-                    "code_additions_deletions_4_weeks": {
-                      "additions": null,
-                      "deletions": null
-                    },
-                    "commit_count_4_weeks": 0,
-                    "last_4_weeks_commit_activity_series": []
-                  },
                   "status_updates": [],
                   "last_updated": "2026-05-25T10:09:02.821Z",
                   "tickers": [
@@ -2888,6 +2815,471 @@
                     "updated_at": "2026-05-26T10:01:55.213Z"
                   }
                 ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/rwas/list": {
+      "get": {
+        "summary": "RWA List",
+        "description": "To query all the supported tokenized real world assets (RWAs) on CoinGecko with RWA ID, name and symbol",
+        "operationId": "rwas-list",
+        "x-mint": {
+          "href": "/reference/rwas-list"
+        },
+        "parameters": [
+          {
+            "name": "asset_type",
+            "in": "query",
+            "required": false,
+            "description": "Filter by RWA asset type.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "stock",
+                "commodity"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of RWAs",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwasList"
+                },
+                "example": [
+                  {
+                    "id": "gold",
+                    "symbol": "xau",
+                    "name": "Gold",
+                    "asset_type": "commodity"
+                  },
+                  {
+                    "id": "aaon",
+                    "symbol": "aaon",
+                    "name": "AAON",
+                    "asset_type": "stock"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/rwas/markets": {
+      "get": {
+        "summary": "RWA List with Market Data",
+        "description": "To query all the supported RWAs with price, market cap, volume and market related data",
+        "operationId": "rwas-markets",
+        "x-mint": {
+          "href": "/reference/rwas-markets"
+        },
+        "parameters": [
+          {
+            "name": "asset_type",
+            "in": "query",
+            "required": false,
+            "description": "Filter by RWA asset type.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "stock",
+                "commodity"
+              ]
+            }
+          },
+          {
+            "name": "ids",
+            "in": "query",
+            "required": false,
+            "description": "RWAs' IDs, comma-separated if querying more than 1 RWA. \n*refers to [`/rwas/list`](/reference/rwas-list)",
+            "schema": {
+              "type": "string",
+              "default": "gold"
+            }
+          },
+          {
+            "name": "names",
+            "in": "query",
+            "required": false,
+            "description": "RWAs' names, comma-separated if querying more than 1 RWA.",
+            "schema": {
+              "type": "string",
+              "default": "Gold"
+            }
+          },
+          {
+            "name": "symbols",
+            "in": "query",
+            "required": false,
+            "description": "RWAs' symbols, comma-separated if querying more than 1 RWA.",
+            "schema": {
+              "type": "string",
+              "default": "xau"
+            }
+          },
+          {
+            "name": "issuer",
+            "in": "query",
+            "required": false,
+            "description": "Filter based on RWAs' issuer. \n*refers to [`/rwas/issuers/list`](/reference/rwas-issuers-list)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "required": false,
+            "description": "Sort result by field. \nDefault: market_cap_desc",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "market_cap_asc",
+                "market_cap_desc",
+                "volume_asc",
+                "volume_desc",
+                "id_asc",
+                "id_desc"
+              ]
+            }
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "required": false,
+            "description": "Total results per page. \nDefault: 100 \nValid values: 1...250",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "Page through results. \nDefault: 1",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "sparkline",
+            "in": "query",
+            "required": false,
+            "description": "Include sparkline 7-day data. \nDefault: false",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "price_change_percentage",
+            "in": "query",
+            "required": false,
+            "description": "Include price change percentage timeframe, comma-separated if querying more than 1 timeframe. \nValid values: `1h`, `24h`, `7d`, `14d`, `30d`, `200d`, `1y`",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "precision",
+            "in": "query",
+            "required": false,
+            "description": "Decimal places for currency price value",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "full",
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10",
+                "11",
+                "12",
+                "13",
+                "14",
+                "15",
+                "16",
+                "17",
+                "18"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of RWAs with market data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwasMarkets"
+                },
+                "example": [
+                  {
+                    "id": "gold",
+                    "symbol": "xau",
+                    "name": "Gold",
+                    "asset_type": "commodity",
+                    "image": "https://assets.coingecko.com/rwas/images/2/large/gold.png?1710000000",
+                    "tokenized_market_data": {
+                      "current_price": 2412.55,
+                      "market_cap": 4827893517,
+                      "total_volume": 1875000000,
+                      "high_24h": 2421.9,
+                      "low_24h": 2398.4,
+                      "price_change_24h": 8.35,
+                      "price_change_percentage_24h": 0.3472,
+                      "market_cap_change_24h": 50279934,
+                      "market_cap_change_percentage_24h": 1.1,
+                      "last_updated": "2026-07-31T15:24:00+00:00",
+                      "sparkline_in_7d": {
+                        "price": [
+                          2388.1,
+                          2395.6,
+                          2401.2,
+                          2399.8,
+                          2408.4,
+                          2410.1,
+                          2412.55
+                        ]
+                      },
+                      "price_change_percentage_1h_in_currency": 0.0421,
+                      "price_change_percentage_24h_in_currency": 0.3472,
+                      "price_change_percentage_7d_in_currency": 1.0234,
+                      "price_change_percentage_14d_in_currency": 2.1187,
+                      "price_change_percentage_30d_in_currency": -1.4402,
+                      "price_change_percentage_200d_in_currency": 9.8815,
+                      "price_change_percentage_1y_in_currency": 14.2076
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/rwas/{id}": {
+      "get": {
+        "summary": "RWA Data by ID",
+        "description": "To query all the metadata, market data and tokens of a RWA based on a particular RWA ID",
+        "operationId": "rwas-id",
+        "x-mint": {
+          "href": "/reference/rwas-id"
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "RWA ID. \n*refers to [`/rwas/list`](/reference/rwas-list)",
+            "schema": {
+              "type": "string",
+              "default": "gold"
+            }
+          },
+          {
+            "name": "sparkline",
+            "in": "query",
+            "required": false,
+            "description": "Include sparkline 7-day data. \nDefault: false",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "tokens",
+            "in": "query",
+            "required": false,
+            "description": "Include tokens data. \nDefault: false",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "tokenized_market_data",
+            "in": "query",
+            "required": false,
+            "description": "Include tokenized market data. \nDefault: false",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "RWA data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwasID"
+                },
+                "example": {
+                  "id": "gold",
+                  "symbol": "xau",
+                  "name": "Gold",
+                  "asset_type": "commodity",
+                  "image": {
+                    "thumb": "https://assets.coingecko.com/rwas/images/2/thumb/gold.png?1710000000",
+                    "small": "https://assets.coingecko.com/rwas/images/2/small/gold.png?1710000000",
+                    "large": "https://assets.coingecko.com/rwas/images/2/large/gold.png?1710000000"
+                  },
+                  "web_slug": "gold",
+                  "tokens": [
+                    {
+                      "id": "pax-gold",
+                      "symbol": "paxg",
+                      "name": "PAX Gold",
+                      "platforms": {
+                        "ethereum": "0x45804880de22913dafe09f4980848ece6ecbaf78"
+                      },
+                      "issuer_details": {
+                        "id": "paxos",
+                        "name": "Paxos"
+                      }
+                    }
+                  ],
+                  "tokenized_market_data": {
+                    "current_price": 2412.55,
+                    "market_cap": 4827893517,
+                    "total_volume": 1875000000,
+                    "high_24h": 2421.9,
+                    "low_24h": 2398.4,
+                    "price_change_24h": 8.35,
+                    "price_change_percentage_24h": 0.3472,
+                    "market_cap_change_24h": 50279934,
+                    "market_cap_change_percentage_24h": 1.1,
+                    "last_updated": "2026-07-31T15:24:00+00:00",
+                    "sparkline_in_7d": {
+                      "price": [
+                        2388.1,
+                        2395.6,
+                        2401.2,
+                        2399.8,
+                        2408.4,
+                        2410.1,
+                        2412.55
+                      ]
+                    },
+                    "price_change_percentage_1h_in_currency": 0.0421,
+                    "price_change_percentage_24h_in_currency": 0.3472,
+                    "price_change_percentage_7d_in_currency": 1.0234,
+                    "price_change_percentage_14d_in_currency": 2.1187,
+                    "price_change_percentage_30d_in_currency": -1.4402,
+                    "price_change_percentage_200d_in_currency": 9.8815,
+                    "price_change_percentage_1y_in_currency": 14.2076
+                  },
+                  "last_updated": "2026-07-31T15:24:00+00:00"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/rwas/issuers/list": {
+      "get": {
+        "summary": "RWA Issuers List",
+        "description": "To query all the supported RWA issuers on CoinGecko",
+        "operationId": "rwas-issuers-list",
+        "x-mint": {
+          "href": "/reference/rwas-issuers-list"
+        },
+        "responses": {
+          "200": {
+            "description": "List of RWA issuers",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwasIssuersList"
+                },
+                "example": [
+                  {
+                    "id": "paxos",
+                    "name": "Paxos"
+                  },
+                  {
+                    "id": "tether",
+                    "name": "Tether"
+                  },
+                  {
+                    "id": "ondo-finance",
+                    "name": "Ondo Finance"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/rwas/issuers/{id}": {
+      "get": {
+        "summary": "RWA Issuer Data by ID",
+        "description": "To query the market data (market cap, volume, etc.) and tokens of an issuer based on a particular issuer ID",
+        "operationId": "rwas-issuers-id",
+        "x-mint": {
+          "href": "/reference/rwas-issuers-id"
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Issuer ID. \n*refers to [`/rwas/issuers/list`](/reference/rwas-issuers-list)",
+            "schema": {
+              "type": "string",
+              "default": "paxos"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "RWA issuer data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwasIssuersID"
+                },
+                "example": {
+                  "id": "paxos",
+                  "name": "Paxos",
+                  "market_cap": 1284650000,
+                  "market_cap_change_24h": 14203500,
+                  "volume_24h": 58217400,
+                  "tokens": [
+                    {
+                      "id": "pax-gold",
+                      "symbol": "paxg",
+                      "name": "PAX Gold",
+                      "platforms": {
+                        "ethereum": "0x45804880de22913dafe09f4980848ece6ecbaf78"
+                      }
+                    },
+                    {
+                      "id": "paxos-standard",
+                      "symbol": "usdp",
+                      "name": "Pax Dollar",
+                      "platforms": {
+                        "ethereum": "0x8e870d67f660d95d5be530380d0ec0bd388289e1",
+                        "binance-smart-chain": "0xb3c11196a4f3b1da7c23d9fb0a3dde9c6340934f"
+                      }
+                    }
+                  ],
+                  "updated_at": "2026-07-31T15:24:00+00:00"
+                }
               }
             }
           }
@@ -8976,8 +9368,6 @@
           "name",
           "image",
           "market_data",
-          "community_data",
-          "developer_data",
           "public_interest_stats"
         ],
         "properties": {
@@ -9038,96 +9428,6 @@
                 "additionalProperties": {
                   "type": "number"
                 }
-              }
-            }
-          },
-          "community_data": {
-            "type": "object",
-            "description": "Community engagement data",
-            "properties": {
-              "facebook_likes": {
-                "type": "number",
-                "nullable": true,
-                "description": "Number of Facebook likes"
-              },
-              "reddit_average_posts_48h": {
-                "type": "number",
-                "description": "Average Reddit posts in 48 hours"
-              },
-              "reddit_average_comments_48h": {
-                "type": "number",
-                "description": "Average Reddit comments in 48 hours"
-              },
-              "reddit_subscribers": {
-                "type": "number",
-                "nullable": true,
-                "description": "Number of Reddit subscribers"
-              },
-              "reddit_accounts_active_48h": {
-                "type": "number",
-                "description": "Active Reddit accounts in 48 hours"
-              }
-            }
-          },
-          "developer_data": {
-            "type": "object",
-            "description": "Developer activity data",
-            "properties": {
-              "forks": {
-                "type": "number",
-                "nullable": true,
-                "description": "Repository forks"
-              },
-              "stars": {
-                "type": "number",
-                "nullable": true,
-                "description": "Repository stars"
-              },
-              "subscribers": {
-                "type": "number",
-                "nullable": true,
-                "description": "Repository subscribers"
-              },
-              "total_issues": {
-                "type": "number",
-                "nullable": true,
-                "description": "Total issues"
-              },
-              "closed_issues": {
-                "type": "number",
-                "nullable": true,
-                "description": "Closed issues"
-              },
-              "pull_requests_merged": {
-                "type": "number",
-                "nullable": true,
-                "description": "Pull requests merged"
-              },
-              "pull_request_contributors": {
-                "type": "number",
-                "nullable": true,
-                "description": "Pull request contributors"
-              },
-              "code_additions_deletions_4_weeks": {
-                "type": "object",
-                "description": "Code additions and deletions in the last 4 weeks",
-                "properties": {
-                  "additions": {
-                    "type": "number",
-                    "nullable": true,
-                    "description": "Lines added"
-                  },
-                  "deletions": {
-                    "type": "number",
-                    "nullable": true,
-                    "description": "Lines deleted"
-                  }
-                }
-              },
-              "commit_count_4_weeks": {
-                "type": "number",
-                "nullable": true,
-                "description": "Commit count in the last 4 weeks"
               }
             }
           },
@@ -9761,95 +10061,6 @@
               "sparkline_7d": {
                 "type": "array",
                 "description": "Sparkline 7-day price data",
-                "items": {
-                  "type": "number"
-                }
-              }
-            }
-          },
-          "community_data": {
-            "type": "object",
-            "description": "Community data",
-            "properties": {
-              "facebook_likes": {
-                "type": "number",
-                "nullable": true,
-                "description": "Facebook likes"
-              },
-              "reddit_average_posts_48h": {
-                "type": "number",
-                "description": "Reddit average posts in 48 hours"
-              },
-              "reddit_average_comments_48h": {
-                "type": "number",
-                "description": "Reddit average comments in 48 hours"
-              },
-              "reddit_subscribers": {
-                "type": "number",
-                "description": "Reddit subscribers"
-              },
-              "reddit_accounts_active_48h": {
-                "type": "number",
-                "description": "Reddit active accounts in 48 hours"
-              },
-              "telegram_channel_user_count": {
-                "type": "number",
-                "nullable": true,
-                "description": "Telegram channel user count"
-              }
-            }
-          },
-          "developer_data": {
-            "type": "object",
-            "description": "Developer data",
-            "properties": {
-              "forks": {
-                "type": "number",
-                "description": "Repository forks"
-              },
-              "stars": {
-                "type": "number",
-                "description": "Repository stars"
-              },
-              "subscribers": {
-                "type": "number",
-                "description": "Repository subscribers"
-              },
-              "total_issues": {
-                "type": "number",
-                "description": "Repository total issues"
-              },
-              "closed_issues": {
-                "type": "number",
-                "description": "Repository closed issues"
-              },
-              "pull_requests_merged": {
-                "type": "number",
-                "description": "Repository pull requests merged"
-              },
-              "pull_request_contributors": {
-                "type": "number",
-                "description": "Repository pull request contributors"
-              },
-              "code_additions_deletions_4_weeks": {
-                "type": "object",
-                "description": "Code additions and deletions in 4 weeks",
-                "properties": {
-                  "additions": {
-                    "type": "number"
-                  },
-                  "deletions": {
-                    "type": "number"
-                  }
-                }
-              },
-              "commit_count_4_weeks": {
-                "type": "number",
-                "description": "Repository commit count in 4 weeks"
-              },
-              "last_4_weeks_commit_activity_series": {
-                "type": "array",
-                "description": "Repository last 4 weeks commit activity series",
                 "items": {
                   "type": "number"
                 }
@@ -10714,95 +10925,6 @@
               "sparkline_7d": {
                 "type": "array",
                 "description": "Sparkline 7-day price data",
-                "items": {
-                  "type": "number"
-                }
-              }
-            }
-          },
-          "community_data": {
-            "type": "object",
-            "description": "Community data",
-            "properties": {
-              "facebook_likes": {
-                "type": "number",
-                "nullable": true,
-                "description": "Facebook likes"
-              },
-              "reddit_average_posts_48h": {
-                "type": "number",
-                "description": "Reddit average posts in 48 hours"
-              },
-              "reddit_average_comments_48h": {
-                "type": "number",
-                "description": "Reddit average comments in 48 hours"
-              },
-              "reddit_subscribers": {
-                "type": "number",
-                "description": "Reddit subscribers"
-              },
-              "reddit_accounts_active_48h": {
-                "type": "number",
-                "description": "Reddit active accounts in 48 hours"
-              },
-              "telegram_channel_user_count": {
-                "type": "number",
-                "nullable": true,
-                "description": "Telegram channel user count"
-              }
-            }
-          },
-          "developer_data": {
-            "type": "object",
-            "description": "Developer data",
-            "properties": {
-              "forks": {
-                "type": "number",
-                "description": "Repository forks"
-              },
-              "stars": {
-                "type": "number",
-                "description": "Repository stars"
-              },
-              "subscribers": {
-                "type": "number",
-                "description": "Repository subscribers"
-              },
-              "total_issues": {
-                "type": "number",
-                "description": "Repository total issues"
-              },
-              "closed_issues": {
-                "type": "number",
-                "description": "Repository closed issues"
-              },
-              "pull_requests_merged": {
-                "type": "number",
-                "description": "Repository pull requests merged"
-              },
-              "pull_request_contributors": {
-                "type": "number",
-                "description": "Repository pull request contributors"
-              },
-              "code_additions_deletions_4_weeks": {
-                "type": "object",
-                "description": "Code additions and deletions in 4 weeks",
-                "properties": {
-                  "additions": {
-                    "type": "number"
-                  },
-                  "deletions": {
-                    "type": "number"
-                  }
-                }
-              },
-              "commit_count_4_weeks": {
-                "type": "number",
-                "description": "Repository commit count in 4 weeks"
-              },
-              "last_4_weeks_commit_activity_series": {
-                "type": "array",
-                "description": "Repository last 4 weeks commit activity series",
                 "items": {
                   "type": "number"
                 }
@@ -16435,6 +16557,480 @@
                 }
               }
             }
+          }
+        }
+      },
+      "RwasList": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": [
+            "id",
+            "symbol",
+            "name",
+            "asset_type"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "RWA ID"
+            },
+            "symbol": {
+              "type": "string",
+              "description": "RWA symbol"
+            },
+            "name": {
+              "type": "string",
+              "description": "RWA name"
+            },
+            "asset_type": {
+              "type": "string",
+              "enum": [
+                "stock",
+                "commodity"
+              ],
+              "description": "RWA asset type"
+            }
+          }
+        }
+      },
+      "RwasMarkets": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": [
+            "id",
+            "symbol",
+            "name",
+            "asset_type",
+            "image",
+            "tokenized_market_data"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "RWA ID"
+            },
+            "symbol": {
+              "type": "string",
+              "description": "RWA symbol"
+            },
+            "name": {
+              "type": "string",
+              "description": "RWA name"
+            },
+            "asset_type": {
+              "type": "string",
+              "enum": [
+                "stock",
+                "commodity"
+              ],
+              "description": "RWA asset type"
+            },
+            "image": {
+              "type": "string",
+              "description": "Large image URL of the token with the largest market cap"
+            },
+            "tokenized_market_data": {
+              "type": "object",
+              "description": "Aggregated tokenized market data",
+              "properties": {
+                "current_price": {
+                  "type": "number",
+                  "nullable": true,
+                  "description": "Current price in target currency"
+                },
+                "market_cap": {
+                  "type": "number",
+                  "nullable": true,
+                  "description": "Market cap in target currency"
+                },
+                "total_volume": {
+                  "type": "number",
+                  "nullable": true,
+                  "description": "Total trading volume in target currency"
+                },
+                "high_24h": {
+                  "type": "number",
+                  "nullable": true,
+                  "description": "24-hour price high in target currency"
+                },
+                "low_24h": {
+                  "type": "number",
+                  "nullable": true,
+                  "description": "24-hour price low in target currency"
+                },
+                "price_change_24h": {
+                  "type": "number",
+                  "nullable": true,
+                  "description": "24-hour price change in target currency"
+                },
+                "price_change_percentage_24h": {
+                  "type": "number",
+                  "nullable": true,
+                  "description": "24-hour price change percentage"
+                },
+                "market_cap_change_24h": {
+                  "type": "number",
+                  "nullable": true,
+                  "description": "24-hour market cap change in target currency"
+                },
+                "market_cap_change_percentage_24h": {
+                  "type": "number",
+                  "nullable": true,
+                  "description": "24-hour market cap change percentage"
+                },
+                "last_updated": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "Last updated timestamp"
+                },
+                "sparkline_in_7d": {
+                  "type": "object",
+                  "description": "Sparkline price data for the last 7 days",
+                  "properties": {
+                    "price": {
+                      "type": "array",
+                      "description": "Array of price values",
+                      "items": {
+                        "type": "number"
+                      }
+                    }
+                  }
+                },
+                "price_change_percentage_1h_in_currency": {
+                  "type": "number",
+                  "nullable": true,
+                  "description": "1-hour price change percentage in target currency"
+                },
+                "price_change_percentage_24h_in_currency": {
+                  "type": "number",
+                  "nullable": true,
+                  "description": "24-hour price change percentage in target currency"
+                },
+                "price_change_percentage_7d_in_currency": {
+                  "type": "number",
+                  "nullable": true,
+                  "description": "7-day price change percentage in target currency"
+                },
+                "price_change_percentage_14d_in_currency": {
+                  "type": "number",
+                  "nullable": true,
+                  "description": "14-day price change percentage in target currency"
+                },
+                "price_change_percentage_30d_in_currency": {
+                  "type": "number",
+                  "nullable": true,
+                  "description": "30-day price change percentage in target currency"
+                },
+                "price_change_percentage_200d_in_currency": {
+                  "type": "number",
+                  "nullable": true,
+                  "description": "200-day price change percentage in target currency"
+                },
+                "price_change_percentage_1y_in_currency": {
+                  "type": "number",
+                  "nullable": true,
+                  "description": "1-year price change percentage in target currency"
+                }
+              }
+            }
+          }
+        }
+      },
+      "RwasID": {
+        "type": "object",
+        "required": [
+          "id",
+          "symbol",
+          "name",
+          "asset_type",
+          "image",
+          "web_slug",
+          "last_updated"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "RWA ID"
+          },
+          "symbol": {
+            "type": "string",
+            "description": "RWA symbol"
+          },
+          "name": {
+            "type": "string",
+            "description": "RWA name"
+          },
+          "asset_type": {
+            "type": "string",
+            "enum": [
+              "stock",
+              "commodity"
+            ],
+            "description": "RWA asset type"
+          },
+          "image": {
+            "type": "object",
+            "description": "Image URLs of the token with the largest market cap",
+            "properties": {
+              "thumb": {
+                "type": "string",
+                "description": "Thumbnail image URL"
+              },
+              "small": {
+                "type": "string",
+                "description": "Small image URL"
+              },
+              "large": {
+                "type": "string",
+                "description": "Large image URL"
+              }
+            }
+          },
+          "web_slug": {
+            "type": "string",
+            "description": "RWA web slug"
+          },
+          "tokens": {
+            "type": "array",
+            "description": "Tokens tracking this RWA",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "Token ID"
+                },
+                "symbol": {
+                  "type": "string",
+                  "description": "Token symbol"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "Token name"
+                },
+                "platforms": {
+                  "type": "object",
+                  "description": "Token asset platform and contract address",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "issuer_details": {
+                  "type": "object",
+                  "description": "Token issuer details",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "Issuer ID"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "Issuer name"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "tokenized_market_data": {
+            "type": "object",
+            "description": "Aggregated tokenized market data",
+            "properties": {
+              "current_price": {
+                "type": "number",
+                "nullable": true,
+                "description": "Current price in target currency"
+              },
+              "market_cap": {
+                "type": "number",
+                "nullable": true,
+                "description": "Market cap in target currency"
+              },
+              "total_volume": {
+                "type": "number",
+                "nullable": true,
+                "description": "Total trading volume in target currency"
+              },
+              "high_24h": {
+                "type": "number",
+                "nullable": true,
+                "description": "24-hour price high in target currency"
+              },
+              "low_24h": {
+                "type": "number",
+                "nullable": true,
+                "description": "24-hour price low in target currency"
+              },
+              "price_change_24h": {
+                "type": "number",
+                "nullable": true,
+                "description": "24-hour price change in target currency"
+              },
+              "price_change_percentage_24h": {
+                "type": "number",
+                "nullable": true,
+                "description": "24-hour price change percentage"
+              },
+              "market_cap_change_24h": {
+                "type": "number",
+                "nullable": true,
+                "description": "24-hour market cap change in target currency"
+              },
+              "market_cap_change_percentage_24h": {
+                "type": "number",
+                "nullable": true,
+                "description": "24-hour market cap change percentage"
+              },
+              "last_updated": {
+                "type": "string",
+                "format": "date-time",
+                "description": "Last updated timestamp"
+              },
+              "sparkline_in_7d": {
+                "type": "object",
+                "description": "Sparkline price data for the last 7 days",
+                "properties": {
+                  "price": {
+                    "type": "array",
+                    "description": "Array of price values",
+                    "items": {
+                      "type": "number"
+                    }
+                  }
+                }
+              },
+              "price_change_percentage_1h_in_currency": {
+                "type": "number",
+                "nullable": true,
+                "description": "1-hour price change percentage in target currency"
+              },
+              "price_change_percentage_24h_in_currency": {
+                "type": "number",
+                "nullable": true,
+                "description": "24-hour price change percentage in target currency"
+              },
+              "price_change_percentage_7d_in_currency": {
+                "type": "number",
+                "nullable": true,
+                "description": "7-day price change percentage in target currency"
+              },
+              "price_change_percentage_14d_in_currency": {
+                "type": "number",
+                "nullable": true,
+                "description": "14-day price change percentage in target currency"
+              },
+              "price_change_percentage_30d_in_currency": {
+                "type": "number",
+                "nullable": true,
+                "description": "30-day price change percentage in target currency"
+              },
+              "price_change_percentage_200d_in_currency": {
+                "type": "number",
+                "nullable": true,
+                "description": "200-day price change percentage in target currency"
+              },
+              "price_change_percentage_1y_in_currency": {
+                "type": "number",
+                "nullable": true,
+                "description": "1-year price change percentage in target currency"
+              }
+            }
+          },
+          "last_updated": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Last updated timestamp"
+          }
+        }
+      },
+      "RwasIssuersList": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": [
+            "id",
+            "name"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "Issuer ID"
+            },
+            "name": {
+              "type": "string",
+              "description": "Issuer name"
+            }
+          }
+        }
+      },
+      "RwasIssuersID": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "market_cap",
+          "market_cap_change_24h",
+          "volume_24h",
+          "updated_at"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Issuer ID"
+          },
+          "name": {
+            "type": "string",
+            "description": "Issuer name"
+          },
+          "market_cap": {
+            "type": "number",
+            "nullable": true,
+            "description": "Issuer market cap in USD"
+          },
+          "market_cap_change_24h": {
+            "type": "number",
+            "nullable": true,
+            "description": "24-hour issuer market cap change in USD"
+          },
+          "volume_24h": {
+            "type": "number",
+            "nullable": true,
+            "description": "24-hour issuer trading volume in USD"
+          },
+          "tokens": {
+            "type": "array",
+            "description": "Tokens issued by this issuer",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "Token ID"
+                },
+                "symbol": {
+                  "type": "string",
+                  "description": "Token symbol"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "Token name"
+                },
+                "platforms": {
+                  "type": "object",
+                  "description": "Token asset platform and contract address",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Issuer last updated timestamp"
           }
         }
       }
