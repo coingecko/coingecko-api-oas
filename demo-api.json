@@ -2839,7 +2839,8 @@
               "type": "string",
               "enum": [
                 "stock",
-                "commodity"
+                "commodity",
+                "etf"
               ]
             }
           }
@@ -2855,14 +2856,14 @@
                 "example": [
                   {
                     "id": "gold",
-                    "symbol": "xau",
+                    "symbol": "XAU",
                     "name": "Gold",
                     "asset_type": "commodity"
                   },
                   {
-                    "id": "aaon",
-                    "symbol": "aaon",
-                    "name": "AAON",
+                    "id": "ibm",
+                    "symbol": "IBM",
+                    "name": "IBM",
                     "asset_type": "stock"
                   }
                 ]
@@ -2890,7 +2891,8 @@
               "type": "string",
               "enum": [
                 "stock",
-                "commodity"
+                "commodity",
+                "etf"
               ]
             }
           },
@@ -3032,36 +3034,32 @@
                     "symbol": "xau",
                     "name": "Gold",
                     "asset_type": "commodity",
-                    "image": "https://assets.coingecko.com/rwas/images/2/large/gold.png?1710000000",
+                    "image": "https://coin-images.coingecko.com/coins/images/10481/large/logo.png?1774627372",
                     "tokenized_market_data": {
-                      "current_price": 2412.55,
-                      "market_cap": 4827893517,
-                      "total_volume": 1875000000,
-                      "high_24h": 2421.9,
-                      "low_24h": 2398.4,
-                      "price_change_24h": 8.35,
-                      "price_change_percentage_24h": 0.3472,
-                      "market_cap_change_24h": 50279934,
-                      "market_cap_change_percentage_24h": 1.1,
-                      "last_updated": "2026-07-31T15:24:00+00:00",
+                      "current_price": 4572.12,
+                      "market_cap": 5472900361,
+                      "total_volume": 351992224,
+                      "high_24h": 4606.42,
+                      "low_24h": 4562.05,
+                      "price_change_24h": -29.774769179191026,
+                      "price_change_percentage_24h": -0.64701,
+                      "market_cap_change_24h": -26139969.102690697,
+                      "market_cap_change_percentage_24h": -0.47536,
+                      "last_updated": "2026-08-28T05:30:10Z",
                       "sparkline_in_7d": {
                         "price": [
-                          2388.1,
-                          2395.6,
-                          2401.2,
-                          2399.8,
-                          2408.4,
-                          2410.1,
-                          2412.55
+                          4521.62,
+                          4532.59,
+                          4542.46
                         ]
                       },
-                      "price_change_percentage_1h_in_currency": 0.0421,
-                      "price_change_percentage_24h_in_currency": 0.3472,
-                      "price_change_percentage_7d_in_currency": 1.0234,
-                      "price_change_percentage_14d_in_currency": 2.1187,
-                      "price_change_percentage_30d_in_currency": -1.4402,
-                      "price_change_percentage_200d_in_currency": 9.8815,
-                      "price_change_percentage_1y_in_currency": 14.2076
+                      "price_change_percentage_1h_in_currency": -0.01708,
+                      "price_change_percentage_24h_in_currency": -0.64701,
+                      "price_change_percentage_7d_in_currency": 1.13883,
+                      "price_change_percentage_14d_in_currency": 5.94825,
+                      "price_change_percentage_30d_in_currency": 13.84206,
+                      "price_change_percentage_200d_in_currency": -9.11489,
+                      "price_change_percentage_1y_in_currency": 34.69983
                     }
                   }
                 ]
@@ -3132,12 +3130,24 @@
                   "name": "Gold",
                   "asset_type": "commodity",
                   "image": {
-                    "thumb": "https://assets.coingecko.com/rwas/images/2/thumb/gold.png?1710000000",
-                    "small": "https://assets.coingecko.com/rwas/images/2/small/gold.png?1710000000",
-                    "large": "https://assets.coingecko.com/rwas/images/2/large/gold.png?1710000000"
+                    "thumb": "https://coin-images.coingecko.com/coins/images/10481/thumb/logo.png?1774627372",
+                    "small": "https://coin-images.coingecko.com/coins/images/10481/small/logo.png?1774627372",
+                    "large": "https://coin-images.coingecko.com/coins/images/10481/large/logo.png?1774627372"
                   },
                   "web_slug": "gold",
                   "tokens": [
+                    {
+                      "id": "tether-gold",
+                      "symbol": "xaut",
+                      "name": "Tether Gold",
+                      "platforms": {
+                        "ethereum": "0x68749665ff8d2d112fa859aa293f07a622782f38"
+                      },
+                      "issuer_details": {
+                        "id": "tether-ecosystem",
+                        "name": "Tether"
+                      }
+                    },
                     {
                       "id": "pax-gold",
                       "symbol": "paxg",
@@ -3146,42 +3156,38 @@
                         "ethereum": "0x45804880de22913dafe09f4980848ece6ecbaf78"
                       },
                       "issuer_details": {
-                        "id": "paxos",
-                        "name": "Paxos"
+                        "id": "paxos-ecosystem",
+                        "name": "Paxos Global"
                       }
                     }
                   ],
                   "tokenized_market_data": {
-                    "current_price": 2412.55,
-                    "market_cap": 4827893517,
-                    "total_volume": 1875000000,
-                    "high_24h": 2421.9,
-                    "low_24h": 2398.4,
-                    "price_change_24h": 8.35,
-                    "price_change_percentage_24h": 0.3472,
-                    "market_cap_change_24h": 50279934,
-                    "market_cap_change_percentage_24h": 1.1,
-                    "last_updated": "2026-07-31T15:24:00+00:00",
+                    "current_price": 4573.031919920756,
+                    "market_cap": 5473598660.27155,
+                    "total_volume": 350321640.29896414,
+                    "high_24h": 4606.420052502144,
+                    "low_24h": 4562.053801329669,
+                    "price_change_24h": -27.42684886965526,
+                    "price_change_percentage_24h": -0.59618,
+                    "market_cap_change_24h": -23841133.233935356,
+                    "market_cap_change_percentage_24h": -0.43368,
+                    "last_updated": "2026-08-28T05:32:50Z",
                     "sparkline_in_7d": {
                       "price": [
-                        2388.1,
-                        2395.6,
-                        2401.2,
-                        2399.8,
-                        2408.4,
-                        2410.1,
-                        2412.55
+                        4521.622381614101,
+                        4532.590103841653,
+                        4542.457698947438
                       ]
                     },
-                    "price_change_percentage_1h_in_currency": 0.0421,
-                    "price_change_percentage_24h_in_currency": 0.3472,
-                    "price_change_percentage_7d_in_currency": 1.0234,
-                    "price_change_percentage_14d_in_currency": 2.1187,
-                    "price_change_percentage_30d_in_currency": -1.4402,
-                    "price_change_percentage_200d_in_currency": 9.8815,
-                    "price_change_percentage_1y_in_currency": 14.2076
+                    "price_change_percentage_1h_in_currency": 0.02617,
+                    "price_change_percentage_24h_in_currency": -0.59618,
+                    "price_change_percentage_7d_in_currency": 1.13883,
+                    "price_change_percentage_14d_in_currency": 5.94825,
+                    "price_change_percentage_30d_in_currency": 13.84206,
+                    "price_change_percentage_200d_in_currency": -9.11489,
+                    "price_change_percentage_1y_in_currency": 34.69983
                   },
-                  "last_updated": "2026-07-31T15:24:00+00:00"
+                  "last_updated": "2026-08-28T05:32:50Z"
                 }
               }
             }
@@ -3207,16 +3213,12 @@
                 },
                 "example": [
                   {
-                    "id": "paxos",
-                    "name": "Paxos"
+                    "id": "coinbase-ecosystem",
+                    "name": "Coinbase"
                   },
                   {
-                    "id": "tether",
-                    "name": "Tether"
-                  },
-                  {
-                    "id": "ondo-finance",
-                    "name": "Ondo Finance"
+                    "id": "xstocks-ecosystem",
+                    "name": "xStocks"
                   }
                 ]
               }
@@ -3241,7 +3243,7 @@
             "description": "Issuer ID. \n*refers to [`/rwas/issuers/list`](/reference/rwas-issuers-list)",
             "schema": {
               "type": "string",
-              "default": "paxos"
+              "default": "xstocks-ecosystem"
             }
           }
         ],
@@ -3254,31 +3256,40 @@
                   "$ref": "#/components/schemas/RwasIssuersID"
                 },
                 "example": {
-                  "id": "paxos",
-                  "name": "Paxos",
-                  "market_cap": 1284650000,
-                  "market_cap_change_24h": 14203500,
-                  "volume_24h": 58217400,
+                  "id": "xstocks-ecosystem",
+                  "name": "xStocks",
+                  "market_cap": 723156907.6917189,
+                  "market_cap_change_24h": -71364692.30308127,
+                  "volume_24h": 82027552.01900122,
                   "tokens": [
                     {
-                      "id": "pax-gold",
-                      "symbol": "paxg",
-                      "name": "PAX Gold",
+                      "id": "alphabet-xstock",
+                      "symbol": "googlx",
+                      "name": "Alphabet xStock",
                       "platforms": {
-                        "ethereum": "0x45804880de22913dafe09f4980848ece6ecbaf78"
+                        "arbitrum-one": "0xe92f673ca36c5e2efd2de7628f815f84807e803f",
+                        "ethereum": "0xe92f673ca36c5e2efd2de7628f815f84807e803f",
+                        "binance-smart-chain": "0xe92f673ca36c5e2efd2de7628f815f84807e803f",
+                        "solana": "XsCPL9dNWBMvFtTmwcCA5v3xWPSMEBCszbQdiLLq6aN",
+                        "the-open-network": "EQALwJzXnxFjckNsurCi9O2kVg_0b1KdtjOSfvOedlY37iZc",
+                        "mantle": "0xe92f673ca36c5e2efd2de7628f815f84807e803f"
                       }
                     },
                     {
-                      "id": "paxos-standard",
-                      "symbol": "usdp",
-                      "name": "Pax Dollar",
+                      "id": "amazon-xstock",
+                      "symbol": "amznx",
+                      "name": "Amazon xStock",
                       "platforms": {
-                        "ethereum": "0x8e870d67f660d95d5be530380d0ec0bd388289e1",
-                        "binance-smart-chain": "0xb3c11196a4f3b1da7c23d9fb0a3dde9c6340934f"
+                        "arbitrum-one": "0x3557ba345b01efa20a1bddc61f573bfd87195081",
+                        "binance-smart-chain": "0x3557ba345b01efa20a1bddc61f573bfd87195081",
+                        "mantle": "0x3557ba345b01efa20a1bddc61f573bfd87195081",
+                        "ethereum": "0x3557ba345b01efa20a1bddc61f573bfd87195081",
+                        "solana": "Xs3eBt7uRfJX8QUs4suhyU8p2M6DoUDrJyWBa8LLZsg",
+                        "the-open-network": "EQCtD2-7qxHhQoNhxri2JSzH-dlmWqKYCDtlEZqRi3-56gd9"
                       }
                     }
                   ],
-                  "updated_at": "2026-07-31T15:24:00+00:00"
+                  "updated_at": "2026-08-28T04:00:00Z"
                 }
               }
             }
@@ -16587,7 +16598,8 @@
               "type": "string",
               "enum": [
                 "stock",
-                "commodity"
+                "commodity",
+                "etf"
               ],
               "description": "RWA asset type"
             }
@@ -16623,7 +16635,8 @@
               "type": "string",
               "enum": [
                 "stock",
-                "commodity"
+                "commodity",
+                "etf"
               ],
               "description": "RWA asset type"
             },
@@ -16766,7 +16779,8 @@
             "type": "string",
             "enum": [
               "stock",
-              "commodity"
+              "commodity",
+              "etf"
             ],
             "description": "RWA asset type"
           },
