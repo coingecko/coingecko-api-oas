@@ -13002,6 +13002,7 @@
               },
               "subreddit_url": {
                 "type": "string",
+                "nullable": true,
                 "description": "Subreddit URL"
               },
               "repos_url": {
