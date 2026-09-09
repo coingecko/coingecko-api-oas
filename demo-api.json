@@ -7845,8 +7845,8 @@
     },
     "/onchain/networks/{network}/pools/{pool_address}/trades": {
       "get": {
-        "summary": "Past 24 Hour Trades by Pool Address",
-        "description": "To query the last 300 trades in the past 24 hours based on the provided pool address",
+        "summary": "Trades by Pool Address",
+        "description": "To query the trades based on the provided pool address",
         "operationId": "pool-trades-contract-address",
         "x-mint": {
           "href": "/reference/pool-trades-contract-address"
@@ -7893,7 +7893,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Last 300 trades in past 24 hours from a pool",
+            "description": "Trades from a pool",
             "content": {
               "application/json": {
                 "schema": {
