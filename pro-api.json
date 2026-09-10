@@ -1872,7 +1872,7 @@
             "description": "Starting date in ISO date string (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`) or UNIX timestamp. \n**Use ISO date string for best compatibility.**",
             "schema": {
               "type": "string",
-              "default": "2025-01-01"
+              "default": "2025-12-22"
             }
           },
           {
@@ -2698,7 +2698,7 @@
             "description": "Starting date in ISO date string (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`) or UNIX timestamp. \n**Use ISO date string for best compatibility.**",
             "schema": {
               "type": "string",
-              "default": "2025-01-01"
+              "default": "2025-12-22"
             }
           },
           {
@@ -4215,9 +4215,14 @@
                 "example": {
                   "id": "xstocks-ecosystem",
                   "name": "xStocks",
-                  "market_cap": 723156907.6917189,
-                  "market_cap_change_24h": -71364692.30308127,
-                  "volume_24h": 82027552.01900122,
+                  "market_cap": 752085126.6637836,
+                  "market_cap_change_24h": -79476493.49518394,
+                  "volume_24h": 240421573.38793087,
+                  "image": {
+                    "thumb": "https://coin-images.coingecko.com/categories/images/20712/thumb/xstock_400x400.jpg?1777808932",
+                    "small": "https://coin-images.coingecko.com/categories/images/20712/small/xstock_400x400.jpg?1777808932",
+                    "large": "https://coin-images.coingecko.com/categories/images/20712/large/xstock_400x400.jpg?1777808932"
+                  },
                   "tokens": [
                     {
                       "id": "alphabet-xstock",
@@ -4246,7 +4251,7 @@
                       }
                     }
                   ],
-                  "updated_at": "2026-08-28T04:00:00Z"
+                  "updated_at": "2026-09-10T03:00:00Z"
                 }
               }
             }
@@ -10263,7 +10268,7 @@
             "name": "network",
             "in": "path",
             "required": true,
-            "description": "Network ID. \n*refers to [`/onchain/networks`](/reference/networks-list).",
+            "description": "Network ID. \n*refers to [supported networks](/reference/top-token-holders-token-address#supported-networks).",
             "schema": {
               "type": "string",
               "default": "solana"
@@ -10368,7 +10373,7 @@
             "name": "network",
             "in": "path",
             "required": true,
-            "description": "Network ID. \n*refers to [`/onchain/networks`](/reference/networks-list).",
+            "description": "Network ID. \n*refers to [supported networks](/reference/token-holders-chart-token-address#supported-networks).",
             "schema": {
               "type": "string",
               "default": "solana"
@@ -22929,6 +22934,24 @@
             "type": "number",
             "nullable": true,
             "description": "24-hour issuer trading volume in USD"
+          },
+          "image": {
+            "type": "object",
+            "description": "Issuer image URLs",
+            "properties": {
+              "thumb": {
+                "type": "string",
+                "description": "Thumbnail image URL"
+              },
+              "small": {
+                "type": "string",
+                "description": "Small image URL"
+              },
+              "large": {
+                "type": "string",
+                "description": "Large image URL"
+              }
+            }
           },
           "tokens": {
             "type": "array",
