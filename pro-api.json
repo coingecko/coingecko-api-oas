@@ -1752,6 +1752,7 @@
             "schema": {
               "type": "string",
               "enum": [
+                "1m",
                 "5m",
                 "hourly",
                 "daily"
@@ -1893,6 +1894,7 @@
             "schema": {
               "type": "string",
               "enum": [
+                "1m",
                 "5m",
                 "hourly",
                 "daily"
@@ -2568,6 +2570,7 @@
             "schema": {
               "type": "string",
               "enum": [
+                "1m",
                 "5m",
                 "hourly",
                 "daily"
@@ -2719,6 +2722,7 @@
             "schema": {
               "type": "string",
               "enum": [
+                "1m",
                 "5m",
                 "hourly",
                 "daily"
