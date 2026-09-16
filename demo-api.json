@@ -3127,6 +3127,15 @@
             "schema": {
               "type": "boolean"
             }
+          },
+          {
+            "name": "perps_market_data",
+            "in": "query",
+            "required": false,
+            "description": "Include perpetuals market data. \nDefault: false",
+            "schema": {
+              "type": "boolean"
+            }
           }
         ],
         "responses": {
@@ -3159,6 +3168,10 @@
                       "issuer_details": {
                         "id": "tether-ecosystem",
                         "name": "Tether"
+                      },
+                      "perps_market_data": {
+                        "volume_24h": 1954758829.5191464,
+                        "open_interest_24h": 1336589057.9573011
                       }
                     },
                     {
@@ -3171,36 +3184,44 @@
                       "issuer_details": {
                         "id": "paxos-ecosystem",
                         "name": "Paxos Global"
+                      },
+                      "perps_market_data": {
+                        "volume_24h": 444834538.1260172,
+                        "open_interest_24h": 563850051.3234763
                       }
                     }
                   ],
                   "tokenized_market_data": {
-                    "current_price": 4573.031919920756,
-                    "market_cap": 5473598660.27155,
-                    "total_volume": 350321640.29896414,
-                    "high_24h": 4606.420052502144,
-                    "low_24h": 4562.053801329669,
-                    "price_change_24h": -27.42684886965526,
-                    "price_change_percentage_24h": -0.59618,
-                    "market_cap_change_24h": -23841133.233935356,
-                    "market_cap_change_percentage_24h": -0.43368,
-                    "last_updated": "2026-08-28T05:32:50Z",
+                    "current_price": 4325.388412841455,
+                    "market_cap": 5226930984.54683,
+                    "total_volume": 370143676.04940695,
+                    "high_24h": 4337.636910965984,
+                    "low_24h": 4265.225091868207,
+                    "price_change_24h": 31.508789145972514,
+                    "price_change_percentage_24h": 0.73381,
+                    "market_cap_change_24h": 42665678.302101135,
+                    "market_cap_change_percentage_24h": 0.82298,
+                    "last_updated": "2026-09-16T06:49:00Z",
                     "sparkline_in_7d": {
                       "price": [
-                        4521.622381614101,
-                        4532.590103841653,
-                        4542.457698947438
+                        4398.794934375798,
+                        4399.814826523387,
+                        4407.595134436859
                       ]
                     },
-                    "price_change_percentage_1h_in_currency": 0.02617,
-                    "price_change_percentage_24h_in_currency": -0.59618,
-                    "price_change_percentage_7d_in_currency": 1.13883,
-                    "price_change_percentage_14d_in_currency": 5.94825,
-                    "price_change_percentage_30d_in_currency": 13.84206,
-                    "price_change_percentage_200d_in_currency": -9.11489,
-                    "price_change_percentage_1y_in_currency": 34.69983
+                    "price_change_percentage_1h_in_currency": -0.07102,
+                    "price_change_percentage_24h_in_currency": 0.73381,
+                    "price_change_percentage_7d_in_currency": -1.65248,
+                    "price_change_percentage_14d_in_currency": 0.03663,
+                    "price_change_percentage_30d_in_currency": -1.19872,
+                    "price_change_percentage_200d_in_currency": -17.96545,
+                    "price_change_percentage_1y_in_currency": 11.51039
                   },
-                  "last_updated": "2026-08-28T05:32:50Z"
+                  "perps_market_data": {
+                    "volume_24h": 7416589039.8701,
+                    "open_interest_24h": 4536346045.728076
+                  },
+                  "last_updated": "2026-09-16T06:49:00Z"
                 }
               }
             }
@@ -16863,6 +16884,22 @@
                       "description": "Issuer name"
                     }
                   }
+                },
+                "perps_market_data": {
+                  "type": "object",
+                  "description": "Perpetuals market data of the token",
+                  "properties": {
+                    "volume_24h": {
+                      "type": "number",
+                      "nullable": true,
+                      "description": "24-hour perpetuals trading volume in target currency"
+                    },
+                    "open_interest_24h": {
+                      "type": "number",
+                      "nullable": true,
+                      "description": "24-hour perpetuals open interest in target currency"
+                    }
+                  }
                 }
               }
             }
@@ -16968,6 +17005,22 @@
                 "type": "number",
                 "nullable": true,
                 "description": "1-year price change percentage in target currency"
+              }
+            }
+          },
+          "perps_market_data": {
+            "type": "object",
+            "description": "Aggregated perpetuals market data",
+            "properties": {
+              "volume_24h": {
+                "type": "number",
+                "nullable": true,
+                "description": "24-hour perpetuals trading volume in target currency"
+              },
+              "open_interest_24h": {
+                "type": "number",
+                "nullable": true,
+                "description": "24-hour perpetuals open interest in target currency"
               }
             }
           },
