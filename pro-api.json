@@ -1752,6 +1752,7 @@
             "schema": {
               "type": "string",
               "enum": [
+                "1m",
                 "5m",
                 "hourly",
                 "daily"
@@ -1872,7 +1873,7 @@
             "description": "Starting date in ISO date string (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`) or UNIX timestamp. \n**Use ISO date string for best compatibility.**",
             "schema": {
               "type": "string",
-              "default": "2025-01-01"
+              "default": "2025-12-22"
             }
           },
           {
@@ -1893,6 +1894,7 @@
             "schema": {
               "type": "string",
               "enum": [
+                "1m",
                 "5m",
                 "hourly",
                 "daily"
@@ -2568,6 +2570,7 @@
             "schema": {
               "type": "string",
               "enum": [
+                "1m",
                 "5m",
                 "hourly",
                 "daily"
@@ -2698,7 +2701,7 @@
             "description": "Starting date in ISO date string (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`) or UNIX timestamp. \n**Use ISO date string for best compatibility.**",
             "schema": {
               "type": "string",
-              "default": "2025-01-01"
+              "default": "2025-12-22"
             }
           },
           {
@@ -2719,6 +2722,7 @@
             "schema": {
               "type": "string",
               "enum": [
+                "1m",
                 "5m",
                 "hourly",
                 "daily"
@@ -3778,6 +3782,15 @@
             "schema": {
               "type": "boolean"
             }
+          },
+          {
+            "name": "perps_market_data",
+            "in": "query",
+            "required": false,
+            "description": "Include perpetuals market data. \nDefault: false",
+            "schema": {
+              "type": "boolean"
+            }
           }
         ],
         "responses": {
@@ -3810,6 +3823,10 @@
                       "issuer_details": {
                         "id": "tether-ecosystem",
                         "name": "Tether"
+                      },
+                      "perps_market_data": {
+                        "volume_24h": 1954758829.5191464,
+                        "open_interest_24h": 1336589057.9573011
                       }
                     },
                     {
@@ -3822,36 +3839,44 @@
                       "issuer_details": {
                         "id": "paxos-ecosystem",
                         "name": "Paxos Global"
+                      },
+                      "perps_market_data": {
+                        "volume_24h": 444834538.1260172,
+                        "open_interest_24h": 563850051.3234763
                       }
                     }
                   ],
                   "tokenized_market_data": {
-                    "current_price": 4573.031919920756,
-                    "market_cap": 5473598660.27155,
-                    "total_volume": 350321640.29896414,
-                    "high_24h": 4606.420052502144,
-                    "low_24h": 4562.053801329669,
-                    "price_change_24h": -27.42684886965526,
-                    "price_change_percentage_24h": -0.59618,
-                    "market_cap_change_24h": -23841133.233935356,
-                    "market_cap_change_percentage_24h": -0.43368,
-                    "last_updated": "2026-08-28T05:32:50Z",
+                    "current_price": 4325.388412841455,
+                    "market_cap": 5226930984.54683,
+                    "total_volume": 370143676.04940695,
+                    "high_24h": 4337.636910965984,
+                    "low_24h": 4265.225091868207,
+                    "price_change_24h": 31.508789145972514,
+                    "price_change_percentage_24h": 0.73381,
+                    "market_cap_change_24h": 42665678.302101135,
+                    "market_cap_change_percentage_24h": 0.82298,
+                    "last_updated": "2026-09-16T06:49:00Z",
                     "sparkline_in_7d": {
                       "price": [
-                        4521.622381614101,
-                        4532.590103841653,
-                        4542.457698947438
+                        4398.794934375798,
+                        4399.814826523387,
+                        4407.595134436859
                       ]
                     },
-                    "price_change_percentage_1h_in_currency": 0.02617,
-                    "price_change_percentage_24h_in_currency": -0.59618,
-                    "price_change_percentage_7d_in_currency": 1.13883,
-                    "price_change_percentage_14d_in_currency": 5.94825,
-                    "price_change_percentage_30d_in_currency": 13.84206,
-                    "price_change_percentage_200d_in_currency": -9.11489,
-                    "price_change_percentage_1y_in_currency": 34.69983
+                    "price_change_percentage_1h_in_currency": -0.07102,
+                    "price_change_percentage_24h_in_currency": 0.73381,
+                    "price_change_percentage_7d_in_currency": -1.65248,
+                    "price_change_percentage_14d_in_currency": 0.03663,
+                    "price_change_percentage_30d_in_currency": -1.19872,
+                    "price_change_percentage_200d_in_currency": -17.96545,
+                    "price_change_percentage_1y_in_currency": 11.51039
                   },
-                  "last_updated": "2026-08-28T05:32:50Z"
+                  "perps_market_data": {
+                    "volume_24h": 7416589039.8701,
+                    "open_interest_24h": 4536346045.728076
+                  },
+                  "last_updated": "2026-09-16T06:49:00Z"
                 }
               }
             }
@@ -4215,9 +4240,14 @@
                 "example": {
                   "id": "xstocks-ecosystem",
                   "name": "xStocks",
-                  "market_cap": 723156907.6917189,
-                  "market_cap_change_24h": -71364692.30308127,
-                  "volume_24h": 82027552.01900122,
+                  "market_cap": 752085126.6637836,
+                  "market_cap_change_24h": -79476493.49518394,
+                  "volume_24h": 240421573.38793087,
+                  "image": {
+                    "thumb": "https://coin-images.coingecko.com/categories/images/20712/thumb/xstock_400x400.jpg?1777808932",
+                    "small": "https://coin-images.coingecko.com/categories/images/20712/small/xstock_400x400.jpg?1777808932",
+                    "large": "https://coin-images.coingecko.com/categories/images/20712/large/xstock_400x400.jpg?1777808932"
+                  },
                   "tokens": [
                     {
                       "id": "alphabet-xstock",
@@ -4246,7 +4276,7 @@
                       }
                     }
                   ],
-                  "updated_at": "2026-08-28T04:00:00Z"
+                  "updated_at": "2026-09-10T03:00:00Z"
                 }
               }
             }
@@ -9762,6 +9792,342 @@
         }
       }
     },
+    "/onchain/tokens/multi": {
+      "get": {
+        "summary": "Tokens Data by Token Addresses across Networks",
+        "description": "To query multiple tokens data based on the provided token contract addresses across multiple networks in a single request",
+        "operationId": "tokens-data-contract-addresses-multi",
+        "x-mint": {
+          "href": "/reference/tokens-data-contract-addresses-multi"
+        },
+        "parameters": [
+          {
+            "name": "tokens",
+            "in": "query",
+            "required": true,
+            "description": "Network ID and token contract address pairs in `network_id:token_address` format, comma-separated if more than one. \nMaximum: 50 \n*refers to [`/onchain/networks`](/reference/networks-list).",
+            "schema": {
+              "type": "string",
+              "default": "solana:6p6xgHyF7AeE6TZkSmFsko444wqoP15icUSqi2jfGiPN,solana:2g4LS3y2myPe6vj9wTvoBE1wKqxvhnZPoZA9QU9upump"
+            }
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "required": false,
+            "description": "Attributes to include.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "top_pools"
+              ]
+            }
+          },
+          {
+            "name": "include_composition",
+            "in": "query",
+            "required": false,
+            "description": "Include pool composition. \nDefault: `false`",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "include_inactive_source",
+            "in": "query",
+            "required": false,
+            "description": "Include tokens from inactive pools using the most recent swap. \nDefault: `false`",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Multiple tokens data across networks",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MultiNetworkTokenData"
+                },
+                "example": {
+                  "data": [
+                    {
+                      "id": "solana_2g4LS3y2myPe6vj9wTvoBE1wKqxvhnZPoZA9QU9upump",
+                      "type": "token",
+                      "attributes": {
+                        "network": "solana",
+                        "address": "2g4LS3y2myPe6vj9wTvoBE1wKqxvhnZPoZA9QU9upump",
+                        "name": "SORACAT",
+                        "symbol": "SORACAT",
+                        "decimals": 6,
+                        "image_url": "https://assets.geckoterminal.com/o6djbxjg7ne8k1swjpybmdvtu11s",
+                        "coingecko_coin_id": null,
+                        "total_supply": "1000000000000000.0",
+                        "normalized_total_supply": "1000000000.0",
+                        "price_usd": "0.000006746080385",
+                        "fdv_usd": "6746.080385",
+                        "total_reserve_in_usd": "5234.61248798976042147487629165",
+                        "volume_usd": {
+                          "h24": "0.0"
+                        },
+                        "market_cap_usd": null,
+                        "launchpad_details": {
+                          "graduation_percentage": 2.16,
+                          "completed": false,
+                          "completed_at": null,
+                          "migrated_destination_pool_address": null
+                        },
+                        "last_trade_timestamp": "1759502562"
+                      },
+                      "relationships": {
+                        "top_pools": {
+                          "data": [
+                            {
+                              "id": "solana_7Dyotb31T3wmXzCkVvTERDDz2jvfTCCPmqQJxHHhCXyf",
+                              "type": "pool"
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "id": "solana_6p6xgHyF7AeE6TZkSmFsko444wqoP15icUSqi2jfGiPN",
+                      "type": "token",
+                      "attributes": {
+                        "network": "solana",
+                        "address": "6p6xgHyF7AeE6TZkSmFsko444wqoP15icUSqi2jfGiPN",
+                        "name": "OFFICIAL TRUMP",
+                        "symbol": "TRUMP",
+                        "decimals": 6,
+                        "image_url": "https://coin-images.coingecko.com/coins/images/53746/large/trump.png?1737171561",
+                        "coingecko_coin_id": "official-trump",
+                        "total_supply": "999998998459989.0",
+                        "normalized_total_supply": "999998998.459989",
+                        "price_usd": "1.9985180848",
+                        "fdv_usd": "1998516083.23562",
+                        "total_reserve_in_usd": "14255371.854780720267033781372948483553082010921812333809387849645046911446193223125739904",
+                        "volume_usd": {
+                          "h24": "12492580.7016379"
+                        },
+                        "market_cap_usd": "546537047.922803",
+                        "last_trade_timestamp": "1789029026"
+                      },
+                      "relationships": {
+                        "top_pools": {
+                          "data": [
+                            {
+                              "id": "solana_3C5YE97HADPDxZehYq9Cis8AXr9aNyrUsczKzE1nDbW9",
+                              "type": "pool"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ],
+                  "included": [
+                    {
+                      "id": "solana_7Dyotb31T3wmXzCkVvTERDDz2jvfTCCPmqQJxHHhCXyf",
+                      "type": "pool",
+                      "attributes": {
+                        "base_token_price_usd": "0.000006746080385",
+                        "base_token_price_native_currency": "0.0000000294042292075217",
+                        "base_token_balance": "775948727.097393",
+                        "base_token_liquidity_usd": "5248.9884755507223940299343365554517590694012261684516223803972",
+                        "quote_token_price_usd": "229.4255135152",
+                        "quote_token_price_native_currency": "1.0",
+                        "quote_token_balance": "0.487321883",
+                        "quote_token_liquidity_usd": "112.1111244392582328850588200028936997988529170348984",
+                        "base_token_price_quote_token": "0.00000002940422921",
+                        "quote_token_price_base_token": "34008713.2685048",
+                        "address": "7Dyotb31T3wmXzCkVvTERDDz2jvfTCCPmqQJxHHhCXyf",
+                        "name": "SORACAT / SOL",
+                        "pool_created_at": "2025-10-03T14:42:39Z",
+                        "fdv_usd": "6746.080385",
+                        "market_cap_usd": null,
+                        "price_change_percentage": {
+                          "m5": "0",
+                          "m15": "0",
+                          "m30": "0",
+                          "h1": "0",
+                          "h6": "0",
+                          "h24": "0"
+                        },
+                        "transactions": {
+                          "m5": {
+                            "buys": 0,
+                            "sells": 0,
+                            "buyers": 0,
+                            "sellers": 0
+                          },
+                          "m15": {
+                            "buys": 0,
+                            "sells": 0,
+                            "buyers": 0,
+                            "sellers": 0
+                          },
+                          "m30": {
+                            "buys": 0,
+                            "sells": 0,
+                            "buyers": 0,
+                            "sellers": 0
+                          },
+                          "h1": {
+                            "buys": 0,
+                            "sells": 0,
+                            "buyers": 0,
+                            "sellers": 0
+                          },
+                          "h6": {
+                            "buys": 0,
+                            "sells": 0,
+                            "buyers": 0,
+                            "sellers": 0
+                          },
+                          "h24": {
+                            "buys": 0,
+                            "sells": 0,
+                            "buyers": 0,
+                            "sellers": 0
+                          }
+                        },
+                        "volume_usd": {
+                          "m5": "0.0",
+                          "m15": "0.0",
+                          "m30": "0.0",
+                          "h1": "0.0",
+                          "h6": "0.0",
+                          "h24": "0.0"
+                        },
+                        "reserve_in_usd": "5361.0996",
+                        "last_trade_timestamp": "1759502562"
+                      },
+                      "relationships": {
+                        "base_token": {
+                          "data": {
+                            "id": "solana_2g4LS3y2myPe6vj9wTvoBE1wKqxvhnZPoZA9QU9upump",
+                            "type": "token"
+                          }
+                        },
+                        "quote_token": {
+                          "data": {
+                            "id": "solana_So11111111111111111111111111111111111111112",
+                            "type": "token"
+                          }
+                        },
+                        "dex": {
+                          "data": {
+                            "id": "pump-fun",
+                            "type": "dex"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "id": "solana_3C5YE97HADPDxZehYq9Cis8AXr9aNyrUsczKzE1nDbW9",
+                      "type": "pool",
+                      "attributes": {
+                        "base_token_price_usd": "1.99851808483144460459345181213426376306892473592748947769977548",
+                        "base_token_price_native_currency": "0.0197707311569055",
+                        "base_token_balance": "3369368.677711",
+                        "base_token_liquidity_usd": "6728086.2507852995170294801492731248304882348663868551291",
+                        "quote_token_price_usd": "0.999902404983271294826273480360971101736563367728011809421745788",
+                        "quote_token_price_native_currency": "0.0098961031586542",
+                        "quote_token_balance": "5754828.165871",
+                        "quote_token_liquidity_usd": "5751973.2773146513272334336111493373372596038279418070678",
+                        "base_token_price_quote_token": "1.9978299377",
+                        "quote_token_price_base_token": "0.5005431049",
+                        "address": "3C5YE97HADPDxZehYq9Cis8AXr9aNyrUsczKzE1nDbW9",
+                        "name": "TRUMP / USDC",
+                        "pool_created_at": "2025-01-18T06:53:58Z",
+                        "fdv_usd": "1999192306.72691",
+                        "market_cap_usd": "546054176.455686",
+                        "price_change_percentage": {
+                          "m5": "-0.381",
+                          "m15": "0.019",
+                          "m30": "0.336",
+                          "h1": "0.714",
+                          "h6": "-0.777",
+                          "h24": "-11.896"
+                        },
+                        "transactions": {
+                          "m5": {
+                            "buys": 1,
+                            "sells": 27,
+                            "buyers": 1,
+                            "sellers": 12
+                          },
+                          "m15": {
+                            "buys": 19,
+                            "sells": 42,
+                            "buyers": 12,
+                            "sellers": 22
+                          },
+                          "m30": {
+                            "buys": 32,
+                            "sells": 54,
+                            "buyers": 15,
+                            "sellers": 27
+                          },
+                          "h1": {
+                            "buys": 90,
+                            "sells": 74,
+                            "buyers": 20,
+                            "sellers": 33
+                          },
+                          "h6": {
+                            "buys": 511,
+                            "sells": 453,
+                            "buyers": 82,
+                            "sellers": 123
+                          },
+                          "h24": {
+                            "buys": 6012,
+                            "sells": 6490,
+                            "buyers": 1834,
+                            "sellers": 1989
+                          }
+                        },
+                        "volume_usd": {
+                          "m5": "16395.5852203664",
+                          "m15": "57102.4676731082",
+                          "m30": "91363.2436414857",
+                          "h1": "159725.534904872",
+                          "h6": "1031003.7246258",
+                          "h24": "8097898.68584492"
+                        },
+                        "reserve_in_usd": "12480059.5281",
+                        "last_trade_timestamp": "1789029187"
+                      },
+                      "relationships": {
+                        "base_token": {
+                          "data": {
+                            "id": "solana_6p6xgHyF7AeE6TZkSmFsko444wqoP15icUSqi2jfGiPN",
+                            "type": "token"
+                          }
+                        },
+                        "quote_token": {
+                          "data": {
+                            "id": "solana_EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+                            "type": "token"
+                          }
+                        },
+                        "dex": {
+                          "data": {
+                            "id": "uniswap_v3",
+                            "type": "dex"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/onchain/networks/{network}/tokens/{address}/info": {
       "get": {
         "summary": "Token Info by Token Address",
@@ -10263,7 +10629,7 @@
             "name": "network",
             "in": "path",
             "required": true,
-            "description": "Network ID. \n*refers to [`/onchain/networks`](/reference/networks-list).",
+            "description": "Network ID. \n*refers to [supported networks](/reference/top-token-holders-token-address#supported-networks).",
             "schema": {
               "type": "string",
               "default": "solana"
@@ -10368,7 +10734,7 @@
             "name": "network",
             "in": "path",
             "required": true,
-            "description": "Network ID. \n*refers to [`/onchain/networks`](/reference/networks-list).",
+            "description": "Network ID. \n*refers to [supported networks](/reference/token-holders-chart-token-address#supported-networks).",
             "schema": {
               "type": "string",
               "default": "solana"
@@ -10757,8 +11123,8 @@
     },
     "/onchain/networks/{network}/pools/{pool_address}/trades": {
       "get": {
-        "summary": "Past 24 Hour Trades by Pool Address",
-        "description": "To query the last 300 trades in the past 24 hours based on the provided pool address",
+        "summary": "Trades by Pool Address",
+        "description": "To query the trades based on the provided pool address",
         "operationId": "pool-trades-contract-address",
         "x-mint": {
           "href": "/reference/pool-trades-contract-address"
@@ -10801,11 +11167,43 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "trading_period",
+            "in": "query",
+            "required": false,
+            "description": "Lookback period for trades. \nDefault: `1d`",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "1d",
+                "7d",
+                "30d"
+              ]
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "description": "Cursor from the previous response, passed back unchanged to fetch the next page.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "required": false,
+            "description": "Total results per page. \nDefault value: 300 \nValid values: 1...300",
+            "schema": {
+              "type": "integer"
+            }
           }
         ],
         "responses": {
           "200": {
-            "description": "Last 300 trades in past 24 hours from a pool",
+            "description": "Trades from a pool",
             "content": {
               "application/json": {
                 "schema": {
@@ -10853,7 +11251,157 @@
                         "to_token_address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
                       }
                     }
-                  ]
+                  ],
+                  "meta": {
+                    "next_cursor": null
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/onchain/networks/{network}/pools/{pool_address}/trades/range": {
+      "get": {
+        "summary": "Trades within Time Range by Pool Address",
+        "description": "To query the trades within a range of timestamp based on the provided pool address",
+        "operationId": "pool-trades-contract-address-range",
+        "x-mint": {
+          "href": "/reference/pool-trades-contract-address-range"
+        },
+        "parameters": [
+          {
+            "name": "network",
+            "in": "path",
+            "required": true,
+            "description": "Network ID. \n*refers to [`/onchain/networks`](/reference/networks-list).",
+            "schema": {
+              "type": "string",
+              "default": "eth"
+            }
+          },
+          {
+            "name": "pool_address",
+            "in": "path",
+            "required": true,
+            "description": "Pool contract address.",
+            "schema": {
+              "type": "string",
+              "default": "0x06da0fd433c1a5d7a4faa01111c044910a184553"
+            }
+          },
+          {
+            "name": "trade_volume_in_usd_greater_than",
+            "in": "query",
+            "required": false,
+            "description": "Filter trades by trade volume in USD greater than this value. \nDefault value: 0",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "required": false,
+            "description": "Return trades for token, use this to invert the chart. \nAvailable values: `base`, `quote`, or token address. \nDefault: `base`",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "required": true,
+            "description": "Starting date in ISO date string (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`) or UNIX timestamp. \n**Use ISO date string for best compatibility.**",
+            "schema": {
+              "type": "string",
+              "default": "2026-09-01"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "required": true,
+            "description": "Ending date in ISO date string (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`) or UNIX timestamp. \n**Use ISO date string for best compatibility.**",
+            "schema": {
+              "type": "string",
+              "default": "2026-09-08"
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "description": "Cursor from the previous response, passed back unchanged to fetch the next page.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "required": false,
+            "description": "Total results per page. \nDefault value: 100 \nValid values: 1...300",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Trades from a pool within a time range",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Trades"
+                },
+                "example": {
+                  "data": [
+                    {
+                      "id": "eth_25928873_0x2d17e7f893da1d87e893dd6ddcc42366ea3680c13d4be129d6d1ebac271bac40_167_1788825063",
+                      "type": "trade",
+                      "attributes": {
+                        "block_number": 25928873,
+                        "tx_hash": "0x2d17e7f893da1d87e893dd6ddcc42366ea3680c13d4be129d6d1ebac271bac40",
+                        "tx_from_address": "0x0000000000f8492ebaf65b3c0457cca8948badfe",
+                        "from_token_amount": "0.475091",
+                        "to_token_amount": "0.00019056174944482",
+                        "price_from_in_currency_token": "0.000401105786985693",
+                        "price_to_in_currency_token": "1.0",
+                        "price_from_in_usd": "0.999728096656752",
+                        "price_to_in_usd": "2492.43",
+                        "block_timestamp": "2026-09-07T23:50:47Z",
+                        "kind": "sell",
+                        "volume_in_usd": "0.474961821168753",
+                        "from_token_address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+                        "to_token_address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+                      }
+                    },
+                    {
+                      "id": "eth_25928873_0x05a0ba340fc07a23a5179ed0c7b68c0a7fe5e40487f1d2bb5d96f5d2eda6a1cb_26_1788825060",
+                      "type": "trade",
+                      "attributes": {
+                        "block_number": 25928873,
+                        "tx_hash": "0x05a0ba340fc07a23a5179ed0c7b68c0a7fe5e40487f1d2bb5d96f5d2eda6a1cb",
+                        "tx_from_address": "0x0e14a3e9af1afdfc60554e3e2a40c8284d647093",
+                        "from_token_amount": "42.234864",
+                        "to_token_amount": "0.0169429755714377",
+                        "price_from_in_currency_token": "0.000401160888583367",
+                        "price_to_in_currency_token": "1.0",
+                        "price_from_in_usd": "0.999865433531841",
+                        "price_to_in_usd": "2492.43",
+                        "block_timestamp": "2026-09-07T23:50:47Z",
+                        "kind": "sell",
+                        "volume_in_usd": "42.2291806035184",
+                        "from_token_address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+                        "to_token_address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+                      }
+                    }
+                  ],
+                  "meta": {
+                    "next_cursor": "eyJidCI6IjIwMjYtMDktMDdUMjM6NTA6NDcuMDAwMDAwMDAwWiIsImJuIjoyNTkyODg3MywidHgiOiIweDA1YTBiYTM0MGZjMDdhMjNhNTE3OWVkMGM3YjY4YzBhN2ZlNWU0MDQ4N2YxZDJiYjVkOTZmNWQyZWRhNmExY2IiLCJsaSI6MjYsIndmIjoxNzg4MjIwODAwLCJmcCI6Ijk1OGY2N2VkZmU2NDRjMmU2ZTE5NTlkNWQ2ZThmM2FjZDY3YTFiYWYzYWI3YzJmMTVhYmUzNjkzMjhhNjEyZTAiLCJpYXQiOjE3ODg5Mzk0MjF9"
+                  }
                 }
               }
             }
@@ -10863,8 +11411,8 @@
     },
     "/onchain/networks/{network}/tokens/{token_address}/trades": {
       "get": {
-        "summary": "Past 24 Hour Trades by Token Address",
-        "description": "To query the last 300 trades in the past 24 hours, across all pools, based on the provided token contract address on a network",
+        "summary": "Trades by Token Address",
+        "description": "To query the trades, across all pools, based on the provided token contract address on a network",
         "operationId": "token-trades-contract-address",
         "x-mint": {
           "href": "/reference/token-trades-contract-address"
@@ -10898,11 +11446,43 @@
             "schema": {
               "type": "number"
             }
+          },
+          {
+            "name": "trading_period",
+            "in": "query",
+            "required": false,
+            "description": "Lookback period for trades. \nDefault: `1d`",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "1d",
+                "7d",
+                "30d"
+              ]
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "description": "Cursor from the previous response, passed back unchanged to fetch the next page.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "required": false,
+            "description": "Total results per page. \nDefault value: 300 \nValid values: 1...300",
+            "schema": {
+              "type": "integer"
+            }
           }
         ],
         "responses": {
           "200": {
-            "description": "Last 300 trades in past 24 hours from a token across all pools",
+            "description": "Trades from a token across all pools",
             "content": {
               "application/json": {
                 "schema": {
@@ -10954,7 +11534,460 @@
                         "to_token_address": "0xdac17f958d2ee523a2206206994597c13d831ec7"
                       }
                     }
-                  ]
+                  ],
+                  "meta": {
+                    "next_cursor": null
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/onchain/networks/{network}/tokens/{token_address}/trades/range": {
+      "get": {
+        "summary": "Trades within Time Range by Token Address",
+        "description": "To query the trades, across all pools, within a range of timestamp based on the provided token contract address on a network",
+        "operationId": "token-trades-contract-address-range",
+        "x-mint": {
+          "href": "/reference/token-trades-contract-address-range"
+        },
+        "parameters": [
+          {
+            "name": "network",
+            "in": "path",
+            "required": true,
+            "description": "Network ID. \n*refers to [`/onchain/networks`](/reference/networks-list).",
+            "schema": {
+              "type": "string",
+              "default": "eth"
+            }
+          },
+          {
+            "name": "token_address",
+            "in": "path",
+            "required": true,
+            "description": "Token contract address.",
+            "schema": {
+              "type": "string",
+              "default": "0xdac17f958d2ee523a2206206994597c13d831ec7"
+            }
+          },
+          {
+            "name": "trade_volume_in_usd_greater_than",
+            "in": "query",
+            "required": false,
+            "description": "Filter trades by trade volume in USD greater than this value. \nDefault value: 0",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "required": true,
+            "description": "Starting date in ISO date string (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`) or UNIX timestamp. \n**Use ISO date string for best compatibility.**",
+            "schema": {
+              "type": "string",
+              "default": "2026-09-01"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "required": true,
+            "description": "Ending date in ISO date string (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`) or UNIX timestamp. \n**Use ISO date string for best compatibility.**",
+            "schema": {
+              "type": "string",
+              "default": "2026-09-08"
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "description": "Cursor from the previous response, passed back unchanged to fetch the next page.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "required": false,
+            "description": "Total results per page. \nDefault value: 100 \nValid values: 1...300",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Trades from a token across all pools within a time range",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TokenTrades"
+                },
+                "example": {
+                  "data": [
+                    {
+                      "id": "eth_25928919_0xe5278132946375ba292473819aa96c86fd7219d66009a067ed280f679bdf45eb_73_1788825611",
+                      "type": "trade",
+                      "attributes": {
+                        "pool_address": "0x0fb0e40cec3bb23e13abc585958a93c796fbea56955e19a23727a716a0423239",
+                        "pool_dex": "uniswap-v4-ethereum",
+                        "block_number": 25928919,
+                        "tx_hash": "0xe5278132946375ba292473819aa96c86fd7219d66009a067ed280f679bdf45eb",
+                        "tx_from_address": "0xb5469a903df8dad9df1da1341a85f84fd434c724",
+                        "from_token_amount": "2489.650395",
+                        "to_token_amount": "2489.845103",
+                        "price_from_in_currency_token": "0.000401610882268168",
+                        "price_to_in_currency_token": "0.000401008437871588",
+                        "price_from_in_usd": "1.00030427279179",
+                        "price_to_in_usd": "0.9988037464599",
+                        "block_timestamp": "2026-09-07T23:59:59Z",
+                        "kind": "sell",
+                        "volume_in_usd": "2490.40792787628",
+                        "from_token_address": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+                        "to_token_address": "0xdac17f958d2ee523a2206206994597c13d831ec7"
+                      }
+                    },
+                    {
+                      "id": "eth_25928919_0xe5278132946375ba292473819aa96c86fd7219d66009a067ed280f679bdf45eb_67_1788825611",
+                      "type": "trade",
+                      "attributes": {
+                        "pool_address": "0x3b1b1f2e775a6db1664f8e7d59ad568605ea2406312c11aef03146c0cf89d5b9",
+                        "pool_dex": "uniswap-v4-ethereum",
+                        "block_number": 25928919,
+                        "tx_hash": "0xe5278132946375ba292473819aa96c86fd7219d66009a067ed280f679bdf45eb",
+                        "tx_from_address": "0xb5469a903df8dad9df1da1341a85f84fd434c724",
+                        "from_token_amount": "19917.582875",
+                        "to_token_amount": "19919.253008",
+                        "price_from_in_currency_token": "0.000401042063308448",
+                        "price_to_in_currency_token": "0.000401008437871588",
+                        "price_from_in_usd": "0.998887498344251",
+                        "price_to_in_usd": "0.9988037464599",
+                        "block_timestamp": "2026-09-07T23:59:59Z",
+                        "kind": "buy",
+                        "volume_in_usd": "19895.424531073",
+                        "from_token_address": "0xdc035d45d973e3ec169d2276ddab16f1e407384f",
+                        "to_token_address": "0xdac17f958d2ee523a2206206994597c13d831ec7"
+                      }
+                    }
+                  ],
+                  "meta": {
+                    "next_cursor": "eyJidCI6IjIwMjYtMDktMDdUMjM6NTk6NTkuMDAwMDAwMDAwWiIsImJuIjoyNTkyODkxOSwidHgiOiIweGU1Mjc4MTMyOTQ2Mzc1YmEyOTI0NzM4MTlhYTk2Yzg2ZmQ3MjE5ZDY2MDA5YTA2N2VkMjgwZjY3OWJkZjQ1ZWIiLCJsaSI6NjcsIndmIjoxNzg4MjIwODAwLCJmcCI6IjBkYzBiMzc1ZjU5NGE5Y2Y0ZjVkOWRlOTNkN2UxNjU2NTQzZTZlODJlOTEwN2IwMmUxYzRlZjNkZTFiNjgwODAiLCJpYXQiOjE3ODg5Mzk0NDN9"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/onchain/wallets/{address}/balances": {
+      "get": {
+        "summary": "Token Balances by Wallet Address",
+        "description": "To query the token balances of a wallet address across networks",
+        "operationId": "wallet-token-balances",
+        "x-mint": {
+          "href": "/reference/wallet-token-balances"
+        },
+        "parameters": [
+          {
+            "name": "address",
+            "in": "path",
+            "required": true,
+            "description": "Wallet address.",
+            "schema": {
+              "type": "string",
+              "default": "0x9642b23ed1e01df1092b92641051881a322f5d4e"
+            }
+          },
+          {
+            "name": "networks",
+            "in": "query",
+            "required": true,
+            "description": "Query balances by networks, comma-separated if more than one. \n*refers to [supported networks](/reference/wallet-token-balances#supported-networks).",
+            "schema": {
+              "type": "string",
+              "default": "eth,base"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "description": "Sort the holdings by field. \nDefault: `value_usd_desc`",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "value_usd_desc",
+                "value_usd_asc"
+              ]
+            }
+          },
+          {
+            "name": "token_type",
+            "in": "query",
+            "required": false,
+            "description": "Filter holdings by token type. \nOmit to return both.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "native",
+                "non_native"
+              ]
+            }
+          },
+          {
+            "name": "value_usd_min",
+            "in": "query",
+            "required": false,
+            "description": "Minimum holding value in USD.",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "reserve_in_usd_min",
+            "in": "query",
+            "required": false,
+            "description": "Minimum total reserve in USD of the holding's token.",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "Page through results. \nDefault value: 1",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "required": false,
+            "description": "Total results per page. \nDefault value: 50 \nValid values: 1...100",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Wallet token balances data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WalletTokenBalances"
+                },
+                "example": {
+                  "data": {
+                    "id": "0x9642b23ed1e01df1092b92641051881a322f5d4e",
+                    "type": "wallet_balance",
+                    "attributes": {
+                      "wallet_address": "0x9642b23ed1e01df1092b92641051881a322f5d4e",
+                      "total_value_usd": "91333695.8924553249294795652",
+                      "total_holdings": 3235,
+                      "networks": [
+                        {
+                          "network": "eth",
+                          "value_usd": "91333647.2139247191042473531",
+                          "holdings": 2784,
+                          "last_updated_at": "2026-09-09T04:53:53Z"
+                        },
+                        {
+                          "network": "base",
+                          "value_usd": "48.6785306058252322121",
+                          "holdings": 451,
+                          "last_updated_at": "2026-09-09T04:54:00Z"
+                        }
+                      ],
+                      "balances": [
+                        {
+                          "network": "eth",
+                          "address": "0xae7ab96520de3a18e5e111b5eaab095312d7fe84",
+                          "token_type": "erc20",
+                          "name": "Liquid staked Ether 2.0",
+                          "symbol": "stETH",
+                          "decimals": 18,
+                          "coingecko_coin_id": "staked-ether",
+                          "balance_raw": "1285426654835126578249",
+                          "balance": "1285.426654835126578249",
+                          "price_usd": "2505.0197550041",
+                          "value_usd": "3220019.16397083",
+                          "h24_price_change_percentage": "1.1092026358",
+                          "total_reserve_in_usd": "76309888.5752643"
+                        },
+                        {
+                          "network": "base",
+                          "address": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+                          "token_type": "native",
+                          "name": "Ether",
+                          "symbol": "ETH",
+                          "decimals": 18,
+                          "coingecko_coin_id": "ethereum",
+                          "balance_raw": "5689474631933105",
+                          "balance": "0.005689474631933105",
+                          "price_usd": "2509.94",
+                          "value_usd": "14.2802399576741775637",
+                          "h24_price_change_percentage": "1.1788611331",
+                          "total_reserve_in_usd": "278512639.26086519127010524563602976339460900489983579581997256928854127324623998556078866976287286661445830154567340658840423188339231363233349708668987943412959855507040548920851997937663037191656718770585834579091087234485520736930186246070127797108954047881409466115545016797903075072"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/onchain/networks/{network}/wallets/{address}/transfers": {
+      "get": {
+        "summary": "Token Transfers by Wallet Address",
+        "description": "To query the token transfers of a wallet address on a network",
+        "operationId": "wallet-token-transfers",
+        "x-mint": {
+          "href": "/reference/wallet-token-transfers"
+        },
+        "parameters": [
+          {
+            "name": "network",
+            "in": "path",
+            "required": true,
+            "description": "Network ID. \n*refers to [supported networks](/reference/wallet-token-transfers#supported-networks).",
+            "schema": {
+              "type": "string",
+              "default": "eth"
+            }
+          },
+          {
+            "name": "address",
+            "in": "path",
+            "required": true,
+            "description": "Wallet address.",
+            "schema": {
+              "type": "string",
+              "default": "0x9642b23ed1e01df1092b92641051881a322f5d4e"
+            }
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "required": false,
+            "description": "Filter transfers by token contract address.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "required": false,
+            "description": "Starting date in ISO date string (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`) or UNIX timestamp. \n**Use ISO date string for best compatibility.** \nMust be provided together with `to`.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "required": false,
+            "description": "Ending date in ISO date string (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`) or UNIX timestamp. \n**Use ISO date string for best compatibility.** \nMust be provided together with `from`.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "direction",
+            "in": "query",
+            "required": false,
+            "description": "Filter transfers by direction, relative to the queried wallet. \nOmit to return both.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "in",
+                "out"
+              ]
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "description": "Cursor from the previous response, passed back unchanged to fetch the next page.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "required": false,
+            "description": "Total results per page. \nDefault value: 100 \nValid values: 1...300",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Wallet token transfers data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WalletTokenTransfers"
+                },
+                "example": {
+                  "data": [
+                    {
+                      "id": "eth_25937833_0xe3d3005d33af5e5ea60ebe3c16436691ac44a862f7f7bdf133114c0b4110d9f0_299_out",
+                      "type": "transfer",
+                      "attributes": {
+                        "block_number": 25937833,
+                        "tx_hash": "0xe3d3005d33af5e5ea60ebe3c16436691ac44a862f7f7bdf133114c0b4110d9f0",
+                        "direction": "out",
+                        "token_address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+                        "amount_raw": "7999906000",
+                        "amount": "7999.906",
+                        "block_timestamp": "2026-09-09T05:50:11Z",
+                        "from_address": "0x9642b23ed1e01df1092b92641051881a322f5d4e",
+                        "to_address": "0xf8932784396f4f122bbb7ff62fab2a85e400646b",
+                        "name": "Tether USD",
+                        "symbol": "USDT",
+                        "decimals": 6
+                      }
+                    },
+                    {
+                      "id": "eth_25937832_0x0f8c5a214905a7590e9b4f55821e89dd790e8569f2f91db46cce0cb13f8023fb_144_in",
+                      "type": "transfer",
+                      "attributes": {
+                        "block_number": 25937832,
+                        "tx_hash": "0x0f8c5a214905a7590e9b4f55821e89dd790e8569f2f91db46cce0cb13f8023fb",
+                        "direction": "in",
+                        "token_address": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+                        "amount_raw": "3401000000",
+                        "amount": "3401.0",
+                        "block_timestamp": "2026-09-09T05:49:59Z",
+                        "from_address": "0x5fa654326317a2a5d69bc97e5a0ea9fe6f092cd5",
+                        "to_address": "0x9642b23ed1e01df1092b92641051881a322f5d4e",
+                        "name": "USD Coin",
+                        "symbol": "USDC",
+                        "decimals": 6
+                      }
+                    }
+                  ],
+                  "meta": {
+                    "next_cursor": "eyJibG9ja19udW1iZXIiOjI1OTM3ODMyLCJsb2dfaW5kZXgiOjE0NCwiZGlyZWN0aW9uIjoiaW4iLCJmcm9tIjoxNzg4MzI4MjQ3LCJ0byI6MTc4ODkzMzA0N30"
+                  }
                 }
               }
             }
@@ -12150,6 +13183,126 @@
         }
       }
     },
+    "/onchain/simple/token_price/multi": {
+      "get": {
+        "summary": "Token Price by Token Addresses across Networks",
+        "description": "To get token prices based on the provided token contract addresses across multiple networks in a single request",
+        "operationId": "onchain-simple-price-multi",
+        "x-mint": {
+          "href": "/reference/onchain-simple-price-multi"
+        },
+        "parameters": [
+          {
+            "name": "tokens",
+            "in": "query",
+            "required": true,
+            "description": "Network ID and token contract address pairs in `network_id:token_address` format, comma-separated if more than one. \nMaximum: 50 \n*refers to [`/onchain/networks`](/reference/networks-list).",
+            "schema": {
+              "type": "string",
+              "default": "eth:0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,solana:6NwarBvDkXhByqVp2Qkq5i9XbtA2B3Bwe8SWGu9vpump"
+            }
+          },
+          {
+            "name": "include_market_cap",
+            "in": "query",
+            "required": false,
+            "description": "Include market capitalization. \nDefault: `false`",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "mcap_fdv_fallback",
+            "in": "query",
+            "required": false,
+            "description": "Return FDV if market cap is not available. \nDefault: `false`",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "include_24hr_vol",
+            "in": "query",
+            "required": false,
+            "description": "Include 24hr volume. \nDefault: `false`",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "include_24hr_price_change",
+            "in": "query",
+            "required": false,
+            "description": "Include 24hr price change. \nDefault: `false`",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "include_total_reserve_in_usd",
+            "in": "query",
+            "required": false,
+            "description": "Include total reserve in USD. \nDefault: `false`",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "include_inactive_source",
+            "in": "query",
+            "required": false,
+            "description": "Include token price data from inactive pools using the most recent swap. \nDefault: `false`",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Token price data across networks",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OnchainSimplePriceMulti"
+                },
+                "example": {
+                  "data": {
+                    "id": "1965b339-94a3-4a77-9475-2c3248081bcf",
+                    "type": "simple_token_price",
+                    "attributes": {
+                      "token_prices": {
+                        "solana:6NwarBvDkXhByqVp2Qkq5i9XbtA2B3Bwe8SWGu9vpump": "0.00725052986758138039267632966543134822451730159307662487006330525",
+                        "eth:0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": "2472.55"
+                      },
+                      "market_cap_usd": {
+                        "solana:6NwarBvDkXhByqVp2Qkq5i9XbtA2B3Bwe8SWGu9vpump": "7247388.521391886",
+                        "eth:0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": "5102178003.805862"
+                      },
+                      "h24_volume_usd": {
+                        "solana:6NwarBvDkXhByqVp2Qkq5i9XbtA2B3Bwe8SWGu9vpump": "675469.233689449",
+                        "eth:0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": "375011671.541306"
+                      },
+                      "h24_price_change_percentage": {
+                        "solana:6NwarBvDkXhByqVp2Qkq5i9XbtA2B3Bwe8SWGu9vpump": "-25.041400507465255",
+                        "eth:0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": "-1.7249945348675306"
+                      },
+                      "total_reserve_in_usd": {
+                        "solana:6NwarBvDkXhByqVp2Qkq5i9XbtA2B3Bwe8SWGu9vpump": "269041.15769788764465650874159",
+                        "eth:0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": "897342937.857452743743894395950846065408962664417022104817193141774571367472718031454441201623527425"
+                      },
+                      "last_trade_timestamp": {
+                        "solana:6NwarBvDkXhByqVp2Qkq5i9XbtA2B3Bwe8SWGu9vpump": "1789028068",
+                        "eth:0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": "1789027367"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/onchain/networks": {
       "get": {
         "summary": "Networks List",
@@ -13002,6 +14155,7 @@
               },
               "subreddit_url": {
                 "type": "string",
+                "nullable": true,
                 "description": "Subreddit URL"
               },
               "repos_url": {
@@ -18796,6 +19950,19 @@
                 }
               }
             }
+          },
+          "meta": {
+            "type": "object",
+            "required": [
+              "next_cursor"
+            ],
+            "properties": {
+              "next_cursor": {
+                "type": "string",
+                "nullable": true,
+                "description": "Cursor for the next page, null when there are no further pages"
+              }
+            }
           }
         }
       },
@@ -19237,6 +20404,19 @@
                     }
                   }
                 }
+              }
+            }
+          },
+          "meta": {
+            "type": "object",
+            "required": [
+              "next_cursor"
+            ],
+            "properties": {
+              "next_cursor": {
+                "type": "string",
+                "nullable": true,
+                "description": "Cursor for the next page, null when there are no further pages"
               }
             }
           }
@@ -19984,6 +21164,160 @@
           }
         }
       },
+      "MultiNetworkTokenItem": {
+        "type": "object",
+        "required": [
+          "id",
+          "type",
+          "attributes",
+          "relationships"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Token identifier"
+          },
+          "type": {
+            "type": "string",
+            "description": "Resource type"
+          },
+          "attributes": {
+            "type": "object",
+            "required": [
+              "network",
+              "address",
+              "name",
+              "symbol",
+              "decimals",
+              "image_url",
+              "coingecko_coin_id",
+              "total_supply",
+              "normalized_total_supply",
+              "price_usd",
+              "fdv_usd",
+              "total_reserve_in_usd",
+              "volume_usd",
+              "market_cap_usd"
+            ],
+            "properties": {
+              "network": {
+                "type": "string",
+                "description": "Network ID of the token"
+              },
+              "address": {
+                "type": "string",
+                "description": "Token contract address"
+              },
+              "name": {
+                "type": "string",
+                "description": "Token name"
+              },
+              "symbol": {
+                "type": "string",
+                "description": "Token symbol"
+              },
+              "decimals": {
+                "type": "integer",
+                "description": "Token decimals"
+              },
+              "image_url": {
+                "type": "string",
+                "nullable": true,
+                "description": "Token image URL"
+              },
+              "coingecko_coin_id": {
+                "type": "string",
+                "nullable": true,
+                "description": "CoinGecko coin ID"
+              },
+              "total_supply": {
+                "type": "string",
+                "description": "Token total supply"
+              },
+              "normalized_total_supply": {
+                "type": "string",
+                "description": "Normalized token total supply"
+              },
+              "price_usd": {
+                "type": "string",
+                "nullable": true,
+                "description": "Token price in USD"
+              },
+              "fdv_usd": {
+                "type": "string",
+                "nullable": true,
+                "description": "Fully diluted valuation in USD"
+              },
+              "total_reserve_in_usd": {
+                "type": "string",
+                "description": "Total reserve in USD across all pools"
+              },
+              "volume_usd": {
+                "type": "object",
+                "description": "Volume in USD",
+                "properties": {
+                  "h24": {
+                    "type": "string"
+                  }
+                }
+              },
+              "market_cap_usd": {
+                "type": "string",
+                "nullable": true,
+                "description": "Market cap in USD"
+              },
+              "last_trade_timestamp": {
+                "type": "string",
+                "description": "Last trade timestamp in UNIX"
+              },
+              "launchpad_details": {
+                "type": "object",
+                "description": "Launchpad details for pump-style tokens",
+                "properties": {
+                  "graduation_percentage": {
+                    "type": "number"
+                  },
+                  "completed": {
+                    "type": "boolean"
+                  },
+                  "completed_at": {
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "migrated_destination_pool_address": {
+                    "type": "string",
+                    "nullable": true
+                  }
+                }
+              }
+            }
+          },
+          "relationships": {
+            "type": "object",
+            "properties": {
+              "top_pools": {
+                "type": "object",
+                "properties": {
+                  "data": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "type": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
       "MultiTokenData": {
         "type": "object",
         "required": [
@@ -20201,6 +21535,304 @@
                     },
                     "reserve_in_usd": {
                       "type": "string"
+                    }
+                  }
+                },
+                "relationships": {
+                  "type": "object",
+                  "properties": {
+                    "base_token": {
+                      "type": "object",
+                      "properties": {
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "type": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "quote_token": {
+                      "type": "object",
+                      "properties": {
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "type": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "dex": {
+                      "type": "object",
+                      "properties": {
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "type": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "MultiNetworkTokenData": {
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MultiNetworkTokenItem"
+            }
+          },
+          "included": {
+            "type": "array",
+            "description": "Included top pool data, present when include=top_pools is specified",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "attributes": {
+                  "type": "object",
+                  "properties": {
+                    "base_token_price_usd": {
+                      "type": "string"
+                    },
+                    "base_token_price_native_currency": {
+                      "type": "string"
+                    },
+                    "base_token_balance": {
+                      "type": "string",
+                      "description": "Base token balance in pool"
+                    },
+                    "base_token_liquidity_usd": {
+                      "type": "string",
+                      "description": "Base token liquidity in USD"
+                    },
+                    "quote_token_price_usd": {
+                      "type": "string"
+                    },
+                    "quote_token_price_native_currency": {
+                      "type": "string"
+                    },
+                    "quote_token_balance": {
+                      "type": "string",
+                      "description": "Quote token balance in pool"
+                    },
+                    "quote_token_liquidity_usd": {
+                      "type": "string",
+                      "description": "Quote token liquidity in USD"
+                    },
+                    "base_token_price_quote_token": {
+                      "type": "string"
+                    },
+                    "quote_token_price_base_token": {
+                      "type": "string"
+                    },
+                    "address": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "pool_created_at": {
+                      "type": "string"
+                    },
+                    "fdv_usd": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "market_cap_usd": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "price_change_percentage": {
+                      "type": "object",
+                      "properties": {
+                        "m5": {
+                          "type": "string"
+                        },
+                        "m15": {
+                          "type": "string"
+                        },
+                        "m30": {
+                          "type": "string"
+                        },
+                        "h1": {
+                          "type": "string"
+                        },
+                        "h6": {
+                          "type": "string"
+                        },
+                        "h24": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "transactions": {
+                      "type": "object",
+                      "properties": {
+                        "m5": {
+                          "type": "object",
+                          "properties": {
+                            "buys": {
+                              "type": "integer"
+                            },
+                            "sells": {
+                              "type": "integer"
+                            },
+                            "buyers": {
+                              "type": "integer"
+                            },
+                            "sellers": {
+                              "type": "integer"
+                            }
+                          }
+                        },
+                        "m15": {
+                          "type": "object",
+                          "properties": {
+                            "buys": {
+                              "type": "integer"
+                            },
+                            "sells": {
+                              "type": "integer"
+                            },
+                            "buyers": {
+                              "type": "integer"
+                            },
+                            "sellers": {
+                              "type": "integer"
+                            }
+                          }
+                        },
+                        "m30": {
+                          "type": "object",
+                          "properties": {
+                            "buys": {
+                              "type": "integer"
+                            },
+                            "sells": {
+                              "type": "integer"
+                            },
+                            "buyers": {
+                              "type": "integer"
+                            },
+                            "sellers": {
+                              "type": "integer"
+                            }
+                          }
+                        },
+                        "h1": {
+                          "type": "object",
+                          "properties": {
+                            "buys": {
+                              "type": "integer"
+                            },
+                            "sells": {
+                              "type": "integer"
+                            },
+                            "buyers": {
+                              "type": "integer"
+                            },
+                            "sellers": {
+                              "type": "integer"
+                            }
+                          }
+                        },
+                        "h6": {
+                          "type": "object",
+                          "properties": {
+                            "buys": {
+                              "type": "integer"
+                            },
+                            "sells": {
+                              "type": "integer"
+                            },
+                            "buyers": {
+                              "type": "integer"
+                            },
+                            "sellers": {
+                              "type": "integer"
+                            }
+                          }
+                        },
+                        "h24": {
+                          "type": "object",
+                          "properties": {
+                            "buys": {
+                              "type": "integer"
+                            },
+                            "sells": {
+                              "type": "integer"
+                            },
+                            "buyers": {
+                              "type": "integer"
+                            },
+                            "sellers": {
+                              "type": "integer"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "volume_usd": {
+                      "type": "object",
+                      "properties": {
+                        "m5": {
+                          "type": "string"
+                        },
+                        "m15": {
+                          "type": "string"
+                        },
+                        "m30": {
+                          "type": "string"
+                        },
+                        "h1": {
+                          "type": "string"
+                        },
+                        "h6": {
+                          "type": "string"
+                        },
+                        "h24": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "reserve_in_usd": {
+                      "type": "string"
+                    },
+                    "last_trade_timestamp": {
+                      "type": "string",
+                      "description": "Last trade timestamp in UNIX"
                     }
                   }
                 },
@@ -21387,6 +23019,82 @@
           }
         }
       },
+      "OnchainSimplePriceMulti": {
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "properties": {
+          "data": {
+            "type": "object",
+            "required": [
+              "id",
+              "type",
+              "attributes"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "Request ID"
+              },
+              "type": {
+                "type": "string",
+                "description": "Response type"
+              },
+              "attributes": {
+                "type": "object",
+                "required": [
+                  "token_prices"
+                ],
+                "properties": {
+                  "token_prices": {
+                    "type": "object",
+                    "description": "Token prices keyed by network ID and contract address",
+                    "additionalProperties": {
+                      "type": "string"
+                    }
+                  },
+                  "market_cap_usd": {
+                    "type": "object",
+                    "description": "Market cap in USD keyed by network ID and contract address",
+                    "additionalProperties": {
+                      "type": "string"
+                    }
+                  },
+                  "h24_volume_usd": {
+                    "type": "object",
+                    "description": "24hr volume in USD keyed by network ID and contract address",
+                    "additionalProperties": {
+                      "type": "string"
+                    }
+                  },
+                  "h24_price_change_percentage": {
+                    "type": "object",
+                    "description": "24hr price change percentage keyed by network ID and contract address",
+                    "additionalProperties": {
+                      "type": "string"
+                    }
+                  },
+                  "total_reserve_in_usd": {
+                    "type": "object",
+                    "description": "Total reserve in USD keyed by network ID and contract address",
+                    "additionalProperties": {
+                      "type": "string"
+                    }
+                  },
+                  "last_trade_timestamp": {
+                    "type": "object",
+                    "description": "Last trade timestamp keyed by network ID and contract address",
+                    "additionalProperties": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
       "DexesList": {
         "type": "object",
         "required": [
@@ -21863,6 +23571,22 @@
                       "description": "Issuer name"
                     }
                   }
+                },
+                "perps_market_data": {
+                  "type": "object",
+                  "description": "Perpetuals market data of the token",
+                  "properties": {
+                    "volume_24h": {
+                      "type": "number",
+                      "nullable": true,
+                      "description": "24-hour perpetuals trading volume in target currency"
+                    },
+                    "open_interest_24h": {
+                      "type": "number",
+                      "nullable": true,
+                      "description": "24-hour perpetuals open interest in target currency"
+                    }
+                  }
                 }
               }
             }
@@ -21968,6 +23692,22 @@
                 "type": "number",
                 "nullable": true,
                 "description": "1-year price change percentage in target currency"
+              }
+            }
+          },
+          "perps_market_data": {
+            "type": "object",
+            "description": "Aggregated perpetuals market data",
+            "properties": {
+              "volume_24h": {
+                "type": "number",
+                "nullable": true,
+                "description": "24-hour perpetuals trading volume in target currency"
+              },
+              "open_interest_24h": {
+                "type": "number",
+                "nullable": true,
+                "description": "24-hour perpetuals open interest in target currency"
               }
             }
           },
@@ -22236,6 +23976,24 @@
             "nullable": true,
             "description": "24-hour issuer trading volume in USD"
           },
+          "image": {
+            "type": "object",
+            "description": "Issuer image URLs",
+            "properties": {
+              "thumb": {
+                "type": "string",
+                "description": "Thumbnail image URL"
+              },
+              "small": {
+                "type": "string",
+                "description": "Small image URL"
+              },
+              "large": {
+                "type": "string",
+                "description": "Large image URL"
+              }
+            }
+          },
           "tokens": {
             "type": "array",
             "description": "Tokens issued by this issuer",
@@ -22268,6 +24026,282 @@
             "type": "string",
             "format": "date-time",
             "description": "Issuer last updated timestamp"
+          }
+        }
+      },
+      "WalletTokenBalances": {
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "properties": {
+          "data": {
+            "type": "object",
+            "required": [
+              "id",
+              "type",
+              "attributes"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "Wallet address"
+              },
+              "type": {
+                "type": "string",
+                "description": "Response type"
+              },
+              "attributes": {
+                "type": "object",
+                "required": [
+                  "wallet_address",
+                  "total_value_usd",
+                  "total_holdings",
+                  "networks",
+                  "balances"
+                ],
+                "properties": {
+                  "wallet_address": {
+                    "type": "string",
+                    "description": "Wallet address queried"
+                  },
+                  "total_value_usd": {
+                    "type": "string",
+                    "description": "Total value of matching holdings in USD, across the requested networks only"
+                  },
+                  "total_holdings": {
+                    "type": "integer",
+                    "description": "Number of matching holdings across the requested networks only"
+                  },
+                  "networks": {
+                    "type": "array",
+                    "description": "Value and holding count per network, listing only networks holding a matching balance",
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "network",
+                        "value_usd",
+                        "holdings",
+                        "last_updated_at"
+                      ],
+                      "properties": {
+                        "network": {
+                          "type": "string",
+                          "description": "Network ID"
+                        },
+                        "value_usd": {
+                          "type": "string",
+                          "description": "Total value of matching holdings on this network in USD"
+                        },
+                        "holdings": {
+                          "type": "integer",
+                          "description": "Number of matching holdings on this network"
+                        },
+                        "last_updated_at": {
+                          "type": "string",
+                          "format": "date-time",
+                          "description": "Last updated timestamp"
+                        }
+                      }
+                    }
+                  },
+                  "balances": {
+                    "type": "array",
+                    "description": "Token holdings, one entry per token",
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "network",
+                        "address",
+                        "token_type",
+                        "name",
+                        "symbol",
+                        "decimals",
+                        "coingecko_coin_id",
+                        "balance_raw",
+                        "balance",
+                        "price_usd",
+                        "value_usd",
+                        "h24_price_change_percentage",
+                        "total_reserve_in_usd"
+                      ],
+                      "properties": {
+                        "network": {
+                          "type": "string",
+                          "description": "Network ID"
+                        },
+                        "address": {
+                          "type": "string",
+                          "description": "Token contract address"
+                        },
+                        "token_type": {
+                          "type": "string",
+                          "description": "Token type, such as native, erc20 or spl"
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "Token name"
+                        },
+                        "symbol": {
+                          "type": "string",
+                          "description": "Token symbol"
+                        },
+                        "decimals": {
+                          "type": "integer",
+                          "description": "Token decimals"
+                        },
+                        "coingecko_coin_id": {
+                          "type": "string",
+                          "nullable": true,
+                          "description": "CoinGecko coin ID"
+                        },
+                        "balance_raw": {
+                          "type": "string",
+                          "description": "Token balance in the smallest unit, before decimals are applied"
+                        },
+                        "balance": {
+                          "type": "string",
+                          "nullable": true,
+                          "description": "Token balance at full precision"
+                        },
+                        "price_usd": {
+                          "type": "string",
+                          "nullable": true,
+                          "description": "Token price in USD"
+                        },
+                        "value_usd": {
+                          "type": "string",
+                          "nullable": true,
+                          "description": "Value of the holding in USD"
+                        },
+                        "h24_price_change_percentage": {
+                          "type": "string",
+                          "nullable": true,
+                          "description": "24hr price change percentage"
+                        },
+                        "total_reserve_in_usd": {
+                          "type": "string",
+                          "nullable": true,
+                          "description": "Total reserve in USD across all pools of the token"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "WalletTokenTransfers": {
+        "type": "object",
+        "required": [
+          "data",
+          "meta"
+        ],
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "type",
+                "attributes"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "Transfer identifier"
+                },
+                "type": {
+                  "type": "string",
+                  "description": "Resource type"
+                },
+                "attributes": {
+                  "type": "object",
+                  "required": [
+                    "block_number",
+                    "tx_hash",
+                    "direction",
+                    "token_address",
+                    "amount_raw",
+                    "amount",
+                    "block_timestamp",
+                    "from_address",
+                    "to_address",
+                    "name",
+                    "symbol",
+                    "decimals"
+                  ],
+                  "properties": {
+                    "block_number": {
+                      "type": "integer",
+                      "description": "Block number of the transfer"
+                    },
+                    "tx_hash": {
+                      "type": "string",
+                      "description": "Transaction hash"
+                    },
+                    "direction": {
+                      "type": "string",
+                      "description": "Transfer direction relative to the queried wallet, either in or out"
+                    },
+                    "token_address": {
+                      "type": "string",
+                      "description": "Token contract address"
+                    },
+                    "amount_raw": {
+                      "type": "string",
+                      "description": "Transfer amount in the smallest unit, before decimals are applied"
+                    },
+                    "amount": {
+                      "type": "string",
+                      "nullable": true,
+                      "description": "Transfer amount at full precision"
+                    },
+                    "block_timestamp": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Block timestamp of the transfer"
+                    },
+                    "from_address": {
+                      "type": "string",
+                      "description": "Sender address"
+                    },
+                    "to_address": {
+                      "type": "string",
+                      "description": "Recipient address"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "Token name"
+                    },
+                    "symbol": {
+                      "type": "string",
+                      "description": "Token symbol"
+                    },
+                    "decimals": {
+                      "type": "integer",
+                      "description": "Token decimals"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "meta": {
+            "type": "object",
+            "required": [
+              "next_cursor"
+            ],
+            "properties": {
+              "next_cursor": {
+                "type": "string",
+                "nullable": true,
+                "description": "Cursor for the next page, null when there are no further pages"
+              }
+            }
           }
         }
       }
