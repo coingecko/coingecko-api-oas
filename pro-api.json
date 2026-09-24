@@ -11838,7 +11838,7 @@
                           "price_usd": "2509.94",
                           "value_usd": "14.2802399576741775637",
                           "h24_price_change_percentage": "1.1788611331",
-                          "total_reserve_in_usd": "278512639.26086519127010524563602976339460900489983579581997256928854127324623998556078866976287286661445830154567340658840423188339231363233349708668987943412959855507040548920851997937663037191656718770585834579091087234485520736930186246070127797108954047881409466115545016797903075072"
+                          "total_reserve_in_usd": "278512639.260865"
                         }
                       ]
                     }
@@ -11987,6 +11987,288 @@
                   ],
                   "meta": {
                     "next_cursor": "eyJibG9ja19udW1iZXIiOjI1OTM3ODMyLCJsb2dfaW5kZXgiOjE0NCwiZGlyZWN0aW9uIjoiaW4iLCJmcm9tIjoxNzg4MzI4MjQ3LCJ0byI6MTc4ODkzMzA0N30"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/onchain/networks/{network}/wallets/{address}/trades": {
+      "get": {
+        "summary": "Trades by Wallet Address",
+        "description": "To query the trades of a wallet address on a network",
+        "operationId": "wallet-trades",
+        "x-mint": {
+          "href": "/reference/wallet-trades"
+        },
+        "parameters": [
+          {
+            "name": "network",
+            "in": "path",
+            "required": true,
+            "description": "Network ID. \n*refers to [`/onchain/networks`](/reference/networks-list).",
+            "schema": {
+              "type": "string",
+              "default": "eth"
+            }
+          },
+          {
+            "name": "address",
+            "in": "path",
+            "required": true,
+            "description": "Wallet address.",
+            "schema": {
+              "type": "string",
+              "default": "0x7942262a7a5637e6eb0eec9b91b55ec232141f87"
+            }
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "required": false,
+            "description": "Filter trades by token contract address, returning only trades involving this token.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "required": false,
+            "description": "Starting date in ISO date string (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`) or UNIX timestamp. \n**Use ISO date string for best compatibility.** \nMust be provided together with `to`.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "required": false,
+            "description": "Ending date in ISO date string (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`) or UNIX timestamp. \n**Use ISO date string for best compatibility.** \nMust be provided together with `from`.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "description": "Cursor from the previous response, passed back unchanged to fetch the next page.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "required": false,
+            "description": "Total results per page. \nDefault value: 100 \nValid values: 1...300",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Wallet trades data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WalletTrades"
+                },
+                "example": {
+                  "data": [
+                    {
+                      "id": "eth_26014653_0x62cea982714040d1e3ccbbb7b34f2038b21ad8f0807f38ab5b649937328f2e21_70_1789858264",
+                      "type": "trade",
+                      "attributes": {
+                        "pool_address": "0x86ce2637f272a2972b0652492c4830458d008d29",
+                        "pool_dex": "uniswap_v2",
+                        "block_number": 26014653,
+                        "block_timestamp": "2026-09-19T22:50:59Z",
+                        "tx_hash": "0x62cea982714040d1e3ccbbb7b34f2038b21ad8f0807f38ab5b649937328f2e21",
+                        "tx_from_address": "0x7942262a7a5637e6eb0eec9b91b55ec232141f87",
+                        "kind": "sell",
+                        "from_token_address": "0x12419a0427c2a27a61c1cb4a49f5fad24fd4e671",
+                        "to_token_address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+                        "from_token_amount": "103506.532814702",
+                        "to_token_amount": "0.00501453238225022",
+                        "price_from_in_usd": "0.000127363990398952",
+                        "price_to_in_usd": "2628.96",
+                        "price_from_in_currency_token": "0.0000000484465303385948",
+                        "price_to_in_currency_token": "1.0",
+                        "volume_in_usd": "13.1830050516405"
+                      }
+                    },
+                    {
+                      "id": "eth_26010581_0x7ee572c77ff5ff2fa994eb75ae2a02220313eae9cd68e057bf505a83330d63a9_146_1789809092",
+                      "type": "trade",
+                      "attributes": {
+                        "pool_address": "0x40efafe9250b43b7c1be0ec1a75e4e7526559507",
+                        "pool_dex": "uniswap_v2",
+                        "block_number": 26010581,
+                        "block_timestamp": "2026-09-19T09:11:23Z",
+                        "tx_hash": "0x7ee572c77ff5ff2fa994eb75ae2a02220313eae9cd68e057bf505a83330d63a9",
+                        "tx_from_address": "0x7942262a7a5637e6eb0eec9b91b55ec232141f87",
+                        "kind": "buy",
+                        "from_token_address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+                        "to_token_address": "0x57737ded3870e43fed7d80d31e0ced3d5fb0cccc",
+                        "from_token_amount": "0.198",
+                        "to_token_amount": "2119603.73334363",
+                        "price_from_in_usd": "2652.59",
+                        "price_to_in_usd": "0.00024778821236151",
+                        "price_from_in_currency_token": "1.0",
+                        "price_to_in_currency_token": "0.0000000934136871365381",
+                        "volume_in_usd": "525.21282"
+                      }
+                    }
+                  ],
+                  "meta": {
+                    "next_cursor": null
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/onchain/wallets/{address}/pnl": {
+      "get": {
+        "summary": "PnL by Wallet Address",
+        "description": "To query the PnL of a wallet address across networks",
+        "operationId": "wallet-pnl",
+        "x-mint": {
+          "href": "/reference/wallet-pnl"
+        },
+        "parameters": [
+          {
+            "name": "address",
+            "in": "path",
+            "required": true,
+            "description": "Wallet address.",
+            "schema": {
+              "type": "string",
+              "default": "0x4b3f1048c55faa0c0873e249e541139360501f2a"
+            }
+          },
+          {
+            "name": "networks",
+            "in": "query",
+            "required": true,
+            "description": "Query PnL by networks, comma-separated if more than one. \n*refers to [`/onchain/networks`](/reference/networks-list).",
+            "schema": {
+              "type": "string",
+              "default": "eth,base"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "description": "Sort the token stats by field. \nDefault: `realized_pnl_usd_desc`",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "realized_pnl_usd_desc",
+                "unrealized_pnl_usd_desc",
+                "total_buy_usd_desc",
+                "total_sell_usd_desc",
+                "token_balance_desc"
+              ]
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "Page through results. \nDefault value: 1",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "required": false,
+            "description": "Total results per page. \nDefault value: 100 \nValid values: 1...300",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Wallet PnL data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WalletPnl"
+                },
+                "example": {
+                  "data": {
+                    "id": "0x4b3f1048c55faa0c0873e249e541139360501f2a",
+                    "type": "wallet_pnl",
+                    "attributes": {
+                      "wallet_address": "0x4b3f1048c55faa0c0873e249e541139360501f2a",
+                      "total_realized_pnl_usd": "17831328.189418429",
+                      "total_unrealized_pnl_usd": "-5265158.4349284421",
+                      "total_tokens": 47,
+                      "networks": [
+                        {
+                          "network": "eth",
+                          "realized_pnl_usd": "13365120.67931429",
+                          "unrealized_pnl_usd": "-1425379.6227395136",
+                          "tokens": 35
+                        },
+                        {
+                          "network": "base",
+                          "realized_pnl_usd": "4466207.510104139",
+                          "unrealized_pnl_usd": "-3839778.8121889285",
+                          "tokens": 12
+                        }
+                      ],
+                      "token_stats": [
+                        {
+                          "network": "eth",
+                          "address": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+                          "name": "Wrapped liquid staked Ether 2.0",
+                          "symbol": "wstETH",
+                          "decimals": 18,
+                          "realized_pnl_usd": "4301337.150173959",
+                          "unrealized_pnl_usd": null,
+                          "token_balance": null,
+                          "average_buy_price_usd": "3948.371209968930021553881069349236062352",
+                          "average_sell_price_usd": "3711.766598724373102968109799056730691612",
+                          "total_buy_count": 13,
+                          "total_sell_count": 15,
+                          "total_buy_token_amount": "1999.0764297846674",
+                          "total_sell_token_amount": "3285.344767166688",
+                          "total_buy_usd": "7893095.821889256",
+                          "total_sell_usd": "12194432.972063215"
+                        },
+                        {
+                          "network": "base",
+                          "address": "0xb095274743941e953c746f9c228da9c18bb6ec29",
+                          "name": "LAPTOP",
+                          "symbol": "LAPTOP",
+                          "decimals": 18,
+                          "realized_pnl_usd": "2148309.480276389",
+                          "unrealized_pnl_usd": null,
+                          "token_balance": null,
+                          "average_buy_price_usd": "0.0",
+                          "average_sell_price_usd": "3.621834900281358161020306665",
+                          "total_buy_count": 0,
+                          "total_sell_count": 416,
+                          "total_buy_token_amount": "0.0",
+                          "total_sell_token_amount": "593155.0",
+                          "total_buy_usd": "0.0",
+                          "total_sell_usd": "2148309.480276389"
+                        }
+                      ]
+                    }
                   }
                 }
               }
@@ -24300,6 +24582,316 @@
                 "type": "string",
                 "nullable": true,
                 "description": "Cursor for the next page, null when there are no further pages"
+              }
+            }
+          }
+        }
+      },
+      "WalletTrades": {
+        "type": "object",
+        "required": [
+          "data",
+          "meta"
+        ],
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "type",
+                "attributes"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "Trade identifier"
+                },
+                "type": {
+                  "type": "string",
+                  "description": "Resource type"
+                },
+                "attributes": {
+                  "type": "object",
+                  "required": [
+                    "pool_address",
+                    "pool_dex",
+                    "block_number",
+                    "block_timestamp",
+                    "tx_hash",
+                    "tx_from_address",
+                    "kind",
+                    "from_token_address",
+                    "to_token_address",
+                    "from_token_amount",
+                    "to_token_amount",
+                    "price_from_in_usd",
+                    "price_to_in_usd",
+                    "price_from_in_currency_token",
+                    "price_to_in_currency_token",
+                    "volume_in_usd"
+                  ],
+                  "properties": {
+                    "pool_address": {
+                      "type": "string",
+                      "description": "Pool contract address where the trade occurred"
+                    },
+                    "pool_dex": {
+                      "type": "string",
+                      "description": "DEX identifier of the pool"
+                    },
+                    "block_number": {
+                      "type": "integer",
+                      "description": "Block number of the trade"
+                    },
+                    "block_timestamp": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Block timestamp of the trade"
+                    },
+                    "tx_hash": {
+                      "type": "string",
+                      "description": "Transaction hash"
+                    },
+                    "tx_from_address": {
+                      "type": "string",
+                      "description": "Transaction sender address"
+                    },
+                    "kind": {
+                      "type": "string",
+                      "description": "Trade kind, either buy or sell"
+                    },
+                    "from_token_address": {
+                      "type": "string",
+                      "description": "From-token contract address"
+                    },
+                    "to_token_address": {
+                      "type": "string",
+                      "description": "To-token contract address"
+                    },
+                    "from_token_amount": {
+                      "type": "string",
+                      "description": "Amount of token sent"
+                    },
+                    "to_token_amount": {
+                      "type": "string",
+                      "description": "Amount of token received"
+                    },
+                    "price_from_in_usd": {
+                      "type": "string",
+                      "description": "Price of from-token in USD"
+                    },
+                    "price_to_in_usd": {
+                      "type": "string",
+                      "description": "Price of to-token in USD"
+                    },
+                    "price_from_in_currency_token": {
+                      "type": "string",
+                      "description": "Price of from-token in currency token"
+                    },
+                    "price_to_in_currency_token": {
+                      "type": "string",
+                      "description": "Price of to-token in currency token"
+                    },
+                    "volume_in_usd": {
+                      "type": "string",
+                      "description": "Trade volume in USD"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "meta": {
+            "type": "object",
+            "required": [
+              "next_cursor"
+            ],
+            "properties": {
+              "next_cursor": {
+                "type": "string",
+                "nullable": true,
+                "description": "Cursor for the next page, null when there are no further pages"
+              }
+            }
+          }
+        }
+      },
+      "WalletPnl": {
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "properties": {
+          "data": {
+            "type": "object",
+            "required": [
+              "id",
+              "type",
+              "attributes"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "Wallet address"
+              },
+              "type": {
+                "type": "string",
+                "description": "Response type"
+              },
+              "attributes": {
+                "type": "object",
+                "required": [
+                  "wallet_address",
+                  "total_realized_pnl_usd",
+                  "total_unrealized_pnl_usd",
+                  "total_tokens",
+                  "networks",
+                  "token_stats"
+                ],
+                "properties": {
+                  "wallet_address": {
+                    "type": "string",
+                    "description": "Wallet address queried"
+                  },
+                  "total_realized_pnl_usd": {
+                    "type": "string",
+                    "description": "All-time realized PnL in USD, across the requested networks only"
+                  },
+                  "total_unrealized_pnl_usd": {
+                    "type": "string",
+                    "description": "All-time unrealized PnL in USD, across the requested networks only"
+                  },
+                  "total_tokens": {
+                    "type": "integer",
+                    "description": "Number of tokens traded across the requested networks only"
+                  },
+                  "networks": {
+                    "type": "array",
+                    "description": "Realized PnL, unrealized PnL and token count per network, listing only networks where the wallet traded",
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "network",
+                        "realized_pnl_usd",
+                        "unrealized_pnl_usd",
+                        "tokens"
+                      ],
+                      "properties": {
+                        "network": {
+                          "type": "string",
+                          "description": "Network ID"
+                        },
+                        "realized_pnl_usd": {
+                          "type": "string",
+                          "description": "Realized PnL on this network in USD"
+                        },
+                        "unrealized_pnl_usd": {
+                          "type": "string",
+                          "description": "Unrealized PnL on this network in USD"
+                        },
+                        "tokens": {
+                          "type": "integer",
+                          "description": "Number of tokens traded on this network"
+                        }
+                      }
+                    }
+                  },
+                  "token_stats": {
+                    "type": "array",
+                    "description": "Trading stats and PnL, one entry per token",
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "network",
+                        "address",
+                        "name",
+                        "symbol",
+                        "decimals",
+                        "realized_pnl_usd",
+                        "unrealized_pnl_usd",
+                        "token_balance",
+                        "average_buy_price_usd",
+                        "average_sell_price_usd",
+                        "total_buy_count",
+                        "total_sell_count",
+                        "total_buy_token_amount",
+                        "total_sell_token_amount",
+                        "total_buy_usd",
+                        "total_sell_usd"
+                      ],
+                      "properties": {
+                        "network": {
+                          "type": "string",
+                          "description": "Network ID"
+                        },
+                        "address": {
+                          "type": "string",
+                          "description": "Token contract address"
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "Token name"
+                        },
+                        "symbol": {
+                          "type": "string",
+                          "description": "Token symbol"
+                        },
+                        "decimals": {
+                          "type": "integer",
+                          "description": "Token decimals"
+                        },
+                        "realized_pnl_usd": {
+                          "type": "string",
+                          "description": "Realized PnL in USD"
+                        },
+                        "unrealized_pnl_usd": {
+                          "type": "string",
+                          "nullable": true,
+                          "description": "Unrealized PnL in USD"
+                        },
+                        "token_balance": {
+                          "type": "string",
+                          "nullable": true,
+                          "description": "Current token balance"
+                        },
+                        "average_buy_price_usd": {
+                          "type": "string",
+                          "description": "Average buy price in USD"
+                        },
+                        "average_sell_price_usd": {
+                          "type": "string",
+                          "description": "Average sell price in USD"
+                        },
+                        "total_buy_count": {
+                          "type": "integer",
+                          "description": "Total number of buy transactions"
+                        },
+                        "total_sell_count": {
+                          "type": "integer",
+                          "description": "Total number of sell transactions"
+                        },
+                        "total_buy_token_amount": {
+                          "type": "string",
+                          "description": "Total buy token amount"
+                        },
+                        "total_sell_token_amount": {
+                          "type": "string",
+                          "description": "Total sell token amount"
+                        },
+                        "total_buy_usd": {
+                          "type": "string",
+                          "description": "Total buy amount in USD"
+                        },
+                        "total_sell_usd": {
+                          "type": "string",
+                          "description": "Total sell amount in USD"
+                        }
+                      }
+                    }
+                  }
+                }
               }
             }
           }
