@@ -12175,8 +12175,7 @@
                 "realized_pnl_usd_desc",
                 "unrealized_pnl_usd_desc",
                 "total_buy_usd_desc",
-                "total_sell_usd_desc",
-                "token_balance_desc"
+                "total_sell_usd_desc"
               ]
             }
           },
@@ -12239,7 +12238,6 @@
                           "decimals": 18,
                           "realized_pnl_usd": "4301337.150173959",
                           "unrealized_pnl_usd": null,
-                          "token_balance": null,
                           "average_buy_price_usd": "3948.371209968930021553881069349236062352",
                           "average_sell_price_usd": "3711.766598724373102968109799056730691612",
                           "total_buy_count": 13,
@@ -12257,7 +12255,6 @@
                           "decimals": 18,
                           "realized_pnl_usd": "2148309.480276389",
                           "unrealized_pnl_usd": null,
-                          "token_balance": null,
                           "average_buy_price_usd": "0.0",
                           "average_sell_price_usd": "3.621834900281358161020306665",
                           "total_buy_count": 0,
@@ -24811,7 +24808,6 @@
                         "decimals",
                         "realized_pnl_usd",
                         "unrealized_pnl_usd",
-                        "token_balance",
                         "average_buy_price_usd",
                         "average_sell_price_usd",
                         "total_buy_count",
@@ -24850,11 +24846,6 @@
                           "type": "string",
                           "nullable": true,
                           "description": "Unrealized PnL in USD"
-                        },
-                        "token_balance": {
-                          "type": "string",
-                          "nullable": true,
-                          "description": "Current token balance"
                         },
                         "average_buy_price_usd": {
                           "type": "string",
