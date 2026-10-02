@@ -7462,161 +7462,106 @@
                 },
                 "example": {
                   "data": {
-                    "id": "eth_0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
+                    "id": "solana_E6RbuozUjZshXH3sRKgCaoXPzfc7EMFiyu4HRxf6ERrH",
                     "type": "pool",
                     "attributes": {
-                      "base_token_price_usd": "2087.83402802406",
-                      "base_token_price_native_currency": "1.0",
-                      "base_token_balance": "21389.8183230254",
-                      "base_token_liquidity_usd": "44682614.543365459190858949279370927520536805",
-                      "quote_token_price_usd": "1.00238840383302",
-                      "quote_token_price_native_currency": "0.000480112806762164",
-                      "quote_token_balance": "54351838.715647",
-                      "quote_token_liquidity_usd": "54511610.488634398923096739735612698563218038285229066528",
-                      "base_token_price_quote_token": "2082.843835689",
-                      "quote_token_price_base_token": "0.0004801128068",
-                      "address": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
-                      "name": "WETH / USDC 0.05%",
-                      "pool_name": "WETH / USDC",
-                      "pool_fee_percentage": "0.05",
-                      "pool_created_at": "2021-12-29T12:35:14Z",
-                      "fdv_usd": "4706830691.85796",
-                      "market_cap_usd": "4714013620.15169",
+                      "base_token_price_usd": "0.00006785892126",
+                      "base_token_price_native_currency": "0.000000402213205044735",
+                      "quote_token_price_usd": "166.1681210425",
+                      "quote_token_price_native_currency": "1.0",
+                      "base_token_price_quote_token": "0.000000402213205",
+                      "quote_token_price_base_token": "2486243.58289972",
+                      "address": "E6RbuozUjZshXH3sRKgCaoXPzfc7EMFiyu4HRxf6ERrH",
+                      "name": "WOJAK / SOL",
+                      "pool_name": "WOJAK / SOL",
+                      "pool_fee_percentage": null,
+                      "pool_created_at": "2025-11-03T00:11:28Z",
+                      "fdv_usd": "67858.2887710887",
+                      "market_cap_usd": "67848.4847322741",
                       "price_change_percentage": {
-                        "m5": "0.001",
-                        "m15": "0.339",
-                        "m30": "0.197",
-                        "h1": "0.157",
-                        "h6": "0.651",
-                        "h24": "-1.403"
+                        "m5": "0",
+                        "m15": "0",
+                        "m30": "0",
+                        "h1": "0",
+                        "h6": "0",
+                        "h24": "0"
                       },
                       "transactions": {
                         "m5": {
-                          "buys": 13,
-                          "sells": 10,
-                          "buyers": 11,
-                          "sellers": 9
+                          "buys": 0,
+                          "sells": 0,
+                          "buyers": 0,
+                          "sellers": 0
                         },
                         "m15": {
-                          "buys": 34,
-                          "sells": 40,
-                          "buyers": 20,
-                          "sellers": 26
+                          "buys": 0,
+                          "sells": 0,
+                          "buyers": 0,
+                          "sellers": 0
                         },
                         "m30": {
-                          "buys": 61,
-                          "sells": 60,
-                          "buyers": 35,
-                          "sellers": 36
+                          "buys": 0,
+                          "sells": 0,
+                          "buyers": 0,
+                          "sellers": 0
                         },
                         "h1": {
-                          "buys": 88,
-                          "sells": 119,
-                          "buyers": 52,
-                          "sellers": 75
+                          "buys": 0,
+                          "sells": 0,
+                          "buyers": 0,
+                          "sellers": 0
                         },
                         "h6": {
-                          "buys": 473,
-                          "sells": 510,
-                          "buyers": 214,
-                          "sellers": 288
+                          "buys": 0,
+                          "sells": 0,
+                          "buyers": 0,
+                          "sellers": 0
                         },
                         "h24": {
-                          "buys": 2443,
-                          "sells": 2402,
-                          "buyers": 876,
-                          "sellers": 998
+                          "buys": 0,
+                          "sells": 0,
+                          "buyers": 0,
+                          "sellers": 0
                         }
                       },
                       "volume_usd": {
-                        "m5": "716095.073293581",
-                        "m15": "4099160.04970219",
-                        "m30": "6269664.41220889",
-                        "h1": "7654944.73813995",
-                        "h6": "22795729.3374518",
-                        "h24": "126052349.380686"
+                        "m5": "0.0",
+                        "m15": "0.0",
+                        "m30": "0.0",
+                        "h1": "0.0",
+                        "h6": "0.0",
+                        "h24": "0.0"
                       },
-                      "net_buy_volume_usd": {
-                        "m5": "25349.579300599",
-                        "m15": "44021.13947472",
-                        "m30": "785680.21125136",
-                        "h1": "621530.32432932",
-                        "h6": "768429.1331717",
-                        "h24": "-4911114.3005293"
-                      },
-                      "buy_volume_usd": {
-                        "m5": "370722.32629709",
-                        "m15": "2071590.59458845",
-                        "m30": "3527672.31173012",
-                        "h1": "4138237.53123463",
-                        "h6": "11782079.2353117",
-                        "h24": "60570617.5400784"
-                      },
-                      "sell_volume_usd": {
-                        "m5": "345372.746996491",
-                        "m15": "2027569.45511373",
-                        "m30": "2741992.10047876",
-                        "h1": "3516707.20690531",
-                        "h6": "11013650.10214",
-                        "h24": "65481731.8406077"
-                      },
-                      "reserve_in_usd": "99194225.032",
-                      "locked_liquidity_percentage": "0.0"
+                      "reserve_in_usd": "13843.8176",
+                      "locked_liquidity_percentage": null,
+                      "launchpad_details": {
+                        "graduation_percentage": 100.0,
+                        "completed": true,
+                        "completed_at": "2025-11-03T20:41:29.000Z",
+                        "migrated_destination_pool_address": "FDrY5i5kuadZ1ik8gPS26qjj9Rw9mpufXMegGC2HNSP7"
+                      }
                     },
                     "relationships": {
                       "base_token": {
                         "data": {
-                          "id": "eth_0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+                          "id": "solana_8J69rbLTzWWgUJziFY8jeu5tDwEPBwUz4pKBMr5rpump",
                           "type": "token"
                         }
                       },
                       "quote_token": {
                         "data": {
-                          "id": "eth_0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+                          "id": "solana_So11111111111111111111111111111111111111112",
                           "type": "token"
                         }
                       },
                       "dex": {
                         "data": {
-                          "id": "uniswap_v3",
+                          "id": "pump-fun",
                           "type": "dex"
                         }
                       }
                     }
-                  },
-                  "included": [
-                    {
-                      "id": "eth_0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
-                      "type": "token",
-                      "attributes": {
-                        "address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
-                        "name": "Wrapped Ether",
-                        "symbol": "WETH",
-                        "decimals": 18,
-                        "image_url": "https://coin-images.coingecko.com/coins/images/2518/large/weth.png?1696503332",
-                        "coingecko_coin_id": "weth"
-                      }
-                    },
-                    {
-                      "id": "eth_0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
-                      "type": "token",
-                      "attributes": {
-                        "address": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
-                        "name": "USD Coin",
-                        "symbol": "USDC",
-                        "decimals": 6,
-                        "image_url": "https://coin-images.coingecko.com/coins/images/6319/large/USDC.png?1769615602",
-                        "coingecko_coin_id": "usd-coin"
-                      }
-                    },
-                    {
-                      "id": "uniswap_v3",
-                      "type": "dex",
-                      "attributes": {
-                        "name": "Uniswap V3"
-                      }
-                    }
-                  ]
+                  }
                 }
               }
             }
@@ -9369,7 +9314,7 @@
             "description": "Network ID. \n*refers to [`/onchain/networks`](/reference/networks-list).",
             "schema": {
               "type": "string",
-              "default": "eth"
+              "default": "solana"
             }
           },
           {
@@ -9379,7 +9324,7 @@
             "description": "Token contract address.",
             "schema": {
               "type": "string",
-              "default": "0xdac17f958d2ee523a2206206994597c13d831ec7"
+              "default": "8J69rbLTzWWgUJziFY8jeu5tDwEPBwUz4pKBMr5rpump"
             }
           },
           {
@@ -9423,31 +9368,37 @@
                 },
                 "example": {
                   "data": {
-                    "id": "eth_0xdac17f958d2ee523a2206206994597c13d831ec7",
+                    "id": "solana_8J69rbLTzWWgUJziFY8jeu5tDwEPBwUz4pKBMr5rpump",
                     "type": "token",
                     "attributes": {
-                      "address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
-                      "name": "Tether USD",
-                      "symbol": "USDT",
+                      "address": "8J69rbLTzWWgUJziFY8jeu5tDwEPBwUz4pKBMr5rpump",
+                      "name": "Wojak",
+                      "symbol": "WOJAK",
                       "decimals": 6,
-                      "image_url": "https://coin-images.coingecko.com/coins/images/325/large/Tether.png?1696501661",
-                      "coingecko_coin_id": "tether",
-                      "total_supply": "97071854588430319.0",
-                      "normalized_total_supply": "97071854588.4303",
-                      "price_usd": "0.9976477279",
-                      "fdv_usd": "96843463696.399",
-                      "total_reserve_in_usd": "2701052887.0071499413427031774184",
+                      "image_url": "https://coin-images.coingecko.com/coins/images/70552/large/o6zl61yh9k32fu3rimuoe4sxlfeq.?1762469550",
+                      "coingecko_coin_id": "wojak-4",
+                      "total_supply": "999846202569505.0",
+                      "normalized_total_supply": "999846202.569505",
+                      "price_usd": "0.002108045566",
+                      "fdv_usd": "2107721.35423239",
+                      "total_reserve_in_usd": "324836.697324327524302253045722035111416063520235345591137965837590196823952",
                       "volume_usd": {
-                        "h24": "572433180.559528"
+                        "h24": "235212.154504941"
                       },
-                      "market_cap_usd": "189135294432.762",
-                      "last_trade_timestamp": "1779897731"
+                      "market_cap_usd": "2107721.3542324",
+                      "launchpad_details": {
+                        "graduation_percentage": 100.0,
+                        "completed": true,
+                        "completed_at": "2025-11-03T20:41:29.000Z",
+                        "migrated_destination_pool_address": "FDrY5i5kuadZ1ik8gPS26qjj9Rw9mpufXMegGC2HNSP7"
+                      },
+                      "last_trade_timestamp": "1790730160"
                     },
                     "relationships": {
                       "top_pools": {
                         "data": [
                           {
-                            "id": "eth_0x395f91b34aa34a477ce3bc6505639a821b286a62b1a164fc1887fa3a5ef713a5",
+                            "id": "solana_FDrY5i5kuadZ1ik8gPS26qjj9Rw9mpufXMegGC2HNSP7",
                             "type": "pool"
                           }
                         ]
@@ -9456,94 +9407,98 @@
                   },
                   "included": [
                     {
-                      "id": "eth_0x395f91b34aa34a477ce3bc6505639a821b286a62b1a164fc1887fa3a5ef713a5",
+                      "id": "solana_FDrY5i5kuadZ1ik8gPS26qjj9Rw9mpufXMegGC2HNSP7",
                       "type": "pool",
                       "attributes": {
-                        "base_token_price_usd": "1.00076841159283",
-                        "base_token_price_native_currency": "0.000482652821375511",
-                        "quote_token_price_usd": "0.99764772791269",
-                        "quote_token_price_native_currency": "0.000481147771090756",
-                        "base_token_price_quote_token": "1.0031280417",
-                        "quote_token_price_base_token": "0.9968817124",
-                        "address": "0x395f91b34aa34a477ce3bc6505639a821b286a62b1a164fc1887fa3a5ef713a5",
-                        "name": "USDC / USDT",
-                        "pool_created_at": "2025-04-13T14:45:47Z",
-                        "token_price_usd": "0.99764772791269",
-                        "fdv_usd": "96843463696.399",
-                        "market_cap_usd": "189136733045.442",
+                        "base_token_price_usd": "0.00210804556622384486732684033609689566750787551092744720636443282",
+                        "base_token_price_native_currency": "0.0000176991479492709",
+                        "base_token_balance": "89850308.783025",
+                        "base_token_liquidity_usd": "189262.4977768931995821450829183274527396144422153271057",
+                        "quote_token_price_usd": "119.104353060718103222982579358448975276457545138",
+                        "quote_token_price_native_currency": "1.0",
+                        "quote_token_balance": "1587.903236302",
+                        "quote_token_liquidity_usd": "188980.3581231072840151000952817560870073139787",
+                        "base_token_price_quote_token": "0.00001769914795",
+                        "quote_token_price_base_token": "56499.8949591353",
+                        "address": "FDrY5i5kuadZ1ik8gPS26qjj9Rw9mpufXMegGC2HNSP7",
+                        "name": "WOJAK / SOL",
+                        "pool_created_at": "2025-11-03T20:41:29Z",
+                        "token_price_usd": "0.00210804556622384486732684033609689566750787551092744720636443282",
+                        "fdv_usd": "2107721.35400858",
+                        "market_cap_usd": "2107721.35400859",
                         "price_change_percentage": {
-                          "m5": "0.74",
-                          "m15": "0.52",
-                          "m30": "0.41",
-                          "h1": "0.49",
-                          "h6": "0.73",
-                          "h24": "0.1"
+                          "m5": "0",
+                          "m15": "0.21",
+                          "m30": "0.36",
+                          "h1": "0.29",
+                          "h6": "-4.34",
+                          "h24": "-18.37"
                         },
                         "transactions": {
                           "m5": {
-                            "buys": 0,
-                            "sells": 6,
-                            "buyers": 0,
-                            "sellers": 6
+                            "buys": 1,
+                            "sells": 0,
+                            "buyers": 1,
+                            "sellers": 0
                           },
                           "m15": {
-                            "buys": 11,
-                            "sells": 23,
-                            "buyers": 11,
-                            "sellers": 13
+                            "buys": 2,
+                            "sells": 0,
+                            "buyers": 2,
+                            "sellers": 0
                           },
                           "m30": {
-                            "buys": 15,
-                            "sells": 41,
-                            "buyers": 15,
-                            "sellers": 28
+                            "buys": 7,
+                            "sells": 3,
+                            "buyers": 4,
+                            "sellers": 3
                           },
                           "h1": {
-                            "buys": 53,
-                            "sells": 60,
-                            "buyers": 50,
-                            "sellers": 45
+                            "buys": 10,
+                            "sells": 3,
+                            "buyers": 7,
+                            "sellers": 3
                           },
                           "h6": {
-                            "buys": 314,
-                            "sells": 393,
-                            "buyers": 247,
-                            "sellers": 311
+                            "buys": 90,
+                            "sells": 103,
+                            "buyers": 60,
+                            "sellers": 74
                           },
                           "h24": {
-                            "buys": 1066,
-                            "sells": 1219,
-                            "buyers": 682,
-                            "sellers": 800
+                            "buys": 718,
+                            "sells": 756,
+                            "buyers": 449,
+                            "sellers": 478
                           }
                         },
                         "volume_usd": {
-                          "m5": "5390.4353119892",
-                          "m15": "73424.879752289",
-                          "m30": "2984135.66431702",
-                          "h1": "6251379.50994286",
-                          "h6": "31152723.862617",
-                          "h24": "64799943.9574331"
+                          "m5": "95.7039366558",
+                          "m15": "101.6537126364",
+                          "m30": "412.9239965688",
+                          "h1": "418.5146583339",
+                          "h6": "21670.2337988852",
+                          "h24": "196594.914390978"
                         },
-                        "reserve_in_usd": "548688496.6398",
-                        "last_trade_timestamp": "1779897791"
+                        "reserve_in_usd": "378242.8559",
+                        "last_trade_timestamp": "1790730702"
                       },
                       "relationships": {
                         "base_token": {
                           "data": {
-                            "id": "eth_0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+                            "id": "solana_8J69rbLTzWWgUJziFY8jeu5tDwEPBwUz4pKBMr5rpump",
                             "type": "token"
                           }
                         },
                         "quote_token": {
                           "data": {
-                            "id": "eth_0xdac17f958d2ee523a2206206994597c13d831ec7",
+                            "id": "solana_So11111111111111111111111111111111111111112",
                             "type": "token"
                           }
                         },
                         "dex": {
                           "data": {
-                            "id": "uniswap-v4-ethereum",
+                            "id": "pumpswap",
                             "type": "dex"
                           }
                         }
@@ -9628,30 +9583,37 @@
                 "example": {
                   "data": [
                     {
-                      "id": "solana_6p6xgHyF7AeE6TZkSmFsko444wqoP15icUSqi2jfGiPN",
+                      "id": "solana_8J69rbLTzWWgUJziFY8jeu5tDwEPBwUz4pKBMr5rpump",
                       "type": "token",
                       "attributes": {
-                        "address": "6p6xgHyF7AeE6TZkSmFsko444wqoP15icUSqi2jfGiPN",
-                        "name": "OFFICIAL TRUMP",
-                        "symbol": "TRUMP",
+                        "address": "8J69rbLTzWWgUJziFY8jeu5tDwEPBwUz4pKBMr5rpump",
+                        "name": "Wojak",
+                        "symbol": "WOJAK",
                         "decimals": 6,
-                        "image_url": "https://coin-images.coingecko.com/coins/images/53746/large/trump.png?1737171561",
-                        "coingecko_coin_id": "official-trump",
-                        "total_supply": "999999108407137.0",
-                        "normalized_total_supply": "999999108.407137",
-                        "price_usd": "2.0174050182",
-                        "fdv_usd": "2017403219.4789",
-                        "total_reserve_in_usd": "38853273.6350283264033294",
+                        "image_url": "https://coin-images.coingecko.com/coins/images/70552/large/o6zl61yh9k32fu3rimuoe4sxlfeq.?1762469550",
+                        "coingecko_coin_id": "wojak-4",
+                        "total_supply": "999846202569505.0",
+                        "normalized_total_supply": "999846202.569505",
+                        "price_usd": "0.002084321639",
+                        "fdv_usd": "2084001.07563142",
+                        "total_reserve_in_usd": "327436.129455492952500291981212035111416063520235345591137965837590196823952",
                         "volume_usd": {
-                          "h24": "2099707.5067169"
+                          "h24": "228371.445386436"
                         },
-                        "market_cap_usd": "478960276.377951"
+                        "market_cap_usd": "2084001.07563142",
+                        "launchpad_details": {
+                          "graduation_percentage": 100.0,
+                          "completed": true,
+                          "completed_at": "2025-11-03T20:41:29.000Z",
+                          "migrated_destination_pool_address": "FDrY5i5kuadZ1ik8gPS26qjj9Rw9mpufXMegGC2HNSP7"
+                        },
+                        "last_trade_timestamp": "1790731366"
                       },
                       "relationships": {
                         "top_pools": {
                           "data": [
                             {
-                              "id": "solana_9d9mb8kooFfaD3SctgZtkxQypkshx6ezhbKio89ixyy2",
+                              "id": "solana_FDrY5i5kuadZ1ik8gPS26qjj9Rw9mpufXMegGC2HNSP7",
                               "type": "pool"
                             }
                           ]
@@ -9670,8 +9632,8 @@
                         "coingecko_coin_id": null,
                         "total_supply": "1000000000000000.0",
                         "normalized_total_supply": "1000000000.0",
-                        "price_usd": null,
-                        "fdv_usd": null,
+                        "price_usd": "0.000006746080385",
+                        "fdv_usd": "6746.080385",
                         "total_reserve_in_usd": "5234.61248798976042147487629165",
                         "volume_usd": {
                           "h24": "0.0"
@@ -9682,38 +9644,145 @@
                           "completed": false,
                           "completed_at": null,
                           "migrated_destination_pool_address": null
-                        }
+                        },
+                        "last_trade_timestamp": "1759502562"
                       },
                       "relationships": {
                         "top_pools": {
-                          "data": []
+                          "data": [
+                            {
+                              "id": "solana_7Dyotb31T3wmXzCkVvTERDDz2jvfTCCPmqQJxHHhCXyf",
+                              "type": "pool"
+                            }
+                          ]
                         }
                       }
                     }
                   ],
                   "included": [
                     {
-                      "id": "solana_9d9mb8kooFfaD3SctgZtkxQypkshx6ezhbKio89ixyy2",
+                      "id": "solana_FDrY5i5kuadZ1ik8gPS26qjj9Rw9mpufXMegGC2HNSP7",
                       "type": "pool",
                       "attributes": {
-                        "base_token_price_usd": "2.01740501818281139006336492319318380811954562178395002842369476",
-                        "base_token_price_native_currency": "0.0239250580677484",
-                        "quote_token_price_usd": "0.999569304917712897234320781454435071561674967628724909109738",
-                        "quote_token_price_native_currency": "0.0118488106949705",
-                        "base_token_price_quote_token": "2.0191948951",
-                        "quote_token_price_base_token": "0.4952468939",
-                        "address": "9d9mb8kooFfaD3SctgZtkxQypkshx6ezhbKio89ixyy2",
-                        "name": "TRUMP / USDC",
-                        "pool_created_at": "2025-01-18T10:39:31Z",
-                        "fdv_usd": "2017403219.49608",
-                        "market_cap_usd": "478960276.377951",
+                        "base_token_price_usd": "0.00208432163894381386606703680527831204429338601827604235720366118",
+                        "base_token_price_native_currency": "0.0000175110138572279",
+                        "base_token_balance": "89863873.280486",
+                        "base_token_liquidity_usd": "187223.02080146729471902188716461872266289504912929439",
+                        "quote_token_price_usd": "119.051570029034831081529305070617751762973057862",
+                        "quote_token_price_native_currency": "1.0",
+                        "quote_token_balance": "1587.664029707",
+                        "quote_token_liquidity_usd": "188895.420198528228227827128157517459557984028",
+                        "base_token_price_quote_token": "0.00001751101386",
+                        "quote_token_price_base_token": "57106.9161473616",
+                        "address": "FDrY5i5kuadZ1ik8gPS26qjj9Rw9mpufXMegGC2HNSP7",
+                        "name": "WOJAK / SOL",
+                        "pool_created_at": "2025-11-03T20:41:29Z",
+                        "fdv_usd": "2084001.0756876",
+                        "market_cap_usd": "2084001.0756876",
                         "price_change_percentage": {
                           "m5": "0",
-                          "m15": "-0.065",
-                          "m30": "-0.321",
-                          "h1": "0.023",
-                          "h6": "0.217",
-                          "h24": "-0.584"
+                          "m15": "-0.185",
+                          "m30": "-1.125",
+                          "h1": "-0.972",
+                          "h6": "-5.011",
+                          "h24": "-16.585"
+                        },
+                        "transactions": {
+                          "m5": {
+                            "buys": 0,
+                            "sells": 1,
+                            "buyers": 0,
+                            "sellers": 1
+                          },
+                          "m15": {
+                            "buys": 0,
+                            "sells": 2,
+                            "buyers": 0,
+                            "sellers": 2
+                          },
+                          "m30": {
+                            "buys": 1,
+                            "sells": 2,
+                            "buyers": 1,
+                            "sellers": 2
+                          },
+                          "h1": {
+                            "buys": 8,
+                            "sells": 5,
+                            "buyers": 5,
+                            "sellers": 5
+                          },
+                          "h6": {
+                            "buys": 90,
+                            "sells": 96,
+                            "buyers": 60,
+                            "sellers": 68
+                          },
+                          "h24": {
+                            "buys": 712,
+                            "sells": 754,
+                            "buyers": 448,
+                            "sellers": 475
+                          }
+                        },
+                        "volume_usd": {
+                          "m5": "7.5520152727",
+                          "m15": "35.3316291363",
+                          "m30": "131.035565792",
+                          "h1": "448.6251261241",
+                          "h6": "21366.9631188042",
+                          "h24": "193627.935921759"
+                        },
+                        "reserve_in_usd": "376118.441",
+                        "last_trade_timestamp": "1790731998"
+                      },
+                      "relationships": {
+                        "base_token": {
+                          "data": {
+                            "id": "solana_8J69rbLTzWWgUJziFY8jeu5tDwEPBwUz4pKBMr5rpump",
+                            "type": "token"
+                          }
+                        },
+                        "quote_token": {
+                          "data": {
+                            "id": "solana_So11111111111111111111111111111111111111112",
+                            "type": "token"
+                          }
+                        },
+                        "dex": {
+                          "data": {
+                            "id": "pumpswap",
+                            "type": "dex"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "id": "solana_7Dyotb31T3wmXzCkVvTERDDz2jvfTCCPmqQJxHHhCXyf",
+                      "type": "pool",
+                      "attributes": {
+                        "base_token_price_usd": "0.000006746080385",
+                        "base_token_price_native_currency": "0.0000000294042292075217",
+                        "base_token_balance": "775948727.097393",
+                        "base_token_liquidity_usd": "5248.9884755507223940299343365554517590694012261684516223803972",
+                        "quote_token_price_usd": "229.4255135152",
+                        "quote_token_price_native_currency": "1.0",
+                        "quote_token_balance": "0.487321883",
+                        "quote_token_liquidity_usd": "112.1111244392582328850588200028936997988529170348984",
+                        "base_token_price_quote_token": "0.00000002940422921",
+                        "quote_token_price_base_token": "34008713.2685048",
+                        "address": "7Dyotb31T3wmXzCkVvTERDDz2jvfTCCPmqQJxHHhCXyf",
+                        "name": "SORACAT / SOL",
+                        "pool_created_at": "2025-10-03T14:42:39Z",
+                        "fdv_usd": "6746.080385",
+                        "market_cap_usd": null,
+                        "price_change_percentage": {
+                          "m5": "0",
+                          "m15": "0",
+                          "m30": "0",
+                          "h1": "0",
+                          "h6": "0",
+                          "h24": "0"
                         },
                         "transactions": {
                           "m5": {
@@ -9724,61 +9793,62 @@
                           },
                           "m15": {
                             "buys": 0,
-                            "sells": 2,
+                            "sells": 0,
                             "buyers": 0,
-                            "sellers": 2
+                            "sellers": 0
                           },
                           "m30": {
-                            "buys": 4,
-                            "sells": 5,
-                            "buyers": 3,
-                            "sellers": 2
+                            "buys": 0,
+                            "sells": 0,
+                            "buyers": 0,
+                            "sellers": 0
                           },
                           "h1": {
-                            "buys": 10,
-                            "sells": 22,
-                            "buyers": 6,
-                            "sellers": 7
+                            "buys": 0,
+                            "sells": 0,
+                            "buyers": 0,
+                            "sellers": 0
                           },
                           "h6": {
-                            "buys": 61,
-                            "sells": 90,
-                            "buyers": 26,
-                            "sellers": 25
+                            "buys": 0,
+                            "sells": 0,
+                            "buyers": 0,
+                            "sellers": 0
                           },
                           "h24": {
-                            "buys": 252,
-                            "sells": 327,
-                            "buyers": 64,
-                            "sellers": 60
+                            "buys": 0,
+                            "sells": 0,
+                            "buyers": 0,
+                            "sellers": 0
                           }
                         },
                         "volume_usd": {
                           "m5": "0.0",
-                          "m15": "597.6697876563",
-                          "m30": "11191.1430985437",
-                          "h1": "22383.1305344185",
-                          "h6": "149655.009727483",
-                          "h24": "524824.856290105"
+                          "m15": "0.0",
+                          "m30": "0.0",
+                          "h1": "0.0",
+                          "h6": "0.0",
+                          "h24": "0.0"
                         },
-                        "reserve_in_usd": "34848559.9613"
+                        "reserve_in_usd": "5361.0996",
+                        "last_trade_timestamp": "1759502562"
                       },
                       "relationships": {
                         "base_token": {
                           "data": {
-                            "id": "solana_6p6xgHyF7AeE6TZkSmFsko444wqoP15icUSqi2jfGiPN",
+                            "id": "solana_2g4LS3y2myPe6vj9wTvoBE1wKqxvhnZPoZA9QU9upump",
                             "type": "token"
                           }
                         },
                         "quote_token": {
                           "data": {
-                            "id": "solana_EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+                            "id": "solana_So11111111111111111111111111111111111111112",
                             "type": "token"
                           }
                         },
                         "dex": {
                           "data": {
-                            "id": "meteora",
+                            "id": "pump-fun",
                             "type": "dex"
                           }
                         }
@@ -10168,63 +10238,68 @@
                 },
                 "example": {
                   "data": {
-                    "id": "solana_Dfh5DzRgSvvCFDoYc2ciTkMrbDfRKybA4SoFbPmApump",
+                    "id": "solana_8J69rbLTzWWgUJziFY8jeu5tDwEPBwUz4pKBMr5rpump",
                     "type": "token",
                     "attributes": {
-                      "address": "Dfh5DzRgSvvCFDoYc2ciTkMrbDfRKybA4SoFbPmApump",
-                      "name": "Pippin",
-                      "symbol": "pippin",
+                      "address": "8J69rbLTzWWgUJziFY8jeu5tDwEPBwUz4pKBMr5rpump",
+                      "name": "Wojak",
+                      "symbol": "WOJAK",
                       "decimals": 6,
-                      "image_url": "https://coin-images.coingecko.com/coins/images/51589/large/pippin_logo.png?1731570163",
+                      "image_url": "https://coin-images.coingecko.com/coins/images/70552/large/o6zl61yh9k32fu3rimuoe4sxlfeq.?1762469550",
                       "image": {
-                        "thumb": "https://coin-images.coingecko.com/coins/images/51589/thumb/pippin_logo.png?1731570163",
-                        "small": "https://coin-images.coingecko.com/coins/images/51589/small/pippin_logo.png?1731570163",
-                        "large": "https://coin-images.coingecko.com/coins/images/51589/large/pippin_logo.png?1731570163"
+                        "thumb": "https://coin-images.coingecko.com/coins/images/70552/thumb/o6zl61yh9k32fu3rimuoe4sxlfeq.?1762469550",
+                        "small": "https://coin-images.coingecko.com/coins/images/70552/small/o6zl61yh9k32fu3rimuoe4sxlfeq.?1762469550",
+                        "large": "https://coin-images.coingecko.com/coins/images/70552/large/o6zl61yh9k32fu3rimuoe4sxlfeq.?1762469550"
                       },
-                      "banner_image_url": "https://assets.geckoterminal.com/kn680ou6904r03syp0ecu52ihy9c",
-                      "coingecko_coin_id": "pippin",
+                      "banner_image_url": "https://assets.geckoterminal.com/jqqvglmmbsvkrafnplr30mcp6783",
+                      "coingecko_coin_id": "wojak-4",
                       "websites": [
-                        "https://pippin.love",
-                        "https://www.yohei.me"
+                        "https://wojakmeme.fun"
                       ],
                       "discord_url": null,
                       "farcaster_url": null,
                       "zora_url": null,
-                      "telegram_handle": "ThePippinCo",
-                      "twitter_handle": "pippinlovesyou",
-                      "description": "Pippin is an SVG unicorn drawn using the latest LLM benchmarks on ChatGPT 4o. It is an autonomous AI agent on X.",
-                      "gt_score": 86.54440366972477,
+                      "telegram_handle": null,
+                      "twitter_handle": "wojakonx",
+                      "description": "Wojak aka Feels Guy - the biggest meme in crypto",
+                      "gt_score": 72.74778837438193,
                       "gt_score_details": {
-                        "pool": 87.5,
-                        "transaction": 66.667,
+                        "pool": 77.143,
+                        "transaction": 64.0,
                         "creation": 100.0,
                         "info": 100.0,
-                        "holders": 100.0
+                        "holders": 81.25
                       },
                       "gt_verified": true,
                       "categories": [
                         "Pump Fun",
-                        "Ai Agents"
+                        "Wojak"
                       ],
                       "gt_category_ids": [
                         "pump-fun",
-                        "ai-agents"
+                        "wojak"
                       ],
                       "holders": {
-                        "count": 47911,
+                        "count": 19901,
                         "distribution_percentage": {
-                          "top_10": "73.7977",
-                          "11_20": "8.7309",
-                          "21_40": "5.6147",
-                          "rest": "11.8567"
+                          "top_10": "32.9547",
+                          "11_20": "7.1417",
+                          "21_40": "9.5026",
+                          "rest": "50.401"
                         },
-                        "last_updated": "2026-05-27T17:41:13Z"
+                        "last_updated": "2026-09-29T03:08:40Z"
                       },
                       "mint_authority": "no",
                       "freeze_authority": "no",
                       "is_honeypot": "unknown",
-                      "developer_address": "4t7dHZcUzNC96d79won5TRZsvwP1bumhPNf3awR5BHdu",
-                      "developer_holding_percentage": "0.0"
+                      "developer_address": "J3k4T9XHhhAGrZ64ukcya19FApC8jf8xaTWwYJfjTR4p",
+                      "developer_holding_percentage": "10.72",
+                      "launchpad_details": {
+                        "graduation_percentage": 100.0,
+                        "completed": true,
+                        "completed_at": "2025-11-03T20:41:29.000Z",
+                        "migrated_destination_pool_address": "FDrY5i5kuadZ1ik8gPS26qjj9Rw9mpufXMegGC2HNSP7"
+                      }
                     }
                   }
                 }
@@ -10287,6 +10362,79 @@
                 "example": {
                   "data": [
                     {
+                      "id": "solana_8J69rbLTzWWgUJziFY8jeu5tDwEPBwUz4pKBMr5rpump",
+                      "type": "token",
+                      "attributes": {
+                        "address": "8J69rbLTzWWgUJziFY8jeu5tDwEPBwUz4pKBMr5rpump",
+                        "name": "Wojak",
+                        "symbol": "WOJAK",
+                        "decimals": 6,
+                        "image_url": "https://coin-images.coingecko.com/coins/images/70552/large/o6zl61yh9k32fu3rimuoe4sxlfeq.?1762469550",
+                        "image": {
+                          "thumb": "https://coin-images.coingecko.com/coins/images/70552/thumb/o6zl61yh9k32fu3rimuoe4sxlfeq.?1762469550",
+                          "small": "https://coin-images.coingecko.com/coins/images/70552/small/o6zl61yh9k32fu3rimuoe4sxlfeq.?1762469550",
+                          "large": "https://coin-images.coingecko.com/coins/images/70552/large/o6zl61yh9k32fu3rimuoe4sxlfeq.?1762469550"
+                        },
+                        "banner_image_url": "https://assets.geckoterminal.com/jqqvglmmbsvkrafnplr30mcp6783",
+                        "coingecko_coin_id": "wojak-4",
+                        "websites": [
+                          "https://wojakmeme.fun"
+                        ],
+                        "discord_url": null,
+                        "farcaster_url": null,
+                        "zora_url": null,
+                        "telegram_handle": null,
+                        "twitter_handle": "wojakonx",
+                        "description": "Wojak aka Feels Guy - the biggest meme in crypto",
+                        "gt_score": 56.33488323351274,
+                        "gt_score_details": {
+                          "pool": 28.571,
+                          "transaction": 64.0,
+                          "creation": 0.0,
+                          "info": 100.0,
+                          "holders": 81.25
+                        },
+                        "gt_verified": true,
+                        "categories": [
+                          "Pump Fun",
+                          "Wojak"
+                        ],
+                        "gt_category_ids": [
+                          "pump-fun",
+                          "wojak"
+                        ],
+                        "holders": {
+                          "count": 19901,
+                          "distribution_percentage": {
+                            "top_10": "32.9547",
+                            "11_20": "7.1417",
+                            "21_40": "9.5026",
+                            "rest": "50.401"
+                          },
+                          "last_updated": "2026-09-29T03:08:40Z"
+                        },
+                        "mint_authority": "no",
+                        "freeze_authority": "no",
+                        "is_honeypot": "unknown",
+                        "developer_address": "J3k4T9XHhhAGrZ64ukcya19FApC8jf8xaTWwYJfjTR4p",
+                        "developer_holding_percentage": "10.72",
+                        "launchpad_details": {
+                          "graduation_percentage": 100.0,
+                          "completed": true,
+                          "completed_at": "2025-11-03T20:41:29.000Z",
+                          "migrated_destination_pool_address": "FDrY5i5kuadZ1ik8gPS26qjj9Rw9mpufXMegGC2HNSP7"
+                        }
+                      },
+                      "relationships": {
+                        "pool": {
+                          "data": {
+                            "id": "solana_E6RbuozUjZshXH3sRKgCaoXPzfc7EMFiyu4HRxf6ERrH",
+                            "type": "pool"
+                          }
+                        }
+                      }
+                    },
+                    {
                       "id": "solana_So11111111111111111111111111111111111111112",
                       "type": "token",
                       "attributes": {
@@ -10295,10 +10443,43 @@
                         "symbol": "SOL",
                         "decimals": 9,
                         "image_url": "https://coin-images.coingecko.com/coins/images/21629/large/solana.jpg?1696520989",
+                        "image": {
+                          "thumb": "https://coin-images.coingecko.com/coins/images/21629/thumb/solana.jpg?1696520989",
+                          "small": "https://coin-images.coingecko.com/coins/images/21629/small/solana.jpg?1696520989",
+                          "large": "https://coin-images.coingecko.com/coins/images/21629/large/solana.jpg?1696520989"
+                        },
                         "banner_image_url": null,
                         "coingecko_coin_id": "wrapped-solana",
-                        "gt_score": 88.9908256880734,
+                        "websites": [
+                          "https://solana.com"
+                        ],
+                        "discord_url": "https://discordapp.com/invite/pquxPsq",
+                        "farcaster_url": null,
+                        "zora_url": null,
+                        "telegram_handle": null,
+                        "twitter_handle": "solana",
+                        "description": "",
+                        "gt_score": 71.42857142857143,
+                        "gt_score_details": {
+                          "pool": 28.571,
+                          "transaction": 100.0,
+                          "creation": 0.0,
+                          "info": 100.0,
+                          "holders": 93.75
+                        },
                         "gt_verified": true,
+                        "categories": [],
+                        "gt_category_ids": [],
+                        "holders": {
+                          "count": 8480544,
+                          "distribution_percentage": {
+                            "top_10": "19.531",
+                            "11_20": "3.9956",
+                            "21_40": "3.7316",
+                            "rest": "72.7418"
+                          },
+                          "last_updated": "2026-09-30T01:45:19Z"
+                        },
                         "mint_authority": "no",
                         "freeze_authority": "no",
                         "is_honeypot": "unknown",
@@ -10308,35 +10489,7 @@
                       "relationships": {
                         "pool": {
                           "data": {
-                            "id": "solana_8WwcNqdZjCY5Pt7AkhupAFknV2txca9sq6YBkGzLbvdt",
-                            "type": "pool"
-                          }
-                        }
-                      }
-                    },
-                    {
-                      "id": "solana_Dfh5DzRgSvvCFDoYc2ciTkMrbDfRKybA4SoFbPmApump",
-                      "type": "token",
-                      "attributes": {
-                        "address": "Dfh5DzRgSvvCFDoYc2ciTkMrbDfRKybA4SoFbPmApump",
-                        "name": "Pippin",
-                        "symbol": "pippin",
-                        "decimals": 6,
-                        "image_url": "https://coin-images.coingecko.com/coins/images/51589/large/pippin_logo.png?1731570163",
-                        "banner_image_url": "https://assets.geckoterminal.com/kn680ou6904r03syp0ecu52ihy9c",
-                        "coingecko_coin_id": "pippin",
-                        "gt_score": 86.54440366972477,
-                        "gt_verified": true,
-                        "mint_authority": "no",
-                        "freeze_authority": "no",
-                        "is_honeypot": "unknown",
-                        "developer_address": "4t7dHZcUzNC96d79won5TRZsvwP1bumhPNf3awR5BHdu",
-                        "developer_holding_percentage": "0.0"
-                      },
-                      "relationships": {
-                        "pool": {
-                          "data": {
-                            "id": "solana_8WwcNqdZjCY5Pt7AkhupAFknV2txca9sq6YBkGzLbvdt",
+                            "id": "solana_E6RbuozUjZshXH3sRKgCaoXPzfc7EMFiyu4HRxf6ERrH",
                             "type": "pool"
                           }
                         }
@@ -10345,14 +10498,14 @@
                   ],
                   "included": [
                     {
-                      "id": "solana_8WwcNqdZjCY5Pt7AkhupAFknV2txca9sq6YBkGzLbvdt",
+                      "id": "solana_E6RbuozUjZshXH3sRKgCaoXPzfc7EMFiyu4HRxf6ERrH",
                       "type": "pool",
                       "attributes": {
-                        "base_token_address": "Dfh5DzRgSvvCFDoYc2ciTkMrbDfRKybA4SoFbPmApump",
+                        "base_token_address": "8J69rbLTzWWgUJziFY8jeu5tDwEPBwUz4pKBMr5rpump",
                         "quote_token_address": "So11111111111111111111111111111111111111112",
                         "sentiment_vote_positive_percentage": 0,
                         "sentiment_vote_negative_percentage": 0,
-                        "community_sus_report": 27
+                        "community_sus_report": 0
                       }
                     }
                   ]
@@ -12175,8 +12328,7 @@
                 "realized_pnl_usd_desc",
                 "unrealized_pnl_usd_desc",
                 "total_buy_usd_desc",
-                "total_sell_usd_desc",
-                "token_balance_desc"
+                "total_sell_usd_desc"
               ]
             }
           },
@@ -12239,7 +12391,6 @@
                           "decimals": 18,
                           "realized_pnl_usd": "4301337.150173959",
                           "unrealized_pnl_usd": null,
-                          "token_balance": null,
                           "average_buy_price_usd": "3948.371209968930021553881069349236062352",
                           "average_sell_price_usd": "3711.766598724373102968109799056730691612",
                           "total_buy_count": 13,
@@ -12257,7 +12408,6 @@
                           "decimals": 18,
                           "realized_pnl_usd": "2148309.480276389",
                           "unrealized_pnl_usd": null,
-                          "token_balance": null,
                           "average_buy_price_usd": "0.0",
                           "average_sell_price_usd": "3.621834900281358161020306665",
                           "total_buy_count": 0,
@@ -12988,123 +13138,252 @@
                 "example": {
                   "data": [
                     {
-                      "id": "eth_0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
+                      "id": "solana_E6RbuozUjZshXH3sRKgCaoXPzfc7EMFiyu4HRxf6ERrH",
                       "type": "pool",
                       "attributes": {
-                        "base_token_price_usd": "2087.84394126108",
-                        "base_token_price_native_currency": "1.0",
-                        "base_token_balance": "21341.2567581564",
-                        "base_token_liquidity_usd": "44581759.9202084558888866184853251251371757144338",
-                        "quote_token_price_usd": "1.00206113475649",
-                        "quote_token_price_native_currency": "0.000479959386437488",
-                        "quote_token_balance": "54447706.143913",
-                        "quote_token_liquidity_usd": "54591030.8544913961746207304067005997478464613757298294624",
-                        "base_token_price_quote_token": "2083.509622392",
-                        "quote_token_price_base_token": "0.0004799593864",
-                        "address": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
-                        "name": "WETH / USDC 0.05%",
-                        "pool_name": "WETH / USDC",
-                        "pool_fee_percentage": "0.05",
-                        "pool_created_at": "2021-12-29T12:35:14Z",
-                        "fdv_usd": "4706853532.94868",
-                        "market_cap_usd": "4714036496.09939",
+                        "base_token_price_usd": "0.00006785892126",
+                        "base_token_price_native_currency": "0.000000402213205044735",
+                        "base_token_balance": "1716982.45439",
+                        "base_token_liquidity_usd": "112.4827161348525458017941976304612125873344",
+                        "quote_token_price_usd": "166.1681210425",
+                        "quote_token_price_native_currency": "1.0",
+                        "quote_token_balance": "84.304187317",
+                        "quote_token_liquidity_usd": "13731.33488386283090412937487797736",
+                        "base_token_price_quote_token": "0.000000402213205",
+                        "quote_token_price_base_token": "2486243.58289972",
+                        "address": "E6RbuozUjZshXH3sRKgCaoXPzfc7EMFiyu4HRxf6ERrH",
+                        "name": "WOJAK / SOL",
+                        "pool_name": "WOJAK / SOL",
+                        "pool_fee_percentage": null,
+                        "pool_created_at": "2025-11-03T00:11:28Z",
+                        "fdv_usd": "67858.2887710887",
+                        "market_cap_usd": "67848.4847322741",
                         "price_change_percentage": {
                           "m5": "0",
-                          "m15": "0.001",
-                          "m30": "0.339",
-                          "h1": "0.157",
-                          "h6": "0.64",
-                          "h24": "-1.403"
+                          "m15": "0",
+                          "m30": "0",
+                          "h1": "0",
+                          "h6": "0",
+                          "h24": "0"
                         },
                         "transactions": {
                           "m5": {
-                            "buys": 6,
-                            "sells": 5,
-                            "buyers": 6,
-                            "sellers": 4
+                            "buys": 0,
+                            "sells": 0,
+                            "buyers": 0,
+                            "sellers": 0
                           },
                           "m15": {
-                            "buys": 39,
-                            "sells": 16,
-                            "buyers": 29,
-                            "sellers": 12
+                            "buys": 0,
+                            "sells": 0,
+                            "buyers": 0,
+                            "sellers": 0
                           },
                           "m30": {
-                            "buys": 75,
-                            "sells": 52,
-                            "buyers": 44,
-                            "sellers": 34
+                            "buys": 0,
+                            "sells": 0,
+                            "buyers": 0,
+                            "sellers": 0
                           },
                           "h1": {
-                            "buys": 101,
-                            "sells": 108,
-                            "buyers": 63,
-                            "sellers": 64
+                            "buys": 0,
+                            "sells": 0,
+                            "buyers": 0,
+                            "sellers": 0
                           },
                           "h6": {
-                            "buys": 486,
-                            "sells": 514,
-                            "buyers": 221,
-                            "sellers": 288
+                            "buys": 0,
+                            "sells": 0,
+                            "buyers": 0,
+                            "sellers": 0
                           },
                           "h24": {
-                            "buys": 2447,
-                            "sells": 2405,
-                            "buyers": 878,
-                            "sellers": 1000
+                            "buys": 0,
+                            "sells": 0,
+                            "buyers": 0,
+                            "sellers": 0
                           }
                         },
                         "volume_usd": {
-                          "m5": "169302.729000635",
-                          "m15": "1135682.71288074",
-                          "m30": "5933192.37924989",
-                          "h1": "7342742.90980712",
-                          "h6": "23039712.0227694",
-                          "h24": "126282664.514509"
+                          "m5": "0.0",
+                          "m15": "0.0",
+                          "m30": "0.0",
+                          "h1": "0.0",
+                          "h6": "0.0",
+                          "h24": "0.0"
                         },
                         "net_buy_volume_usd": {
-                          "m5": "-150936.4938119748",
-                          "m15": "124495.452251326",
-                          "m30": "1272049.71489431",
-                          "h1": "310733.1474086",
-                          "h6": "704731.2010502",
-                          "h24": "-4997173.0542116"
+                          "m5": "0.0",
+                          "m15": "0.0",
+                          "m30": "0.0",
+                          "h1": "0.0",
+                          "h6": "0.0",
+                          "h24": "0.0"
                         },
                         "buy_volume_usd": {
-                          "m5": "9183.1175943302",
-                          "m15": "630089.082566032",
-                          "m30": "3602621.04707209",
-                          "h1": "3826738.02860785",
-                          "h6": "11872221.6119098",
-                          "h24": "60642745.7301488"
+                          "m5": "0.0",
+                          "m15": "0.0",
+                          "m30": "0.0",
+                          "h1": "0.0",
+                          "h6": "0.0",
+                          "h24": "0.0"
                         },
                         "sell_volume_usd": {
-                          "m5": "160119.611406305",
-                          "m15": "505593.630314706",
-                          "m30": "2330571.33217778",
-                          "h1": "3516004.88119925",
-                          "h6": "11167490.4108596",
-                          "h24": "65639918.7843604"
+                          "m5": "0.0",
+                          "m15": "0.0",
+                          "m30": "0.0",
+                          "h1": "0.0",
+                          "h6": "0.0",
+                          "h24": "0.0"
                         },
-                        "reserve_in_usd": "99172790.7747",
-                        "locked_liquidity_percentage": "0.0"
+                        "reserve_in_usd": "13843.8176",
+                        "locked_liquidity_percentage": null,
+                        "launchpad_details": {
+                          "graduation_percentage": 100.0,
+                          "completed": true,
+                          "completed_at": "2025-11-03T20:41:29.000Z",
+                          "migrated_destination_pool_address": "FDrY5i5kuadZ1ik8gPS26qjj9Rw9mpufXMegGC2HNSP7"
+                        }
                       },
                       "relationships": {
                         "base_token": {
                           "data": {
-                            "id": "eth_0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+                            "id": "solana_8J69rbLTzWWgUJziFY8jeu5tDwEPBwUz4pKBMr5rpump",
                             "type": "token"
                           }
                         },
                         "quote_token": {
                           "data": {
-                            "id": "eth_0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+                            "id": "solana_So11111111111111111111111111111111111111112",
                             "type": "token"
                           }
                         },
                         "dex": {
                           "data": {
-                            "id": "uniswap_v3",
+                            "id": "pump-fun",
+                            "type": "dex"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "id": "solana_5zpyutJu9ee6jFymDGoK7F6S5Kczqtc9FomP3ueKuyA9",
+                      "type": "pool",
+                      "attributes": {
+                        "base_token_price_usd": "0.00000373387120582149930598911545945444530201826081",
+                        "base_token_price_native_currency": "0.0000000314001994769456",
+                        "base_token_balance": "74575800617.6894",
+                        "base_token_liquidity_usd": "279090.6252750916369084859895287442940709577512786812749",
+                        "quote_token_price_usd": "118.918433400965066763549895423",
+                        "quote_token_price_native_currency": "1.0",
+                        "quote_token_balance": "1225.627745771",
+                        "quote_token_liquidity_usd": "146074.1948249083692026119455827287906235410158",
+                        "base_token_price_quote_token": "0.00000003140019948",
+                        "quote_token_price_base_token": "31846931.441764",
+                        "address": "5zpyutJu9ee6jFymDGoK7F6S5Kczqtc9FomP3ueKuyA9",
+                        "name": "Bonk / SOL",
+                        "pool_name": "Bonk / SOL",
+                        "pool_fee_percentage": null,
+                        "pool_created_at": "2023-07-05T14:41:09Z",
+                        "fdv_usd": "328559674.843403",
+                        "market_cap_usd": "328559674.843402",
+                        "price_change_percentage": {
+                          "m5": "-0.102",
+                          "m15": "-0.556",
+                          "m30": "0.969",
+                          "h1": "1.796",
+                          "h6": "0.518",
+                          "h24": "10.512"
+                        },
+                        "transactions": {
+                          "m5": {
+                            "buys": 2,
+                            "sells": 19,
+                            "buyers": 2,
+                            "sellers": 17
+                          },
+                          "m15": {
+                            "buys": 40,
+                            "sells": 120,
+                            "buyers": 23,
+                            "sellers": 64
+                          },
+                          "m30": {
+                            "buys": 112,
+                            "sells": 348,
+                            "buyers": 35,
+                            "sellers": 118
+                          },
+                          "h1": {
+                            "buys": 232,
+                            "sells": 563,
+                            "buyers": 59,
+                            "sellers": 182
+                          },
+                          "h6": {
+                            "buys": 1694,
+                            "sells": 2048,
+                            "buyers": 523,
+                            "sellers": 761
+                          },
+                          "h24": {
+                            "buys": 10406,
+                            "sells": 12475,
+                            "buyers": 2051,
+                            "sellers": 2717
+                          }
+                        },
+                        "volume_usd": {
+                          "m5": "898.7386475827",
+                          "m15": "6335.891732359",
+                          "m30": "17308.6495362377",
+                          "h1": "28716.9843463603",
+                          "h6": "162171.587115052",
+                          "h24": "1198448.83285705"
+                        },
+                        "net_buy_volume_usd": {
+                          "m5": "-90.8438050183",
+                          "m15": "-1201.5441254113",
+                          "m30": "4283.791512253",
+                          "h1": "9661.9962903805",
+                          "h6": "3630.6500896265",
+                          "h24": "35605.434484744"
+                        },
+                        "buy_volume_usd": {
+                          "m5": "403.9474212822",
+                          "m15": "2567.1738034739",
+                          "m30": "10796.2205242453",
+                          "h1": "19189.4903183704",
+                          "h6": "82901.1186023391",
+                          "h24": "617027.133670897"
+                        },
+                        "sell_volume_usd": {
+                          "m5": "494.7912263005",
+                          "m15": "3768.7179288852",
+                          "m30": "6512.4290119923",
+                          "h1": "9527.4940279899",
+                          "h6": "79270.4685127126",
+                          "h24": "581421.699186153"
+                        },
+                        "reserve_in_usd": "425164.8201",
+                        "locked_liquidity_percentage": "0.0"
+                      },
+                      "relationships": {
+                        "base_token": {
+                          "data": {
+                            "id": "solana_DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+                            "type": "token"
+                          }
+                        },
+                        "quote_token": {
+                          "data": {
+                            "id": "solana_So11111111111111111111111111111111111111112",
+                            "type": "token"
+                          }
+                        },
+                        "dex": {
+                          "data": {
+                            "id": "orca",
                             "type": "dex"
                           }
                         }
@@ -13113,34 +13392,53 @@
                   ],
                   "included": [
                     {
-                      "id": "eth_0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+                      "id": "solana_8J69rbLTzWWgUJziFY8jeu5tDwEPBwUz4pKBMr5rpump",
                       "type": "token",
                       "attributes": {
-                        "address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
-                        "name": "Wrapped Ether",
-                        "symbol": "WETH",
-                        "decimals": 18,
-                        "image_url": "https://coin-images.coingecko.com/coins/images/2518/large/weth.png?1696503332",
-                        "coingecko_coin_id": "weth"
-                      }
-                    },
-                    {
-                      "id": "eth_0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
-                      "type": "token",
-                      "attributes": {
-                        "address": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
-                        "name": "USD Coin",
-                        "symbol": "USDC",
+                        "address": "8J69rbLTzWWgUJziFY8jeu5tDwEPBwUz4pKBMr5rpump",
+                        "name": "Wojak",
+                        "symbol": "WOJAK",
                         "decimals": 6,
-                        "image_url": "https://coin-images.coingecko.com/coins/images/6319/large/USDC.png?1769615602",
-                        "coingecko_coin_id": "usd-coin"
+                        "image_url": "https://coin-images.coingecko.com/coins/images/70552/large/o6zl61yh9k32fu3rimuoe4sxlfeq.?1762469550",
+                        "coingecko_coin_id": "wojak-4"
                       }
                     },
                     {
-                      "id": "uniswap_v3",
+                      "id": "solana_So11111111111111111111111111111111111111112",
+                      "type": "token",
+                      "attributes": {
+                        "address": "So11111111111111111111111111111111111111112",
+                        "name": "Wrapped SOL",
+                        "symbol": "SOL",
+                        "decimals": 9,
+                        "image_url": "https://coin-images.coingecko.com/coins/images/21629/large/solana.jpg?1696520989",
+                        "coingecko_coin_id": "wrapped-solana"
+                      }
+                    },
+                    {
+                      "id": "pump-fun",
                       "type": "dex",
                       "attributes": {
-                        "name": "Uniswap V3"
+                        "name": "Pump.fun"
+                      }
+                    },
+                    {
+                      "id": "solana_DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+                      "type": "token",
+                      "attributes": {
+                        "address": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+                        "name": "Bonk",
+                        "symbol": "Bonk",
+                        "decimals": 5,
+                        "image_url": "https://coin-images.coingecko.com/coins/images/28600/large/bonk.jpg?1696527587",
+                        "coingecko_coin_id": "bonk"
+                      }
+                    },
+                    {
+                      "id": "orca",
+                      "type": "dex",
+                      "attributes": {
+                        "name": "Orca"
                       }
                     }
                   ]
@@ -19186,6 +19484,7 @@
               },
               "pool_fee_percentage": {
                 "type": "string",
+                "nullable": true,
                 "description": "Pool fee percentage"
               },
               "pool_created_at": {
@@ -19436,7 +19735,28 @@
               },
               "locked_liquidity_percentage": {
                 "type": "string",
+                "nullable": true,
                 "description": "Locked liquidity percentage"
+              },
+              "launchpad_details": {
+                "type": "object",
+                "description": "Launchpad details for bonding curve pools",
+                "properties": {
+                  "graduation_percentage": {
+                    "type": "number"
+                  },
+                  "completed": {
+                    "type": "boolean"
+                  },
+                  "completed_at": {
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "migrated_destination_pool_address": {
+                    "type": "string",
+                    "nullable": true
+                  }
+                }
               }
             }
           },
@@ -21281,6 +21601,26 @@
                 "type": "string",
                 "nullable": true,
                 "description": "Developer holding as a percentage of total supply"
+              },
+              "launchpad_details": {
+                "type": "object",
+                "description": "Launchpad details for pump-style tokens",
+                "properties": {
+                  "graduation_percentage": {
+                    "type": "number"
+                  },
+                  "completed": {
+                    "type": "boolean"
+                  },
+                  "completed_at": {
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "migrated_destination_pool_address": {
+                    "type": "string",
+                    "nullable": true
+                  }
+                }
               }
             }
           }
@@ -21633,11 +21973,27 @@
                     "base_token_price_native_currency": {
                       "type": "string"
                     },
+                    "base_token_balance": {
+                      "type": "string",
+                      "description": "Base token balance in pool"
+                    },
+                    "base_token_liquidity_usd": {
+                      "type": "string",
+                      "description": "Base token liquidity in USD"
+                    },
                     "quote_token_price_usd": {
                       "type": "string"
                     },
                     "quote_token_price_native_currency": {
                       "type": "string"
+                    },
+                    "quote_token_balance": {
+                      "type": "string",
+                      "description": "Quote token balance in pool"
+                    },
+                    "quote_token_liquidity_usd": {
+                      "type": "string",
+                      "description": "Quote token liquidity in USD"
                     },
                     "base_token_price_quote_token": {
                       "type": "string"
@@ -21817,6 +22173,10 @@
                     },
                     "reserve_in_usd": {
                       "type": "string"
+                    },
+                    "last_trade_timestamp": {
+                      "type": "string",
+                      "description": "Last trade timestamp in UNIX"
                     }
                   }
                 },
@@ -22206,11 +22566,27 @@
                     "base_token_price_native_currency": {
                       "type": "string"
                     },
+                    "base_token_balance": {
+                      "type": "string",
+                      "description": "Base token balance in pool"
+                    },
+                    "base_token_liquidity_usd": {
+                      "type": "string",
+                      "description": "Base token liquidity in USD"
+                    },
                     "quote_token_price_usd": {
                       "type": "string"
                     },
                     "quote_token_price_native_currency": {
                       "type": "string"
+                    },
+                    "quote_token_balance": {
+                      "type": "string",
+                      "description": "Quote token balance in pool"
+                    },
+                    "quote_token_liquidity_usd": {
+                      "type": "string",
+                      "description": "Quote token liquidity in USD"
                     },
                     "base_token_price_quote_token": {
                       "type": "string"
@@ -24811,7 +25187,6 @@
                         "decimals",
                         "realized_pnl_usd",
                         "unrealized_pnl_usd",
-                        "token_balance",
                         "average_buy_price_usd",
                         "average_sell_price_usd",
                         "total_buy_count",
@@ -24850,11 +25225,6 @@
                           "type": "string",
                           "nullable": true,
                           "description": "Unrealized PnL in USD"
-                        },
-                        "token_balance": {
-                          "type": "string",
-                          "nullable": true,
-                          "description": "Current token balance"
                         },
                         "average_buy_price_usd": {
                           "type": "string",
