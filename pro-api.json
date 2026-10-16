@@ -11562,6 +11562,115 @@
         }
       }
     },
+    "/onchain/networks/{network}/pools/{pool_address}/liquidity_events": {
+      "get": {
+        "summary": "Liquidity Events by Pool Address",
+        "description": "To query the add and remove liquidity events based on the provided pool address",
+        "operationId": "pool-liquidity-events-contract-address",
+        "x-mint": {
+          "href": "/reference/pool-liquidity-events-contract-address"
+        },
+        "parameters": [
+          {
+            "name": "network",
+            "in": "path",
+            "required": true,
+            "description": "Network ID. \n*refers to [`/onchain/networks`](/reference/networks-list).",
+            "schema": {
+              "type": "string",
+              "default": "solana"
+            }
+          },
+          {
+            "name": "pool_address",
+            "in": "path",
+            "required": true,
+            "description": "Pool contract address.",
+            "schema": {
+              "type": "string",
+              "default": "G9YxfMcZQiW7EmsU1Asxuomcm5iQrBDKpbozuTM2iwne"
+            }
+          },
+          {
+            "name": "kind",
+            "in": "query",
+            "required": false,
+            "description": "Filter by liquidity event kind, omit to return both. \nAvailable values: `add`, `remove`",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "add",
+                "remove"
+              ]
+            }
+          },
+          {
+            "name": "volume_in_usd_greater_than",
+            "in": "query",
+            "required": false,
+            "description": "Filter liquidity events by volume in USD greater than this value. \nMust be a positive number.",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "description": "Cursor from the previous response, passed back unchanged to fetch the next page.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "required": false,
+            "description": "Total results per page. \nDefault value: 20 \nValid values: 1...50",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Liquidity events from a pool",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PoolLiquidityEvents"
+                },
+                "example": {
+                  "data": [
+                    {
+                      "id": "solana_457611113_ya1EoX4PYj6vh3h5iVnqpXrs1K4tB2u1xsYadxU27kbKzGgfNihLgek1qSU68ws3o4VYsngpGFw4HNGqfbKaoVv_20_1792148006",
+                      "type": "liquidity_event",
+                      "attributes": {
+                        "block_number": 457611113,
+                        "tx_hash": "ya1EoX4PYj6vh3h5iVnqpXrs1K4tB2u1xsYadxU27kbKzGgfNihLgek1qSU68ws3o4VYsngpGFw4HNGqfbKaoVv",
+                        "tx_from_address": "8wUyLahcTw85GWGxsXWNgPF7DEbMPH45zpkjJnxPYrNP",
+                        "block_timestamp": "2026-10-16T10:53:26Z",
+                        "kind": "remove",
+                        "base_token_address": "3GP5xgK7cdSeWkgmcAh4vomARuDYoWi89saU3AKZnhKm",
+                        "base_token_amount": "131587980.65415",
+                        "quote_token_address": "So11111111111111111111111111111111111111112",
+                        "quote_token_amount": "187.258906",
+                        "base_token_price_in_usd": "0.0001417",
+                        "quote_token_price_in_usd": "106.496866",
+                        "volume_in_usd": "38593.231589"
+                      }
+                    }
+                  ],
+                  "meta": {
+                    "next_cursor": null
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/onchain/networks/{network}/tokens/{token_address}/trades": {
       "get": {
         "summary": "Trades by Token Address",
@@ -25262,6 +25371,119 @@
                     }
                   }
                 }
+              }
+            }
+          }
+        }
+      },
+      "PoolLiquidityEvents": {
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "type",
+                "attributes"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "Liquidity event identifier"
+                },
+                "type": {
+                  "type": "string",
+                  "description": "Resource type"
+                },
+                "attributes": {
+                  "type": "object",
+                  "required": [
+                    "block_number",
+                    "tx_hash",
+                    "tx_from_address",
+                    "block_timestamp",
+                    "kind",
+                    "base_token_address",
+                    "base_token_amount",
+                    "quote_token_address",
+                    "quote_token_amount",
+                    "base_token_price_in_usd",
+                    "quote_token_price_in_usd",
+                    "volume_in_usd"
+                  ],
+                  "properties": {
+                    "block_number": {
+                      "type": "integer",
+                      "description": "Block number of the liquidity event"
+                    },
+                    "tx_hash": {
+                      "type": "string",
+                      "description": "Transaction hash"
+                    },
+                    "tx_from_address": {
+                      "type": "string",
+                      "description": "Transaction sender address"
+                    },
+                    "block_timestamp": {
+                      "type": "string",
+                      "description": "Block timestamp"
+                    },
+                    "kind": {
+                      "type": "string",
+                      "enum": [
+                        "add",
+                        "remove"
+                      ],
+                      "description": "Liquidity event kind (add or remove)"
+                    },
+                    "base_token_address": {
+                      "type": "string",
+                      "description": "Base token contract address"
+                    },
+                    "base_token_amount": {
+                      "type": "string",
+                      "description": "Amount of base token added or removed"
+                    },
+                    "quote_token_address": {
+                      "type": "string",
+                      "description": "Quote token contract address"
+                    },
+                    "quote_token_amount": {
+                      "type": "string",
+                      "description": "Amount of quote token added or removed"
+                    },
+                    "base_token_price_in_usd": {
+                      "type": "string",
+                      "description": "Price of base token in USD at the time of the event"
+                    },
+                    "quote_token_price_in_usd": {
+                      "type": "string",
+                      "description": "Price of quote token in USD at the time of the event"
+                    },
+                    "volume_in_usd": {
+                      "type": "string",
+                      "description": "Total value of the liquidity event in USD"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "meta": {
+            "type": "object",
+            "required": [
+              "next_cursor"
+            ],
+            "properties": {
+              "next_cursor": {
+                "type": "string",
+                "nullable": true,
+                "description": "Cursor for the next page, null when there are no further pages"
               }
             }
           }
