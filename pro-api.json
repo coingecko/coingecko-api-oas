@@ -8439,6 +8439,27 @@
             }
           },
           {
+            "name": "quote_token_addresses",
+            "in": "query",
+            "required": false,
+            "description": "Filter pools whose quote token is one of these token addresses, comma-separated if more than one. \nMaximum: 50 addresses",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "quote_token_preset",
+            "in": "query",
+            "required": false,
+            "description": "Filter pools whose quote token belongs to a preset group.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "rwa_stock"
+              ]
+            }
+          },
+          {
             "name": "include",
             "in": "query",
             "required": false,
