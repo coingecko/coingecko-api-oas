@@ -88,7 +88,7 @@
             "name": "vs_currencies",
             "in": "query",
             "required": true,
-            "description": "Target currency of coins, comma-separated if querying more than 1 currency. \n*refers to [`/simple/supported_vs_currencies`](/reference/simple-supported-currencies)",
+            "description": "Target currency of coins, comma-separated if querying more than 1 currency. \n*refers to [`/simple/supported_vs_currencies`](/reference/simple-supported-currencies). \n\nFor the complete list of fiat currencies supported by this endpoint, see [Fiat Currencies Support List](/docs/fiat-currencies-support).",
             "schema": {
               "type": "string",
               "default": "usd"
@@ -418,7 +418,7 @@
             "name": "vs_currencies",
             "in": "query",
             "required": true,
-            "description": "Target currency of coins, comma-separated if querying more than 1 currency. \n*refers to [`/simple/supported_vs_currencies`](/reference/simple-supported-currencies)",
+            "description": "Target currency of coins, comma-separated if querying more than 1 currency. \n*refers to [`/simple/supported_vs_currencies`](/reference/simple-supported-currencies). \n\nFor the complete list of fiat currencies supported by this endpoint, see [Fiat Currencies Support List](/docs/fiat-currencies-support).",
             "schema": {
               "type": "string",
               "default": "usd"
@@ -10313,6 +10313,7 @@
                       "mint_authority": "no",
                       "freeze_authority": "no",
                       "is_honeypot": "unknown",
+                      "is_nsfw": false,
                       "developer_address": "J3k4T9XHhhAGrZ64ukcya19FApC8jf8xaTWwYJfjTR4p",
                       "developer_holding_percentage": "10.72",
                       "launchpad_details": {
@@ -10437,6 +10438,7 @@
                         "mint_authority": "no",
                         "freeze_authority": "no",
                         "is_honeypot": "unknown",
+                        "is_nsfw": false,
                         "developer_address": "J3k4T9XHhhAGrZ64ukcya19FApC8jf8xaTWwYJfjTR4p",
                         "developer_holding_percentage": "10.72",
                         "launchpad_details": {
@@ -10504,6 +10506,7 @@
                         "mint_authority": "no",
                         "freeze_authority": "no",
                         "is_honeypot": "unknown",
+                        "is_nsfw": false,
                         "developer_address": null,
                         "developer_holding_percentage": null
                       },
@@ -11357,6 +11360,15 @@
             }
           },
           {
+            "name": "include_anomalous",
+            "in": "query",
+            "required": false,
+            "description": "Include trades flagged as anomalous. \nDefault: `false`",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
             "name": "cursor",
             "in": "query",
             "required": false,
@@ -11402,7 +11414,8 @@
                         "kind": "buy",
                         "volume_in_usd": "211.39010792416",
                         "from_token_address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
-                        "to_token_address": "0xdac17f958d2ee523a2206206994597c13d831ec7"
+                        "to_token_address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+                        "is_anomalous": false
                       }
                     },
                     {
@@ -11422,7 +11435,8 @@
                         "kind": "sell",
                         "volume_in_usd": "190.994179494001",
                         "from_token_address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
-                        "to_token_address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+                        "to_token_address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+                        "is_anomalous": false
                       }
                     }
                   ],
@@ -11504,6 +11518,15 @@
             }
           },
           {
+            "name": "include_anomalous",
+            "in": "query",
+            "required": false,
+            "description": "Include trades flagged as anomalous. \nDefault: `false`",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
             "name": "cursor",
             "in": "query",
             "required": false,
@@ -11549,7 +11572,8 @@
                         "kind": "sell",
                         "volume_in_usd": "0.474961821168753",
                         "from_token_address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
-                        "to_token_address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+                        "to_token_address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+                        "is_anomalous": false
                       }
                     },
                     {
@@ -11569,7 +11593,8 @@
                         "kind": "sell",
                         "volume_in_usd": "42.2291806035184",
                         "from_token_address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
-                        "to_token_address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+                        "to_token_address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+                        "is_anomalous": false
                       }
                     }
                   ],
@@ -11745,6 +11770,15 @@
             }
           },
           {
+            "name": "include_anomalous",
+            "in": "query",
+            "required": false,
+            "description": "Include trades flagged as anomalous. \nDefault: `false`",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
             "name": "cursor",
             "in": "query",
             "required": false,
@@ -11792,7 +11826,8 @@
                         "kind": "buy",
                         "volume_in_usd": "17.9381480394748",
                         "from_token_address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
-                        "to_token_address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+                        "to_token_address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+                        "is_anomalous": false
                       }
                     },
                     {
@@ -11814,7 +11849,8 @@
                         "kind": "sell",
                         "volume_in_usd": "116.513335341116",
                         "from_token_address": "0x9aab071b4129b083b01cb5a0cb513ce7eca26fa5",
-                        "to_token_address": "0xdac17f958d2ee523a2206206994597c13d831ec7"
+                        "to_token_address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+                        "is_anomalous": false
                       }
                     }
                   ],
@@ -11887,6 +11923,15 @@
             }
           },
           {
+            "name": "include_anomalous",
+            "in": "query",
+            "required": false,
+            "description": "Include trades flagged as anomalous. \nDefault: `false`",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
             "name": "cursor",
             "in": "query",
             "required": false,
@@ -11934,7 +11979,8 @@
                         "kind": "sell",
                         "volume_in_usd": "2490.40792787628",
                         "from_token_address": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
-                        "to_token_address": "0xdac17f958d2ee523a2206206994597c13d831ec7"
+                        "to_token_address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+                        "is_anomalous": false
                       }
                     },
                     {
@@ -11956,7 +12002,8 @@
                         "kind": "buy",
                         "volume_in_usd": "19895.424531073",
                         "from_token_address": "0xdc035d45d973e3ec169d2276ddab16f1e407384f",
-                        "to_token_address": "0xdac17f958d2ee523a2206206994597c13d831ec7"
+                        "to_token_address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+                        "is_anomalous": false
                       }
                     }
                   ],
@@ -12335,6 +12382,15 @@
             }
           },
           {
+            "name": "include_anomalous",
+            "in": "query",
+            "required": false,
+            "description": "Include trades flagged as anomalous. \nDefault: `false`",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
             "name": "cursor",
             "in": "query",
             "required": false,
@@ -12382,7 +12438,8 @@
                         "price_to_in_usd": "2628.96",
                         "price_from_in_currency_token": "0.0000000484465303385948",
                         "price_to_in_currency_token": "1.0",
-                        "volume_in_usd": "13.1830050516405"
+                        "volume_in_usd": "13.1830050516405",
+                        "is_anomalous": false
                       }
                     },
                     {
@@ -12404,7 +12461,8 @@
                         "price_to_in_usd": "0.00024778821236151",
                         "price_from_in_currency_token": "1.0",
                         "price_to_in_currency_token": "0.0000000934136871365381",
-                        "volume_in_usd": "525.21282"
+                        "volume_in_usd": "525.21282",
+                        "is_anomalous": false
                       }
                     }
                   ],
@@ -20611,7 +20669,8 @@
                     "kind",
                     "volume_in_usd",
                     "from_token_address",
-                    "to_token_address"
+                    "to_token_address",
+                    "is_anomalous"
                   ],
                   "properties": {
                     "pool_address": {
@@ -20677,6 +20736,10 @@
                     "to_token_address": {
                       "type": "string",
                       "description": "To-token contract address"
+                    },
+                    "is_anomalous": {
+                      "type": "boolean",
+                      "description": "Whether the trade is flagged as anomalous"
                     }
                   }
                 }
@@ -21075,7 +21138,8 @@
                     "kind",
                     "volume_in_usd",
                     "from_token_address",
-                    "to_token_address"
+                    "to_token_address",
+                    "is_anomalous"
                   ],
                   "properties": {
                     "block_number": {
@@ -21133,6 +21197,10 @@
                     "to_token_address": {
                       "type": "string",
                       "description": "To-token contract address"
+                    },
+                    "is_anomalous": {
+                      "type": "boolean",
+                      "description": "Whether the trade is flagged as anomalous"
                     }
                   }
                 }
@@ -21550,6 +21618,7 @@
               "mint_authority",
               "freeze_authority",
               "is_honeypot",
+              "is_nsfw",
               "developer_address",
               "developer_holding_percentage"
             ],
@@ -21721,6 +21790,10 @@
                   }
                 ],
                 "description": "Whether the token is a honeypot (boolean or 'unknown')"
+              },
+              "is_nsfw": {
+                "type": "boolean",
+                "description": "Whether the token's name or symbol matches the GeckoTerminal NSFW keyword list"
               },
               "developer_address": {
                 "type": "string",
@@ -25136,7 +25209,8 @@
                     "price_to_in_usd",
                     "price_from_in_currency_token",
                     "price_to_in_currency_token",
-                    "volume_in_usd"
+                    "volume_in_usd",
+                    "is_anomalous"
                   ],
                   "properties": {
                     "pool_address": {
@@ -25203,6 +25277,10 @@
                     "volume_in_usd": {
                       "type": "string",
                       "description": "Trade volume in USD"
+                    },
+                    "is_anomalous": {
+                      "type": "boolean",
+                      "description": "Whether the trade is flagged as anomalous"
                     }
                   }
                 }

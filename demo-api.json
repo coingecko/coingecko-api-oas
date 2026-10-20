@@ -56,7 +56,7 @@
             "name": "vs_currencies",
             "in": "query",
             "required": true,
-            "description": "Target currency of coins, comma-separated if querying more than 1 currency. \n*refers to [`/simple/supported_vs_currencies`](/reference/simple-supported-currencies)",
+            "description": "Target currency of coins, comma-separated if querying more than 1 currency. \n*refers to [`/simple/supported_vs_currencies`](/reference/simple-supported-currencies). \n\nFor the complete list of fiat currencies supported by this endpoint, see [Fiat Currencies Support List](/docs/fiat-currencies-support).",
             "schema": {
               "type": "string",
               "default": "usd"
@@ -386,7 +386,7 @@
             "name": "vs_currencies",
             "in": "query",
             "required": true,
-            "description": "Target currency of coins, comma-separated if querying more than 1 currency. \n*refers to [`/simple/supported_vs_currencies`](/reference/simple-supported-currencies)",
+            "description": "Target currency of coins, comma-separated if querying more than 1 currency. \n*refers to [`/simple/supported_vs_currencies`](/reference/simple-supported-currencies). \n\nFor the complete list of fiat currencies supported by this endpoint, see [Fiat Currencies Support List](/docs/fiat-currencies-support).",
             "schema": {
               "type": "string",
               "default": "usd"
@@ -7525,6 +7525,7 @@
                       "mint_authority": "no",
                       "freeze_authority": "no",
                       "is_honeypot": "unknown",
+                      "is_nsfw": false,
                       "developer_address": "J3k4T9XHhhAGrZ64ukcya19FApC8jf8xaTWwYJfjTR4p",
                       "developer_holding_percentage": "10.72",
                       "launchpad_details": {
@@ -7649,6 +7650,7 @@
                         "mint_authority": "no",
                         "freeze_authority": "no",
                         "is_honeypot": "unknown",
+                        "is_nsfw": false,
                         "developer_address": "J3k4T9XHhhAGrZ64ukcya19FApC8jf8xaTWwYJfjTR4p",
                         "developer_holding_percentage": "10.72",
                         "launchpad_details": {
@@ -7716,6 +7718,7 @@
                         "mint_authority": "no",
                         "freeze_authority": "no",
                         "is_honeypot": "unknown",
+                        "is_nsfw": false,
                         "developer_address": null,
                         "developer_holding_percentage": null
                       },
@@ -8081,6 +8084,15 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "include_anomalous",
+            "in": "query",
+            "required": false,
+            "description": "Include trades flagged as anomalous. \nDefault: `false`",
+            "schema": {
+              "type": "boolean"
+            }
           }
         ],
         "responses": {
@@ -8110,7 +8122,8 @@
                         "kind": "buy",
                         "volume_in_usd": "211.39010792416",
                         "from_token_address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
-                        "to_token_address": "0xdac17f958d2ee523a2206206994597c13d831ec7"
+                        "to_token_address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+                        "is_anomalous": false
                       }
                     },
                     {
@@ -8130,7 +8143,8 @@
                         "kind": "sell",
                         "volume_in_usd": "190.994179494001",
                         "from_token_address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
-                        "to_token_address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+                        "to_token_address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+                        "is_anomalous": false
                       }
                     }
                   ]
@@ -14636,7 +14650,8 @@
                     "kind",
                     "volume_in_usd",
                     "from_token_address",
-                    "to_token_address"
+                    "to_token_address",
+                    "is_anomalous"
                   ],
                   "properties": {
                     "block_number": {
@@ -14694,6 +14709,10 @@
                     "to_token_address": {
                       "type": "string",
                       "description": "To-token contract address"
+                    },
+                    "is_anomalous": {
+                      "type": "boolean",
+                      "description": "Whether the trade is flagged as anomalous"
                     }
                   }
                 }
@@ -15098,6 +15117,7 @@
               "mint_authority",
               "freeze_authority",
               "is_honeypot",
+              "is_nsfw",
               "developer_address",
               "developer_holding_percentage"
             ],
@@ -15269,6 +15289,10 @@
                   }
                 ],
                 "description": "Whether the token is a honeypot (boolean or 'unknown')"
+              },
+              "is_nsfw": {
+                "type": "boolean",
+                "description": "Whether the token's name or symbol matches the GeckoTerminal NSFW keyword list"
               },
               "developer_address": {
                 "type": "string",
