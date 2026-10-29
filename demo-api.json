@@ -5582,7 +5582,11 @@
                     },
                     "market_cap_change_percentage_24h_usd": -1.6081983639177684,
                     "volume_change_percentage_24h_usd": 33.064521460740046,
-                    "updated_at": 1779878351
+                    "updated_at": 1779878351,
+                    "fear_and_greed_index": {
+                      "value": 44,
+                      "sentiment": "fear"
+                    }
                   }
                 }
               }
@@ -13662,6 +13666,31 @@
               "updated_at": {
                 "type": "integer",
                 "description": "Last updated time in UNIX timestamp"
+              },
+              "fear_and_greed_index": {
+                "type": "object",
+                "description": "Crypto Fear & Greed Index",
+                "required": [
+                  "value",
+                  "sentiment"
+                ],
+                "properties": {
+                  "value": {
+                    "type": "integer",
+                    "description": "Crypto Fear & Greed Index value"
+                  },
+                  "sentiment": {
+                    "type": "string",
+                    "description": "Sentiment label based on the index value",
+                    "enum": [
+                      "extreme_fear",
+                      "fear",
+                      "neutral",
+                      "greed",
+                      "extreme_greed"
+                    ]
+                  }
+                }
               }
             }
           }
