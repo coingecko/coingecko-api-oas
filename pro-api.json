@@ -24461,7 +24461,7 @@
           },
           "image": {
             "type": "object",
-            "description": "Image URLs of the token with the largest market cap",
+            "description": "Image URLs of one of the RWA's tokens",
             "properties": {
               "thumb": {
                 "type": "string",
