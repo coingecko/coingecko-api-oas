@@ -1317,12 +1317,12 @@
             "name": "order",
             "in": "query",
             "required": false,
-            "description": "Sort the order of responses. \nDefault: trust_score_desc",
+            "description": "Sort the order of responses. \nDefault: volume_desc",
             "schema": {
               "type": "string",
               "enum": [
-                "trust_score_desc",
-                "trust_score_asc",
+                "last_traded_at_desc",
+                "last_traded_at_asc",
                 "volume_desc",
                 "volume_asc"
               ]
@@ -3934,7 +3934,7 @@
             "name": "order",
             "in": "query",
             "required": false,
-            "description": "Sort the order of responses. \nDefault: last_traded_at_desc",
+            "description": "Sort the order of responses. \nDefault: volume_desc",
             "schema": {
               "type": "string",
               "enum": [
@@ -4623,14 +4623,14 @@
             "name": "order",
             "in": "query",
             "required": false,
-            "description": "Sort the order of responses. \nDefault: `trust_score_desc`",
+            "description": "Sort the order of responses. \nDefault: `volume_desc`",
             "schema": {
               "type": "string",
               "enum": [
                 "market_cap_asc",
                 "market_cap_desc",
-                "trust_score_desc",
-                "trust_score_asc",
+                "last_traded_at_desc",
+                "last_traded_at_asc",
                 "volume_desc",
                 "volume_asc",
                 "base_target"
