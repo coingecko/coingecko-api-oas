@@ -1317,12 +1317,12 @@
             "name": "order",
             "in": "query",
             "required": false,
-            "description": "Sort the order of responses. \nDefault: trust_score_desc",
+            "description": "Sort the order of responses. \nDefault: volume_desc",
             "schema": {
               "type": "string",
               "enum": [
-                "trust_score_desc",
-                "trust_score_asc",
+                "last_traded_at_desc",
+                "last_traded_at_asc",
                 "volume_desc",
                 "volume_asc"
               ]
@@ -3934,7 +3934,7 @@
             "name": "order",
             "in": "query",
             "required": false,
-            "description": "Sort the order of responses. \nDefault: last_traded_at_desc",
+            "description": "Sort the order of responses. \nDefault: volume_desc",
             "schema": {
               "type": "string",
               "enum": [
@@ -4623,14 +4623,14 @@
             "name": "order",
             "in": "query",
             "required": false,
-            "description": "Sort the order of responses. \nDefault: `trust_score_desc`",
+            "description": "Sort the order of responses. \nDefault: `volume_desc`",
             "schema": {
               "type": "string",
               "enum": [
                 "market_cap_asc",
                 "market_cap_desc",
-                "trust_score_desc",
-                "trust_score_asc",
+                "last_traded_at_desc",
+                "last_traded_at_asc",
                 "volume_desc",
                 "volume_asc",
                 "base_target"
@@ -7276,7 +7276,11 @@
                     },
                     "market_cap_change_percentage_24h_usd": -1.6081983639177684,
                     "volume_change_percentage_24h_usd": 33.064521460740046,
-                    "updated_at": 1779878351
+                    "updated_at": 1779878351,
+                    "fear_and_greed_index": {
+                      "value": 44,
+                      "sentiment": "fear"
+                    }
                   }
                 }
               }
@@ -7388,6 +7392,64 @@
                       ]
                     ]
                   }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/global/fear_and_greed_chart": {
+      "get": {
+        "summary": "Global Fear & Greed Chart Data",
+        "description": "To query historical fear and greed data by number of days away from now",
+        "operationId": "global-fear-and-greed-chart",
+        "x-mint": {
+          "href": "/reference/global-fear-and-greed-chart"
+        },
+        "parameters": [
+          {
+            "name": "days",
+            "in": "query",
+            "required": true,
+            "description": "Data up to number of days ago.",
+            "schema": {
+              "type": "string",
+              "default": "1",
+              "enum": [
+                "1",
+                "7",
+                "14",
+                "30",
+                "90",
+                "180",
+                "365",
+                "max"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Global fear and greed chart data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GlobalFearAndGreedChart"
+                },
+                "example": {
+                  "fear_and_greed": [
+                    [
+                      1792281600000,
+                      44,
+                      "fear"
+                    ],
+                    [
+                      1792368000000,
+                      44,
+                      "fear"
+                    ]
+                  ]
                 }
               }
             }
@@ -14241,11 +14303,11 @@
           },
           "current_total_monthly_calls": {
             "type": "integer",
-            "description": "Total API calls made this month"
+            "description": "Total API calls made this month for the account, across all API keys"
           },
           "current_remaining_monthly_calls": {
             "type": "integer",
-            "description": "Remaining API call credits this month"
+            "description": "Remaining API call credits this month for the account, across all API keys"
           },
           "api_key_rate_limit_request_per_minute": {
             "type": "integer",
@@ -19063,6 +19125,31 @@
               "updated_at": {
                 "type": "integer",
                 "description": "Last updated time in UNIX timestamp"
+              },
+              "fear_and_greed_index": {
+                "type": "object",
+                "description": "Crypto Fear & Greed Index",
+                "required": [
+                  "value",
+                  "sentiment"
+                ],
+                "properties": {
+                  "value": {
+                    "type": "integer",
+                    "description": "Crypto Fear & Greed Index value"
+                  },
+                  "sentiment": {
+                    "type": "string",
+                    "description": "Sentiment label based on the index value",
+                    "enum": [
+                      "extreme_fear",
+                      "fear",
+                      "neutral",
+                      "greed",
+                      "extreme_greed"
+                    ]
+                  }
+                }
               }
             }
           }
@@ -24374,7 +24461,7 @@
           },
           "image": {
             "type": "object",
-            "description": "Image URLs of the token with the largest market cap",
+            "description": "Image URLs of one of the RWA's tokens",
             "properties": {
               "thumb": {
                 "type": "string",
@@ -25583,6 +25670,31 @@
                 "type": "string",
                 "nullable": true,
                 "description": "Cursor for the next page, null when there are no further pages"
+              }
+            }
+          }
+        }
+      },
+      "GlobalFearAndGreedChart": {
+        "type": "object",
+        "required": [
+          "fear_and_greed"
+        ],
+        "properties": {
+          "fear_and_greed": {
+            "type": "array",
+            "description": "Fear and greed data points as [timestamp, value, sentiment]",
+            "items": {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
               }
             }
           }
