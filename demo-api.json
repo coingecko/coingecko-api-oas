@@ -4154,7 +4154,7 @@
     "/entities/list": {
       "get": {
         "summary": "Entities List",
-        "description": "To query all the supported entities on CoinGecko with entity ID, name, symbol, and country",
+        "description": "To query all the supported entities on CoinGecko with entity ID, name, symbol, country, and FIGI",
         "operationId": "entities-list",
         "x-mint": {
           "href": "/reference/entities-list"
@@ -4194,7 +4194,7 @@
         ],
         "responses": {
           "200": {
-            "description": "List of entities with ID, name, symbol, and country",
+            "description": "List of entities with ID, name, symbol, country, and FIGI",
             "content": {
               "application/json": {
                 "schema": {
@@ -4205,13 +4205,15 @@
                     "id": "texas",
                     "symbol": "",
                     "name": "Texas",
-                    "country": "US"
+                    "country": "US",
+                    "figi": null
                   },
                   {
                     "id": "digipowerx",
                     "symbol": "DGX.V",
                     "name": "DigiPowerX",
-                    "country": "US"
+                    "country": "US",
+                    "figi": "BBG00JHWN4Z7"
                   }
                 ]
               }
@@ -4376,6 +4378,7 @@
                   "type": "company",
                   "symbol": "MSTR.US",
                   "country": "US",
+                  "figi": "BBG000GQJPZ0",
                   "website_url": "https://www.strategy.com/",
                   "twitter_screen_name": "Strategy",
                   "total_treasury_value_usd": 64383151578.86817,
@@ -7942,7 +7945,7 @@
             "name": "before_timestamp",
             "in": "query",
             "required": false,
-            "description": "Return OHLCV data before this timestamp (integer seconds since epoch).",
+            "description": "Return OHLCV data up to and including the candle that contains this timestamp (integer seconds since epoch). That candle covers its full interval, so it may include trades after this timestamp.",
             "schema": {
               "type": "integer"
             }
@@ -12912,6 +12915,11 @@
             "type": "string",
             "description": "Country code"
           },
+          "figi": {
+            "type": "string",
+            "nullable": true,
+            "description": "Financial Instrument Global Identifier (FIGI) of the entity"
+          },
           "website_url": {
             "type": "string",
             "description": "Official website URL"
@@ -13209,6 +13217,11 @@
             "country": {
               "type": "string",
               "description": "Country code"
+            },
+            "figi": {
+              "type": "string",
+              "nullable": true,
+              "description": "Financial Instrument Global Identifier (FIGI) of the entity"
             }
           }
         }
