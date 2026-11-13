@@ -4925,6 +4925,175 @@
         }
       }
     },
+    "/derivatives/underlyings": {
+      "get": {
+        "summary": "Derivatives Underlying Assets List with Data",
+        "description": "To query all the supported derivatives underlying assets with price, open interest, funding rate and volume data",
+        "operationId": "derivatives-underlyings",
+        "x-mint": {
+          "href": "/reference/derivatives-underlyings"
+        },
+        "parameters": [
+          {
+            "name": "coin_ids",
+            "in": "query",
+            "required": false,
+            "description": "Coins' IDs, comma-separated if querying more than 1 coin. \n*refers to [`/coins/list`](/reference/coins-list)",
+            "schema": {
+              "type": "string",
+              "default": "bitcoin"
+            }
+          },
+          {
+            "name": "rwa_ids",
+            "in": "query",
+            "required": false,
+            "description": "RWAs' IDs, comma-separated if querying more than 1 RWA. \n*refers to [`/rwas/list`](/reference/rwas-list)",
+            "schema": {
+              "type": "string",
+              "default": "gold"
+            }
+          },
+          {
+            "name": "underlying_type",
+            "in": "query",
+            "required": false,
+            "description": "Filter by underlying type.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "coin",
+                "rwa"
+              ]
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "Page through results. \nDefault: 1",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "required": false,
+            "description": "Total results per page. \nDefault: 100 \nValid values: 1...250",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "required": false,
+            "description": "Sort result by field. \nDefault: open_interest_desc",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "open_interest_desc",
+                "open_interest_asc",
+                "volume_desc",
+                "volume_asc"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of derivatives underlying assets with data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DerivativesUnderlyings"
+                },
+                "example": [
+                  {
+                    "id": "bitcoin",
+                    "symbol": "btc",
+                    "name": "Bitcoin",
+                    "underlying_type": "coin",
+                    "current_price": 68708.23462448928,
+                    "price_change_percentage_24h": -6.6178,
+                    "open_interest": 45451655842.73,
+                    "open_interest_change_percentage_1h": 0.4049687860147835,
+                    "open_interest_change_percentage_24h": -0.6338842407777445,
+                    "funding_rate": -8.04249910959869e-05,
+                    "total_volume": 434673824874.8
+                  },
+                  {
+                    "id": "gold",
+                    "symbol": "xau",
+                    "name": "Gold",
+                    "underlying_type": "rwa",
+                    "current_price": 3898.7874770946237,
+                    "price_change_percentage_24h": -0.9,
+                    "open_interest": 2910420695.36,
+                    "open_interest_change_percentage_1h": -1.3335382491530214,
+                    "open_interest_change_percentage_24h": 3.701439230747514,
+                    "funding_rate": 0.01218484286453822,
+                    "total_volume": 12515917595.08
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/derivatives/underlyings/list": {
+      "get": {
+        "summary": "Derivatives Underlying Assets List",
+        "description": "To query all the supported derivatives underlying assets with ID, name, symbol and underlying type",
+        "operationId": "derivatives-underlyings-list",
+        "x-mint": {
+          "href": "/reference/derivatives-underlyings-list"
+        },
+        "parameters": [
+          {
+            "name": "underlying_type",
+            "in": "query",
+            "required": false,
+            "description": "Filter by underlying type.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "coin",
+                "rwa"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of derivatives underlying assets",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DerivativesUnderlyingsList"
+                },
+                "example": [
+                  {
+                    "id": "bitcoin",
+                    "symbol": "btc",
+                    "name": "Bitcoin",
+                    "underlying_type": "coin"
+                  },
+                  {
+                    "id": "gold",
+                    "symbol": "xau",
+                    "name": "Gold",
+                    "underlying_type": "rwa"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
     "/derivatives/exchanges": {
       "get": {
         "summary": "Derivatives Exchanges List with Data",
@@ -25709,6 +25878,111 @@
                   }
                 ]
               }
+            }
+          }
+        }
+      },
+      "DerivativesUnderlyings": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": [
+            "id",
+            "symbol",
+            "name",
+            "underlying_type",
+            "current_price",
+            "price_change_percentage_24h",
+            "open_interest",
+            "open_interest_change_percentage_1h",
+            "open_interest_change_percentage_24h",
+            "funding_rate",
+            "total_volume"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "Underlying asset ID (coin ID or RWA ID)"
+            },
+            "symbol": {
+              "type": "string",
+              "description": "Underlying asset symbol"
+            },
+            "name": {
+              "type": "string",
+              "description": "Underlying asset name"
+            },
+            "underlying_type": {
+              "type": "string",
+              "enum": [
+                "coin",
+                "rwa"
+              ],
+              "description": "Underlying asset type"
+            },
+            "current_price": {
+              "type": "number",
+              "description": "Underlying asset price in USD"
+            },
+            "price_change_percentage_24h": {
+              "type": "number",
+              "description": "Underlying asset 24-hour price change percentage"
+            },
+            "open_interest": {
+              "type": "number",
+              "nullable": true,
+              "description": "Derivative open interest in USD"
+            },
+            "open_interest_change_percentage_1h": {
+              "type": "number",
+              "description": "Derivative 1-hour open interest change percentage"
+            },
+            "open_interest_change_percentage_24h": {
+              "type": "number",
+              "description": "Derivative 24-hour open interest change percentage"
+            },
+            "funding_rate": {
+              "type": "number",
+              "description": "Derivative funding rate"
+            },
+            "total_volume": {
+              "type": "number",
+              "nullable": true,
+              "description": "Derivative total trading volume in USD"
+            }
+          }
+        }
+      },
+      "DerivativesUnderlyingsList": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": [
+            "id",
+            "symbol",
+            "name",
+            "underlying_type"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "Underlying asset ID (coin ID or RWA ID)"
+            },
+            "symbol": {
+              "type": "string",
+              "description": "Underlying asset symbol"
+            },
+            "name": {
+              "type": "string",
+              "description": "Underlying asset name"
+            },
+            "underlying_type": {
+              "type": "string",
+              "enum": [
+                "coin",
+                "rwa"
+              ],
+              "description": "Underlying asset type"
             }
           }
         }

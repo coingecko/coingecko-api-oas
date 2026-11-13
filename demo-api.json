@@ -3913,6 +3913,57 @@
         }
       }
     },
+    "/derivatives/underlyings/list": {
+      "get": {
+        "summary": "Derivatives Underlying Assets List",
+        "description": "To query all the supported derivatives underlying assets with ID, name, symbol and underlying type",
+        "operationId": "derivatives-underlyings-list",
+        "x-mint": {
+          "href": "/reference/derivatives-underlyings-list"
+        },
+        "parameters": [
+          {
+            "name": "underlying_type",
+            "in": "query",
+            "required": false,
+            "description": "Filter by underlying type.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "coin",
+                "rwa"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of derivatives underlying assets",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DerivativesUnderlyingsList"
+                },
+                "example": [
+                  {
+                    "id": "bitcoin",
+                    "symbol": "btc",
+                    "name": "Bitcoin",
+                    "underlying_type": "coin"
+                  },
+                  {
+                    "id": "gold",
+                    "symbol": "xau",
+                    "name": "Gold",
+                    "underlying_type": "rwa"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
     "/derivatives/exchanges": {
       "get": {
         "summary": "Derivatives Exchanges List with Data",
@@ -17580,6 +17631,40 @@
             "type": "string",
             "format": "date-time",
             "description": "Issuer last updated timestamp"
+          }
+        }
+      },
+      "DerivativesUnderlyingsList": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": [
+            "id",
+            "symbol",
+            "name",
+            "underlying_type"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "Underlying asset ID (coin ID or RWA ID)"
+            },
+            "symbol": {
+              "type": "string",
+              "description": "Underlying asset symbol"
+            },
+            "name": {
+              "type": "string",
+              "description": "Underlying asset name"
+            },
+            "underlying_type": {
+              "type": "string",
+              "enum": [
+                "coin",
+                "rwa"
+              ],
+              "description": "Underlying asset type"
+            }
           }
         }
       }
