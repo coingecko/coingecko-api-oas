@@ -226,13 +226,27 @@
                 "example": {
                   "coins": [
                     {
-                      "id": "ethereum",
-                      "name": "Ethereum",
-                      "api_symbol": "ethereum",
-                      "symbol": "ETH",
-                      "market_cap_rank": 2,
-                      "thumb": "https://coin-images.coingecko.com/coins/images/279/thumb/ethereum.png",
-                      "large": "https://coin-images.coingecko.com/coins/images/279/large/ethereum.png"
+                      "id": "semicon-bull-3x-etf-bstocks-tokenized-stock",
+                      "name": "Semicon Bull 3X ETF (bStocks Tokenized ETF)",
+                      "api_symbol": "semicon-bull-3x-etf-bstocks-tokenized-stock",
+                      "symbol": "SOXLB",
+                      "market_cap_rank": 279,
+                      "thumb": "https://coin-images.coingecko.com/coins/images/102174369/thumb/soxlb-bstocks.png",
+                      "large": "https://coin-images.coingecko.com/coins/images/102174369/large/soxlb-bstocks.png"
+                    }
+                  ],
+                  "rwas": [
+                    {
+                      "id": "spdr-s-p-500-etf-trust",
+                      "name": "SPDR S&P 500 ETF Trust",
+                      "symbol": "SPY",
+                      "asset_type": "etf"
+                    },
+                    {
+                      "id": "invesco-qqq-etf",
+                      "name": "Invesco QQQ ETF",
+                      "symbol": "QQQ",
+                      "asset_type": "etf"
                     }
                   ],
                   "exchanges": [
@@ -247,16 +261,20 @@
                   "icos": [],
                   "categories": [
                     {
-                      "id": "ethereum-pos-iou",
-                      "name": "Ethereum PoS IOU"
+                      "id": "etf",
+                      "name": "ETF"
+                    },
+                    {
+                      "id": "tokenized-exchange-traded-funds-etfs",
+                      "name": "Tokenized Exchange-Traded Funds (ETFs)"
                     }
                   ],
                   "nfts": [
                     {
-                      "id": "ens-ethereum-name-service",
-                      "name": "ENS: Ethereum Name Service",
-                      "symbol": "ENS",
-                      "thumb": "https://coin-images.coingecko.com/nft_contracts/images/373/thumb/ens-ethereum-name-service.png"
+                      "id": "planetfall-on-base",
+                      "name": "Parallel Planetfall [Base]",
+                      "symbol": "LLPF",
+                      "thumb": "https://coin-images.coingecko.com/nft_contracts/images/4589/thumb/parallel-planetfall-base.png"
                     }
                   ]
                 }
@@ -2837,7 +2855,7 @@
     "/rwas/list": {
       "get": {
         "summary": "RWA List",
-        "description": "To query all the supported tokenized real world assets (RWAs) on CoinGecko with RWA ID, name and symbol",
+        "description": "To query all the supported real world assets (RWAs) on CoinGecko with RWA ID, name and symbol",
         "operationId": "rwas-list",
         "x-mint": {
           "href": "/reference/rwas-list"
@@ -2946,6 +2964,15 @@
             "description": "Filter based on RWAs' issuer. \n*refers to [`/rwas/issuers/list`](/reference/rwas-issuers-list)",
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "include_non_tokenized",
+            "in": "query",
+            "required": false,
+            "description": "Include non-tokenized RWAs, which have no tokenized market data. \nDefault: false",
+            "schema": {
+              "type": "boolean"
             }
           },
           {
@@ -4110,6 +4137,7 @@
                       "target": "USDT",
                       "coin_id": "zero-gravity",
                       "target_coin_id": "tether",
+                      "rwa_id": null,
                       "trade_url": "https://www.binance.com/en/futures/0GUSDT",
                       "contract_type": "perpetual",
                       "last": 0.473,
@@ -4139,6 +4167,7 @@
                       "target": "USDT",
                       "coin_id": "build-on-bnb",
                       "target_coin_id": "tether",
+                      "rwa_id": null,
                       "trade_url": "https://www.binance.com/en/futures/1000000BOBUSDT",
                       "contract_type": "perpetual",
                       "last": 0.015,
@@ -4160,6 +4189,36 @@
                         "usd": "0.015361118562201823422"
                       },
                       "last_traded": 1779808948,
+                      "expired_at": null
+                    },
+                    {
+                      "symbol": "AAPLUSDT",
+                      "base": "AAPL",
+                      "target": "USDT",
+                      "coin_id": null,
+                      "target_coin_id": "tether",
+                      "rwa_id": "apple",
+                      "trade_url": "https://www.binance.com/en/futures/AAPLUSDT",
+                      "contract_type": "perpetual",
+                      "last": 350.92,
+                      "h24_percentage_change": -0.598,
+                      "index": 350.86093715,
+                      "index_basis_percentage": -0.017,
+                      "bid_ask_spread": 2.84973354992669e-05,
+                      "funding_rate": 0.0,
+                      "open_interest_usd": 51127238.814655185,
+                      "h24_volume": 276243.07,
+                      "converted_volume": {
+                        "btc": "1507.439847349607",
+                        "eth": "53926.42549147525",
+                        "usd": "97197797.07816656"
+                      },
+                      "converted_last": {
+                        "btc": "0.005437359134480062",
+                        "eth": "0.1945134611848482",
+                        "usd": "350.5939760870193"
+                      },
+                      "last_traded": 1794971743,
                       "expired_at": null
                     }
                   ]
@@ -9468,6 +9527,7 @@
         "type": "object",
         "required": [
           "coins",
+          "rwas",
           "exchanges",
           "icos",
           "categories",
@@ -9516,6 +9576,41 @@
                 "large": {
                   "type": "string",
                   "description": "Coin large image URL"
+                }
+              }
+            }
+          },
+          "rwas": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "name",
+                "symbol",
+                "asset_type"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "RWA ID"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "RWA name"
+                },
+                "symbol": {
+                  "type": "string",
+                  "description": "RWA symbol"
+                },
+                "asset_type": {
+                  "type": "string",
+                  "enum": [
+                    "stock",
+                    "commodity",
+                    "etf"
+                  ],
+                  "description": "RWA asset type"
                 }
               }
             }
@@ -12575,6 +12670,7 @@
                 "target",
                 "coin_id",
                 "target_coin_id",
+                "rwa_id",
                 "trade_url",
                 "contract_type",
                 "last",
@@ -12605,11 +12701,17 @@
                 },
                 "coin_id": {
                   "type": "string",
+                  "nullable": true,
                   "description": "Derivative base asset coin ID"
                 },
                 "target_coin_id": {
                   "type": "string",
                   "description": "Derivative target asset coin ID"
+                },
+                "rwa_id": {
+                  "type": "string",
+                  "nullable": true,
+                  "description": "Derivative reference asset RWA ID"
                 },
                 "trade_url": {
                   "type": "string",
