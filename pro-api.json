@@ -4904,6 +4904,84 @@
         "x-mint": {
           "href": "/reference/derivatives-tickers"
         },
+        "parameters": [
+          {
+            "name": "coin_ids",
+            "in": "query",
+            "required": false,
+            "description": "Coins' IDs, comma-separated if querying more than 1 coin. \n*refers to [`/coins/list`](/reference/coins-list)",
+            "schema": {
+              "type": "string",
+              "default": "bitcoin"
+            }
+          },
+          {
+            "name": "rwa_ids",
+            "in": "query",
+            "required": false,
+            "description": "RWAs' IDs, comma-separated if querying more than 1 RWA. \n*refers to [`/rwas/list`](/reference/rwas-list)",
+            "schema": {
+              "type": "string",
+              "default": "gold"
+            }
+          },
+          {
+            "name": "exchange_ids",
+            "in": "query",
+            "required": false,
+            "description": "Derivatives exchanges' IDs, comma-separated if querying more than 1 exchange. \n*refers to [`/derivatives/exchanges/list`](/reference/derivatives-exchanges-list)",
+            "schema": {
+              "type": "string",
+              "default": "binance_futures"
+            }
+          },
+          {
+            "name": "contract_type",
+            "in": "query",
+            "required": false,
+            "description": "Filter by contract type.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "perpetual",
+                "futures"
+              ]
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "Page through results. \nDefault: 1",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "required": false,
+            "description": "Total results per page. \nDefault: 100 \nValid values: 1...250",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "required": false,
+            "description": "Sort result by field.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "open_interest_desc",
+                "open_interest_asc",
+                "volume_desc",
+                "volume_asc"
+              ]
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "List of derivative tickers",
@@ -4917,6 +4995,9 @@
                     "market": "Binance (Futures)",
                     "symbol": "BTCUSDT",
                     "index_id": "BTC",
+                    "coin_id": "bitcoin",
+                    "rwa_id": null,
+                    "exchange_id": "binance_futures",
                     "price": "77034.8",
                     "price_percentage_change_24h": -1.1733397846861013,
                     "contract_type": "perpetual",
@@ -4931,18 +5012,21 @@
                   },
                   {
                     "market": "Binance (Futures)",
-                    "symbol": "ETHUSDT",
-                    "index_id": "ETH",
-                    "price": "2113.92",
-                    "price_percentage_change_24h": -1.213464572845443,
+                    "symbol": "XAUUSDT",
+                    "index_id": "XAU",
+                    "coin_id": null,
+                    "rwa_id": "gold",
+                    "exchange_id": "binance_futures",
+                    "price": "3591.86",
+                    "price_percentage_change_24h": -3.870959116553918,
                     "contract_type": "perpetual",
-                    "index": 2099.55744186,
-                    "basis": -0.19217332857957786,
+                    "index": 3593.49822909,
+                    "basis": -0.045388370100660796,
                     "spread": 0.01,
-                    "funding_rate": 0.005327,
-                    "open_interest": 4563725156.36,
-                    "volume_24h": 7655835901.46112,
-                    "last_traded_at": 1779807818,
+                    "funding_rate": 0.003886,
+                    "open_interest": 506807819.05,
+                    "volume_24h": 4793832682.103766,
+                    "last_traded_at": 1795163454,
                     "expired_at": null
                   }
                 ]
@@ -17777,6 +17861,9 @@
             "market",
             "symbol",
             "index_id",
+            "coin_id",
+            "rwa_id",
+            "exchange_id",
             "price",
             "price_percentage_change_24h",
             "contract_type",
@@ -17800,7 +17887,21 @@
             },
             "index_id": {
               "type": "string",
-              "description": "Derivative underlying asset"
+              "description": "Identifier of the derivative's underlying index"
+            },
+            "coin_id": {
+              "type": "string",
+              "nullable": true,
+              "description": "Derivative underlying asset coin ID"
+            },
+            "rwa_id": {
+              "type": "string",
+              "nullable": true,
+              "description": "Derivative underlying asset RWA ID"
+            },
+            "exchange_id": {
+              "type": "string",
+              "description": "Derivative exchange ID"
             },
             "price": {
               "type": "string",
